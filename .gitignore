@@ -1,0 +1,13 @@
+# Clojure
+.cpcache/
+target/
+*.class
+
+# Working artifacts
+tmp/
+
+# OS
+.DS_Store
+
+# Results (untracked like autoresearch)
+results.tsv

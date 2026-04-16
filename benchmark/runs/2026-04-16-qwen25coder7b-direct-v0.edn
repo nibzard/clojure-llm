@@ -1,0 +1,14 @@
+{:task-ids
+ ["humaneval-clj-placeholder-001"
+  "mbpp-clj-placeholder-001"
+  "repo-repair-placeholder-001"],
+ :policy {:kind :direct},
+ :tasks-file "benchmark/tasks-v0.edn",
+ :prompting
+ {:template :direct-v1, :temperature 0.2, :top-p 0.95, :samples 1},
+ :executor
+ {:kind :container, :image "clj-bench/eval:dev", :network :none},
+ :created-at "2026-04-16T21:10:05.562622Z",
+ :run-id "2026-04-16-qwen25coder7b-direct-v0",
+ :benchmark-version :clj-bench/v0,
+ :model {:provider :manual, :id "Qwen/Qwen2.5-Coder-7B"}}

@@ -1,0 +1,61 @@
+[{:id "humaneval-clj-placeholder-001"
+  :track :function
+  :source :multipl-e/humaneval-clj
+  :lang :clojure
+  :prompt-ref {:kind :multipl-e
+               :config "humaneval-clj"
+               :name "HumanEval_0_placeholder"}
+  :tests-ref {:kind :multipl-e
+              :config "humaneval-clj"
+              :name "HumanEval_0_placeholder"}
+  :entrypoint has-close-elements
+  :difficulty :unknown
+  :tags #{:seqs :predicates}
+  :runner {:kind :clojure-test
+           :timeout-sec 10
+           :memory-mb 1024}
+  :license {:kind :dataset
+            :name "MultiPL-E"
+            :spdx "MIT"
+            :redistributable true}
+  :status :draft}
+ {:id "mbpp-clj-placeholder-001"
+  :track :function
+  :source :multipl-e/mbpp-clj
+  :lang :clojure
+  :prompt-ref {:kind :multipl-e
+               :config "mbpp-clj"
+               :name "MBPP_0_placeholder"}
+  :tests-ref {:kind :multipl-e
+              :config "mbpp-clj"
+              :name "MBPP_0_placeholder"}
+  :entrypoint sort-numbers
+  :difficulty :unknown
+  :tags #{:sorting :collections}
+  :runner {:kind :clojure-test
+           :timeout-sec 10
+           :memory-mb 1024}
+  :license {:kind :dataset
+            :name "MultiPL-E"
+            :spdx "MIT"
+            :redistributable true}
+  :status :draft}
+ {:id "repo-repair-placeholder-001"
+  :track :repair
+  :source :repo-curated
+  :lang :clojure
+  :prompt-ref {:kind :file
+               :path "benchmark/prompts/repo-repair-placeholder.md"}
+  :tests-ref {:kind :file
+              :path "benchmark/tests/repo-repair-placeholder.edn"}
+  :entrypoint patch
+  :difficulty :medium
+  :tags #{:repo :repair :tests}
+  :runner {:kind :repo-repair
+           :timeout-sec 60
+           :memory-mb 2048}
+  :license {:kind :repo
+            :name "placeholder"
+            :spdx "TBD"
+            :redistributable false}
+  :status :draft}]
