@@ -1,0 +1,79 @@
+{
+  "description": "Sandbox configuration for clj-verifier Pi extension",
+  "version": "0.1.0",
+  "extension": "clj-verifier",
+
+  "permissions": {
+    "allowedExec": [
+      "clj-kondo",
+      "clojure",
+      "java",
+      "cat",
+      "mkdir",
+      "rm"
+    ],
+    "allowedPaths": {
+      "read": [
+        "/home/agent/clojure-llm",
+        "/home/agent/clojure-llm/benchmark",
+        "/home/agent/clojure-llm/src"
+      ],
+      "write": [
+        "/tmp/clj-verifier"
+      ]
+    },
+    "network": {
+      "allowed": false,
+      "description": "No network access for verification operations"
+    }
+  },
+
+  "execution": {
+    "timeoutMs": {
+      "default": 10000,
+      "clj_kondo_check": 10000,
+      "clj_eval_form": 15000,
+      "clj_run_tests": 30000,
+      "benchmark_get_task": 10000
+    },
+    "maxMemoryMB": {
+      "default": 1024,
+      "clj_run_tests": 2048
+    }
+  },
+
+  "tools": {
+    "clj_kondo_check": {
+      "enabled": true,
+      "requiresFileAccess": "read",
+      "description": "Lint Clojure code using clj-kondo"
+    },
+    "clj_eval_form": {
+      "enabled": true,
+      "requiresFileAccess": "read",
+      "description": "Evaluate a single Clojure form"
+    },
+    "clj_run_tests": {
+      "enabled": true,
+      "requiresFileAccess": "read",
+      "description": "Run clojure.test suite"
+    },
+    "benchmark_get_task": {
+      "enabled": true,
+      "requiresFileAccess": "read",
+      "description": "Fetch benchmark task from inventory"
+    }
+  },
+
+  "environment": {
+    "PATH": "/usr/local/bin:/usr/bin:/bin",
+    "CLJ_KONDO_VERSION": ">=2024.0.0",
+    "CLOJURE_VERSION": ">=1.11.0"
+  },
+
+  "security": {
+    "allowCommandChaining": false,
+    "maxOutputBytes": 1048576,
+    "maxTempFileSize": 1048576
+  }
+}

@@ -1,16 +1,17 @@
-[{:id "humaneval-clj-placeholder-001"
+[
+{:id "humaneval-clj-001"
   :track :function
   :source :multipl-e/humaneval-clj
   :lang :clojure
   :prompt-ref {:kind :multipl-e
                :config "humaneval-clj"
-               :name "HumanEval_0_placeholder"}
+               :name "HumanEval_0_has_close_elements"}
   :tests-ref {:kind :multipl-e
               :config "humaneval-clj"
-              :name "HumanEval_0_placeholder"}
+              :name "HumanEval_0_has_close_elements"}
   :entrypoint has-close-elements
   :difficulty :unknown
-  :tags #{:seqs :predicates}
+  :tags #{:general}
   :runner {:kind :clojure-test
            :timeout-sec 10
            :memory-mb 1024}
@@ -18,20 +19,3607 @@
             :name "MultiPL-E"
             :spdx "MIT"
             :redistributable true}
-  :status :draft}
- {:id "mbpp-clj-placeholder-001"
+  :status :active}
+
+{:id "humaneval-clj-002"
+  :track :function
+  :source :multipl-e/humaneval-clj
+  :lang :clojure
+  :prompt-ref {:kind :multipl-e
+               :config "humaneval-clj"
+               :name "HumanEval_1_separate_paren_groups"}
+  :tests-ref {:kind :multipl-e
+              :config "humaneval-clj"
+              :name "HumanEval_1_separate_paren_groups"}
+  :entrypoint separate-paren-groups
+  :difficulty :unknown
+  :tags #{:general}
+  :runner {:kind :clojure-test
+           :timeout-sec 10
+           :memory-mb 1024}
+  :license {:kind :dataset
+            :name "MultiPL-E"
+            :spdx "MIT"
+            :redistributable true}
+  :status :active}
+
+{:id "humaneval-clj-003"
+  :track :function
+  :source :multipl-e/humaneval-clj
+  :lang :clojure
+  :prompt-ref {:kind :multipl-e
+               :config "humaneval-clj"
+               :name "HumanEval_2_truncate_number"}
+  :tests-ref {:kind :multipl-e
+              :config "humaneval-clj"
+              :name "HumanEval_2_truncate_number"}
+  :entrypoint truncate-number
+  :difficulty :unknown
+  :tags #{:general}
+  :runner {:kind :clojure-test
+           :timeout-sec 10
+           :memory-mb 1024}
+  :license {:kind :dataset
+            :name "MultiPL-E"
+            :spdx "MIT"
+            :redistributable true}
+  :status :active}
+
+{:id "humaneval-clj-004"
+  :track :function
+  :source :multipl-e/humaneval-clj
+  :lang :clojure
+  :prompt-ref {:kind :multipl-e
+               :config "humaneval-clj"
+               :name "HumanEval_3_below_zero"}
+  :tests-ref {:kind :multipl-e
+              :config "humaneval-clj"
+              :name "HumanEval_3_below_zero"}
+  :entrypoint below-zero
+  :difficulty :unknown
+  :tags #{:general}
+  :runner {:kind :clojure-test
+           :timeout-sec 10
+           :memory-mb 1024}
+  :license {:kind :dataset
+            :name "MultiPL-E"
+            :spdx "MIT"
+            :redistributable true}
+  :status :active}
+
+{:id "humaneval-clj-005"
+  :track :function
+  :source :multipl-e/humaneval-clj
+  :lang :clojure
+  :prompt-ref {:kind :multipl-e
+               :config "humaneval-clj"
+               :name "HumanEval_4_mean_absolute_deviation"}
+  :tests-ref {:kind :multipl-e
+              :config "humaneval-clj"
+              :name "HumanEval_4_mean_absolute_deviation"}
+  :entrypoint mean-absolute-deviation
+  :difficulty :unknown
+  :tags #{:general}
+  :runner {:kind :clojure-test
+           :timeout-sec 10
+           :memory-mb 1024}
+  :license {:kind :dataset
+            :name "MultiPL-E"
+            :spdx "MIT"
+            :redistributable true}
+  :status :active}
+
+{:id "humaneval-clj-006"
+  :track :function
+  :source :multipl-e/humaneval-clj
+  :lang :clojure
+  :prompt-ref {:kind :multipl-e
+               :config "humaneval-clj"
+               :name "HumanEval_5_intersperse"}
+  :tests-ref {:kind :multipl-e
+              :config "humaneval-clj"
+              :name "HumanEval_5_intersperse"}
+  :entrypoint intersperse
+  :difficulty :unknown
+  :tags #{:general}
+  :runner {:kind :clojure-test
+           :timeout-sec 10
+           :memory-mb 1024}
+  :license {:kind :dataset
+            :name "MultiPL-E"
+            :spdx "MIT"
+            :redistributable true}
+  :status :active}
+
+{:id "humaneval-clj-007"
+  :track :function
+  :source :multipl-e/humaneval-clj
+  :lang :clojure
+  :prompt-ref {:kind :multipl-e
+               :config "humaneval-clj"
+               :name "HumanEval_6_parse_nested_parens"}
+  :tests-ref {:kind :multipl-e
+              :config "humaneval-clj"
+              :name "HumanEval_6_parse_nested_parens"}
+  :entrypoint parse-nested-parens
+  :difficulty :unknown
+  :tags #{:general}
+  :runner {:kind :clojure-test
+           :timeout-sec 10
+           :memory-mb 1024}
+  :license {:kind :dataset
+            :name "MultiPL-E"
+            :spdx "MIT"
+            :redistributable true}
+  :status :active}
+
+{:id "humaneval-clj-008"
+  :track :function
+  :source :multipl-e/humaneval-clj
+  :lang :clojure
+  :prompt-ref {:kind :multipl-e
+               :config "humaneval-clj"
+               :name "HumanEval_7_filter_by_substring"}
+  :tests-ref {:kind :multipl-e
+              :config "humaneval-clj"
+              :name "HumanEval_7_filter_by_substring"}
+  :entrypoint filter-by-substring
+  :difficulty :unknown
+  :tags #{:general}
+  :runner {:kind :clojure-test
+           :timeout-sec 10
+           :memory-mb 1024}
+  :license {:kind :dataset
+            :name "MultiPL-E"
+            :spdx "MIT"
+            :redistributable true}
+  :status :active}
+
+{:id "humaneval-clj-009"
+  :track :function
+  :source :multipl-e/humaneval-clj
+  :lang :clojure
+  :prompt-ref {:kind :multipl-e
+               :config "humaneval-clj"
+               :name "HumanEval_8_sum_product"}
+  :tests-ref {:kind :multipl-e
+              :config "humaneval-clj"
+              :name "HumanEval_8_sum_product"}
+  :entrypoint sum-product
+  :difficulty :unknown
+  :tags #{:general}
+  :runner {:kind :clojure-test
+           :timeout-sec 10
+           :memory-mb 1024}
+  :license {:kind :dataset
+            :name "MultiPL-E"
+            :spdx "MIT"
+            :redistributable true}
+  :status :active}
+
+{:id "humaneval-clj-010"
+  :track :function
+  :source :multipl-e/humaneval-clj
+  :lang :clojure
+  :prompt-ref {:kind :multipl-e
+               :config "humaneval-clj"
+               :name "HumanEval_9_rolling_max"}
+  :tests-ref {:kind :multipl-e
+              :config "humaneval-clj"
+              :name "HumanEval_9_rolling_max"}
+  :entrypoint rolling-max
+  :difficulty :unknown
+  :tags #{:general}
+  :runner {:kind :clojure-test
+           :timeout-sec 10
+           :memory-mb 1024}
+  :license {:kind :dataset
+            :name "MultiPL-E"
+            :spdx "MIT"
+            :redistributable true}
+  :status :active}
+
+{:id "humaneval-clj-011"
+  :track :function
+  :source :multipl-e/humaneval-clj
+  :lang :clojure
+  :prompt-ref {:kind :multipl-e
+               :config "humaneval-clj"
+               :name "HumanEval_10_make_palindrome"}
+  :tests-ref {:kind :multipl-e
+              :config "humaneval-clj"
+              :name "HumanEval_10_make_palindrome"}
+  :entrypoint make-palindrome
+  :difficulty :unknown
+  :tags #{:general}
+  :runner {:kind :clojure-test
+           :timeout-sec 10
+           :memory-mb 1024}
+  :license {:kind :dataset
+            :name "MultiPL-E"
+            :spdx "MIT"
+            :redistributable true}
+  :status :active}
+
+{:id "humaneval-clj-012"
+  :track :function
+  :source :multipl-e/humaneval-clj
+  :lang :clojure
+  :prompt-ref {:kind :multipl-e
+               :config "humaneval-clj"
+               :name "HumanEval_11_string_xor"}
+  :tests-ref {:kind :multipl-e
+              :config "humaneval-clj"
+              :name "HumanEval_11_string_xor"}
+  :entrypoint string-xor
+  :difficulty :unknown
+  :tags #{:general}
+  :runner {:kind :clojure-test
+           :timeout-sec 10
+           :memory-mb 1024}
+  :license {:kind :dataset
+            :name "MultiPL-E"
+            :spdx "MIT"
+            :redistributable true}
+  :status :active}
+
+{:id "humaneval-clj-013"
+  :track :function
+  :source :multipl-e/humaneval-clj
+  :lang :clojure
+  :prompt-ref {:kind :multipl-e
+               :config "humaneval-clj"
+               :name "HumanEval_12_longest"}
+  :tests-ref {:kind :multipl-e
+              :config "humaneval-clj"
+              :name "HumanEval_12_longest"}
+  :entrypoint longest
+  :difficulty :unknown
+  :tags #{:general}
+  :runner {:kind :clojure-test
+           :timeout-sec 10
+           :memory-mb 1024}
+  :license {:kind :dataset
+            :name "MultiPL-E"
+            :spdx "MIT"
+            :redistributable true}
+  :status :active}
+
+{:id "humaneval-clj-014"
+  :track :function
+  :source :multipl-e/humaneval-clj
+  :lang :clojure
+  :prompt-ref {:kind :multipl-e
+               :config "humaneval-clj"
+               :name "HumanEval_13_greatest_common_divisor"}
+  :tests-ref {:kind :multipl-e
+              :config "humaneval-clj"
+              :name "HumanEval_13_greatest_common_divisor"}
+  :entrypoint greatest-common-divisor
+  :difficulty :unknown
+  :tags #{:general}
+  :runner {:kind :clojure-test
+           :timeout-sec 10
+           :memory-mb 1024}
+  :license {:kind :dataset
+            :name "MultiPL-E"
+            :spdx "MIT"
+            :redistributable true}
+  :status :active}
+
+{:id "humaneval-clj-015"
+  :track :function
+  :source :multipl-e/humaneval-clj
+  :lang :clojure
+  :prompt-ref {:kind :multipl-e
+               :config "humaneval-clj"
+               :name "HumanEval_14_all_prefixes"}
+  :tests-ref {:kind :multipl-e
+              :config "humaneval-clj"
+              :name "HumanEval_14_all_prefixes"}
+  :entrypoint all-prefixes
+  :difficulty :unknown
+  :tags #{:general}
+  :runner {:kind :clojure-test
+           :timeout-sec 10
+           :memory-mb 1024}
+  :license {:kind :dataset
+            :name "MultiPL-E"
+            :spdx "MIT"
+            :redistributable true}
+  :status :active}
+
+{:id "humaneval-clj-016"
+  :track :function
+  :source :multipl-e/humaneval-clj
+  :lang :clojure
+  :prompt-ref {:kind :multipl-e
+               :config "humaneval-clj"
+               :name "HumanEval_15_string_sequence"}
+  :tests-ref {:kind :multipl-e
+              :config "humaneval-clj"
+              :name "HumanEval_15_string_sequence"}
+  :entrypoint string-sequence
+  :difficulty :unknown
+  :tags #{:general}
+  :runner {:kind :clojure-test
+           :timeout-sec 10
+           :memory-mb 1024}
+  :license {:kind :dataset
+            :name "MultiPL-E"
+            :spdx "MIT"
+            :redistributable true}
+  :status :active}
+
+{:id "humaneval-clj-017"
+  :track :function
+  :source :multipl-e/humaneval-clj
+  :lang :clojure
+  :prompt-ref {:kind :multipl-e
+               :config "humaneval-clj"
+               :name "HumanEval_16_count_distinct_characters"}
+  :tests-ref {:kind :multipl-e
+              :config "humaneval-clj"
+              :name "HumanEval_16_count_distinct_characters"}
+  :entrypoint count-distinct-characters
+  :difficulty :unknown
+  :tags #{:general}
+  :runner {:kind :clojure-test
+           :timeout-sec 10
+           :memory-mb 1024}
+  :license {:kind :dataset
+            :name "MultiPL-E"
+            :spdx "MIT"
+            :redistributable true}
+  :status :active}
+
+{:id "humaneval-clj-018"
+  :track :function
+  :source :multipl-e/humaneval-clj
+  :lang :clojure
+  :prompt-ref {:kind :multipl-e
+               :config "humaneval-clj"
+               :name "HumanEval_17_parse_music"}
+  :tests-ref {:kind :multipl-e
+              :config "humaneval-clj"
+              :name "HumanEval_17_parse_music"}
+  :entrypoint parse-music
+  :difficulty :unknown
+  :tags #{:general}
+  :runner {:kind :clojure-test
+           :timeout-sec 10
+           :memory-mb 1024}
+  :license {:kind :dataset
+            :name "MultiPL-E"
+            :spdx "MIT"
+            :redistributable true}
+  :status :active}
+
+{:id "humaneval-clj-019"
+  :track :function
+  :source :multipl-e/humaneval-clj
+  :lang :clojure
+  :prompt-ref {:kind :multipl-e
+               :config "humaneval-clj"
+               :name "HumanEval_18_how_many_times"}
+  :tests-ref {:kind :multipl-e
+              :config "humaneval-clj"
+              :name "HumanEval_18_how_many_times"}
+  :entrypoint how-many-times
+  :difficulty :unknown
+  :tags #{:general}
+  :runner {:kind :clojure-test
+           :timeout-sec 10
+           :memory-mb 1024}
+  :license {:kind :dataset
+            :name "MultiPL-E"
+            :spdx "MIT"
+            :redistributable true}
+  :status :active}
+
+{:id "humaneval-clj-020"
+  :track :function
+  :source :multipl-e/humaneval-clj
+  :lang :clojure
+  :prompt-ref {:kind :multipl-e
+               :config "humaneval-clj"
+               :name "HumanEval_19_sort_numbers"}
+  :tests-ref {:kind :multipl-e
+              :config "humaneval-clj"
+              :name "HumanEval_19_sort_numbers"}
+  :entrypoint sort-numbers
+  :difficulty :unknown
+  :tags #{:general}
+  :runner {:kind :clojure-test
+           :timeout-sec 10
+           :memory-mb 1024}
+  :license {:kind :dataset
+            :name "MultiPL-E"
+            :spdx "MIT"
+            :redistributable true}
+  :status :active}
+
+{:id "humaneval-clj-021"
+  :track :function
+  :source :multipl-e/humaneval-clj
+  :lang :clojure
+  :prompt-ref {:kind :multipl-e
+               :config "humaneval-clj"
+               :name "HumanEval_20_find_closest_elements"}
+  :tests-ref {:kind :multipl-e
+              :config "humaneval-clj"
+              :name "HumanEval_20_find_closest_elements"}
+  :entrypoint find-closest-elements
+  :difficulty :unknown
+  :tags #{:general}
+  :runner {:kind :clojure-test
+           :timeout-sec 10
+           :memory-mb 1024}
+  :license {:kind :dataset
+            :name "MultiPL-E"
+            :spdx "MIT"
+            :redistributable true}
+  :status :active}
+
+{:id "humaneval-clj-022"
+  :track :function
+  :source :multipl-e/humaneval-clj
+  :lang :clojure
+  :prompt-ref {:kind :multipl-e
+               :config "humaneval-clj"
+               :name "HumanEval_21_rescale_to_unit"}
+  :tests-ref {:kind :multipl-e
+              :config "humaneval-clj"
+              :name "HumanEval_21_rescale_to_unit"}
+  :entrypoint rescale-to-unit
+  :difficulty :unknown
+  :tags #{:general}
+  :runner {:kind :clojure-test
+           :timeout-sec 10
+           :memory-mb 1024}
+  :license {:kind :dataset
+            :name "MultiPL-E"
+            :spdx "MIT"
+            :redistributable true}
+  :status :active}
+
+{:id "humaneval-clj-023"
+  :track :function
+  :source :multipl-e/humaneval-clj
+  :lang :clojure
+  :prompt-ref {:kind :multipl-e
+               :config "humaneval-clj"
+               :name "HumanEval_22_filter_integers"}
+  :tests-ref {:kind :multipl-e
+              :config "humaneval-clj"
+              :name "HumanEval_22_filter_integers"}
+  :entrypoint filter-integers
+  :difficulty :unknown
+  :tags #{:general}
+  :runner {:kind :clojure-test
+           :timeout-sec 10
+           :memory-mb 1024}
+  :license {:kind :dataset
+            :name "MultiPL-E"
+            :spdx "MIT"
+            :redistributable true}
+  :status :active}
+
+{:id "humaneval-clj-024"
+  :track :function
+  :source :multipl-e/humaneval-clj
+  :lang :clojure
+  :prompt-ref {:kind :multipl-e
+               :config "humaneval-clj"
+               :name "HumanEval_23_strlen"}
+  :tests-ref {:kind :multipl-e
+              :config "humaneval-clj"
+              :name "HumanEval_23_strlen"}
+  :entrypoint strlen
+  :difficulty :unknown
+  :tags #{:general}
+  :runner {:kind :clojure-test
+           :timeout-sec 10
+           :memory-mb 1024}
+  :license {:kind :dataset
+            :name "MultiPL-E"
+            :spdx "MIT"
+            :redistributable true}
+  :status :active}
+
+{:id "humaneval-clj-025"
+  :track :function
+  :source :multipl-e/humaneval-clj
+  :lang :clojure
+  :prompt-ref {:kind :multipl-e
+               :config "humaneval-clj"
+               :name "HumanEval_24_largest_divisor"}
+  :tests-ref {:kind :multipl-e
+              :config "humaneval-clj"
+              :name "HumanEval_24_largest_divisor"}
+  :entrypoint largest-divisor
+  :difficulty :unknown
+  :tags #{:general}
+  :runner {:kind :clojure-test
+           :timeout-sec 10
+           :memory-mb 1024}
+  :license {:kind :dataset
+            :name "MultiPL-E"
+            :spdx "MIT"
+            :redistributable true}
+  :status :active}
+
+{:id "humaneval-clj-026"
+  :track :function
+  :source :multipl-e/humaneval-clj
+  :lang :clojure
+  :prompt-ref {:kind :multipl-e
+               :config "humaneval-clj"
+               :name "HumanEval_25_factorize"}
+  :tests-ref {:kind :multipl-e
+              :config "humaneval-clj"
+              :name "HumanEval_25_factorize"}
+  :entrypoint factorize
+  :difficulty :unknown
+  :tags #{:general}
+  :runner {:kind :clojure-test
+           :timeout-sec 10
+           :memory-mb 1024}
+  :license {:kind :dataset
+            :name "MultiPL-E"
+            :spdx "MIT"
+            :redistributable true}
+  :status :active}
+
+{:id "humaneval-clj-027"
+  :track :function
+  :source :multipl-e/humaneval-clj
+  :lang :clojure
+  :prompt-ref {:kind :multipl-e
+               :config "humaneval-clj"
+               :name "HumanEval_26_remove_duplicates"}
+  :tests-ref {:kind :multipl-e
+              :config "humaneval-clj"
+              :name "HumanEval_26_remove_duplicates"}
+  :entrypoint remove-duplicates
+  :difficulty :unknown
+  :tags #{:general}
+  :runner {:kind :clojure-test
+           :timeout-sec 10
+           :memory-mb 1024}
+  :license {:kind :dataset
+            :name "MultiPL-E"
+            :spdx "MIT"
+            :redistributable true}
+  :status :active}
+
+{:id "humaneval-clj-028"
+  :track :function
+  :source :multipl-e/humaneval-clj
+  :lang :clojure
+  :prompt-ref {:kind :multipl-e
+               :config "humaneval-clj"
+               :name "HumanEval_27_flip_case"}
+  :tests-ref {:kind :multipl-e
+              :config "humaneval-clj"
+              :name "HumanEval_27_flip_case"}
+  :entrypoint flip-case
+  :difficulty :unknown
+  :tags #{:general}
+  :runner {:kind :clojure-test
+           :timeout-sec 10
+           :memory-mb 1024}
+  :license {:kind :dataset
+            :name "MultiPL-E"
+            :spdx "MIT"
+            :redistributable true}
+  :status :active}
+
+{:id "humaneval-clj-029"
+  :track :function
+  :source :multipl-e/humaneval-clj
+  :lang :clojure
+  :prompt-ref {:kind :multipl-e
+               :config "humaneval-clj"
+               :name "HumanEval_28_concatenate"}
+  :tests-ref {:kind :multipl-e
+              :config "humaneval-clj"
+              :name "HumanEval_28_concatenate"}
+  :entrypoint concatenate
+  :difficulty :unknown
+  :tags #{:general}
+  :runner {:kind :clojure-test
+           :timeout-sec 10
+           :memory-mb 1024}
+  :license {:kind :dataset
+            :name "MultiPL-E"
+            :spdx "MIT"
+            :redistributable true}
+  :status :active}
+
+{:id "humaneval-clj-030"
+  :track :function
+  :source :multipl-e/humaneval-clj
+  :lang :clojure
+  :prompt-ref {:kind :multipl-e
+               :config "humaneval-clj"
+               :name "HumanEval_29_filter_by_prefix"}
+  :tests-ref {:kind :multipl-e
+              :config "humaneval-clj"
+              :name "HumanEval_29_filter_by_prefix"}
+  :entrypoint filter-by-prefix
+  :difficulty :unknown
+  :tags #{:general}
+  :runner {:kind :clojure-test
+           :timeout-sec 10
+           :memory-mb 1024}
+  :license {:kind :dataset
+            :name "MultiPL-E"
+            :spdx "MIT"
+            :redistributable true}
+  :status :active}
+
+{:id "humaneval-clj-031"
+  :track :function
+  :source :multipl-e/humaneval-clj
+  :lang :clojure
+  :prompt-ref {:kind :multipl-e
+               :config "humaneval-clj"
+               :name "HumanEval_30_get_positive"}
+  :tests-ref {:kind :multipl-e
+              :config "humaneval-clj"
+              :name "HumanEval_30_get_positive"}
+  :entrypoint get-positive
+  :difficulty :unknown
+  :tags #{:general}
+  :runner {:kind :clojure-test
+           :timeout-sec 10
+           :memory-mb 1024}
+  :license {:kind :dataset
+            :name "MultiPL-E"
+            :spdx "MIT"
+            :redistributable true}
+  :status :active}
+
+{:id "humaneval-clj-032"
+  :track :function
+  :source :multipl-e/humaneval-clj
+  :lang :clojure
+  :prompt-ref {:kind :multipl-e
+               :config "humaneval-clj"
+               :name "HumanEval_31_is_sorted"}
+  :tests-ref {:kind :multipl-e
+              :config "humaneval-clj"
+              :name "HumanEval_31_is_sorted"}
+  :entrypoint is-sorted
+  :difficulty :unknown
+  :tags #{:general}
+  :runner {:kind :clojure-test
+           :timeout-sec 10
+           :memory-mb 1024}
+  :license {:kind :dataset
+            :name "MultiPL-E"
+            :spdx "MIT"
+            :redistributable true}
+  :status :active}
+
+{:id "humaneval-clj-033"
+  :track :function
+  :source :multipl-e/humaneval-clj
+  :lang :clojure
+  :prompt-ref {:kind :multipl-e
+               :config "humaneval-clj"
+               :name "HumanEval_32_poly"}
+  :tests-ref {:kind :multipl-e
+              :config "humaneval-clj"
+              :name "HumanEval_32_poly"}
+  :entrypoint poly
+  :difficulty :unknown
+  :tags #{:general}
+  :runner {:kind :clojure-test
+           :timeout-sec 10
+           :memory-mb 1024}
+  :license {:kind :dataset
+            :name "MultiPL-E"
+            :spdx "MIT"
+            :redistributable true}
+  :status :active}
+
+{:id "humaneval-clj-034"
+  :track :function
+  :source :multipl-e/humaneval-clj
+  :lang :clojure
+  :prompt-ref {:kind :multipl-e
+               :config "humaneval-clj"
+               :name "HumanEval_33_pairs_sum_to_zero"}
+  :tests-ref {:kind :multipl-e
+              :config "humaneval-clj"
+              :name "HumanEval_33_pairs_sum_to_zero"}
+  :entrypoint pairs-sum-to-zero
+  :difficulty :unknown
+  :tags #{:general}
+  :runner {:kind :clojure-test
+           :timeout-sec 10
+           :memory-mb 1024}
+  :license {:kind :dataset
+            :name "MultiPL-E"
+            :spdx "MIT"
+            :redistributable true}
+  :status :active}
+
+{:id "humaneval-clj-035"
+  :track :function
+  :source :multipl-e/humaneval-clj
+  :lang :clojure
+  :prompt-ref {:kind :multipl-e
+               :config "humaneval-clj"
+               :name "HumanEval_34_sort_even"}
+  :tests-ref {:kind :multipl-e
+              :config "humaneval-clj"
+              :name "HumanEval_34_sort_even"}
+  :entrypoint sort-even
+  :difficulty :unknown
+  :tags #{:general}
+  :runner {:kind :clojure-test
+           :timeout-sec 10
+           :memory-mb 1024}
+  :license {:kind :dataset
+            :name "MultiPL-E"
+            :spdx "MIT"
+            :redistributable true}
+  :status :active}
+
+{:id "humaneval-clj-036"
+  :track :function
+  :source :multipl-e/humaneval-clj
+  :lang :clojure
+  :prompt-ref {:kind :multipl-e
+               :config "humaneval-clj"
+               :name "HumanEval_35_decode_cyclic"}
+  :tests-ref {:kind :multipl-e
+              :config "humaneval-clj"
+              :name "HumanEval_35_decode_cyclic"}
+  :entrypoint decode-cyclic
+  :difficulty :unknown
+  :tags #{:general}
+  :runner {:kind :clojure-test
+           :timeout-sec 10
+           :memory-mb 1024}
+  :license {:kind :dataset
+            :name "MultiPL-E"
+            :spdx "MIT"
+            :redistributable true}
+  :status :active}
+
+{:id "humaneval-clj-037"
+  :track :function
+  :source :multipl-e/humaneval-clj
+  :lang :clojure
+  :prompt-ref {:kind :multipl-e
+               :config "humaneval-clj"
+               :name "HumanEval_36_encode_cyclic"}
+  :tests-ref {:kind :multipl-e
+              :config "humaneval-clj"
+              :name "HumanEval_36_encode_cyclic"}
+  :entrypoint encode-cyclic
+  :difficulty :unknown
+  :tags #{:general}
+  :runner {:kind :clojure-test
+           :timeout-sec 10
+           :memory-mb 1024}
+  :license {:kind :dataset
+            :name "MultiPL-E"
+            :spdx "MIT"
+            :redistributable true}
+  :status :active}
+
+{:id "humaneval-clj-038"
+  :track :function
+  :source :multipl-e/humaneval-clj
+  :lang :clojure
+  :prompt-ref {:kind :multipl-e
+               :config "humaneval-clj"
+               :name "HumanEval_37_prime_fib"}
+  :tests-ref {:kind :multipl-e
+              :config "humaneval-clj"
+              :name "HumanEval_37_prime_fib"}
+  :entrypoint prime-fib
+  :difficulty :unknown
+  :tags #{:general}
+  :runner {:kind :clojure-test
+           :timeout-sec 10
+           :memory-mb 1024}
+  :license {:kind :dataset
+            :name "MultiPL-E"
+            :spdx "MIT"
+            :redistributable true}
+  :status :active}
+
+{:id "humaneval-clj-039"
+  :track :function
+  :source :multipl-e/humaneval-clj
+  :lang :clojure
+  :prompt-ref {:kind :multipl-e
+               :config "humaneval-clj"
+               :name "HumanEval_38_triples_sum_to_zero"}
+  :tests-ref {:kind :multipl-e
+              :config "humaneval-clj"
+              :name "HumanEval_38_triples_sum_to_zero"}
+  :entrypoint triples-sum-to-zero
+  :difficulty :unknown
+  :tags #{:general}
+  :runner {:kind :clojure-test
+           :timeout-sec 10
+           :memory-mb 1024}
+  :license {:kind :dataset
+            :name "MultiPL-E"
+            :spdx "MIT"
+            :redistributable true}
+  :status :active}
+
+{:id "humaneval-clj-040"
+  :track :function
+  :source :multipl-e/humaneval-clj
+  :lang :clojure
+  :prompt-ref {:kind :multipl-e
+               :config "humaneval-clj"
+               :name "HumanEval_39_starts_one_ends"}
+  :tests-ref {:kind :multipl-e
+              :config "humaneval-clj"
+              :name "HumanEval_39_starts_one_ends"}
+  :entrypoint starts-one-ends
+  :difficulty :unknown
+  :tags #{:general}
+  :runner {:kind :clojure-test
+           :timeout-sec 10
+           :memory-mb 1024}
+  :license {:kind :dataset
+            :name "MultiPL-E"
+            :spdx "MIT"
+            :redistributable true}
+  :status :active}
+
+{:id "humaneval-clj-041"
+  :track :function
+  :source :multipl-e/humaneval-clj
+  :lang :clojure
+  :prompt-ref {:kind :multipl-e
+               :config "humaneval-clj"
+               :name "HumanEval_40_car_race_collision"}
+  :tests-ref {:kind :multipl-e
+              :config "humaneval-clj"
+              :name "HumanEval_40_car_race_collision"}
+  :entrypoint car-race-collision
+  :difficulty :unknown
+  :tags #{:general}
+  :runner {:kind :clojure-test
+           :timeout-sec 10
+           :memory-mb 1024}
+  :license {:kind :dataset
+            :name "MultiPL-E"
+            :spdx "MIT"
+            :redistributable true}
+  :status :active}
+
+{:id "humaneval-clj-042"
+  :track :function
+  :source :multipl-e/humaneval-clj
+  :lang :clojure
+  :prompt-ref {:kind :multipl-e
+               :config "humaneval-clj"
+               :name "HumanEval_41_skjkasdkd"}
+  :tests-ref {:kind :multipl-e
+              :config "humaneval-clj"
+              :name "HumanEval_41_skjkasdkd"}
+  :entrypoint skjkasdkd
+  :difficulty :unknown
+  :tags #{:general}
+  :runner {:kind :clojure-test
+           :timeout-sec 10
+           :memory-mb 1024}
+  :license {:kind :dataset
+            :name "MultiPL-E"
+            :spdx "MIT"
+            :redistributable true}
+  :status :active}
+
+{:id "humaneval-clj-043"
+  :track :function
+  :source :multipl-e/humaneval-clj
+  :lang :clojure
+  :prompt-ref {:kind :multipl-e
+               :config "humaneval-clj"
+               :name "HumanEval_42_digits"}
+  :tests-ref {:kind :multipl-e
+              :config "humaneval-clj"
+              :name "HumanEval_42_digits"}
+  :entrypoint digits
+  :difficulty :unknown
+  :tags #{:general}
+  :runner {:kind :clojure-test
+           :timeout-sec 10
+           :memory-mb 1024}
+  :license {:kind :dataset
+            :name "MultiPL-E"
+            :spdx "MIT"
+            :redistributable true}
+  :status :active}
+
+{:id "humaneval-clj-044"
+  :track :function
+  :source :multipl-e/humaneval-clj
+  :lang :clojure
+  :prompt-ref {:kind :multipl-e
+               :config "humaneval-clj"
+               :name "HumanEval_43_special_factorial"}
+  :tests-ref {:kind :multipl-e
+              :config "humaneval-clj"
+              :name "HumanEval_43_special_factorial"}
+  :entrypoint special-factorial
+  :difficulty :unknown
+  :tags #{:general}
+  :runner {:kind :clojure-test
+           :timeout-sec 10
+           :memory-mb 1024}
+  :license {:kind :dataset
+            :name "MultiPL-E"
+            :spdx "MIT"
+            :redistributable true}
+  :status :active}
+
+{:id "humaneval-clj-045"
+  :track :function
+  :source :multipl-e/humaneval-clj
+  :lang :clojure
+  :prompt-ref {:kind :multipl-e
+               :config "humaneval-clj"
+               :name "HumanEval_44_search"}
+  :tests-ref {:kind :multipl-e
+              :config "humaneval-clj"
+              :name "HumanEval_44_search"}
+  :entrypoint search
+  :difficulty :unknown
+  :tags #{:general}
+  :runner {:kind :clojure-test
+           :timeout-sec 10
+           :memory-mb 1024}
+  :license {:kind :dataset
+            :name "MultiPL-E"
+            :spdx "MIT"
+            :redistributable true}
+  :status :active}
+
+{:id "humaneval-clj-046"
+  :track :function
+  :source :multipl-e/humaneval-clj
+  :lang :clojure
+  :prompt-ref {:kind :multipl-e
+               :config "humaneval-clj"
+               :name "HumanEval_45_get_row"}
+  :tests-ref {:kind :multipl-e
+              :config "humaneval-clj"
+              :name "HumanEval_45_get_row"}
+  :entrypoint get-row
+  :difficulty :unknown
+  :tags #{:general}
+  :runner {:kind :clojure-test
+           :timeout-sec 10
+           :memory-mb 1024}
+  :license {:kind :dataset
+            :name "MultiPL-E"
+            :spdx "MIT"
+            :redistributable true}
+  :status :active}
+
+{:id "humaneval-clj-047"
+  :track :function
+  :source :multipl-e/humaneval-clj
+  :lang :clojure
+  :prompt-ref {:kind :multipl-e
+               :config "humaneval-clj"
+               :name "HumanEval_46_encode_shift"}
+  :tests-ref {:kind :multipl-e
+              :config "humaneval-clj"
+              :name "HumanEval_46_encode_shift"}
+  :entrypoint encode-shift
+  :difficulty :unknown
+  :tags #{:general}
+  :runner {:kind :clojure-test
+           :timeout-sec 10
+           :memory-mb 1024}
+  :license {:kind :dataset
+            :name "MultiPL-E"
+            :spdx "MIT"
+            :redistributable true}
+  :status :active}
+
+{:id "humaneval-clj-048"
+  :track :function
+  :source :multipl-e/humaneval-clj
+  :lang :clojure
+  :prompt-ref {:kind :multipl-e
+               :config "humaneval-clj"
+               :name "HumanEval_47_decode_shift"}
+  :tests-ref {:kind :multipl-e
+              :config "humaneval-clj"
+              :name "HumanEval_47_decode_shift"}
+  :entrypoint decode-shift
+  :difficulty :unknown
+  :tags #{:general}
+  :runner {:kind :clojure-test
+           :timeout-sec 10
+           :memory-mb 1024}
+  :license {:kind :dataset
+            :name "MultiPL-E"
+            :spdx "MIT"
+            :redistributable true}
+  :status :active}
+
+{:id "humaneval-clj-049"
+  :track :function
+  :source :multipl-e/humaneval-clj
+  :lang :clojure
+  :prompt-ref {:kind :multipl-e
+               :config "humaneval-clj"
+               :name "HumanEval_48_sum_squares"}
+  :tests-ref {:kind :multipl-e
+              :config "humaneval-clj"
+              :name "HumanEval_48_sum_squares"}
+  :entrypoint sum-squares
+  :difficulty :unknown
+  :tags #{:general}
+  :runner {:kind :clojure-test
+           :timeout-sec 10
+           :memory-mb 1024}
+  :license {:kind :dataset
+            :name "MultiPL-E"
+            :spdx "MIT"
+            :redistributable true}
+  :status :active}
+
+{:id "humaneval-clj-050"
+  :track :function
+  :source :multipl-e/humaneval-clj
+  :lang :clojure
+  :prompt-ref {:kind :multipl-e
+               :config "humaneval-clj"
+               :name "HumanEval_49_is_happy"}
+  :tests-ref {:kind :multipl-e
+              :config "humaneval-clj"
+              :name "HumanEval_49_is_happy"}
+  :entrypoint is-happy
+  :difficulty :unknown
+  :tags #{:general}
+  :runner {:kind :clojure-test
+           :timeout-sec 10
+           :memory-mb 1024}
+  :license {:kind :dataset
+            :name "MultiPL-E"
+            :spdx "MIT"
+            :redistributable true}
+  :status :active}
+
+{:id "humaneval-clj-051"
+  :track :function
+  :source :multipl-e/humaneval-clj
+  :lang :clojure
+  :prompt-ref {:kind :multipl-e
+               :config "humaneval-clj"
+               :name "HumanEval_50_is_simple_power"}
+  :tests-ref {:kind :multipl-e
+              :config "humaneval-clj"
+              :name "HumanEval_50_is_simple_power"}
+  :entrypoint is-simple-power
+  :difficulty :unknown
+  :tags #{:general}
+  :runner {:kind :clojure-test
+           :timeout-sec 10
+           :memory-mb 1024}
+  :license {:kind :dataset
+            :name "MultiPL-E"
+            :spdx "MIT"
+            :redistributable true}
+  :status :active}
+
+{:id "humaneval-clj-052"
+  :track :function
+  :source :multipl-e/humaneval-clj
+  :lang :clojure
+  :prompt-ref {:kind :multipl-e
+               :config "humaneval-clj"
+               :name "HumanEval_51_choose_num"}
+  :tests-ref {:kind :multipl-e
+              :config "humaneval-clj"
+              :name "HumanEval_51_choose_num"}
+  :entrypoint choose-num
+  :difficulty :unknown
+  :tags #{:general}
+  :runner {:kind :clojure-test
+           :timeout-sec 10
+           :memory-mb 1024}
+  :license {:kind :dataset
+            :name "MultiPL-E"
+            :spdx "MIT"
+            :redistributable true}
+  :status :active}
+
+{:id "humaneval-clj-053"
+  :track :function
+  :source :multipl-e/humaneval-clj
+  :lang :clojure
+  :prompt-ref {:kind :multipl-e
+               :config "humaneval-clj"
+               :name "HumanEval_52_valid_parentheses"}
+  :tests-ref {:kind :multipl-e
+              :config "humaneval-clj"
+              :name "HumanEval_52_valid_parentheses"}
+  :entrypoint valid-parentheses
+  :difficulty :unknown
+  :tags #{:general}
+  :runner {:kind :clojure-test
+           :timeout-sec 10
+           :memory-mb 1024}
+  :license {:kind :dataset
+            :name "MultiPL-E"
+            :spdx "MIT"
+            :redistributable true}
+  :status :active}
+
+{:id "humaneval-clj-054"
+  :track :function
+  :source :multipl-e/humaneval-clj
+  :lang :clojure
+  :prompt-ref {:kind :multipl-e
+               :config "humaneval-clj"
+               :name "HumanEval_53_smallest_change"}
+  :tests-ref {:kind :multipl-e
+              :config "humaneval-clj"
+              :name "HumanEval_53_smallest_change"}
+  :entrypoint smallest-change
+  :difficulty :unknown
+  :tags #{:general}
+  :runner {:kind :clojure-test
+           :timeout-sec 10
+           :memory-mb 1024}
+  :license {:kind :dataset
+            :name "MultiPL-E"
+            :spdx "MIT"
+            :redistributable true}
+  :status :active}
+
+{:id "humaneval-clj-055"
+  :track :function
+  :source :multipl-e/humaneval-clj
+  :lang :clojure
+  :prompt-ref {:kind :multipl-e
+               :config "humaneval-clj"
+               :name "HumanEval_54_fruit_distribution"}
+  :tests-ref {:kind :multipl-e
+              :config "humaneval-clj"
+              :name "HumanEval_54_fruit_distribution"}
+  :entrypoint fruit-distribution
+  :difficulty :unknown
+  :tags #{:general}
+  :runner {:kind :clojure-test
+           :timeout-sec 10
+           :memory-mb 1024}
+  :license {:kind :dataset
+            :name "MultiPL-E"
+            :spdx "MIT"
+            :redistributable true}
+  :status :active}
+
+{:id "humaneval-clj-056"
+  :track :function
+  :source :multipl-e/humaneval-clj
+  :lang :clojure
+  :prompt-ref {:kind :multipl-e
+               :config "humaneval-clj"
+               :name "HumanEval_55_pluck"}
+  :tests-ref {:kind :multipl-e
+              :config "humaneval-clj"
+              :name "HumanEval_55_pluck"}
+  :entrypoint pluck
+  :difficulty :unknown
+  :tags #{:general}
+  :runner {:kind :clojure-test
+           :timeout-sec 10
+           :memory-mb 1024}
+  :license {:kind :dataset
+            :name "MultiPL-E"
+            :spdx "MIT"
+            :redistributable true}
+  :status :active}
+
+{:id "humaneval-clj-057"
+  :track :function
+  :source :multipl-e/humaneval-clj
+  :lang :clojure
+  :prompt-ref {:kind :multipl-e
+               :config "humaneval-clj"
+               :name "HumanEval_56_anti_shuffle"}
+  :tests-ref {:kind :multipl-e
+              :config "humaneval-clj"
+              :name "HumanEval_56_anti_shuffle"}
+  :entrypoint anti-shuffle
+  :difficulty :unknown
+  :tags #{:general}
+  :runner {:kind :clojure-test
+           :timeout-sec 10
+           :memory-mb 1024}
+  :license {:kind :dataset
+            :name "MultiPL-E"
+            :spdx "MIT"
+            :redistributable true}
+  :status :active}
+
+{:id "humaneval-clj-058"
+  :track :function
+  :source :multipl-e/humaneval-clj
+  :lang :clojure
+  :prompt-ref {:kind :multipl-e
+               :config "humaneval-clj"
+               :name "HumanEval_57_circular_shift"}
+  :tests-ref {:kind :multipl-e
+              :config "humaneval-clj"
+              :name "HumanEval_57_circular_shift"}
+  :entrypoint circular-shift
+  :difficulty :unknown
+  :tags #{:general}
+  :runner {:kind :clojure-test
+           :timeout-sec 10
+           :memory-mb 1024}
+  :license {:kind :dataset
+            :name "MultiPL-E"
+            :spdx "MIT"
+            :redistributable true}
+  :status :active}
+
+{:id "humaneval-clj-059"
+  :track :function
+  :source :multipl-e/humaneval-clj
+  :lang :clojure
+  :prompt-ref {:kind :multipl-e
+               :config "humaneval-clj"
+               :name "HumanEval_58_digits"}
+  :tests-ref {:kind :multipl-e
+              :config "humaneval-clj"
+              :name "HumanEval_58_digits"}
+  :entrypoint digits
+  :difficulty :unknown
+  :tags #{:general}
+  :runner {:kind :clojure-test
+           :timeout-sec 10
+           :memory-mb 1024}
+  :license {:kind :dataset
+            :name "MultiPL-E"
+            :spdx "MIT"
+            :redistributable true}
+  :status :active}
+
+{:id "humaneval-clj-060"
+  :track :function
+  :source :multipl-e/humaneval-clj
+  :lang :clojure
+  :prompt-ref {:kind :multipl-e
+               :config "humaneval-clj"
+               :name "HumanEval_59_largest_prime_factor"}
+  :tests-ref {:kind :multipl-e
+              :config "humaneval-clj"
+              :name "HumanEval_59_largest_prime_factor"}
+  :entrypoint largest-prime-factor
+  :difficulty :unknown
+  :tags #{:general}
+  :runner {:kind :clojure-test
+           :timeout-sec 10
+           :memory-mb 1024}
+  :license {:kind :dataset
+            :name "MultiPL-E"
+            :spdx "MIT"
+            :redistributable true}
+  :status :active}
+
+{:id "humaneval-clj-061"
+  :track :function
+  :source :multipl-e/humaneval-clj
+  :lang :clojure
+  :prompt-ref {:kind :multipl-e
+               :config "humaneval-clj"
+               :name "HumanEval_60_correct_bracketing"}
+  :tests-ref {:kind :multipl-e
+              :config "humaneval-clj"
+              :name "HumanEval_60_correct_bracketing"}
+  :entrypoint correct-bracketing
+  :difficulty :unknown
+  :tags #{:general}
+  :runner {:kind :clojure-test
+           :timeout-sec 10
+           :memory-mb 1024}
+  :license {:kind :dataset
+            :name "MultiPL-E"
+            :spdx "MIT"
+            :redistributable true}
+  :status :active}
+
+{:id "humaneval-clj-062"
+  :track :function
+  :source :multipl-e/humaneval-clj
+  :lang :clojure
+  :prompt-ref {:kind :multipl-e
+               :config "humaneval-clj"
+               :name "HumanEval_61_smallest_char"}
+  :tests-ref {:kind :multipl-e
+              :config "humaneval-clj"
+              :name "HumanEval_61_smallest_char"}
+  :entrypoint smallest-char
+  :difficulty :unknown
+  :tags #{:general}
+  :runner {:kind :clojure-test
+           :timeout-sec 10
+           :memory-mb 1024}
+  :license {:kind :dataset
+            :name "MultiPL-E"
+            :spdx "MIT"
+            :redistributable true}
+  :status :active}
+
+{:id "humaneval-clj-063"
+  :track :function
+  :source :multipl-e/humaneval-clj
+  :lang :clojure
+  :prompt-ref {:kind :multipl-e
+               :config "humaneval-clj"
+               :name "HumanEval_62_derivative"}
+  :tests-ref {:kind :multipl-e
+              :config "humaneval-clj"
+              :name "HumanEval_62_derivative"}
+  :entrypoint derivative
+  :difficulty :unknown
+  :tags #{:general}
+  :runner {:kind :clojure-test
+           :timeout-sec 10
+           :memory-mb 1024}
+  :license {:kind :dataset
+            :name "MultiPL-E"
+            :spdx "MIT"
+            :redistributable true}
+  :status :active}
+
+{:id "humaneval-clj-064"
+  :track :function
+  :source :multipl-e/humaneval-clj
+  :lang :clojure
+  :prompt-ref {:kind :multipl-e
+               :config "humaneval-clj"
+               :name "HumanEval_63_fibfib"}
+  :tests-ref {:kind :multipl-e
+              :config "humaneval-clj"
+              :name "HumanEval_63_fibfib"}
+  :entrypoint fibfib
+  :difficulty :unknown
+  :tags #{:general}
+  :runner {:kind :clojure-test
+           :timeout-sec 10
+           :memory-mb 1024}
+  :license {:kind :dataset
+            :name "MultiPL-E"
+            :spdx "MIT"
+            :redistributable true}
+  :status :active}
+
+{:id "humaneval-clj-065"
+  :track :function
+  :source :multipl-e/humaneval-clj
+  :lang :clojure
+  :prompt-ref {:kind :multipl-e
+               :config "humaneval-clj"
+               :name "HumanEval_64_vowels_count"}
+  :tests-ref {:kind :multipl-e
+              :config "humaneval-clj"
+              :name "HumanEval_64_vowels_count"}
+  :entrypoint vowels-count
+  :difficulty :unknown
+  :tags #{:general}
+  :runner {:kind :clojure-test
+           :timeout-sec 10
+           :memory-mb 1024}
+  :license {:kind :dataset
+            :name "MultiPL-E"
+            :spdx "MIT"
+            :redistributable true}
+  :status :active}
+
+{:id "humaneval-clj-066"
+  :track :function
+  :source :multipl-e/humaneval-clj
+  :lang :clojure
+  :prompt-ref {:kind :multipl-e
+               :config "humaneval-clj"
+               :name "HumanEval_65_circular_shift"}
+  :tests-ref {:kind :multipl-e
+              :config "humaneval-clj"
+              :name "HumanEval_65_circular_shift"}
+  :entrypoint circular-shift
+  :difficulty :unknown
+  :tags #{:general}
+  :runner {:kind :clojure-test
+           :timeout-sec 10
+           :memory-mb 1024}
+  :license {:kind :dataset
+            :name "MultiPL-E"
+            :spdx "MIT"
+            :redistributable true}
+  :status :active}
+
+{:id "humaneval-clj-067"
+  :track :function
+  :source :multipl-e/humaneval-clj
+  :lang :clojure
+  :prompt-ref {:kind :multipl-e
+               :config "humaneval-clj"
+               :name "HumanEval_66_digit_sum"}
+  :tests-ref {:kind :multipl-e
+              :config "humaneval-clj"
+              :name "HumanEval_66_digit_sum"}
+  :entrypoint digit-sum
+  :difficulty :unknown
+  :tags #{:general}
+  :runner {:kind :clojure-test
+           :timeout-sec 10
+           :memory-mb 1024}
+  :license {:kind :dataset
+            :name "MultiPL-E"
+            :spdx "MIT"
+            :redistributable true}
+  :status :active}
+
+{:id "humaneval-clj-068"
+  :track :function
+  :source :multipl-e/humaneval-clj
+  :lang :clojure
+  :prompt-ref {:kind :multipl-e
+               :config "humaneval-clj"
+               :name "HumanEval_67_fruit_distribution"}
+  :tests-ref {:kind :multipl-e
+              :config "humaneval-clj"
+              :name "HumanEval_67_fruit_distribution"}
+  :entrypoint fruit-distribution
+  :difficulty :unknown
+  :tags #{:general}
+  :runner {:kind :clojure-test
+           :timeout-sec 10
+           :memory-mb 1024}
+  :license {:kind :dataset
+            :name "MultiPL-E"
+            :spdx "MIT"
+            :redistributable true}
+  :status :active}
+
+{:id "humaneval-clj-069"
+  :track :function
+  :source :multipl-e/humaneval-clj
+  :lang :clojure
+  :prompt-ref {:kind :multipl-e
+               :config "humaneval-clj"
+               :name "HumanEval_68_pluck"}
+  :tests-ref {:kind :multipl-e
+              :config "humaneval-clj"
+              :name "HumanEval_68_pluck"}
+  :entrypoint pluck
+  :difficulty :unknown
+  :tags #{:general}
+  :runner {:kind :clojure-test
+           :timeout-sec 10
+           :memory-mb 1024}
+  :license {:kind :dataset
+            :name "MultiPL-E"
+            :spdx "MIT"
+            :redistributable true}
+  :status :active}
+
+{:id "humaneval-clj-070"
+  :track :function
+  :source :multipl-e/humaneval-clj
+  :lang :clojure
+  :prompt-ref {:kind :multipl-e
+               :config "humaneval-clj"
+               :name "HumanEval_69_search"}
+  :tests-ref {:kind :multipl-e
+              :config "humaneval-clj"
+              :name "HumanEval_69_search"}
+  :entrypoint search
+  :difficulty :unknown
+  :tags #{:general}
+  :runner {:kind :clojure-test
+           :timeout-sec 10
+           :memory-mb 1024}
+  :license {:kind :dataset
+            :name "MultiPL-E"
+            :spdx "MIT"
+            :redistributable true}
+  :status :active}
+
+{:id "humaneval-clj-071"
+  :track :function
+  :source :multipl-e/humaneval-clj
+  :lang :clojure
+  :prompt-ref {:kind :multipl-e
+               :config "humaneval-clj"
+               :name "HumanEval_70_sort_even"}
+  :tests-ref {:kind :multipl-e
+              :config "humaneval-clj"
+              :name "HumanEval_70_sort_even"}
+  :entrypoint sort-even
+  :difficulty :unknown
+  :tags #{:general}
+  :runner {:kind :clojure-test
+           :timeout-sec 10
+           :memory-mb 1024}
+  :license {:kind :dataset
+            :name "MultiPL-E"
+            :spdx "MIT"
+            :redistributable true}
+  :status :active}
+
+{:id "humaneval-clj-072"
+  :track :function
+  :source :multipl-e/humaneval-clj
+  :lang :clojure
+  :prompt-ref {:kind :multipl-e
+               :config "humaneval-clj"
+               :name "HumanEval_71_strange_sort_list"}
+  :tests-ref {:kind :multipl-e
+              :config "humaneval-clj"
+              :name "HumanEval_71_strange_sort_list"}
+  :entrypoint strange-sort-list
+  :difficulty :unknown
+  :tags #{:general}
+  :runner {:kind :clojure-test
+           :timeout-sec 10
+           :memory-mb 1024}
+  :license {:kind :dataset
+            :name "MultiPL-E"
+            :spdx "MIT"
+            :redistributable true}
+  :status :active}
+
+{:id "humaneval-clj-073"
+  :track :function
+  :source :multipl-e/humaneval-clj
+  :lang :clojure
+  :prompt-ref {:kind :multipl-e
+               :config "humaneval-clj"
+               :name "HumanEval_72_will_it_fly"}
+  :tests-ref {:kind :multipl-e
+              :config "humaneval-clj"
+              :name "HumanEval_72_will_it_fly"}
+  :entrypoint will-it-fly
+  :difficulty :unknown
+  :tags #{:general}
+  :runner {:kind :clojure-test
+           :timeout-sec 10
+           :memory-mb 1024}
+  :license {:kind :dataset
+            :name "MultiPL-E"
+            :spdx "MIT"
+            :redistributable true}
+  :status :active}
+
+{:id "humaneval-clj-074"
+  :track :function
+  :source :multipl-e/humaneval-clj
+  :lang :clojure
+  :prompt-ref {:kind :multipl-e
+               :config "humaneval-clj"
+               :name "HumanEval_73_smallest_change"}
+  :tests-ref {:kind :multipl-e
+              :config "humaneval-clj"
+              :name "HumanEval_73_smallest_change"}
+  :entrypoint smallest-change
+  :difficulty :unknown
+  :tags #{:general}
+  :runner {:kind :clojure-test
+           :timeout-sec 10
+           :memory-mb 1024}
+  :license {:kind :dataset
+            :name "MultiPL-E"
+            :spdx "MIT"
+            :redistributable true}
+  :status :active}
+
+{:id "humaneval-clj-075"
+  :track :function
+  :source :multipl-e/humaneval-clj
+  :lang :clojure
+  :prompt-ref {:kind :multipl-e
+               :config "humaneval-clj"
+               :name "HumanEval_74_total_match"}
+  :tests-ref {:kind :multipl-e
+              :config "humaneval-clj"
+              :name "HumanEval_74_total_match"}
+  :entrypoint total-match
+  :difficulty :unknown
+  :tags #{:general}
+  :runner {:kind :clojure-test
+           :timeout-sec 10
+           :memory-mb 1024}
+  :license {:kind :dataset
+            :name "MultiPL-E"
+            :spdx "MIT"
+            :redistributable true}
+  :status :active}
+
+{:id "humaneval-clj-076"
+  :track :function
+  :source :multipl-e/humaneval-clj
+  :lang :clojure
+  :prompt-ref {:kind :multipl-e
+               :config "humaneval-clj"
+               :name "HumanEval_75_is_sorted"}
+  :tests-ref {:kind :multipl-e
+              :config "humaneval-clj"
+              :name "HumanEval_75_is_sorted"}
+  :entrypoint is-sorted
+  :difficulty :unknown
+  :tags #{:general}
+  :runner {:kind :clojure-test
+           :timeout-sec 10
+           :memory-mb 1024}
+  :license {:kind :dataset
+            :name "MultiPL-E"
+            :spdx "MIT"
+            :redistributable true}
+  :status :active}
+
+{:id "humaneval-clj-077"
+  :track :function
+  :source :multipl-e/humaneval-clj
+  :lang :clojure
+  :prompt-ref {:kind :multipl-e
+               :config "humaneval-clj"
+               :name "HumanEval_76_is_simple_power"}
+  :tests-ref {:kind :multipl-e
+              :config "humaneval-clj"
+              :name "HumanEval_76_is_simple_power"}
+  :entrypoint is-simple-power
+  :difficulty :unknown
+  :tags #{:general}
+  :runner {:kind :clojure-test
+           :timeout-sec 10
+           :memory-mb 1024}
+  :license {:kind :dataset
+            :name "MultiPL-E"
+            :spdx "MIT"
+            :redistributable true}
+  :status :active}
+
+{:id "humaneval-clj-078"
+  :track :function
+  :source :multipl-e/humaneval-clj
+  :lang :clojure
+  :prompt-ref {:kind :multipl-e
+               :config "humaneval-clj"
+               :name "HumanEval_77_iscube"}
+  :tests-ref {:kind :multipl-e
+              :config "humaneval-clj"
+              :name "HumanEval_77_iscube"}
+  :entrypoint iscube
+  :difficulty :unknown
+  :tags #{:general}
+  :runner {:kind :clojure-test
+           :timeout-sec 10
+           :memory-mb 1024}
+  :license {:kind :dataset
+            :name "MultiPL-E"
+            :spdx "MIT"
+            :redistributable true}
+  :status :active}
+
+{:id "humaneval-clj-079"
+  :track :function
+  :source :multipl-e/humaneval-clj
+  :lang :clojure
+  :prompt-ref {:kind :multipl-e
+               :config "humaneval-clj"
+               :name "HumanEval_78_hex_key"}
+  :tests-ref {:kind :multipl-e
+              :config "humaneval-clj"
+              :name "HumanEval_78_hex_key"}
+  :entrypoint hex-key
+  :difficulty :unknown
+  :tags #{:general}
+  :runner {:kind :clojure-test
+           :timeout-sec 10
+           :memory-mb 1024}
+  :license {:kind :dataset
+            :name "MultiPL-E"
+            :spdx "MIT"
+            :redistributable true}
+  :status :active}
+
+{:id "humaneval-clj-080"
+  :track :function
+  :source :multipl-e/humaneval-clj
+  :lang :clojure
+  :prompt-ref {:kind :multipl-e
+               :config "humaneval-clj"
+               :name "HumanEval_79_decimal_to_binary"}
+  :tests-ref {:kind :multipl-e
+              :config "humaneval-clj"
+              :name "HumanEval_79_decimal_to_binary"}
+  :entrypoint decimal-to-binary
+  :difficulty :unknown
+  :tags #{:general}
+  :runner {:kind :clojure-test
+           :timeout-sec 10
+           :memory-mb 1024}
+  :license {:kind :dataset
+            :name "MultiPL-E"
+            :spdx "MIT"
+            :redistributable true}
+  :status :active}
+
+{:id "humaneval-clj-081"
+  :track :function
+  :source :multipl-e/humaneval-clj
+  :lang :clojure
+  :prompt-ref {:kind :multipl-e
+               :config "humaneval-clj"
+               :name "HumanEval_80_is_happy"}
+  :tests-ref {:kind :multipl-e
+              :config "humaneval-clj"
+              :name "HumanEval_80_is_happy"}
+  :entrypoint is-happy
+  :difficulty :unknown
+  :tags #{:general}
+  :runner {:kind :clojure-test
+           :timeout-sec 10
+           :memory-mb 1024}
+  :license {:kind :dataset
+            :name "MultiPL-E"
+            :spdx "MIT"
+            :redistributable true}
+  :status :active}
+
+{:id "humaneval-clj-082"
+  :track :function
+  :source :multipl-e/humaneval-clj
+  :lang :clojure
+  :prompt-ref {:kind :multipl-e
+               :config "humaneval-clj"
+               :name "HumanEval_81_numerical_letter_grade"}
+  :tests-ref {:kind :multipl-e
+              :config "humaneval-clj"
+              :name "HumanEval_81_numerical_letter_grade"}
+  :entrypoint numerical-letter-grade
+  :difficulty :unknown
+  :tags #{:general}
+  :runner {:kind :clojure-test
+           :timeout-sec 10
+           :memory-mb 1024}
+  :license {:kind :dataset
+            :name "MultiPL-E"
+            :spdx "MIT"
+            :redistributable true}
+  :status :active}
+
+{:id "humaneval-clj-083"
+  :track :function
+  :source :multipl-e/humaneval-clj
+  :lang :clojure
+  :prompt-ref {:kind :multipl-e
+               :config "humaneval-clj"
+               :name "HumanEval_82_prime_length"}
+  :tests-ref {:kind :multipl-e
+              :config "humaneval-clj"
+              :name "HumanEval_82_prime_length"}
+  :entrypoint prime-length
+  :difficulty :unknown
+  :tags #{:general}
+  :runner {:kind :clojure-test
+           :timeout-sec 10
+           :memory-mb 1024}
+  :license {:kind :dataset
+            :name "MultiPL-E"
+            :spdx "MIT"
+            :redistributable true}
+  :status :active}
+
+{:id "humaneval-clj-084"
+  :track :function
+  :source :multipl-e/humaneval-clj
+  :lang :clojure
+  :prompt-ref {:kind :multipl-e
+               :config "humaneval-clj"
+               :name "HumanEval_83_starts_one_ends"}
+  :tests-ref {:kind :multipl-e
+              :config "humaneval-clj"
+              :name "HumanEval_83_starts_one_ends"}
+  :entrypoint starts-one-ends
+  :difficulty :unknown
+  :tags #{:general}
+  :runner {:kind :clojure-test
+           :timeout-sec 10
+           :memory-mb 1024}
+  :license {:kind :dataset
+            :name "MultiPL-E"
+            :spdx "MIT"
+            :redistributable true}
+  :status :active}
+
+{:id "humaneval-clj-085"
+  :track :function
+  :source :multipl-e/humaneval-clj
+  :lang :clojure
+  :prompt-ref {:kind :multipl-e
+               :config "humaneval-clj"
+               :name "HumanEval_84_solve"}
+  :tests-ref {:kind :multipl-e
+              :config "humaneval-clj"
+              :name "HumanEval_84_solve"}
+  :entrypoint solve
+  :difficulty :unknown
+  :tags #{:general}
+  :runner {:kind :clojure-test
+           :timeout-sec 10
+           :memory-mb 1024}
+  :license {:kind :dataset
+            :name "MultiPL-E"
+            :spdx "MIT"
+            :redistributable true}
+  :status :active}
+
+{:id "humaneval-clj-086"
+  :track :function
+  :source :multipl-e/humaneval-clj
+  :lang :clojure
+  :prompt-ref {:kind :multipl-e
+               :config "humaneval-clj"
+               :name "HumanEval_85_add"}
+  :tests-ref {:kind :multipl-e
+              :config "humaneval-clj"
+              :name "HumanEval_85_add"}
+  :entrypoint add
+  :difficulty :unknown
+  :tags #{:general}
+  :runner {:kind :clojure-test
+           :timeout-sec 10
+           :memory-mb 1024}
+  :license {:kind :dataset
+            :name "MultiPL-E"
+            :spdx "MIT"
+            :redistributable true}
+  :status :active}
+
+{:id "humaneval-clj-087"
+  :track :function
+  :source :multipl-e/humaneval-clj
+  :lang :clojure
+  :prompt-ref {:kind :multipl-e
+               :config "humaneval-clj"
+               :name "HumanEval_86_anti_shuffle"}
+  :tests-ref {:kind :multipl-e
+              :config "humaneval-clj"
+              :name "HumanEval_86_anti_shuffle"}
+  :entrypoint anti-shuffle
+  :difficulty :unknown
+  :tags #{:general}
+  :runner {:kind :clojure-test
+           :timeout-sec 10
+           :memory-mb 1024}
+  :license {:kind :dataset
+            :name "MultiPL-E"
+            :spdx "MIT"
+            :redistributable true}
+  :status :active}
+
+{:id "humaneval-clj-088"
+  :track :function
+  :source :multipl-e/humaneval-clj
+  :lang :clojure
+  :prompt-ref {:kind :multipl-e
+               :config "humaneval-clj"
+               :name "HumanEval_87_get_row"}
+  :tests-ref {:kind :multipl-e
+              :config "humaneval-clj"
+              :name "HumanEval_87_get_row"}
+  :entrypoint get-row
+  :difficulty :unknown
+  :tags #{:general}
+  :runner {:kind :clojure-test
+           :timeout-sec 10
+           :memory-mb 1024}
+  :license {:kind :dataset
+            :name "MultiPL-E"
+            :spdx "MIT"
+            :redistributable true}
+  :status :active}
+
+{:id "humaneval-clj-089"
+  :track :function
+  :source :multipl-e/humaneval-clj
+  :lang :clojure
+  :prompt-ref {:kind :multipl-e
+               :config "humaneval-clj"
+               :name "HumanEval_88_sort_array"}
+  :tests-ref {:kind :multipl-e
+              :config "humaneval-clj"
+              :name "HumanEval_88_sort_array"}
+  :entrypoint sort-array
+  :difficulty :unknown
+  :tags #{:general}
+  :runner {:kind :clojure-test
+           :timeout-sec 10
+           :memory-mb 1024}
+  :license {:kind :dataset
+            :name "MultiPL-E"
+            :spdx "MIT"
+            :redistributable true}
+  :status :active}
+
+{:id "humaneval-clj-090"
+  :track :function
+  :source :multipl-e/humaneval-clj
+  :lang :clojure
+  :prompt-ref {:kind :multipl-e
+               :config "humaneval-clj"
+               :name "HumanEval_89_encrypt"}
+  :tests-ref {:kind :multipl-e
+              :config "humaneval-clj"
+              :name "HumanEval_89_encrypt"}
+  :entrypoint encrypt
+  :difficulty :unknown
+  :tags #{:general}
+  :runner {:kind :clojure-test
+           :timeout-sec 10
+           :memory-mb 1024}
+  :license {:kind :dataset
+            :name "MultiPL-E"
+            :spdx "MIT"
+            :redistributable true}
+  :status :active}
+
+{:id "humaneval-clj-091"
+  :track :function
+  :source :multipl-e/humaneval-clj
+  :lang :clojure
+  :prompt-ref {:kind :multipl-e
+               :config "humaneval-clj"
+               :name "HumanEval_90_next_smallest"}
+  :tests-ref {:kind :multipl-e
+              :config "humaneval-clj"
+              :name "HumanEval_90_next_smallest"}
+  :entrypoint next-smallest
+  :difficulty :unknown
+  :tags #{:general}
+  :runner {:kind :clojure-test
+           :timeout-sec 10
+           :memory-mb 1024}
+  :license {:kind :dataset
+            :name "MultiPL-E"
+            :spdx "MIT"
+            :redistributable true}
+  :status :active}
+
+{:id "humaneval-clj-092"
+  :track :function
+  :source :multipl-e/humaneval-clj
+  :lang :clojure
+  :prompt-ref {:kind :multipl-e
+               :config "humaneval-clj"
+               :name "HumanEval_91_is_nested"}
+  :tests-ref {:kind :multipl-e
+              :config "humaneval-clj"
+              :name "HumanEval_91_is_nested"}
+  :entrypoint is-nested
+  :difficulty :unknown
+  :tags #{:general}
+  :runner {:kind :clojure-test
+           :timeout-sec 10
+           :memory-mb 1024}
+  :license {:kind :dataset
+            :name "MultiPL-E"
+            :spdx "MIT"
+            :redistributable true}
+  :status :active}
+
+{:id "humaneval-clj-093"
+  :track :function
+  :source :multipl-e/humaneval-clj
+  :lang :clojure
+  :prompt-ref {:kind :multipl-e
+               :config "humaneval-clj"
+               :name "HumanEval_92_any_int"}
+  :tests-ref {:kind :multipl-e
+              :config "humaneval-clj"
+              :name "HumanEval_92_any_int"}
+  :entrypoint any-int
+  :difficulty :unknown
+  :tags #{:general}
+  :runner {:kind :clojure-test
+           :timeout-sec 10
+           :memory-mb 1024}
+  :license {:kind :dataset
+            :name "MultiPL-E"
+            :spdx "MIT"
+            :redistributable true}
+  :status :active}
+
+{:id "humaneval-clj-094"
+  :track :function
+  :source :multipl-e/humaneval-clj
+  :lang :clojure
+  :prompt-ref {:kind :multipl-e
+               :config "humaneval-clj"
+               :name "HumanEval_93_encode"}
+  :tests-ref {:kind :multipl-e
+              :config "humaneval-clj"
+              :name "HumanEval_93_encode"}
+  :entrypoint encode
+  :difficulty :unknown
+  :tags #{:general}
+  :runner {:kind :clojure-test
+           :timeout-sec 10
+           :memory-mb 1024}
+  :license {:kind :dataset
+            :name "MultiPL-E"
+            :spdx "MIT"
+            :redistributable true}
+  :status :active}
+
+{:id "humaneval-clj-095"
+  :track :function
+  :source :multipl-e/humaneval-clj
+  :lang :clojure
+  :prompt-ref {:kind :multipl-e
+               :config "humaneval-clj"
+               :name "HumanEval_94_skjkasdkd"}
+  :tests-ref {:kind :multipl-e
+              :config "humaneval-clj"
+              :name "HumanEval_94_skjkasdkd"}
+  :entrypoint skjkasdkd
+  :difficulty :unknown
+  :tags #{:general}
+  :runner {:kind :clojure-test
+           :timeout-sec 10
+           :memory-mb 1024}
+  :license {:kind :dataset
+            :name "MultiPL-E"
+            :spdx "MIT"
+            :redistributable true}
+  :status :active}
+
+{:id "humaneval-clj-096"
+  :track :function
+  :source :multipl-e/humaneval-clj
+  :lang :clojure
+  :prompt-ref {:kind :multipl-e
+               :config "humaneval-clj"
+               :name "HumanEval_95_check_dict_case"}
+  :tests-ref {:kind :multipl-e
+              :config "humaneval-clj"
+              :name "HumanEval_95_check_dict_case"}
+  :entrypoint check-dict-case
+  :difficulty :unknown
+  :tags #{:general}
+  :runner {:kind :clojure-test
+           :timeout-sec 10
+           :memory-mb 1024}
+  :license {:kind :dataset
+            :name "MultiPL-E"
+            :spdx "MIT"
+            :redistributable true}
+  :status :active}
+
+{:id "humaneval-clj-097"
+  :track :function
+  :source :multipl-e/humaneval-clj
+  :lang :clojure
+  :prompt-ref {:kind :multipl-e
+               :config "humaneval-clj"
+               :name "HumanEval_96_count_up_to"}
+  :tests-ref {:kind :multipl-e
+              :config "humaneval-clj"
+              :name "HumanEval_96_count_up_to"}
+  :entrypoint count-up-to
+  :difficulty :unknown
+  :tags #{:general}
+  :runner {:kind :clojure-test
+           :timeout-sec 10
+           :memory-mb 1024}
+  :license {:kind :dataset
+            :name "MultiPL-E"
+            :spdx "MIT"
+            :redistributable true}
+  :status :active}
+
+{:id "humaneval-clj-098"
+  :track :function
+  :source :multipl-e/humaneval-clj
+  :lang :clojure
+  :prompt-ref {:kind :multipl-e
+               :config "humaneval-clj"
+               :name "HumanEval_97_multiply"}
+  :tests-ref {:kind :multipl-e
+              :config "humaneval-clj"
+              :name "HumanEval_97_multiply"}
+  :entrypoint multiply
+  :difficulty :unknown
+  :tags #{:general}
+  :runner {:kind :clojure-test
+           :timeout-sec 10
+           :memory-mb 1024}
+  :license {:kind :dataset
+            :name "MultiPL-E"
+            :spdx "MIT"
+            :redistributable true}
+  :status :active}
+
+{:id "humaneval-clj-099"
+  :track :function
+  :source :multipl-e/humaneval-clj
+  :lang :clojure
+  :prompt-ref {:kind :multipl-e
+               :config "humaneval-clj"
+               :name "HumanEval_98_count_upper"}
+  :tests-ref {:kind :multipl-e
+              :config "humaneval-clj"
+              :name "HumanEval_98_count_upper"}
+  :entrypoint count-upper
+  :difficulty :unknown
+  :tags #{:general}
+  :runner {:kind :clojure-test
+           :timeout-sec 10
+           :memory-mb 1024}
+  :license {:kind :dataset
+            :name "MultiPL-E"
+            :spdx "MIT"
+            :redistributable true}
+  :status :active}
+
+{:id "humaneval-clj-100"
+  :track :function
+  :source :multipl-e/humaneval-clj
+  :lang :clojure
+  :prompt-ref {:kind :multipl-e
+               :config "humaneval-clj"
+               :name "HumanEval_99_closest_integer"}
+  :tests-ref {:kind :multipl-e
+              :config "humaneval-clj"
+              :name "HumanEval_99_closest_integer"}
+  :entrypoint closest-integer
+  :difficulty :unknown
+  :tags #{:general}
+  :runner {:kind :clojure-test
+           :timeout-sec 10
+           :memory-mb 1024}
+  :license {:kind :dataset
+            :name "MultiPL-E"
+            :spdx "MIT"
+            :redistributable true}
+  :status :active}
+
+{:id "humaneval-clj-101"
+  :track :function
+  :source :multipl-e/humaneval-clj
+  :lang :clojure
+  :prompt-ref {:kind :multipl-e
+               :config "humaneval-clj"
+               :name "HumanEval_100_make_a_pile"}
+  :tests-ref {:kind :multipl-e
+              :config "humaneval-clj"
+              :name "HumanEval_100_make_a_pile"}
+  :entrypoint make-a-pile
+  :difficulty :unknown
+  :tags #{:general}
+  :runner {:kind :clojure-test
+           :timeout-sec 10
+           :memory-mb 1024}
+  :license {:kind :dataset
+            :name "MultiPL-E"
+            :spdx "MIT"
+            :redistributable true}
+  :status :active}
+
+{:id "humaneval-clj-102"
+  :track :function
+  :source :multipl-e/humaneval-clj
+  :lang :clojure
+  :prompt-ref {:kind :multipl-e
+               :config "humaneval-clj"
+               :name "HumanEval_101_words_string"}
+  :tests-ref {:kind :multipl-e
+              :config "humaneval-clj"
+              :name "HumanEval_101_words_string"}
+  :entrypoint words-string
+  :difficulty :unknown
+  :tags #{:general}
+  :runner {:kind :clojure-test
+           :timeout-sec 10
+           :memory-mb 1024}
+  :license {:kind :dataset
+            :name "MultiPL-E"
+            :spdx "MIT"
+            :redistributable true}
+  :status :active}
+
+{:id "humaneval-clj-103"
+  :track :function
+  :source :multipl-e/humaneval-clj
+  :lang :clojure
+  :prompt-ref {:kind :multipl-e
+               :config "humaneval-clj"
+               :name "HumanEval_102_choose_word"}
+  :tests-ref {:kind :multipl-e
+              :config "humaneval-clj"
+              :name "HumanEval_102_choose_word"}
+  :entrypoint choose-word
+  :difficulty :unknown
+  :tags #{:general}
+  :runner {:kind :clojure-test
+           :timeout-sec 10
+           :memory-mb 1024}
+  :license {:kind :dataset
+            :name "MultiPL-E"
+            :spdx "MIT"
+            :redistributable true}
+  :status :active}
+
+{:id "humaneval-clj-104"
+  :track :function
+  :source :multipl-e/humaneval-clj
+  :lang :clojure
+  :prompt-ref {:kind :multipl-e
+               :config "humaneval-clj"
+               :name "HumanEval_103_rounded_avg"}
+  :tests-ref {:kind :multipl-e
+              :config "humaneval-clj"
+              :name "HumanEval_103_rounded_avg"}
+  :entrypoint rounded-avg
+  :difficulty :unknown
+  :tags #{:general}
+  :runner {:kind :clojure-test
+           :timeout-sec 10
+           :memory-mb 1024}
+  :license {:kind :dataset
+            :name "MultiPL-E"
+            :spdx "MIT"
+            :redistributable true}
+  :status :active}
+
+{:id "humaneval-clj-105"
+  :track :function
+  :source :multipl-e/humaneval-clj
+  :lang :clojure
+  :prompt-ref {:kind :multipl-e
+               :config "humaneval-clj"
+               :name "HumanEval_104_unique_digits"}
+  :tests-ref {:kind :multipl-e
+              :config "humaneval-clj"
+              :name "HumanEval_104_unique_digits"}
+  :entrypoint unique-digits
+  :difficulty :unknown
+  :tags #{:general}
+  :runner {:kind :clojure-test
+           :timeout-sec 10
+           :memory-mb 1024}
+  :license {:kind :dataset
+            :name "MultiPL-E"
+            :spdx "MIT"
+            :redistributable true}
+  :status :active}
+
+{:id "humaneval-clj-106"
+  :track :function
+  :source :multipl-e/humaneval-clj
+  :lang :clojure
+  :prompt-ref {:kind :multipl-e
+               :config "humaneval-clj"
+               :name "HumanEval_105_by_length"}
+  :tests-ref {:kind :multipl-e
+              :config "humaneval-clj"
+              :name "HumanEval_105_by_length"}
+  :entrypoint by-length
+  :difficulty :unknown
+  :tags #{:general}
+  :runner {:kind :clojure-test
+           :timeout-sec 10
+           :memory-mb 1024}
+  :license {:kind :dataset
+            :name "MultiPL-E"
+            :spdx "MIT"
+            :redistributable true}
+  :status :active}
+
+{:id "humaneval-clj-107"
+  :track :function
+  :source :multipl-e/humaneval-clj
+  :lang :clojure
+  :prompt-ref {:kind :multipl-e
+               :config "humaneval-clj"
+               :name "HumanEval_106_f"}
+  :tests-ref {:kind :multipl-e
+              :config "humaneval-clj"
+              :name "HumanEval_106_f"}
+  :entrypoint f
+  :difficulty :unknown
+  :tags #{:general}
+  :runner {:kind :clojure-test
+           :timeout-sec 10
+           :memory-mb 1024}
+  :license {:kind :dataset
+            :name "MultiPL-E"
+            :spdx "MIT"
+            :redistributable true}
+  :status :active}
+
+{:id "humaneval-clj-108"
+  :track :function
+  :source :multipl-e/humaneval-clj
+  :lang :clojure
+  :prompt-ref {:kind :multipl-e
+               :config "humaneval-clj"
+               :name "HumanEval_107_even_odd_palindrome"}
+  :tests-ref {:kind :multipl-e
+              :config "humaneval-clj"
+              :name "HumanEval_107_even_odd_palindrome"}
+  :entrypoint even-odd-palindrome
+  :difficulty :unknown
+  :tags #{:general}
+  :runner {:kind :clojure-test
+           :timeout-sec 10
+           :memory-mb 1024}
+  :license {:kind :dataset
+            :name "MultiPL-E"
+            :spdx "MIT"
+            :redistributable true}
+  :status :active}
+
+{:id "humaneval-clj-109"
+  :track :function
+  :source :multipl-e/humaneval-clj
+  :lang :clojure
+  :prompt-ref {:kind :multipl-e
+               :config "humaneval-clj"
+               :name "HumanEval_108_count_nums"}
+  :tests-ref {:kind :multipl-e
+              :config "humaneval-clj"
+              :name "HumanEval_108_count_nums"}
+  :entrypoint count-nums
+  :difficulty :unknown
+  :tags #{:general}
+  :runner {:kind :clojure-test
+           :timeout-sec 10
+           :memory-mb 1024}
+  :license {:kind :dataset
+            :name "MultiPL-E"
+            :spdx "MIT"
+            :redistributable true}
+  :status :active}
+
+{:id "humaneval-clj-110"
+  :track :function
+  :source :multipl-e/humaneval-clj
+  :lang :clojure
+  :prompt-ref {:kind :multipl-e
+               :config "humaneval-clj"
+               :name "HumanEval_109_move_one_ball"}
+  :tests-ref {:kind :multipl-e
+              :config "humaneval-clj"
+              :name "HumanEval_109_move_one_ball"}
+  :entrypoint move-one-ball
+  :difficulty :unknown
+  :tags #{:general}
+  :runner {:kind :clojure-test
+           :timeout-sec 10
+           :memory-mb 1024}
+  :license {:kind :dataset
+            :name "MultiPL-E"
+            :spdx "MIT"
+            :redistributable true}
+  :status :active}
+
+{:id "humaneval-clj-111"
+  :track :function
+  :source :multipl-e/humaneval-clj
+  :lang :clojure
+  :prompt-ref {:kind :multipl-e
+               :config "humaneval-clj"
+               :name "HumanEval_110_exchange"}
+  :tests-ref {:kind :multipl-e
+              :config "humaneval-clj"
+              :name "HumanEval_110_exchange"}
+  :entrypoint exchange
+  :difficulty :unknown
+  :tags #{:general}
+  :runner {:kind :clojure-test
+           :timeout-sec 10
+           :memory-mb 1024}
+  :license {:kind :dataset
+            :name "MultiPL-E"
+            :spdx "MIT"
+            :redistributable true}
+  :status :active}
+
+{:id "humaneval-clj-112"
+  :track :function
+  :source :multipl-e/humaneval-clj
+  :lang :clojure
+  :prompt-ref {:kind :multipl-e
+               :config "humaneval-clj"
+               :name "HumanEval_111_histogram"}
+  :tests-ref {:kind :multipl-e
+              :config "humaneval-clj"
+              :name "HumanEval_111_histogram"}
+  :entrypoint histogram
+  :difficulty :unknown
+  :tags #{:general}
+  :runner {:kind :clojure-test
+           :timeout-sec 10
+           :memory-mb 1024}
+  :license {:kind :dataset
+            :name "MultiPL-E"
+            :spdx "MIT"
+            :redistributable true}
+  :status :active}
+
+{:id "humaneval-clj-113"
+  :track :function
+  :source :multipl-e/humaneval-clj
+  :lang :clojure
+  :prompt-ref {:kind :multipl-e
+               :config "humaneval-clj"
+               :name "HumanEval_112_reverse_delete"}
+  :tests-ref {:kind :multipl-e
+              :config "humaneval-clj"
+              :name "HumanEval_112_reverse_delete"}
+  :entrypoint reverse-delete
+  :difficulty :unknown
+  :tags #{:general}
+  :runner {:kind :clojure-test
+           :timeout-sec 10
+           :memory-mb 1024}
+  :license {:kind :dataset
+            :name "MultiPL-E"
+            :spdx "MIT"
+            :redistributable true}
+  :status :active}
+
+{:id "humaneval-clj-114"
+  :track :function
+  :source :multipl-e/humaneval-clj
+  :lang :clojure
+  :prompt-ref {:kind :multipl-e
+               :config "humaneval-clj"
+               :name "HumanEval_113_odd_count"}
+  :tests-ref {:kind :multipl-e
+              :config "humaneval-clj"
+              :name "HumanEval_113_odd_count"}
+  :entrypoint odd-count
+  :difficulty :unknown
+  :tags #{:general}
+  :runner {:kind :clojure-test
+           :timeout-sec 10
+           :memory-mb 1024}
+  :license {:kind :dataset
+            :name "MultiPL-E"
+            :spdx "MIT"
+            :redistributable true}
+  :status :active}
+
+{:id "humaneval-clj-115"
+  :track :function
+  :source :multipl-e/humaneval-clj
+  :lang :clojure
+  :prompt-ref {:kind :multipl-e
+               :config "humaneval-clj"
+               :name "HumanEval_114_min_sub_array_sum"}
+  :tests-ref {:kind :multipl-e
+              :config "humaneval-clj"
+              :name "HumanEval_114_min_sub_array_sum"}
+  :entrypoint min-sub-array-sum
+  :difficulty :unknown
+  :tags #{:general}
+  :runner {:kind :clojure-test
+           :timeout-sec 10
+           :memory-mb 1024}
+  :license {:kind :dataset
+            :name "MultiPL-E"
+            :spdx "MIT"
+            :redistributable true}
+  :status :active}
+
+{:id "humaneval-clj-116"
+  :track :function
+  :source :multipl-e/humaneval-clj
+  :lang :clojure
+  :prompt-ref {:kind :multipl-e
+               :config "humaneval-clj"
+               :name "HumanEval_115_max_fill"}
+  :tests-ref {:kind :multipl-e
+              :config "humaneval-clj"
+              :name "HumanEval_115_max_fill"}
+  :entrypoint max-fill
+  :difficulty :unknown
+  :tags #{:general}
+  :runner {:kind :clojure-test
+           :timeout-sec 10
+           :memory-mb 1024}
+  :license {:kind :dataset
+            :name "MultiPL-E"
+            :spdx "MIT"
+            :redistributable true}
+  :status :active}
+
+{:id "humaneval-clj-117"
+  :track :function
+  :source :multipl-e/humaneval-clj
+  :lang :clojure
+  :prompt-ref {:kind :multipl-e
+               :config "humaneval-clj"
+               :name "HumanEval_116_sort_array"}
+  :tests-ref {:kind :multipl-e
+              :config "humaneval-clj"
+              :name "HumanEval_116_sort_array"}
+  :entrypoint sort-array
+  :difficulty :unknown
+  :tags #{:general}
+  :runner {:kind :clojure-test
+           :timeout-sec 10
+           :memory-mb 1024}
+  :license {:kind :dataset
+            :name "MultiPL-E"
+            :spdx "MIT"
+            :redistributable true}
+  :status :active}
+
+{:id "humaneval-clj-118"
+  :track :function
+  :source :multipl-e/humaneval-clj
+  :lang :clojure
+  :prompt-ref {:kind :multipl-e
+               :config "humaneval-clj"
+               :name "HumanEval_117_select_words"}
+  :tests-ref {:kind :multipl-e
+              :config "humaneval-clj"
+              :name "HumanEval_117_select_words"}
+  :entrypoint select-words
+  :difficulty :unknown
+  :tags #{:general}
+  :runner {:kind :clojure-test
+           :timeout-sec 10
+           :memory-mb 1024}
+  :license {:kind :dataset
+            :name "MultiPL-E"
+            :spdx "MIT"
+            :redistributable true}
+  :status :active}
+
+{:id "humaneval-clj-119"
+  :track :function
+  :source :multipl-e/humaneval-clj
+  :lang :clojure
+  :prompt-ref {:kind :multipl-e
+               :config "humaneval-clj"
+               :name "HumanEval_118_get_closest_vowel"}
+  :tests-ref {:kind :multipl-e
+              :config "humaneval-clj"
+              :name "HumanEval_118_get_closest_vowel"}
+  :entrypoint get-closest-vowel
+  :difficulty :unknown
+  :tags #{:general}
+  :runner {:kind :clojure-test
+           :timeout-sec 10
+           :memory-mb 1024}
+  :license {:kind :dataset
+            :name "MultiPL-E"
+            :spdx "MIT"
+            :redistributable true}
+  :status :active}
+
+{:id "humaneval-clj-120"
+  :track :function
+  :source :multipl-e/humaneval-clj
+  :lang :clojure
+  :prompt-ref {:kind :multipl-e
+               :config "humaneval-clj"
+               :name "HumanEval_119_match_parens"}
+  :tests-ref {:kind :multipl-e
+              :config "humaneval-clj"
+              :name "HumanEval_119_match_parens"}
+  :entrypoint match-parens
+  :difficulty :unknown
+  :tags #{:general}
+  :runner {:kind :clojure-test
+           :timeout-sec 10
+           :memory-mb 1024}
+  :license {:kind :dataset
+            :name "MultiPL-E"
+            :spdx "MIT"
+            :redistributable true}
+  :status :active}
+
+{:id "humaneval-clj-121"
+  :track :function
+  :source :multipl-e/humaneval-clj
+  :lang :clojure
+  :prompt-ref {:kind :multipl-e
+               :config "humaneval-clj"
+               :name "HumanEval_120_maximum"}
+  :tests-ref {:kind :multipl-e
+              :config "humaneval-clj"
+              :name "HumanEval_120_maximum"}
+  :entrypoint maximum
+  :difficulty :unknown
+  :tags #{:general}
+  :runner {:kind :clojure-test
+           :timeout-sec 10
+           :memory-mb 1024}
+  :license {:kind :dataset
+            :name "MultiPL-E"
+            :spdx "MIT"
+            :redistributable true}
+  :status :active}
+
+{:id "humaneval-clj-122"
+  :track :function
+  :source :multipl-e/humaneval-clj
+  :lang :clojure
+  :prompt-ref {:kind :multipl-e
+               :config "humaneval-clj"
+               :name "HumanEval_121_solution"}
+  :tests-ref {:kind :multipl-e
+              :config "humaneval-clj"
+              :name "HumanEval_121_solution"}
+  :entrypoint solution
+  :difficulty :unknown
+  :tags #{:general}
+  :runner {:kind :clojure-test
+           :timeout-sec 10
+           :memory-mb 1024}
+  :license {:kind :dataset
+            :name "MultiPL-E"
+            :spdx "MIT"
+            :redistributable true}
+  :status :active}
+
+{:id "humaneval-clj-123"
+  :track :function
+  :source :multipl-e/humaneval-clj
+  :lang :clojure
+  :prompt-ref {:kind :multipl-e
+               :config "humaneval-clj"
+               :name "HumanEval_122_add_elements"}
+  :tests-ref {:kind :multipl-e
+              :config "humaneval-clj"
+              :name "HumanEval_122_add_elements"}
+  :entrypoint add-elements
+  :difficulty :unknown
+  :tags #{:general}
+  :runner {:kind :clojure-test
+           :timeout-sec 10
+           :memory-mb 1024}
+  :license {:kind :dataset
+            :name "MultiPL-E"
+            :spdx "MIT"
+            :redistributable true}
+  :status :active}
+
+{:id "humaneval-clj-124"
+  :track :function
+  :source :multipl-e/humaneval-clj
+  :lang :clojure
+  :prompt-ref {:kind :multipl-e
+               :config "humaneval-clj"
+               :name "HumanEval_123_get_odd_collatz"}
+  :tests-ref {:kind :multipl-e
+              :config "humaneval-clj"
+              :name "HumanEval_123_get_odd_collatz"}
+  :entrypoint get-odd-collatz
+  :difficulty :unknown
+  :tags #{:general}
+  :runner {:kind :clojure-test
+           :timeout-sec 10
+           :memory-mb 1024}
+  :license {:kind :dataset
+            :name "MultiPL-E"
+            :spdx "MIT"
+            :redistributable true}
+  :status :active}
+
+{:id "humaneval-clj-125"
+  :track :function
+  :source :multipl-e/humaneval-clj
+  :lang :clojure
+  :prompt-ref {:kind :multipl-e
+               :config "humaneval-clj"
+               :name "HumanEval_124_valid_date"}
+  :tests-ref {:kind :multipl-e
+              :config "humaneval-clj"
+              :name "HumanEval_124_valid_date"}
+  :entrypoint valid-date
+  :difficulty :unknown
+  :tags #{:general}
+  :runner {:kind :clojure-test
+           :timeout-sec 10
+           :memory-mb 1024}
+  :license {:kind :dataset
+            :name "MultiPL-E"
+            :spdx "MIT"
+            :redistributable true}
+  :status :active}
+
+{:id "humaneval-clj-126"
+  :track :function
+  :source :multipl-e/humaneval-clj
+  :lang :clojure
+  :prompt-ref {:kind :multipl-e
+               :config "humaneval-clj"
+               :name "HumanEval_125_split_in_parts"}
+  :tests-ref {:kind :multipl-e
+              :config "humaneval-clj"
+              :name "HumanEval_125_split_in_parts"}
+  :entrypoint split-in-parts
+  :difficulty :unknown
+  :tags #{:general}
+  :runner {:kind :clojure-test
+           :timeout-sec 10
+           :memory-mb 1024}
+  :license {:kind :dataset
+            :name "MultiPL-E"
+            :spdx "MIT"
+            :redistributable true}
+  :status :active}
+
+{:id "humaneval-clj-127"
+  :track :function
+  :source :multipl-e/humaneval-clj
+  :lang :clojure
+  :prompt-ref {:kind :multipl-e
+               :config "humaneval-clj"
+               :name "HumanEval_126_is_sorted"}
+  :tests-ref {:kind :multipl-e
+              :config "humaneval-clj"
+              :name "HumanEval_126_is_sorted"}
+  :entrypoint is-sorted
+  :difficulty :unknown
+  :tags #{:general}
+  :runner {:kind :clojure-test
+           :timeout-sec 10
+           :memory-mb 1024}
+  :license {:kind :dataset
+            :name "MultiPL-E"
+            :spdx "MIT"
+            :redistributable true}
+  :status :active}
+
+{:id "humaneval-clj-128"
+  :track :function
+  :source :multipl-e/humaneval-clj
+  :lang :clojure
+  :prompt-ref {:kind :multipl-e
+               :config "humaneval-clj"
+               :name "HumanEval_127_intersection"}
+  :tests-ref {:kind :multipl-e
+              :config "humaneval-clj"
+              :name "HumanEval_127_intersection"}
+  :entrypoint intersection
+  :difficulty :unknown
+  :tags #{:general}
+  :runner {:kind :clojure-test
+           :timeout-sec 10
+           :memory-mb 1024}
+  :license {:kind :dataset
+            :name "MultiPL-E"
+            :spdx "MIT"
+            :redistributable true}
+  :status :active}
+
+{:id "humaneval-clj-129"
+  :track :function
+  :source :multipl-e/humaneval-clj
+  :lang :clojure
+  :prompt-ref {:kind :multipl-e
+               :config "humaneval-clj"
+               :name "HumanEval_128_prod_signs"}
+  :tests-ref {:kind :multipl-e
+              :config "humaneval-clj"
+              :name "HumanEval_128_prod_signs"}
+  :entrypoint prod-signs
+  :difficulty :unknown
+  :tags #{:general}
+  :runner {:kind :clojure-test
+           :timeout-sec 10
+           :memory-mb 1024}
+  :license {:kind :dataset
+            :name "MultiPL-E"
+            :spdx "MIT"
+            :redistributable true}
+  :status :active}
+
+{:id "humaneval-clj-130"
+  :track :function
+  :source :multipl-e/humaneval-clj
+  :lang :clojure
+  :prompt-ref {:kind :multipl-e
+               :config "humaneval-clj"
+               :name "HumanEval_129_smallest"}
+  :tests-ref {:kind :multipl-e
+              :config "humaneval-clj"
+              :name "HumanEval_129_smallest"}
+  :entrypoint smallest
+  :difficulty :unknown
+  :tags #{:general}
+  :runner {:kind :clojure-test
+           :timeout-sec 10
+           :memory-mb 1024}
+  :license {:kind :dataset
+            :name "MultiPL-E"
+            :spdx "MIT"
+            :redistributable true}
+  :status :active}
+
+{:id "humaneval-clj-131"
+  :track :function
+  :source :multipl-e/humaneval-clj
+  :lang :clojure
+  :prompt-ref {:kind :multipl-e
+               :config "humaneval-clj"
+               :name "HumanEval_130_tri"}
+  :tests-ref {:kind :multipl-e
+              :config "humaneval-clj"
+              :name "HumanEval_130_tri"}
+  :entrypoint tri
+  :difficulty :unknown
+  :tags #{:general}
+  :runner {:kind :clojure-test
+           :timeout-sec 10
+           :memory-mb 1024}
+  :license {:kind :dataset
+            :name "MultiPL-E"
+            :spdx "MIT"
+            :redistributable true}
+  :status :active}
+
+{:id "humaneval-clj-132"
+  :track :function
+  :source :multipl-e/humaneval-clj
+  :lang :clojure
+  :prompt-ref {:kind :multipl-e
+               :config "humaneval-clj"
+               :name "HumanEval_131_digits"}
+  :tests-ref {:kind :multipl-e
+              :config "humaneval-clj"
+              :name "HumanEval_131_digits"}
+  :entrypoint digits
+  :difficulty :unknown
+  :tags #{:general}
+  :runner {:kind :clojure-test
+           :timeout-sec 10
+           :memory-mb 1024}
+  :license {:kind :dataset
+            :name "MultiPL-E"
+            :spdx "MIT"
+            :redistributable true}
+  :status :active}
+
+{:id "humaneval-clj-133"
+  :track :function
+  :source :multipl-e/humaneval-clj
+  :lang :clojure
+  :prompt-ref {:kind :multipl-e
+               :config "humaneval-clj"
+               :name "HumanEval_132_is_nested"}
+  :tests-ref {:kind :multipl-e
+              :config "humaneval-clj"
+              :name "HumanEval_132_is_nested"}
+  :entrypoint is-nested
+  :difficulty :unknown
+  :tags #{:general}
+  :runner {:kind :clojure-test
+           :timeout-sec 10
+           :memory-mb 1024}
+  :license {:kind :dataset
+            :name "MultiPL-E"
+            :spdx "MIT"
+            :redistributable true}
+  :status :active}
+
+{:id "humaneval-clj-134"
+  :track :function
+  :source :multipl-e/humaneval-clj
+  :lang :clojure
+  :prompt-ref {:kind :multipl-e
+               :config "humaneval-clj"
+               :name "HumanEval_133_sort_even"}
+  :tests-ref {:kind :multipl-e
+              :config "humaneval-clj"
+              :name "HumanEval_133_sort_even"}
+  :entrypoint sort-even
+  :difficulty :unknown
+  :tags #{:general}
+  :runner {:kind :clojure-test
+           :timeout-sec 10
+           :memory-mb 1024}
+  :license {:kind :dataset
+            :name "MultiPL-E"
+            :spdx "MIT"
+            :redistributable true}
+  :status :active}
+
+{:id "humaneval-clj-135"
+  :track :function
+  :source :multipl-e/humaneval-clj
+  :lang :clojure
+  :prompt-ref {:kind :multipl-e
+               :config "humaneval-clj"
+               :name "HumanEval_134_similar_elements"}
+  :tests-ref {:kind :multipl-e
+              :config "humaneval-clj"
+              :name "HumanEval_134_similar_elements"}
+  :entrypoint similar-elements
+  :difficulty :unknown
+  :tags #{:general}
+  :runner {:kind :clojure-test
+           :timeout-sec 10
+           :memory-mb 1024}
+  :license {:kind :dataset
+            :name "MultiPL-E"
+            :spdx "MIT"
+            :redistributable true}
+  :status :active}
+
+{:id "humaneval-clj-136"
+  :track :function
+  :source :multipl-e/humaneval-clj
+  :lang :clojure
+  :prompt-ref {:kind :multipl-e
+               :config "humaneval-clj"
+               :name "HumanEval_135_largest_divisor"}
+  :tests-ref {:kind :multipl-e
+              :config "humaneval-clj"
+              :name "HumanEval_135_largest_divisor"}
+  :entrypoint largest-divisor
+  :difficulty :unknown
+  :tags #{:general}
+  :runner {:kind :clojure-test
+           :timeout-sec 10
+           :memory-mb 1024}
+  :license {:kind :dataset
+            :name "MultiPL-E"
+            :spdx "MIT"
+            :redistributable true}
+  :status :active}
+
+{:id "humaneval-clj-137"
+  :track :function
+  :source :multipl-e/humaneval-clj
+  :lang :clojure
+  :prompt-ref {:kind :multipl-e
+               :config "humaneval-clj"
+               :name "HumanEval_136_largest_smallest_integers"}
+  :tests-ref {:kind :multipl-e
+              :config "humaneval-clj"
+              :name "HumanEval_136_largest_smallest_integers"}
+  :entrypoint largest-smallest-integers
+  :difficulty :unknown
+  :tags #{:general}
+  :runner {:kind :clojure-test
+           :timeout-sec 10
+           :memory-mb 1024}
+  :license {:kind :dataset
+            :name "MultiPL-E"
+            :spdx "MIT"
+            :redistributable true}
+  :status :active}
+
+{:id "humaneval-clj-138"
+  :track :function
+  :source :multipl-e/humaneval-clj
+  :lang :clojure
+  :prompt-ref {:kind :multipl-e
+               :config "humaneval-clj"
+               :name "HumanEval_137_compare_one"}
+  :tests-ref {:kind :multipl-e
+              :config "humaneval-clj"
+              :name "HumanEval_137_compare_one"}
+  :entrypoint compare-one
+  :difficulty :unknown
+  :tags #{:general}
+  :runner {:kind :clojure-test
+           :timeout-sec 10
+           :memory-mb 1024}
+  :license {:kind :dataset
+            :name "MultiPL-E"
+            :spdx "MIT"
+            :redistributable true}
+  :status :active}
+
+{:id "humaneval-clj-139"
+  :track :function
+  :source :multipl-e/humaneval-clj
+  :lang :clojure
+  :prompt-ref {:kind :multipl-e
+               :config "humaneval-clj"
+               :name "HumanEval_138_is_equal_to_sum_even"}
+  :tests-ref {:kind :multipl-e
+              :config "humaneval-clj"
+              :name "HumanEval_138_is_equal_to_sum_even"}
+  :entrypoint is-equal-to-sum-even
+  :difficulty :unknown
+  :tags #{:general}
+  :runner {:kind :clojure-test
+           :timeout-sec 10
+           :memory-mb 1024}
+  :license {:kind :dataset
+            :name "MultiPL-E"
+            :spdx "MIT"
+            :redistributable true}
+  :status :active}
+
+{:id "humaneval-clj-140"
+  :track :function
+  :source :multipl-e/humaneval-clj
+  :lang :clojure
+  :prompt-ref {:kind :multipl-e
+               :config "humaneval-clj"
+               :name "HumanEval_139_special_factorial"}
+  :tests-ref {:kind :multipl-e
+              :config "humaneval-clj"
+              :name "HumanEval_139_special_factorial"}
+  :entrypoint special-factorial
+  :difficulty :unknown
+  :tags #{:general}
+  :runner {:kind :clojure-test
+           :timeout-sec 10
+           :memory-mb 1024}
+  :license {:kind :dataset
+            :name "MultiPL-E"
+            :spdx "MIT"
+            :redistributable true}
+  :status :active}
+
+{:id "humaneval-clj-141"
+  :track :function
+  :source :multipl-e/humaneval-clj
+  :lang :clojure
+  :prompt-ref {:kind :multipl-e
+               :config "humaneval-clj"
+               :name "HumanEval_140_fix_spaces"}
+  :tests-ref {:kind :multipl-e
+              :config "humaneval-clj"
+              :name "HumanEval_140_fix_spaces"}
+  :entrypoint fix-spaces
+  :difficulty :unknown
+  :tags #{:general}
+  :runner {:kind :clojure-test
+           :timeout-sec 10
+           :memory-mb 1024}
+  :license {:kind :dataset
+            :name "MultiPL-E"
+            :spdx "MIT"
+            :redistributable true}
+  :status :active}
+
+{:id "humaneval-clj-142"
+  :track :function
+  :source :multipl-e/humaneval-clj
+  :lang :clojure
+  :prompt-ref {:kind :multipl-e
+               :config "humaneval-clj"
+               :name "HumanEval_141_file_name_check"}
+  :tests-ref {:kind :multipl-e
+              :config "humaneval-clj"
+              :name "HumanEval_141_file_name_check"}
+  :entrypoint file-name-check
+  :difficulty :unknown
+  :tags #{:general}
+  :runner {:kind :clojure-test
+           :timeout-sec 10
+           :memory-mb 1024}
+  :license {:kind :dataset
+            :name "MultiPL-E"
+            :spdx "MIT"
+            :redistributable true}
+  :status :active}
+
+{:id "humaneval-clj-143"
+  :track :function
+  :source :multipl-e/humaneval-clj
+  :lang :clojure
+  :prompt-ref {:kind :multipl-e
+               :config "humaneval-clj"
+               :name "HumanEval_142_sum_squares"}
+  :tests-ref {:kind :multipl-e
+              :config "humaneval-clj"
+              :name "HumanEval_142_sum_squares"}
+  :entrypoint sum-squares
+  :difficulty :unknown
+  :tags #{:general}
+  :runner {:kind :clojure-test
+           :timeout-sec 10
+           :memory-mb 1024}
+  :license {:kind :dataset
+            :name "MultiPL-E"
+            :spdx "MIT"
+            :redistributable true}
+  :status :active}
+
+{:id "humaneval-clj-144"
+  :track :function
+  :source :multipl-e/humaneval-clj
+  :lang :clojure
+  :prompt-ref {:kind :multipl-e
+               :config "humaneval-clj"
+               :name "HumanEval_143_words_in_sentence"}
+  :tests-ref {:kind :multipl-e
+              :config "humaneval-clj"
+              :name "HumanEval_143_words_in_sentence"}
+  :entrypoint words-in-sentence
+  :difficulty :unknown
+  :tags #{:general}
+  :runner {:kind :clojure-test
+           :timeout-sec 10
+           :memory-mb 1024}
+  :license {:kind :dataset
+            :name "MultiPL-E"
+            :spdx "MIT"
+            :redistributable true}
+  :status :active}
+
+{:id "humaneval-clj-145"
+  :track :function
+  :source :multipl-e/humaneval-clj
+  :lang :clojure
+  :prompt-ref {:kind :multipl-e
+               :config "humaneval-clj"
+               :name "HumanEval_144_simplify"}
+  :tests-ref {:kind :multipl-e
+              :config "humaneval-clj"
+              :name "HumanEval_144_simplify"}
+  :entrypoint simplify
+  :difficulty :unknown
+  :tags #{:general}
+  :runner {:kind :clojure-test
+           :timeout-sec 10
+           :memory-mb 1024}
+  :license {:kind :dataset
+            :name "MultiPL-E"
+            :spdx "MIT"
+            :redistributable true}
+  :status :active}
+
+{:id "humaneval-clj-146"
+  :track :function
+  :source :multipl-e/humaneval-clj
+  :lang :clojure
+  :prompt-ref {:kind :multipl-e
+               :config "humaneval-clj"
+               :name "HumanEval_145_order_by_points"}
+  :tests-ref {:kind :multipl-e
+              :config "humaneval-clj"
+              :name "HumanEval_145_order_by_points"}
+  :entrypoint order-by-points
+  :difficulty :unknown
+  :tags #{:general}
+  :runner {:kind :clojure-test
+           :timeout-sec 10
+           :memory-mb 1024}
+  :license {:kind :dataset
+            :name "MultiPL-E"
+            :spdx "MIT"
+            :redistributable true}
+  :status :active}
+
+{:id "humaneval-clj-147"
+  :track :function
+  :source :multipl-e/humaneval-clj
+  :lang :clojure
+  :prompt-ref {:kind :multipl-e
+               :config "humaneval-clj"
+               :name "HumanEval_146_specialfilter"}
+  :tests-ref {:kind :multipl-e
+              :config "humaneval-clj"
+              :name "HumanEval_146_specialfilter"}
+  :entrypoint specialfilter
+  :difficulty :unknown
+  :tags #{:general}
+  :runner {:kind :clojure-test
+           :timeout-sec 10
+           :memory-mb 1024}
+  :license {:kind :dataset
+            :name "MultiPL-E"
+            :spdx "MIT"
+            :redistributable true}
+  :status :active}
+
+{:id "humaneval-clj-148"
+  :track :function
+  :source :multipl-e/humaneval-clj
+  :lang :clojure
+  :prompt-ref {:kind :multipl-e
+               :config "humaneval-clj"
+               :name "HumanEval_147_get_max_triples"}
+  :tests-ref {:kind :multipl-e
+              :config "humaneval-clj"
+              :name "HumanEval_147_get_max_triples"}
+  :entrypoint get-max-triples
+  :difficulty :unknown
+  :tags #{:general}
+  :runner {:kind :clojure-test
+           :timeout-sec 10
+           :memory-mb 1024}
+  :license {:kind :dataset
+            :name "MultiPL-E"
+            :spdx "MIT"
+            :redistributable true}
+  :status :active}
+
+{:id "humaneval-clj-149"
+  :track :function
+  :source :multipl-e/humaneval-clj
+  :lang :clojure
+  :prompt-ref {:kind :multipl-e
+               :config "humaneval-clj"
+               :name "HumanEval_148_bf"}
+  :tests-ref {:kind :multipl-e
+              :config "humaneval-clj"
+              :name "HumanEval_148_bf"}
+  :entrypoint bf
+  :difficulty :unknown
+  :tags #{:general}
+  :runner {:kind :clojure-test
+           :timeout-sec 10
+           :memory-mb 1024}
+  :license {:kind :dataset
+            :name "MultiPL-E"
+            :spdx "MIT"
+            :redistributable true}
+  :status :active}
+
+{:id "humaneval-clj-150"
+  :track :function
+  :source :multipl-e/humaneval-clj
+  :lang :clojure
+  :prompt-ref {:kind :multipl-e
+               :config "humaneval-clj"
+               :name "HumanEval_149_sorted_list_sum"}
+  :tests-ref {:kind :multipl-e
+              :config "humaneval-clj"
+              :name "HumanEval_149_sorted_list_sum"}
+  :entrypoint sorted-list-sum
+  :difficulty :unknown
+  :tags #{:general}
+  :runner {:kind :clojure-test
+           :timeout-sec 10
+           :memory-mb 1024}
+  :license {:kind :dataset
+            :name "MultiPL-E"
+            :spdx "MIT"
+            :redistributable true}
+  :status :active}
+
+{:id "humaneval-clj-151"
+  :track :function
+  :source :multipl-e/humaneval-clj
+  :lang :clojure
+  :prompt-ref {:kind :multipl-e
+               :config "humaneval-clj"
+               :name "HumanEval_150_x_or_y"}
+  :tests-ref {:kind :multipl-e
+              :config "humaneval-clj"
+              :name "HumanEval_150_x_or_y"}
+  :entrypoint x-or-y
+  :difficulty :unknown
+  :tags #{:general}
+  :runner {:kind :clojure-test
+           :timeout-sec 10
+           :memory-mb 1024}
+  :license {:kind :dataset
+            :name "MultiPL-E"
+            :spdx "MIT"
+            :redistributable true}
+  :status :active}
+
+{:id "humaneval-clj-152"
+  :track :function
+  :source :multipl-e/humaneval-clj
+  :lang :clojure
+  :prompt-ref {:kind :multipl-e
+               :config "humaneval-clj"
+               :name "HumanEval_151_double_the_difference"}
+  :tests-ref {:kind :multipl-e
+              :config "humaneval-clj"
+              :name "HumanEval_151_double_the_difference"}
+  :entrypoint double-the-difference
+  :difficulty :unknown
+  :tags #{:general}
+  :runner {:kind :clojure-test
+           :timeout-sec 10
+           :memory-mb 1024}
+  :license {:kind :dataset
+            :name "MultiPL-E"
+            :spdx "MIT"
+            :redistributable true}
+  :status :active}
+
+{:id "humaneval-clj-153"
+  :track :function
+  :source :multipl-e/humaneval-clj
+  :lang :clojure
+  :prompt-ref {:kind :multipl-e
+               :config "humaneval-clj"
+               :name "HumanEval_152_compare"}
+  :tests-ref {:kind :multipl-e
+              :config "humaneval-clj"
+              :name "HumanEval_152_compare"}
+  :entrypoint compare
+  :difficulty :unknown
+  :tags #{:general}
+  :runner {:kind :clojure-test
+           :timeout-sec 10
+           :memory-mb 1024}
+  :license {:kind :dataset
+            :name "MultiPL-E"
+            :spdx "MIT"
+            :redistributable true}
+  :status :active}
+
+{:id "humaneval-clj-154"
+  :track :function
+  :source :multipl-e/humaneval-clj
+  :lang :clojure
+  :prompt-ref {:kind :multipl-e
+               :config "humaneval-clj"
+               :name "HumanEval_153_strongest_extension"}
+  :tests-ref {:kind :multipl-e
+              :config "humaneval-clj"
+              :name "HumanEval_153_strongest_extension"}
+  :entrypoint strongest-extension
+  :difficulty :unknown
+  :tags #{:general}
+  :runner {:kind :clojure-test
+           :timeout-sec 10
+           :memory-mb 1024}
+  :license {:kind :dataset
+            :name "MultiPL-E"
+            :spdx "MIT"
+            :redistributable true}
+  :status :active}
+
+{:id "humaneval-clj-155"
+  :track :function
+  :source :multipl-e/humaneval-clj
+  :lang :clojure
+  :prompt-ref {:kind :multipl-e
+               :config "humaneval-clj"
+               :name "HumanEval_154_cycpattern_check"}
+  :tests-ref {:kind :multipl-e
+              :config "humaneval-clj"
+              :name "HumanEval_154_cycpattern_check"}
+  :entrypoint cycpattern-check
+  :difficulty :unknown
+  :tags #{:general}
+  :runner {:kind :clojure-test
+           :timeout-sec 10
+           :memory-mb 1024}
+  :license {:kind :dataset
+            :name "MultiPL-E"
+            :spdx "MIT"
+            :redistributable true}
+  :status :active}
+
+{:id "humaneval-clj-156"
+  :track :function
+  :source :multipl-e/humaneval-clj
+  :lang :clojure
+  :prompt-ref {:kind :multipl-e
+               :config "humaneval-clj"
+               :name "HumanEval_155_even_odd_count"}
+  :tests-ref {:kind :multipl-e
+              :config "humaneval-clj"
+              :name "HumanEval_155_even_odd_count"}
+  :entrypoint even-odd-count
+  :difficulty :unknown
+  :tags #{:general}
+  :runner {:kind :clojure-test
+           :timeout-sec 10
+           :memory-mb 1024}
+  :license {:kind :dataset
+            :name "MultiPL-E"
+            :spdx "MIT"
+            :redistributable true}
+  :status :active}
+
+{:id "humaneval-clj-157"
+  :track :function
+  :source :multipl-e/humaneval-clj
+  :lang :clojure
+  :prompt-ref {:kind :multipl-e
+               :config "humaneval-clj"
+               :name "HumanEval_156_digits"}
+  :tests-ref {:kind :multipl-e
+              :config "humaneval-clj"
+              :name "HumanEval_156_digits"}
+  :entrypoint digits
+  :difficulty :unknown
+  :tags #{:general}
+  :runner {:kind :clojure-test
+           :timeout-sec 10
+           :memory-mb 1024}
+  :license {:kind :dataset
+            :name "MultiPL-E"
+            :spdx "MIT"
+            :redistributable true}
+  :status :active}
+
+{:id "humaneval-clj-158"
+  :track :function
+  :source :multipl-e/humaneval-clj
+  :lang :clojure
+  :prompt-ref {:kind :multipl-e
+               :config "humaneval-clj"
+               :name "HumanEval_157_right_angle_triangle"}
+  :tests-ref {:kind :multipl-e
+              :config "humaneval-clj"
+              :name "HumanEval_157_right_angle_triangle"}
+  :entrypoint right-angle-triangle
+  :difficulty :unknown
+  :tags #{:general}
+  :runner {:kind :clojure-test
+           :timeout-sec 10
+           :memory-mb 1024}
+  :license {:kind :dataset
+            :name "MultiPL-E"
+            :spdx "MIT"
+            :redistributable true}
+  :status :active}
+
+{:id "humaneval-clj-159"
+  :track :function
+  :source :multipl-e/humaneval-clj
+  :lang :clojure
+  :prompt-ref {:kind :multipl-e
+               :config "humaneval-clj"
+               :name "HumanEval_158_find_max"}
+  :tests-ref {:kind :multipl-e
+              :config "humaneval-clj"
+              :name "HumanEval_158_find_max"}
+  :entrypoint find-max
+  :difficulty :unknown
+  :tags #{:general}
+  :runner {:kind :clojure-test
+           :timeout-sec 10
+           :memory-mb 1024}
+  :license {:kind :dataset
+            :name "MultiPL-E"
+            :spdx "MIT"
+            :redistributable true}
+  :status :active}
+
+{:id "humaneval-clj-160"
+  :track :function
+  :source :multipl-e/humaneval-clj
+  :lang :clojure
+  :prompt-ref {:kind :multipl-e
+               :config "humaneval-clj"
+               :name "HumanEval_159_eat"}
+  :tests-ref {:kind :multipl-e
+              :config "humaneval-clj"
+              :name "HumanEval_159_eat"}
+  :entrypoint eat
+  :difficulty :unknown
+  :tags #{:general}
+  :runner {:kind :clojure-test
+           :timeout-sec 10
+           :memory-mb 1024}
+  :license {:kind :dataset
+            :name "MultiPL-E"
+            :spdx "MIT"
+            :redistributable true}
+  :status :active}
+
+{:id "humaneval-clj-161"
+  :track :function
+  :source :multipl-e/humaneval-clj
+  :lang :clojure
+  :prompt-ref {:kind :multipl-e
+               :config "humaneval-clj"
+               :name "HumanEval_160_do_algebra"}
+  :tests-ref {:kind :multipl-e
+              :config "humaneval-clj"
+              :name "HumanEval_160_do_algebra"}
+  :entrypoint do-algebra
+  :difficulty :unknown
+  :tags #{:general}
+  :runner {:kind :clojure-test
+           :timeout-sec 10
+           :memory-mb 1024}
+  :license {:kind :dataset
+            :name "MultiPL-E"
+            :spdx "MIT"
+            :redistributable true}
+  :status :active}
+
+{:id "humaneval-clj-162"
+  :track :function
+  :source :multipl-e/humaneval-clj
+  :lang :clojure
+  :prompt-ref {:kind :multipl-e
+               :config "humaneval-clj"
+               :name "HumanEval_161_solve"}
+  :tests-ref {:kind :multipl-e
+              :config "humaneval-clj"
+              :name "HumanEval_161_solve"}
+  :entrypoint solve
+  :difficulty :unknown
+  :tags #{:general}
+  :runner {:kind :clojure-test
+           :timeout-sec 10
+           :memory-mb 1024}
+  :license {:kind :dataset
+            :name "MultiPL-E"
+            :spdx "MIT"
+            :redistributable true}
+  :status :active}
+
+{:id "humaneval-clj-163"
+  :track :function
+  :source :multipl-e/humaneval-clj
+  :lang :clojure
+  :prompt-ref {:kind :multipl-e
+               :config "humaneval-clj"
+               :name "HumanEval_162_string_to_md5"}
+  :tests-ref {:kind :multipl-e
+              :config "humaneval-clj"
+              :name "HumanEval_162_string_to_md5"}
+  :entrypoint string-to-md5
+  :difficulty :unknown
+  :tags #{:general}
+  :runner {:kind :clojure-test
+           :timeout-sec 10
+           :memory-mb 1024}
+  :license {:kind :dataset
+            :name "MultiPL-E"
+            :spdx "MIT"
+            :redistributable true}
+  :status :active}
+
+{:id "humaneval-clj-164"
+  :track :function
+  :source :multipl-e/humaneval-clj
+  :lang :clojure
+  :prompt-ref {:kind :multipl-e
+               :config "humaneval-clj"
+               :name "HumanEval_163_generate_integers"}
+  :tests-ref {:kind :multipl-e
+              :config "humaneval-clj"
+              :name "HumanEval_163_generate_integers"}
+  :entrypoint generate-integers
+  :difficulty :unknown
+  :tags #{:general}
+  :runner {:kind :clojure-test
+           :timeout-sec 10
+           :memory-mb 1024}
+  :license {:kind :dataset
+            :name "MultiPL-E"
+            :spdx "MIT"
+            :redistributable true}
+  :status :active}
+
+{:id "mbpp-clj-001"
   :track :function
   :source :multipl-e/mbpp-clj
   :lang :clojure
   :prompt-ref {:kind :multipl-e
                :config "mbpp-clj"
-               :name "MBPP_0_placeholder"}
+               :name "MBPP_22_reverse_string"}
   :tests-ref {:kind :multipl-e
               :config "mbpp-clj"
-              :name "MBPP_0_placeholder"}
-  :entrypoint sort-numbers
+              :name "MBPP_22_reverse_string"}
+  :entrypoint reverse-string
   :difficulty :unknown
-  :tags #{:sorting :collections}
+  :tags #{:general}
   :runner {:kind :clojure-test
            :timeout-sec 10
            :memory-mb 1024}
@@ -39,23 +3627,2117 @@
             :name "MultiPL-E"
             :spdx "MIT"
             :redistributable true}
-  :status :draft}
- {:id "repo-repair-placeholder-001"
-  :track :repair
-  :source :repo-curated
+  :status :active}
+
+{:id "mbpp-clj-002"
+  :track :function
+  :source :multipl-e/mbpp-clj
   :lang :clojure
-  :prompt-ref {:kind :file
-               :path "benchmark/prompts/repo-repair-placeholder.md"}
-  :tests-ref {:kind :file
-              :path "benchmark/tests/repo-repair-placeholder.edn"}
-  :entrypoint patch
-  :difficulty :medium
-  :tags #{:repo :repair :tests}
-  :runner {:kind :repo-repair
-           :timeout-sec 60
-           :memory-mb 2048}
-  :license {:kind :repo
-            :name "placeholder"
-            :spdx "TBD"
-            :redistributable false}
-  :status :draft}]
+  :prompt-ref {:kind :multipl-e
+               :config "mbpp-clj"
+               :name "MBPP_23_find_largest"}
+  :tests-ref {:kind :multipl-e
+              :config "mbpp-clj"
+              :name "MBPP_23_find_largest"}
+  :entrypoint find-largest
+  :difficulty :unknown
+  :tags #{:general}
+  :runner {:kind :clojure-test
+           :timeout-sec 10
+           :memory-mb 1024}
+  :license {:kind :dataset
+            :name "MultiPL-E"
+            :spdx "MIT"
+            :redistributable true}
+  :status :active}
+
+{:id "mbpp-clj-003"
+  :track :function
+  :source :multipl-e/mbpp-clj
+  :lang :clojure
+  :prompt-ref {:kind :multipl-e
+               :config "mbpp-clj"
+               :name "MBPP_25_even_odd"}
+  :tests-ref {:kind :multipl-e
+              :config "mbpp-clj"
+              :name "MBPP_25_even_odd"}
+  :entrypoint even-odd
+  :difficulty :unknown
+  :tags #{:general}
+  :runner {:kind :clojure-test
+           :timeout-sec 10
+           :memory-mb 1024}
+  :license {:kind :dataset
+            :name "MultiPL-E"
+            :spdx "MIT"
+            :redistributable true}
+  :status :active}
+
+{:id "mbpp-clj-004"
+  :track :function
+  :source :multipl-e/mbpp-clj
+  :lang :clojure
+  :prompt-ref {:kind :multipl-e
+               :config "mbpp-clj"
+               :name "MBPP_26_find_remainder"}
+  :tests-ref {:kind :multipl-e
+              :config "mbpp-clj"
+              :name "MBPP_26_find_remainder"}
+  :entrypoint find-remainder
+  :difficulty :unknown
+  :tags #{:general}
+  :runner {:kind :clojure-test
+           :timeout-sec 10
+           :memory-mb 1024}
+  :license {:kind :dataset
+            :name "MultiPL-E"
+            :spdx "MIT"
+            :redistributable true}
+  :status :active}
+
+{:id "mbpp-clj-005"
+  :track :function
+  :source :multipl-e/mbpp-clj
+  :lang :clojure
+  :prompt-ref {:kind :multipl-e
+               :config "mbpp-clj"
+               :name "MBPP_28_list_sum"}
+  :tests-ref {:kind :multipl-e
+              :config "mbpp-clj"
+              :name "MBPP_28_list_sum"}
+  :entrypoint list-sum
+  :difficulty :unknown
+  :tags #{:general}
+  :runner {:kind :clojure-test
+           :timeout-sec 10
+           :memory-mb 1024}
+  :license {:kind :dataset
+            :name "MultiPL-E"
+            :spdx "MIT"
+            :redistributable true}
+  :status :active}
+
+{:id "mbpp-clj-006"
+  :track :function
+  :source :multipl-e/mbpp-clj
+  :lang :clojure
+  :prompt-ref {:kind :multipl-e
+               :config "mbpp-clj"
+               :name "MBPP_30_sort_list"}
+  :tests-ref {:kind :multipl-e
+              :config "mbpp-clj"
+              :name "MBPP_30_sort_list"}
+  :entrypoint sort-list
+  :difficulty :unknown
+  :tags #{:general}
+  :runner {:kind :clojure-test
+           :timeout-sec 10
+           :memory-mb 1024}
+  :license {:kind :dataset
+            :name "MultiPL-E"
+            :spdx "MIT"
+            :redistributable true}
+  :status :active}
+
+{:id "mbpp-clj-007"
+  :track :function
+  :source :multipl-e/mbpp-clj
+  :lang :clojure
+  :prompt-ref {:kind :multipl-e
+               :config "mbpp-clj"
+               :name "MBPP_33_min_of_list"}
+  :tests-ref {:kind :multipl-e
+              :config "mbpp-clj"
+              :name "MBPP_33_min_of_list"}
+  :entrypoint min-of-list
+  :difficulty :unknown
+  :tags #{:general}
+  :runner {:kind :clojure-test
+           :timeout-sec 10
+           :memory-mb 1024}
+  :license {:kind :dataset
+            :name "MultiPL-E"
+            :spdx "MIT"
+            :redistributable true}
+  :status :active}
+
+{:id "mbpp-clj-008"
+  :track :function
+  :source :multipl-e/mbpp-clj
+  :lang :clojure
+  :prompt-ref {:kind :multipl-e
+               :config "mbpp-clj"
+               :name "MBPP_36_count_digits"}
+  :tests-ref {:kind :multipl-e
+              :config "mbpp-clj"
+              :name "MBPP_36_count_digits"}
+  :entrypoint count-digits
+  :difficulty :unknown
+  :tags #{:general}
+  :runner {:kind :clojure-test
+           :timeout-sec 10
+           :memory-mb 1024}
+  :license {:kind :dataset
+            :name "MultiPL-E"
+            :spdx "MIT"
+            :redistributable true}
+  :status :active}
+
+{:id "mbpp-clj-009"
+  :track :function
+  :source :multipl-e/mbpp-clj
+  :lang :clojure
+  :prompt-ref {:kind :multipl-e
+               :config "mbpp-clj"
+               :name "MBPP_37_merge_dictionaries"}
+  :tests-ref {:kind :multipl-e
+              :config "mbpp-clj"
+              :name "MBPP_37_merge_dictionaries"}
+  :entrypoint merge-dictionaries
+  :difficulty :unknown
+  :tags #{:general}
+  :runner {:kind :clojure-test
+           :timeout-sec 10
+           :memory-mb 1024}
+  :license {:kind :dataset
+            :name "MultiPL-E"
+            :spdx "MIT"
+            :redistributable true}
+  :status :active}
+
+{:id "mbpp-clj-010"
+  :track :function
+  :source :multipl-e/mbpp-clj
+  :lang :clojure
+  :prompt-ref {:kind :multipl-e
+               :config "mbpp-clj"
+               :name "MBPP_39_check_subset"}
+  :tests-ref {:kind :multipl-e
+              :config "mbpp-clj"
+              :name "MBPP_39_check_subset"}
+  :entrypoint check-subset
+  :difficulty :unknown
+  :tags #{:general}
+  :runner {:kind :clojure-test
+           :timeout-sec 10
+           :memory-mb 1024}
+  :license {:kind :dataset
+            :name "MultiPL-E"
+            :spdx "MIT"
+            :redistributable true}
+  :status :active}
+
+{:id "mbpp-clj-011"
+  :track :function
+  :source :multipl-e/mbpp-clj
+  :lang :clojure
+  :prompt-ref {:kind :multipl-e
+               :config "mbpp-clj"
+               :name "MBPP_40_count_list_elements"}
+  :tests-ref {:kind :multipl-e
+              :config "mbpp-clj"
+              :name "MBPP_40_count_list_elements"}
+  :entrypoint count-list-elements
+  :difficulty :unknown
+  :tags #{:general}
+  :runner {:kind :clojure-test
+           :timeout-sec 10
+           :memory-mb 1024}
+  :license {:kind :dataset
+            :name "MultiPL-E"
+            :spdx "MIT"
+            :redistributable true}
+  :status :active}
+
+{:id "mbpp-clj-012"
+  :track :function
+  :source :multipl-e/mbpp-clj
+  :lang :clojure
+  :prompt-ref {:kind :multipl-e
+               :config "mbpp-clj"
+               :name "MBPP_41_even_numbers"}
+  :tests-ref {:kind :multipl-e
+              :config "mbpp-clj"
+              :name "MBPP_41_even_numbers"}
+  :entrypoint even-numbers
+  :difficulty :unknown
+  :tags #{:general}
+  :runner {:kind :clojure-test
+           :timeout-sec 10
+           :memory-mb 1024}
+  :license {:kind :dataset
+            :name "MultiPL-E"
+            :spdx "MIT"
+            :redistributable true}
+  :status :active}
+
+{:id "mbpp-clj-013"
+  :track :function
+  :source :multipl-e/mbpp-clj
+  :lang :clojure
+  :prompt-ref {:kind :multipl-e
+               :config "mbpp-clj"
+               :name "MBPP_42_divisible_numbers"}
+  :tests-ref {:kind :multipl-e
+              :config "mbpp-clj"
+              :name "MBPP_42_divisible_numbers"}
+  :entrypoint divisible-numbers
+  :difficulty :unknown
+  :tags #{:general}
+  :runner {:kind :clojure-test
+           :timeout-sec 10
+           :memory-mb 1024}
+  :license {:kind :dataset
+            :name "MultiPL-E"
+            :spdx "MIT"
+            :redistributable true}
+  :status :active}
+
+{:id "mbpp-clj-014"
+  :track :function
+  :source :multipl-e/mbpp-clj
+  :lang :clojure
+  :prompt-ref {:kind :multipl-e
+               :config "mbpp-clj"
+               :name "MBPP_43_flatten_list"}
+  :tests-ref {:kind :multipl-e
+              :config "mbpp-clj"
+              :name "MBPP_43_flatten_list"}
+  :entrypoint flatten-list
+  :difficulty :unknown
+  :tags #{:general}
+  :runner {:kind :clojure-test
+           :timeout-sec 10
+           :memory-mb 1024}
+  :license {:kind :dataset
+            :name "MultiPL-E"
+            :spdx "MIT"
+            :redistributable true}
+  :status :active}
+
+{:id "mbpp-clj-015"
+  :track :function
+  :source :multipl-e/mbpp-clj
+  :lang :clojure
+  :prompt-ref {:kind :multipl-e
+               :config "mbpp-clj"
+               :name "MBPP_44_ascii_value"}
+  :tests-ref {:kind :multipl-e
+              :config "mbpp-clj"
+              :name "MBPP_44_ascii_value"}
+  :entrypoint ascii-value
+  :difficulty :unknown
+  :tags #{:general}
+  :runner {:kind :clojure-test
+           :timeout-sec 10
+           :memory-mb 1024}
+  :license {:kind :dataset
+            :name "MultiPL-E"
+            :spdx "MIT"
+            :redistributable true}
+  :status :active}
+
+{:id "mbpp-clj-016"
+  :track :function
+  :source :multipl-e/mbpp-clj
+  :lang :clojure
+  :prompt-ref {:kind :multipl-e
+               :config "mbpp-clj"
+               :name "MBPP_45_gcd"}
+  :tests-ref {:kind :multipl-e
+              :config "mbpp-clj"
+              :name "MBPP_45_gcd"}
+  :entrypoint gcd
+  :difficulty :unknown
+  :tags #{:general}
+  :runner {:kind :clojure-test
+           :timeout-sec 10
+           :memory-mb 1024}
+  :license {:kind :dataset
+            :name "MultiPL-E"
+            :spdx "MIT"
+            :redistributable true}
+  :status :active}
+
+{:id "mbpp-clj-017"
+  :track :function
+  :source :multipl-e/mbpp-clj
+  :lang :clojure
+  :prompt-ref {:kind :multipl-e
+               :config "mbpp-clj"
+               :name "MBPP_46_lcm"}
+  :tests-ref {:kind :multipl-e
+              :config "mbpp-clj"
+              :name "MBPP_46_lcm"}
+  :entrypoint lcm
+  :difficulty :unknown
+  :tags #{:general}
+  :runner {:kind :clojure-test
+           :timeout-sec 10
+           :memory-mb 1024}
+  :license {:kind :dataset
+            :name "MultiPL-E"
+            :spdx "MIT"
+            :redistributable true}
+  :status :active}
+
+{:id "mbpp-clj-018"
+  :track :function
+  :source :multipl-e/mbpp-clj
+  :lang :clojure
+  :prompt-ref {:kind :multipl-e
+               :config "mbpp-clj"
+               :name "MBPP_47_second_largest"}
+  :tests-ref {:kind :multipl-e
+              :config "mbpp-clj"
+              :name "MBPP_47_second_largest"}
+  :entrypoint second-largest
+  :difficulty :unknown
+  :tags #{:general}
+  :runner {:kind :clojure-test
+           :timeout-sec 10
+           :memory-mb 1024}
+  :license {:kind :dataset
+            :name "MultiPL-E"
+            :spdx "MIT"
+            :redistributable true}
+  :status :active}
+
+{:id "mbpp-clj-019"
+  :track :function
+  :source :multipl-e/mbpp-clj
+  :lang :clojure
+  :prompt-ref {:kind :multipl-e
+               :config "mbpp-clj"
+               :name "MBPP_48_largest_element"}
+  :tests-ref {:kind :multipl-e
+              :config "mbpp-clj"
+              :name "MBPP_48_largest_element"}
+  :entrypoint largest-element
+  :difficulty :unknown
+  :tags #{:general}
+  :runner {:kind :clojure-test
+           :timeout-sec 10
+           :memory-mb 1024}
+  :license {:kind :dataset
+            :name "MultiPL-E"
+            :spdx "MIT"
+            :redistributable true}
+  :status :active}
+
+{:id "mbpp-clj-020"
+  :track :function
+  :source :multipl-e/mbpp-clj
+  :lang :clojure
+  :prompt-ref {:kind :multipl-e
+               :config "mbpp-clj"
+               :name "MBPP_50_fibonacci"}
+  :tests-ref {:kind :multipl-e
+              :config "mbpp-clj"
+              :name "MBPP_50_fibonacci"}
+  :entrypoint fibonacci
+  :difficulty :unknown
+  :tags #{:general}
+  :runner {:kind :clojure-test
+           :timeout-sec 10
+           :memory-mb 1024}
+  :license {:kind :dataset
+            :name "MultiPL-E"
+            :spdx "MIT"
+            :redistributable true}
+  :status :active}
+
+{:id "mbpp-clj-021"
+  :track :function
+  :source :multipl-e/mbpp-clj
+  :lang :clojure
+  :prompt-ref {:kind :multipl-e
+               :config "mbpp-clj"
+               :name "MBPP_52_check_vowel"}
+  :tests-ref {:kind :multipl-e
+              :config "mbpp-clj"
+              :name "MBPP_52_check_vowel"}
+  :entrypoint check-vowel
+  :difficulty :unknown
+  :tags #{:general}
+  :runner {:kind :clojure-test
+           :timeout-sec 10
+           :memory-mb 1024}
+  :license {:kind :dataset
+            :name "MultiPL-E"
+            :spdx "MIT"
+            :redistributable true}
+  :status :active}
+
+{:id "mbpp-clj-022"
+  :track :function
+  :source :multipl-e/mbpp-clj
+  :lang :clojure
+  :prompt-ref {:kind :multipl-e
+               :config "mbpp-clj"
+               :name "MBPP_53_is_prime"}
+  :tests-ref {:kind :multipl-e
+              :config "mbpp-clj"
+              :name "MBPP_53_is_prime"}
+  :entrypoint is-prime
+  :difficulty :unknown
+  :tags #{:general}
+  :runner {:kind :clojure-test
+           :timeout-sec 10
+           :memory-mb 1024}
+  :license {:kind :dataset
+            :name "MultiPL-E"
+            :spdx "MIT"
+            :redistributable true}
+  :status :active}
+
+{:id "mbpp-clj-023"
+  :track :function
+  :source :multipl-e/mbpp-clj
+  :lang :clojure
+  :prompt-ref {:kind :multipl-e
+               :config "mbpp-clj"
+               :name "MBPP_54_is_palindrome"}
+  :tests-ref {:kind :multipl-e
+              :config "mbpp-clj"
+              :name "MBPP_54_is_palindrome"}
+  :entrypoint is-palindrome
+  :difficulty :unknown
+  :tags #{:general}
+  :runner {:kind :clojure-test
+           :timeout-sec 10
+           :memory-mb 1024}
+  :license {:kind :dataset
+            :name "MultiPL-E"
+            :spdx "MIT"
+            :redistributable true}
+  :status :active}
+
+{:id "mbpp-clj-024"
+  :track :function
+  :source :multipl-e/mbpp-clj
+  :lang :clojure
+  :prompt-ref {:kind :multipl-e
+               :config "mbpp-clj"
+               :name "MBPP_55_sum_of_digits"}
+  :tests-ref {:kind :multipl-e
+              :config "mbpp-clj"
+              :name "MBPP_55_sum_of_digits"}
+  :entrypoint sum-of-digits
+  :difficulty :unknown
+  :tags #{:general}
+  :runner {:kind :clojure-test
+           :timeout-sec 10
+           :memory-mb 1024}
+  :license {:kind :dataset
+            :name "MultiPL-E"
+            :spdx "MIT"
+            :redistributable true}
+  :status :active}
+
+{:id "mbpp-clj-025"
+  :track :function
+  :source :multipl-e/mbpp-clj
+  :lang :clojure
+  :prompt-ref {:kind :multipl-e
+               :config "mbpp-clj"
+               :name "MBPP_56_area_of_triangle"}
+  :tests-ref {:kind :multipl-e
+              :config "mbpp-clj"
+              :name "MBPP_56_area_of_triangle"}
+  :entrypoint area-of-triangle
+  :difficulty :unknown
+  :tags #{:general}
+  :runner {:kind :clojure-test
+           :timeout-sec 10
+           :memory-mb 1024}
+  :license {:kind :dataset
+            :name "MultiPL-E"
+            :spdx "MIT"
+            :redistributable true}
+  :status :active}
+
+{:id "mbpp-clj-026"
+  :track :function
+  :source :multipl-e/mbpp-clj
+  :lang :clojure
+  :prompt-ref {:kind :multipl-e
+               :config "mbpp-clj"
+               :name "MBPP_57_volume_of_sphere"}
+  :tests-ref {:kind :multipl-e
+              :config "mbpp-clj"
+              :name "MBPP_57_volume_of_sphere"}
+  :entrypoint volume-of-sphere
+  :difficulty :unknown
+  :tags #{:general}
+  :runner {:kind :clojure-test
+           :timeout-sec 10
+           :memory-mb 1024}
+  :license {:kind :dataset
+            :name "MultiPL-E"
+            :spdx "MIT"
+            :redistributable true}
+  :status :active}
+
+{:id "mbpp-clj-027"
+  :track :function
+  :source :multipl-e/mbpp-clj
+  :lang :clojure
+  :prompt-ref {:kind :multipl-e
+               :config "mbpp-clj"
+               :name "MBPP_58_is_valid_triangle"}
+  :tests-ref {:kind :multipl-e
+              :config "mbpp-clj"
+              :name "MBPP_58_is_valid_triangle"}
+  :entrypoint is-valid-triangle
+  :difficulty :unknown
+  :tags #{:general}
+  :runner {:kind :clojure-test
+           :timeout-sec 10
+           :memory-mb 1024}
+  :license {:kind :dataset
+            :name "MultiPL-E"
+            :spdx "MIT"
+            :redistributable true}
+  :status :active}
+
+{:id "mbpp-clj-028"
+  :track :function
+  :source :multipl-e/mbpp-clj
+  :lang :clojure
+  :prompt-ref {:kind :multipl-e
+               :config "mbpp-clj"
+               :name "MBPP_59_check_arithmetic_progression"}
+  :tests-ref {:kind :multipl-e
+              :config "mbpp-clj"
+              :name "MBPP_59_check_arithmetic_progression"}
+  :entrypoint check-arithmetic-progression
+  :difficulty :unknown
+  :tags #{:general}
+  :runner {:kind :clojure-test
+           :timeout-sec 10
+           :memory-mb 1024}
+  :license {:kind :dataset
+            :name "MultiPL-E"
+            :spdx "MIT"
+            :redistributable true}
+  :status :active}
+
+{:id "mbpp-clj-029"
+  :track :function
+  :source :multipl-e/mbpp-clj
+  :lang :clojure
+  :prompt-ref {:kind :multipl-e
+               :config "mbpp-clj"
+               :name "MBPP_60_number_of_digits"}
+  :tests-ref {:kind :multipl-e
+              :config "mbpp-clj"
+              :name "MBPP_60_number_of_digits"}
+  :entrypoint number-of-digits
+  :difficulty :unknown
+  :tags #{:general}
+  :runner {:kind :clojure-test
+           :timeout-sec 10
+           :memory-mb 1024}
+  :license {:kind :dataset
+            :name "MultiPL-E"
+            :spdx "MIT"
+            :redistributable true}
+  :status :active}
+
+{:id "mbpp-clj-030"
+  :track :function
+  :source :multipl-e/mbpp-clj
+  :lang :clojure
+  :prompt-ref {:kind :multipl-e
+               :config "mbpp-clj"
+               :name "MBPP_61_count_uppercase"}
+  :tests-ref {:kind :multipl-e
+              :config "mbpp-clj"
+              :name "MBPP_61_count_uppercase"}
+  :entrypoint count-uppercase
+  :difficulty :unknown
+  :tags #{:general}
+  :runner {:kind :clojure-test
+           :timeout-sec 10
+           :memory-mb 1024}
+  :license {:kind :dataset
+            :name "MultiPL-E"
+            :spdx "MIT"
+            :redistributable true}
+  :status :active}
+
+{:id "mbpp-clj-031"
+  :track :function
+  :source :multipl-e/mbpp-clj
+  :lang :clojure
+  :prompt-ref {:kind :multipl-e
+               :config "mbpp-clj"
+               :name "MBPP_62_count_lowercase"}
+  :tests-ref {:kind :multipl-e
+              :config "mbpp-clj"
+              :name "MBPP_62_count_lowercase"}
+  :entrypoint count-lowercase
+  :difficulty :unknown
+  :tags #{:general}
+  :runner {:kind :clojure-test
+           :timeout-sec 10
+           :memory-mb 1024}
+  :license {:kind :dataset
+            :name "MultiPL-E"
+            :spdx "MIT"
+            :redistributable true}
+  :status :active}
+
+{:id "mbpp-clj-032"
+  :track :function
+  :source :multipl-e/mbpp-clj
+  :lang :clojure
+  :prompt-ref {:kind :multipl-e
+               :config "mbpp-clj"
+               :name "MBPP_63_factorial"}
+  :tests-ref {:kind :multipl-e
+              :config "mbpp-clj"
+              :name "MBPP_63_factorial"}
+  :entrypoint factorial
+  :difficulty :unknown
+  :tags #{:general}
+  :runner {:kind :clojure-test
+           :timeout-sec 10
+           :memory-mb 1024}
+  :license {:kind :dataset
+            :name "MultiPL-E"
+            :spdx "MIT"
+            :redistributable true}
+  :status :active}
+
+{:id "mbpp-clj-033"
+  :track :function
+  :source :multipl-e/mbpp-clj
+  :lang :clojure
+  :prompt-ref {:kind :multipl-e
+               :config "mbpp-clj"
+               :name "MBPP_64_permutations"}
+  :tests-ref {:kind :multipl-e
+              :config "mbpp-clj"
+              :name "MBPP_64_permutations"}
+  :entrypoint permutations
+  :difficulty :unknown
+  :tags #{:general}
+  :runner {:kind :clojure-test
+           :timeout-sec 10
+           :memory-mb 1024}
+  :license {:kind :dataset
+            :name "MultiPL-E"
+            :spdx "MIT"
+            :redistributable true}
+  :status :active}
+
+{:id "mbpp-clj-034"
+  :track :function
+  :source :multipl-e/mbpp-clj
+  :lang :clojure
+  :prompt-ref {:kind :multipl-e
+               :config "mbpp-clj"
+               :name "MBPP_65_combinations"}
+  :tests-ref {:kind :multipl-e
+              :config "mbpp-clj"
+              :name "MBPP_65_combinations"}
+  :entrypoint combinations
+  :difficulty :unknown
+  :tags #{:general}
+  :runner {:kind :clojure-test
+           :timeout-sec 10
+           :memory-mb 1024}
+  :license {:kind :dataset
+            :name "MultiPL-E"
+            :spdx "MIT"
+            :redistributable true}
+  :status :active}
+
+{:id "mbpp-clj-035"
+  :track :function
+  :source :multipl-e/mbpp-clj
+  :lang :clojure
+  :prompt-ref {:kind :multipl-e
+               :config "mbpp-clj"
+               :name "MBPP_67_is_monotonic"}
+  :tests-ref {:kind :multipl-e
+              :config "mbpp-clj"
+              :name "MBPP_67_is_monotonic"}
+  :entrypoint is-monotonic
+  :difficulty :unknown
+  :tags #{:general}
+  :runner {:kind :clojure-test
+           :timeout-sec 10
+           :memory-mb 1024}
+  :license {:kind :dataset
+            :name "MultiPL-E"
+            :spdx "MIT"
+            :redistributable true}
+  :status :active}
+
+{:id "mbpp-clj-036"
+  :track :function
+  :source :multipl-e/mbpp-clj
+  :lang :clojure
+  :prompt-ref {:kind :multipl-e
+               :config "mbpp-clj"
+               :name "MBPP_68_is_ascending"}
+  :tests-ref {:kind :multipl-e
+              :config "mbpp-clj"
+              :name "MBPP_68_is_ascending"}
+  :entrypoint is-ascending
+  :difficulty :unknown
+  :tags #{:general}
+  :runner {:kind :clojure-test
+           :timeout-sec 10
+           :memory-mb 1024}
+  :license {:kind :dataset
+            :name "MultiPL-E"
+            :spdx "MIT"
+            :redistributable true}
+  :status :active}
+
+{:id "mbpp-clj-037"
+  :track :function
+  :source :multipl-e/mbpp-clj
+  :lang :clojure
+  :prompt-ref {:kind :multipl-e
+               :config "mbpp-clj"
+               :name "MBPP_69_is_descending"}
+  :tests-ref {:kind :multipl-e
+              :config "mbpp-clj"
+              :name "MBPP_69_is_descending"}
+  :entrypoint is-descending
+  :difficulty :unknown
+  :tags #{:general}
+  :runner {:kind :clojure-test
+           :timeout-sec 10
+           :memory-mb 1024}
+  :license {:kind :dataset
+            :name "MultiPL-E"
+            :spdx "MIT"
+            :redistributable true}
+  :status :active}
+
+{:id "mbpp-clj-038"
+  :track :function
+  :source :multipl-e/mbpp-clj
+  :lang :clojure
+  :prompt-ref {:kind :multipl-e
+               :config "mbpp-clj"
+               :name "MBPP_70_positive_numbers"}
+  :tests-ref {:kind :multipl-e
+              :config "mbpp-clj"
+              :name "MBPP_70_positive_numbers"}
+  :entrypoint positive-numbers
+  :difficulty :unknown
+  :tags #{:general}
+  :runner {:kind :clojure-test
+           :timeout-sec 10
+           :memory-mb 1024}
+  :license {:kind :dataset
+            :name "MultiPL-E"
+            :spdx "MIT"
+            :redistributable true}
+  :status :active}
+
+{:id "mbpp-clj-039"
+  :track :function
+  :source :multipl-e/mbpp-clj
+  :lang :clojure
+  :prompt-ref {:kind :multipl-e
+               :config "mbpp-clj"
+               :name "MBPP_71_negative_numbers"}
+  :tests-ref {:kind :multipl-e
+              :config "mbpp-clj"
+              :name "MBPP_71_negative_numbers"}
+  :entrypoint negative-numbers
+  :difficulty :unknown
+  :tags #{:general}
+  :runner {:kind :clojure-test
+           :timeout-sec 10
+           :memory-mb 1024}
+  :license {:kind :dataset
+            :name "MultiPL-E"
+            :spdx "MIT"
+            :redistributable true}
+  :status :active}
+
+{:id "mbpp-clj-040"
+  :track :function
+  :source :multipl-e/mbpp-clj
+  :lang :clojure
+  :prompt-ref {:kind :multipl-e
+               :config "mbpp-clj"
+               :name "MBPP_72_remove_outliers"}
+  :tests-ref {:kind :multipl-e
+              :config "mbpp-clj"
+              :name "MBPP_72_remove_outliers"}
+  :entrypoint remove-outliers
+  :difficulty :unknown
+  :tags #{:general}
+  :runner {:kind :clojure-test
+           :timeout-sec 10
+           :memory-mb 1024}
+  :license {:kind :dataset
+            :name "MultiPL-E"
+            :spdx "MIT"
+            :redistributable true}
+  :status :active}
+
+{:id "mbpp-clj-041"
+  :track :function
+  :source :multipl-e/mbpp-clj
+  :lang :clojure
+  :prompt-ref {:kind :multipl-e
+               :config "mbpp-clj"
+               :name "MBPP_73_count_words"}
+  :tests-ref {:kind :multipl-e
+              :config "mbpp-clj"
+              :name "MBPP_73_count_words"}
+  :entrypoint count-words
+  :difficulty :unknown
+  :tags #{:general}
+  :runner {:kind :clojure-test
+           :timeout-sec 10
+           :memory-mb 1024}
+  :license {:kind :dataset
+            :name "MultiPL-E"
+            :spdx "MIT"
+            :redistributable true}
+  :status :active}
+
+{:id "mbpp-clj-042"
+  :track :function
+  :source :multipl-e/mbpp-clj
+  :lang :clojure
+  :prompt-ref {:kind :multipl-e
+               :config "mbpp-clj"
+               :name "MBPP_74_is_decimal"}
+  :tests-ref {:kind :multipl-e
+              :config "mbpp-clj"
+              :name "MBPP_74_is_decimal"}
+  :entrypoint is-decimal
+  :difficulty :unknown
+  :tags #{:general}
+  :runner {:kind :clojure-test
+           :timeout-sec 10
+           :memory-mb 1024}
+  :license {:kind :dataset
+            :name "MultiPL-E"
+            :spdx "MIT"
+            :redistributable true}
+  :status :active}
+
+{:id "mbpp-clj-043"
+  :track :function
+  :source :multipl-e/mbpp-clj
+  :lang :clojure
+  :prompt-ref {:kind :multipl-e
+               :config "mbpp-clj"
+               :name "MBPP_75_string_length"}
+  :tests-ref {:kind :multipl-e
+              :config "mbpp-clj"
+              :name "MBPP_75_string_length"}
+  :entrypoint string-length
+  :difficulty :unknown
+  :tags #{:general}
+  :runner {:kind :clojure-test
+           :timeout-sec 10
+           :memory-mb 1024}
+  :license {:kind :dataset
+            :name "MultiPL-E"
+            :spdx "MIT"
+            :redistributable true}
+  :status :active}
+
+{:id "mbpp-clj-044"
+  :track :function
+  :source :multipl-e/mbpp-clj
+  :lang :clojure
+  :prompt-ref {:kind :multipl-e
+               :config "mbpp-clj"
+               :name "MBPP_76_remove_duplicates"}
+  :tests-ref {:kind :multipl-e
+              :config "mbpp-clj"
+              :name "MBPP_76_remove_duplicates"}
+  :entrypoint remove-duplicates
+  :difficulty :unknown
+  :tags #{:general}
+  :runner {:kind :clojure-test
+           :timeout-sec 10
+           :memory-mb 1024}
+  :license {:kind :dataset
+            :name "MultiPL-E"
+            :spdx "MIT"
+            :redistributable true}
+  :status :active}
+
+{:id "mbpp-clj-045"
+  :track :function
+  :source :multipl-e/mbpp-clj
+  :lang :clojure
+  :prompt-ref {:kind :multipl-e
+               :config "mbpp-clj"
+               :name "MBPP_77_find_duplicates"}
+  :tests-ref {:kind :multipl-e
+              :config "mbpp-clj"
+              :name "MBPP_77_find_duplicates"}
+  :entrypoint find-duplicates
+  :difficulty :unknown
+  :tags #{:general}
+  :runner {:kind :clojure-test
+           :timeout-sec 10
+           :memory-mb 1024}
+  :license {:kind :dataset
+            :name "MultiPL-E"
+            :spdx "MIT"
+            :redistributable true}
+  :status :active}
+
+{:id "mbpp-clj-046"
+  :track :function
+  :source :multipl-e/mbpp-clj
+  :lang :clojure
+  :prompt-ref {:kind :multipl-e
+               :config "mbpp-clj"
+               :name "MBPP_78_is_sublist"}
+  :tests-ref {:kind :multipl-e
+              :config "mbpp-clj"
+              :name "MBPP_78_is_sublist"}
+  :entrypoint is-sublist
+  :difficulty :unknown
+  :tags #{:general}
+  :runner {:kind :clojure-test
+           :timeout-sec 10
+           :memory-mb 1024}
+  :license {:kind :dataset
+            :name "MultiPL-E"
+            :spdx "MIT"
+            :redistributable true}
+  :status :active}
+
+{:id "mbpp-clj-047"
+  :track :function
+  :source :multipl-e/mbpp-clj
+  :lang :clojure
+  :prompt-ref {:kind :multipl-e
+               :config "mbpp-clj"
+               :name "MBPP_79_is_superlist"}
+  :tests-ref {:kind :multipl-e
+              :config "mbpp-clj"
+              :name "MBPP_79_is_superlist"}
+  :entrypoint is-superlist
+  :difficulty :unknown
+  :tags #{:general}
+  :runner {:kind :clojure-test
+           :timeout-sec 10
+           :memory-mb 1024}
+  :license {:kind :dataset
+            :name "MultiPL-E"
+            :spdx "MIT"
+            :redistributable true}
+  :status :active}
+
+{:id "mbpp-clj-048"
+  :track :function
+  :source :multipl-e/mbpp-clj
+  :lang :clojure
+  :prompt-ref {:kind :multipl-e
+               :config "mbpp-clj"
+               :name "MBPP_80_list_intersection"}
+  :tests-ref {:kind :multipl-e
+              :config "mbpp-clj"
+              :name "MBPP_80_list_intersection"}
+  :entrypoint list-intersection
+  :difficulty :unknown
+  :tags #{:general}
+  :runner {:kind :clojure-test
+           :timeout-sec 10
+           :memory-mb 1024}
+  :license {:kind :dataset
+            :name "MultiPL-E"
+            :spdx "MIT"
+            :redistributable true}
+  :status :active}
+
+{:id "mbpp-clj-049"
+  :track :function
+  :source :multipl-e/mbpp-clj
+  :lang :clojure
+  :prompt-ref {:kind :multipl-e
+               :config "mbpp-clj"
+               :name "MBPP_81_list_difference"}
+  :tests-ref {:kind :multipl-e
+              :config "mbpp-clj"
+              :name "MBPP_81_list_difference"}
+  :entrypoint list-difference
+  :difficulty :unknown
+  :tags #{:general}
+  :runner {:kind :clojure-test
+           :timeout-sec 10
+           :memory-mb 1024}
+  :license {:kind :dataset
+            :name "MultiPL-E"
+            :spdx "MIT"
+            :redistributable true}
+  :status :active}
+
+{:id "mbpp-clj-050"
+  :track :function
+  :source :multipl-e/mbpp-clj
+  :lang :clojure
+  :prompt-ref {:kind :multipl-e
+               :config "mbpp-clj"
+               :name "MBPP_82_max_aggregate"}
+  :tests-ref {:kind :multipl-e
+              :config "mbpp-clj"
+              :name "MBPP_82_max_aggregate"}
+  :entrypoint max-aggregate
+  :difficulty :unknown
+  :tags #{:general}
+  :runner {:kind :clojure-test
+           :timeout-sec 10
+           :memory-mb 1024}
+  :license {:kind :dataset
+            :name "MultiPL-E"
+            :spdx "MIT"
+            :redistributable true}
+  :status :active}
+
+{:id "mbpp-clj-051"
+  :track :function
+  :source :multipl-e/mbpp-clj
+  :lang :clojure
+  :prompt-ref {:kind :multipl-e
+               :config "mbpp-clj"
+               :name "MBPP_83_string_rotation"}
+  :tests-ref {:kind :multipl-e
+              :config "mbpp-clj"
+              :name "MBPP_83_string_rotation"}
+  :entrypoint string-rotation
+  :difficulty :unknown
+  :tags #{:general}
+  :runner {:kind :clojure-test
+           :timeout-sec 10
+           :memory-mb 1024}
+  :license {:kind :dataset
+            :name "MultiPL-E"
+            :spdx "MIT"
+            :redistributable true}
+  :status :active}
+
+{:id "mbpp-clj-052"
+  :track :function
+  :source :multipl-e/mbpp-clj
+  :lang :clojure
+  :prompt-ref {:kind :multipl-e
+               :config "mbpp-clj"
+               :name "MBPP_84_string_compression"}
+  :tests-ref {:kind :multipl-e
+              :config "mbpp-clj"
+              :name "MBPP_84_string_compression"}
+  :entrypoint string-compression
+  :difficulty :unknown
+  :tags #{:general}
+  :runner {:kind :clojure-test
+           :timeout-sec 10
+           :memory-mb 1024}
+  :license {:kind :dataset
+            :name "MultiPL-E"
+            :spdx "MIT"
+            :redistributable true}
+  :status :active}
+
+{:id "mbpp-clj-053"
+  :track :function
+  :source :multipl-e/mbpp-clj
+  :lang :clojure
+  :prompt-ref {:kind :multipl-e
+               :config "mbpp-clj"
+               :name "MBPP_85_list_average"}
+  :tests-ref {:kind :multipl-e
+              :config "mbpp-clj"
+              :name "MBPP_85_list_average"}
+  :entrypoint list-average
+  :difficulty :unknown
+  :tags #{:general}
+  :runner {:kind :clojure-test
+           :timeout-sec 10
+           :memory-mb 1024}
+  :license {:kind :dataset
+            :name "MultiPL-E"
+            :spdx "MIT"
+            :redistributable true}
+  :status :active}
+
+{:id "mbpp-clj-054"
+  :track :function
+  :source :multipl-e/mbpp-clj
+  :lang :clojure
+  :prompt-ref {:kind :multipl-e
+               :config "mbpp-clj"
+               :name "MBPP_86_first_non_repeating"}
+  :tests-ref {:kind :multipl-e
+              :config "mbpp-clj"
+              :name "MBPP_86_first_non_repeating"}
+  :entrypoint first-non-repeating
+  :difficulty :unknown
+  :tags #{:general}
+  :runner {:kind :clojure-test
+           :timeout-sec 10
+           :memory-mb 1024}
+  :license {:kind :dataset
+            :name "MultiPL-E"
+            :spdx "MIT"
+            :redistributable true}
+  :status :active}
+
+{:id "mbpp-clj-055"
+  :track :function
+  :source :multipl-e/mbpp-clj
+  :lang :clojure
+  :prompt-ref {:kind :multipl-e
+               :config "mbpp-clj"
+               :name "MBPP_87_most_frequent"}
+  :tests-ref {:kind :multipl-e
+              :config "mbpp-clj"
+              :name "MBPP_87_most_frequent"}
+  :entrypoint most-frequent
+  :difficulty :unknown
+  :tags #{:general}
+  :runner {:kind :clojure-test
+           :timeout-sec 10
+           :memory-mb 1024}
+  :license {:kind :dataset
+            :name "MultiPL-E"
+            :spdx "MIT"
+            :redistributable true}
+  :status :active}
+
+{:id "mbpp-clj-056"
+  :track :function
+  :source :multipl-e/mbpp-clj
+  :lang :clojure
+  :prompt-ref {:kind :multipl-e
+               :config "mbpp-clj"
+               :name "MBPP_88_list_median"}
+  :tests-ref {:kind :multipl-e
+              :config "mbpp-clj"
+              :name "MBPP_88_list_median"}
+  :entrypoint list-median
+  :difficulty :unknown
+  :tags #{:general}
+  :runner {:kind :clojure-test
+           :timeout-sec 10
+           :memory-mb 1024}
+  :license {:kind :dataset
+            :name "MultiPL-E"
+            :spdx "MIT"
+            :redistributable true}
+  :status :active}
+
+{:id "mbpp-clj-057"
+  :track :function
+  :source :multipl-e/mbpp-clj
+  :lang :clojure
+  :prompt-ref {:kind :multipl-e
+               :config "mbpp-clj"
+               :name "MBPP_89_list_mode"}
+  :tests-ref {:kind :multipl-e
+              :config "mbpp-clj"
+              :name "MBPP_89_list_mode"}
+  :entrypoint list-mode
+  :difficulty :unknown
+  :tags #{:general}
+  :runner {:kind :clojure-test
+           :timeout-sec 10
+           :memory-mb 1024}
+  :license {:kind :dataset
+            :name "MultiPL-E"
+            :spdx "MIT"
+            :redistributable true}
+  :status :active}
+
+{:id "mbpp-clj-058"
+  :track :function
+  :source :multipl-e/mbpp-clj
+  :lang :clojure
+  :prompt-ref {:kind :multipl-e
+               :config "mbpp-clj"
+               :name "MBPP_90_power"}
+  :tests-ref {:kind :multipl-e
+              :config "mbpp-clj"
+              :name "MBPP_90_power"}
+  :entrypoint power
+  :difficulty :unknown
+  :tags #{:general}
+  :runner {:kind :clojure-test
+           :timeout-sec 10
+           :memory-mb 1024}
+  :license {:kind :dataset
+            :name "MultiPL-E"
+            :spdx "MIT"
+            :redistributable true}
+  :status :active}
+
+{:id "mbpp-clj-059"
+  :track :function
+  :source :multipl-e/mbpp-clj
+  :lang :clojure
+  :prompt-ref {:kind :multipl-e
+               :config "mbpp-clj"
+               :name "MBPP_91_square_root"}
+  :tests-ref {:kind :multipl-e
+              :config "mbpp-clj"
+              :name "MBPP_91_square_root"}
+  :entrypoint square-root
+  :difficulty :unknown
+  :tags #{:general}
+  :runner {:kind :clojure-test
+           :timeout-sec 10
+           :memory-mb 1024}
+  :license {:kind :dataset
+            :name "MultiPL-E"
+            :spdx "MIT"
+            :redistributable true}
+  :status :active}
+
+{:id "mbpp-clj-060"
+  :track :function
+  :source :multipl-e/mbpp-clj
+  :lang :clojure
+  :prompt-ref {:kind :multipl-e
+               :config "mbpp-clj"
+               :name "MBPP_92_is_perfect_square"}
+  :tests-ref {:kind :multipl-e
+              :config "mbpp-clj"
+              :name "MBPP_92_is_perfect_square"}
+  :entrypoint is-perfect-square
+  :difficulty :unknown
+  :tags #{:general}
+  :runner {:kind :clojure-test
+           :timeout-sec 10
+           :memory-mb 1024}
+  :license {:kind :dataset
+            :name "MultiPL-E"
+            :spdx "MIT"
+            :redistributable true}
+  :status :active}
+
+{:id "mbpp-clj-061"
+  :track :function
+  :source :multipl-e/mbpp-clj
+  :lang :clojure
+  :prompt-ref {:kind :multipl-e
+               :config "mbpp-clj"
+               :name "MBPP_93_is_armstrong"}
+  :tests-ref {:kind :multipl-e
+              :config "mbpp-clj"
+              :name "MBPP_93_is_armstrong"}
+  :entrypoint is-armstrong
+  :difficulty :unknown
+  :tags #{:general}
+  :runner {:kind :clojure-test
+           :timeout-sec 10
+           :memory-mb 1024}
+  :license {:kind :dataset
+            :name "MultiPL-E"
+            :spdx "MIT"
+            :redistributable true}
+  :status :active}
+
+{:id "mbpp-clj-062"
+  :track :function
+  :source :multipl-e/mbpp-clj
+  :lang :clojure
+  :prompt-ref {:kind :multipl-e
+               :config "mbpp-clj"
+               :name "MBPP_94_is_pangram"}
+  :tests-ref {:kind :multipl-e
+              :config "mbpp-clj"
+              :name "MBPP_94_is_pangram"}
+  :entrypoint is-pangram
+  :difficulty :unknown
+  :tags #{:general}
+  :runner {:kind :clojure-test
+           :timeout-sec 10
+           :memory-mb 1024}
+  :license {:kind :dataset
+            :name "MultiPL-E"
+            :spdx "MIT"
+            :redistributable true}
+  :status :active}
+
+{:id "mbpp-clj-063"
+  :track :function
+  :source :multipl-e/mbpp-clj
+  :lang :clojure
+  :prompt-ref {:kind :multipl-e
+               :config "mbpp-clj"
+               :name "MBPP_95_is_anagram"}
+  :tests-ref {:kind :multipl-e
+              :config "mbpp-clj"
+              :name "MBPP_95_is_anagram"}
+  :entrypoint is-anagram
+  :difficulty :unknown
+  :tags #{:general}
+  :runner {:kind :clojure-test
+           :timeout-sec 10
+           :memory-mb 1024}
+  :license {:kind :dataset
+            :name "MultiPL-E"
+            :spdx "MIT"
+            :redistributable true}
+  :status :active}
+
+{:id "mbpp-clj-064"
+  :track :function
+  :source :multipl-e/mbpp-clj
+  :lang :clojure
+  :prompt-ref {:kind :multipl-e
+               :config "mbpp-clj"
+               :name "MBPP_96_binary_search"}
+  :tests-ref {:kind :multipl-e
+              :config "mbpp-clj"
+              :name "MBPP_96_binary_search"}
+  :entrypoint binary-search
+  :difficulty :unknown
+  :tags #{:general}
+  :runner {:kind :clojure-test
+           :timeout-sec 10
+           :memory-mb 1024}
+  :license {:kind :dataset
+            :name "MultiPL-E"
+            :spdx "MIT"
+            :redistributable true}
+  :status :active}
+
+{:id "mbpp-clj-065"
+  :track :function
+  :source :multipl-e/mbpp-clj
+  :lang :clojure
+  :prompt-ref {:kind :multipl-e
+               :config "mbpp-clj"
+               :name "MBPP_97_insertion_sort"}
+  :tests-ref {:kind :multipl-e
+              :config "mbpp-clj"
+              :name "MBPP_97_insertion_sort"}
+  :entrypoint insertion-sort
+  :difficulty :unknown
+  :tags #{:general}
+  :runner {:kind :clojure-test
+           :timeout-sec 10
+           :memory-mb 1024}
+  :license {:kind :dataset
+            :name "MultiPL-E"
+            :spdx "MIT"
+            :redistributable true}
+  :status :active}
+
+{:id "mbpp-clj-066"
+  :track :function
+  :source :multipl-e/mbpp-clj
+  :lang :clojure
+  :prompt-ref {:kind :multipl-e
+               :config "mbpp-clj"
+               :name "MBPP_98_bubble_sort"}
+  :tests-ref {:kind :multipl-e
+              :config "mbpp-clj"
+              :name "MBPP_98_bubble_sort"}
+  :entrypoint bubble-sort
+  :difficulty :unknown
+  :tags #{:general}
+  :runner {:kind :clojure-test
+           :timeout-sec 10
+           :memory-mb 1024}
+  :license {:kind :dataset
+            :name "MultiPL-E"
+            :spdx "MIT"
+            :redistributable true}
+  :status :active}
+
+{:id "mbpp-clj-067"
+  :track :function
+  :source :multipl-e/mbpp-clj
+  :lang :clojure
+  :prompt-ref {:kind :multipl-e
+               :config "mbpp-clj"
+               :name "MBPP_99_selection_sort"}
+  :tests-ref {:kind :multipl-e
+              :config "mbpp-clj"
+              :name "MBPP_99_selection_sort"}
+  :entrypoint selection-sort
+  :difficulty :unknown
+  :tags #{:general}
+  :runner {:kind :clojure-test
+           :timeout-sec 10
+           :memory-mb 1024}
+  :license {:kind :dataset
+            :name "MultiPL-E"
+            :spdx "MIT"
+            :redistributable true}
+  :status :active}
+
+{:id "mbpp-clj-068"
+  :track :function
+  :source :multipl-e/mbpp-clj
+  :lang :clojure
+  :prompt-ref {:kind :multipl-e
+               :config "mbpp-clj"
+               :name "MBPP_100_merge_sort"}
+  :tests-ref {:kind :multipl-e
+              :config "mbpp-clj"
+              :name "MBPP_100_merge_sort"}
+  :entrypoint merge-sort
+  :difficulty :unknown
+  :tags #{:general}
+  :runner {:kind :clojure-test
+           :timeout-sec 10
+           :memory-mb 1024}
+  :license {:kind :dataset
+            :name "MultiPL-E"
+            :spdx "MIT"
+            :redistributable true}
+  :status :active}
+
+{:id "mbpp-clj-069"
+  :track :function
+  :source :multipl-e/mbpp-clj
+  :lang :clojure
+  :prompt-ref {:kind :multipl-e
+               :config "mbpp-clj"
+               :name "MBPP_101_quick_sort"}
+  :tests-ref {:kind :multipl-e
+              :config "mbpp-clj"
+              :name "MBPP_101_quick_sort"}
+  :entrypoint quick-sort
+  :difficulty :unknown
+  :tags #{:general}
+  :runner {:kind :clojure-test
+           :timeout-sec 10
+           :memory-mb 1024}
+  :license {:kind :dataset
+            :name "MultiPL-E"
+            :spdx "MIT"
+            :redistributable true}
+  :status :active}
+
+{:id "mbpp-clj-070"
+  :track :function
+  :source :multipl-e/mbpp-clj
+  :lang :clojure
+  :prompt-ref {:kind :multipl-e
+               :config "mbpp-clj"
+               :name "MBPP_102_heap_sort"}
+  :tests-ref {:kind :multipl-e
+              :config "mbpp-clj"
+              :name "MBPP_102_heap_sort"}
+  :entrypoint heap-sort
+  :difficulty :unknown
+  :tags #{:general}
+  :runner {:kind :clojure-test
+           :timeout-sec 10
+           :memory-mb 1024}
+  :license {:kind :dataset
+            :name "MultiPL-E"
+            :spdx "MIT"
+            :redistributable true}
+  :status :active}
+
+{:id "mbpp-clj-071"
+  :track :function
+  :source :multipl-e/mbpp-clj
+  :lang :clojure
+  :prompt-ref {:kind :multipl-e
+               :config "mbpp-clj"
+               :name "MBPP_103_count_vowels"}
+  :tests-ref {:kind :multipl-e
+              :config "mbpp-clj"
+              :name "MBPP_103_count_vowels"}
+  :entrypoint count-vowels
+  :difficulty :unknown
+  :tags #{:general}
+  :runner {:kind :clojure-test
+           :timeout-sec 10
+           :memory-mb 1024}
+  :license {:kind :dataset
+            :name "MultiPL-E"
+            :spdx "MIT"
+            :redistributable true}
+  :status :active}
+
+{:id "mbpp-clj-072"
+  :track :function
+  :source :multipl-e/mbpp-clj
+  :lang :clojure
+  :prompt-ref {:kind :multipl-e
+               :config "mbpp-clj"
+               :name "MBPP_104_count_consonants"}
+  :tests-ref {:kind :multipl-e
+              :config "mbpp-clj"
+              :name "MBPP_104_count_consonants"}
+  :entrypoint count-consonants
+  :difficulty :unknown
+  :tags #{:general}
+  :runner {:kind :clojure-test
+           :timeout-sec 10
+           :memory-mb 1024}
+  :license {:kind :dataset
+            :name "MultiPL-E"
+            :spdx "MIT"
+            :redistributable true}
+  :status :active}
+
+{:id "mbpp-clj-073"
+  :track :function
+  :source :multipl-e/mbpp-clj
+  :lang :clojure
+  :prompt-ref {:kind :multipl-e
+               :config "mbpp-clj"
+               :name "MBPP_105_is_leap_year"}
+  :tests-ref {:kind :multipl-e
+              :config "mbpp-clj"
+              :name "MBPP_105_is_leap_year"}
+  :entrypoint is-leap-year
+  :difficulty :unknown
+  :tags #{:general}
+  :runner {:kind :clojure-test
+           :timeout-sec 10
+           :memory-mb 1024}
+  :license {:kind :dataset
+            :name "MultiPL-E"
+            :spdx "MIT"
+            :redistributable true}
+  :status :active}
+
+{:id "mbpp-clj-074"
+  :track :function
+  :source :multipl-e/mbpp-clj
+  :lang :clojure
+  :prompt-ref {:kind :multipl-e
+               :config "mbpp-clj"
+               :name "MBPP_106_days_in_month"}
+  :tests-ref {:kind :multipl-e
+              :config "mbpp-clj"
+              :name "MBPP_106_days_in_month"}
+  :entrypoint days-in-month
+  :difficulty :unknown
+  :tags #{:general}
+  :runner {:kind :clojure-test
+           :timeout-sec 10
+           :memory-mb 1024}
+  :license {:kind :dataset
+            :name "MultiPL-E"
+            :spdx "MIT"
+            :redistributable true}
+  :status :active}
+
+{:id "mbpp-clj-075"
+  :track :function
+  :source :multipl-e/mbpp-clj
+  :lang :clojure
+  :prompt-ref {:kind :multipl-e
+               :config "mbpp-clj"
+               :name "MBPP_107_is_valid_date"}
+  :tests-ref {:kind :multipl-e
+              :config "mbpp-clj"
+              :name "MBPP_107_is_valid_date"}
+  :entrypoint is-valid-date
+  :difficulty :unknown
+  :tags #{:general}
+  :runner {:kind :clojure-test
+           :timeout-sec 10
+           :memory-mb 1024}
+  :license {:kind :dataset
+            :name "MultiPL-E"
+            :spdx "MIT"
+            :redistributable true}
+  :status :active}
+
+{:id "mbpp-clj-076"
+  :track :function
+  :source :multipl-e/mbpp-clj
+  :lang :clojure
+  :prompt-ref {:kind :multipl-e
+               :config "mbpp-clj"
+               :name "MBPP_108_string_to_int"}
+  :tests-ref {:kind :multipl-e
+              :config "mbpp-clj"
+              :name "MBPP_108_string_to_int"}
+  :entrypoint string-to-int
+  :difficulty :unknown
+  :tags #{:general}
+  :runner {:kind :clojure-test
+           :timeout-sec 10
+           :memory-mb 1024}
+  :license {:kind :dataset
+            :name "MultiPL-E"
+            :spdx "MIT"
+            :redistributable true}
+  :status :active}
+
+{:id "mbpp-clj-077"
+  :track :function
+  :source :multipl-e/mbpp-clj
+  :lang :clojure
+  :prompt-ref {:kind :multipl-e
+               :config "mbpp-clj"
+               :name "MBPP_109_int_to_roman"}
+  :tests-ref {:kind :multipl-e
+              :config "mbpp-clj"
+              :name "MBPP_109_int_to_roman"}
+  :entrypoint int-to-roman
+  :difficulty :unknown
+  :tags #{:general}
+  :runner {:kind :clojure-test
+           :timeout-sec 10
+           :memory-mb 1024}
+  :license {:kind :dataset
+            :name "MultiPL-E"
+            :spdx "MIT"
+            :redistributable true}
+  :status :active}
+
+{:id "mbpp-clj-078"
+  :track :function
+  :source :multipl-e/mbpp-clj
+  :lang :clojure
+  :prompt-ref {:kind :multipl-e
+               :config "mbpp-clj"
+               :name "MBPP_110_roman_to_int"}
+  :tests-ref {:kind :multipl-e
+              :config "mbpp-clj"
+              :name "MBPP_110_roman_to_int"}
+  :entrypoint roman-to-int
+  :difficulty :unknown
+  :tags #{:general}
+  :runner {:kind :clojure-test
+           :timeout-sec 10
+           :memory-mb 1024}
+  :license {:kind :dataset
+            :name "MultiPL-E"
+            :spdx "MIT"
+            :redistributable true}
+  :status :active}
+
+{:id "mbpp-clj-079"
+  :track :function
+  :source :multipl-e/mbpp-clj
+  :lang :clojure
+  :prompt-ref {:kind :multipl-e
+               :config "mbpp-clj"
+               :name "MBPP_111_hex_to_decimal"}
+  :tests-ref {:kind :multipl-e
+              :config "mbpp-clj"
+              :name "MBPP_111_hex_to_decimal"}
+  :entrypoint hex-to-decimal
+  :difficulty :unknown
+  :tags #{:general}
+  :runner {:kind :clojure-test
+           :timeout-sec 10
+           :memory-mb 1024}
+  :license {:kind :dataset
+            :name "MultiPL-E"
+            :spdx "MIT"
+            :redistributable true}
+  :status :active}
+
+{:id "mbpp-clj-080"
+  :track :function
+  :source :multipl-e/mbpp-clj
+  :lang :clojure
+  :prompt-ref {:kind :multipl-e
+               :config "mbpp-clj"
+               :name "MBPP_112_decimal_to_hex"}
+  :tests-ref {:kind :multipl-e
+              :config "mbpp-clj"
+              :name "MBPP_112_decimal_to_hex"}
+  :entrypoint decimal-to-hex
+  :difficulty :unknown
+  :tags #{:general}
+  :runner {:kind :clojure-test
+           :timeout-sec 10
+           :memory-mb 1024}
+  :license {:kind :dataset
+            :name "MultiPL-E"
+            :spdx "MIT"
+            :redistributable true}
+  :status :active}
+
+{:id "mbpp-clj-081"
+  :track :function
+  :source :multipl-e/mbpp-clj
+  :lang :clojure
+  :prompt-ref {:kind :multipl-e
+               :config "mbpp-clj"
+               :name "MBPP_113_is_valid_email"}
+  :tests-ref {:kind :multipl-e
+              :config "mbpp-clj"
+              :name "MBPP_113_is_valid_email"}
+  :entrypoint is-valid-email
+  :difficulty :unknown
+  :tags #{:general}
+  :runner {:kind :clojure-test
+           :timeout-sec 10
+           :memory-mb 1024}
+  :license {:kind :dataset
+            :name "MultiPL-E"
+            :spdx "MIT"
+            :redistributable true}
+  :status :active}
+
+{:id "mbpp-clj-082"
+  :track :function
+  :source :multipl-e/mbpp-clj
+  :lang :clojure
+  :prompt-ref {:kind :multipl-e
+               :config "mbpp-clj"
+               :name "MBPP_114_is_valid_url"}
+  :tests-ref {:kind :multipl-e
+              :config "mbpp-clj"
+              :name "MBPP_114_is_valid_url"}
+  :entrypoint is-valid-url
+  :difficulty :unknown
+  :tags #{:general}
+  :runner {:kind :clojure-test
+           :timeout-sec 10
+           :memory-mb 1024}
+  :license {:kind :dataset
+            :name "MultiPL-E"
+            :spdx "MIT"
+            :redistributable true}
+  :status :active}
+
+{:id "mbpp-clj-083"
+  :track :function
+  :source :multipl-e/mbpp-clj
+  :lang :clojure
+  :prompt-ref {:kind :multipl-e
+               :config "mbpp-clj"
+               :name "MBPP_115_is_valid_ip"}
+  :tests-ref {:kind :multipl-e
+              :config "mbpp-clj"
+              :name "MBPP_115_is_valid_ip"}
+  :entrypoint is-valid-ip
+  :difficulty :unknown
+  :tags #{:general}
+  :runner {:kind :clojure-test
+           :timeout-sec 10
+           :memory-mb 1024}
+  :license {:kind :dataset
+            :name "MultiPL-E"
+            :spdx "MIT"
+            :redistributable true}
+  :status :active}
+
+{:id "mbpp-clj-084"
+  :track :function
+  :source :multipl-e/mbpp-clj
+  :lang :clojure
+  :prompt-ref {:kind :multipl-e
+               :config "mbpp-clj"
+               :name "MBPP_116_reverse_words"}
+  :tests-ref {:kind :multipl-e
+              :config "mbpp-clj"
+              :name "MBPP_116_reverse_words"}
+  :entrypoint reverse-words
+  :difficulty :unknown
+  :tags #{:general}
+  :runner {:kind :clojure-test
+           :timeout-sec 10
+           :memory-mb 1024}
+  :license {:kind :dataset
+            :name "MultiPL-E"
+            :spdx "MIT"
+            :redistributable true}
+  :status :active}
+
+{:id "mbpp-clj-085"
+  :track :function
+  :source :multipl-e/mbpp-clj
+  :lang :clojure
+  :prompt-ref {:kind :multipl-e
+               :config "mbpp-clj"
+               :name "MBPP_117_title_case"}
+  :tests-ref {:kind :multipl-e
+              :config "mbpp-clj"
+              :name "MBPP_117_title_case"}
+  :entrypoint title-case
+  :difficulty :unknown
+  :tags #{:general}
+  :runner {:kind :clojure-test
+           :timeout-sec 10
+           :memory-mb 1024}
+  :license {:kind :dataset
+            :name "MultiPL-E"
+            :spdx "MIT"
+            :redistributable true}
+  :status :active}
+
+{:id "mbpp-clj-086"
+  :track :function
+  :source :multipl-e/mbpp-clj
+  :lang :clojure
+  :prompt-ref {:kind :multipl-e
+               :config "mbpp-clj"
+               :name "MBPP_118_camelize"}
+  :tests-ref {:kind :multipl-e
+              :config "mbpp-clj"
+              :name "MBPP_118_camelize"}
+  :entrypoint camelize
+  :difficulty :unknown
+  :tags #{:general}
+  :runner {:kind :clojure-test
+           :timeout-sec 10
+           :memory-mb 1024}
+  :license {:kind :dataset
+            :name "MultiPL-E"
+            :spdx "MIT"
+            :redistributable true}
+  :status :active}
+
+{:id "mbpp-clj-087"
+  :track :function
+  :source :multipl-e/mbpp-clj
+  :lang :clojure
+  :prompt-ref {:kind :multipl-e
+               :config "mbpp-clj"
+               :name "MBPP_119_snake_case"}
+  :tests-ref {:kind :multipl-e
+              :config "mbpp-clj"
+              :name "MBPP_119_snake_case"}
+  :entrypoint snake-case
+  :difficulty :unknown
+  :tags #{:general}
+  :runner {:kind :clojure-test
+           :timeout-sec 10
+           :memory-mb 1024}
+  :license {:kind :dataset
+            :name "MultiPL-E"
+            :spdx "MIT"
+            :redistributable true}
+  :status :active}
+
+{:id "mbpp-clj-088"
+  :track :function
+  :source :multipl-e/mbpp-clj
+  :lang :clojure
+  :prompt-ref {:kind :multipl-e
+               :config "mbpp-clj"
+               :name "MBPP_120_kebab_case"}
+  :tests-ref {:kind :multipl-e
+              :config "mbpp-clj"
+              :name "MBPP_120_kebab_case"}
+  :entrypoint kebab-case
+  :difficulty :unknown
+  :tags #{:general}
+  :runner {:kind :clojure-test
+           :timeout-sec 10
+           :memory-mb 1024}
+  :license {:kind :dataset
+            :name "MultiPL-E"
+            :spdx "MIT"
+            :redistributable true}
+  :status :active}
+
+{:id "mbpp-clj-089"
+  :track :function
+  :source :multipl-e/mbpp-clj
+  :lang :clojure
+  :prompt-ref {:kind :multipl-e
+               :config "mbpp-clj"
+               :name "MBPP_121_count_occurrences"}
+  :tests-ref {:kind :multipl-e
+              :config "mbpp-clj"
+              :name "MBPP_121_count_occurrences"}
+  :entrypoint count-occurrences
+  :difficulty :unknown
+  :tags #{:general}
+  :runner {:kind :clojure-test
+           :timeout-sec 10
+           :memory-mb 1024}
+  :license {:kind :dataset
+            :name "MultiPL-E"
+            :spdx "MIT"
+            :redistributable true}
+  :status :active}
+
+{:id "mbpp-clj-090"
+  :track :function
+  :source :multipl-e/mbpp-clj
+  :lang :clojure
+  :prompt-ref {:kind :multipl-e
+               :config "mbpp-clj"
+               :name "MBPP_122_remove_whitespace"}
+  :tests-ref {:kind :multipl-e
+              :config "mbpp-clj"
+              :name "MBPP_122_remove_whitespace"}
+  :entrypoint remove-whitespace
+  :difficulty :unknown
+  :tags #{:general}
+  :runner {:kind :clojure-test
+           :timeout-sec 10
+           :memory-mb 1024}
+  :license {:kind :dataset
+            :name "MultiPL-E"
+            :spdx "MIT"
+            :redistributable true}
+  :status :active}
+
+{:id "mbpp-clj-091"
+  :track :function
+  :source :multipl-e/mbpp-clj
+  :lang :clojure
+  :prompt-ref {:kind :multipl-e
+               :config "mbpp-clj"
+               :name "MBPP_123_is_numeric"}
+  :tests-ref {:kind :multipl-e
+              :config "mbpp-clj"
+              :name "MBPP_123_is_numeric"}
+  :entrypoint is-numeric
+  :difficulty :unknown
+  :tags #{:general}
+  :runner {:kind :clojure-test
+           :timeout-sec 10
+           :memory-mb 1024}
+  :license {:kind :dataset
+            :name "MultiPL-E"
+            :spdx "MIT"
+            :redistributable true}
+  :status :active}
+
+{:id "mbpp-clj-092"
+  :track :function
+  :source :multipl-e/mbpp-clj
+  :lang :clojure
+  :prompt-ref {:kind :multipl-e
+               :config "mbpp-clj"
+               :name "MBPP_124_is_alpha"}
+  :tests-ref {:kind :multipl-e
+              :config "mbpp-clj"
+              :name "MBPP_124_is_alpha"}
+  :entrypoint is-alpha
+  :difficulty :unknown
+  :tags #{:general}
+  :runner {:kind :clojure-test
+           :timeout-sec 10
+           :memory-mb 1024}
+  :license {:kind :dataset
+            :name "MultiPL-E"
+            :spdx "MIT"
+            :redistributable true}
+  :status :active}
+
+{:id "mbpp-clj-093"
+  :track :function
+  :source :multipl-e/mbpp-clj
+  :lang :clojure
+  :prompt-ref {:kind :multipl-e
+               :config "mbpp-clj"
+               :name "MBPP_125_is_alphanumeric"}
+  :tests-ref {:kind :multipl-e
+              :config "mbpp-clj"
+              :name "MBPP_125_is_alphanumeric"}
+  :entrypoint is-alphanumeric
+  :difficulty :unknown
+  :tags #{:general}
+  :runner {:kind :clojure-test
+           :timeout-sec 10
+           :memory-mb 1024}
+  :license {:kind :dataset
+            :name "MultiPL-E"
+            :spdx "MIT"
+            :redistributable true}
+  :status :active}
+
+{:id "mbpp-clj-094"
+  :track :function
+  :source :multipl-e/mbpp-clj
+  :lang :clojure
+  :prompt-ref {:kind :multipl-e
+               :config "mbpp-clj"
+               :name "MBPP_126_is_uppercase"}
+  :tests-ref {:kind :multipl-e
+              :config "mbpp-clj"
+              :name "MBPP_126_is_uppercase"}
+  :entrypoint is-uppercase
+  :difficulty :unknown
+  :tags #{:general}
+  :runner {:kind :clojure-test
+           :timeout-sec 10
+           :memory-mb 1024}
+  :license {:kind :dataset
+            :name "MultiPL-E"
+            :spdx "MIT"
+            :redistributable true}
+  :status :active}
+
+{:id "mbpp-clj-095"
+  :track :function
+  :source :multipl-e/mbpp-clj
+  :lang :clojure
+  :prompt-ref {:kind :multipl-e
+               :config "mbpp-clj"
+               :name "MBPP_127_is_lowercase"}
+  :tests-ref {:kind :multipl-e
+              :config "mbpp-clj"
+              :name "MBPP_127_is_lowercase"}
+  :entrypoint is-lowercase
+  :difficulty :unknown
+  :tags #{:general}
+  :runner {:kind :clojure-test
+           :timeout-sec 10
+           :memory-mb 1024}
+  :license {:kind :dataset
+            :name "MultiPL-E"
+            :spdx "MIT"
+            :redistributable true}
+  :status :active}
+
+{:id "mbpp-clj-096"
+  :track :function
+  :source :multipl-e/mbpp-clj
+  :lang :clojure
+  :prompt-ref {:kind :multipl-e
+               :config "mbpp-clj"
+               :name "MBPP_128_titleize"}
+  :tests-ref {:kind :multipl-e
+              :config "mbpp-clj"
+              :name "MBPP_128_titleize"}
+  :entrypoint titleize
+  :difficulty :unknown
+  :tags #{:general}
+  :runner {:kind :clojure-test
+           :timeout-sec 10
+           :memory-mb 1024}
+  :license {:kind :dataset
+            :name "MultiPL-E"
+            :spdx "MIT"
+            :redistributable true}
+  :status :active}
+
+{:id "mbpp-clj-097"
+  :track :function
+  :source :multipl-e/mbpp-clj
+  :lang :clojure
+  :prompt-ref {:kind :multipl-e
+               :config "mbpp-clj"
+               :name "MBPP_129_underscore_to_camel"}
+  :tests-ref {:kind :multipl-e
+              :config "mbpp-clj"
+              :name "MBPP_129_underscore_to_camel"}
+  :entrypoint underscore-to-camel
+  :difficulty :unknown
+  :tags #{:general}
+  :runner {:kind :clojure-test
+           :timeout-sec 10
+           :memory-mb 1024}
+  :license {:kind :dataset
+            :name "MultiPL-E"
+            :spdx "MIT"
+            :redistributable true}
+  :status :active}
+]

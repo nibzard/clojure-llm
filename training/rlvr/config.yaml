@@ -1,0 +1,63 @@
+# RLVR Training Configuration
+# Reinforcement Learning from Verifier Rewards with Pi as the environment
+
+# Model
+model: Qwen3-8B-Base
+sft_checkpoint: checkpoints/sft/final  # Load from SFT checkpoint
+
+# Pi Configuration
+pi:
+  rpc_url: http://localhost:8080  # Pi RPC server endpoint
+  timeout_sec: 30  # Timeout for each tool call
+  max_retries: 3
+
+# Environment
+env:
+  type: clojure-pi  # Use ClojurePiEnv
+  max_steps: 10  # Maximum attempts per task
+  timeout_sec: 60  # Per-task timeout
+
+# Rollout Configuration
+rollouts:
+  rollouts_per_task: 8  # Number of samples per task (GRPO group size)
+  num_iterations: 10  # Total RLVR iterations
+  tasks_per_batch: 4  # Number of tasks to process in parallel
+
+# Training
+training:
+  learning_rate: 1.0e-5
+  batch_size: 8
+  max_seq_length: 2048
+
+  # GRPO-specific
+  kl_penalty_coeff: 0.1
+  clip_range: 0.2
+
+# Reward Shaping
+rewards:
+  # Weight for each reward component (must sum to 1.0)
+  eval: 0.1       # Code evaluates without exception
+  kondo: 0.2      # Passes clj-kondo linting
+  namespace: 0.1  # Namespace loads successfully
+  tests: 0.6      # All tests pass
+
+  # Bonus/penalty
+  syntax_error_penalty: -1.0
+  timeout_penalty: -0.5
+
+# Checkpointing
+checkpointing:
+  save_steps: 50
+  output_dir: checkpoints/rlvr
+
+# Logging
+logging:
+  log_steps: 5
+  wandb_project: clojure-llm
+  run_name: rlvr
+
+# Data
+data:
+  benchmark_tasks: benchmark/tasks-v0.edn
+  # Filter for tasks that can use RLVR (have executable tests)
+  filter_rlzv_ready: true

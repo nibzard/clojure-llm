@@ -1,7 +1,19 @@
 (ns learn.benchmark
+  "CLI for clj-bench benchmark management.
+
+   Subcommands:
+   - check:     Validate task inventory
+   - list:      List all tasks
+   - stats:     Print task inventory summary
+   - plan-run:  Generate a run manifest
+   - evaluate:  Evaluate a run manifest (delegates to learn.evaluate)
+   - aggregate: Compare multiple runs (delegates to learn.aggregate)
+   - run-baseline: Generate run manifests for baseline conditions A, B, C"
   (:require [clojure.edn :as edn]
             [clojure.pprint :as pprint]
-            [clojure.string :as str]))
+            [clojure.string :as str]
+            [learn.evaluate :as evaluate]
+            [learn.aggregate :as aggregate]))
 
 (def benchmark-version :clj-bench/v0)
 (def tasks-file "benchmark/tasks-v0.edn")
@@ -93,7 +105,10 @@
   (println "  clojure -M:bench check")
   (println "  clojure -M:bench list")
   (println "  clojure -M:bench stats")
-  (println "  clojure -M:bench plan-run <run-id> <model-id> <policy-kind>"))
+  (println "  clojure -M:bench plan-run <run-id> <model-id> <policy-kind>")
+  (println "  clojure -M:bench evaluate <run-manifest.edn>")
+  (println "  clojure -M:bench aggregate <run-id>...")
+  (println "  clojure -M:bench run-baseline"))
 
 (defn load-tasks []
   (slurp-edn tasks-file))
@@ -158,6 +173,51 @@
     (spit path (with-out-str (pprint/pprint plan)))
     (println "Wrote" path)))
 
+(defn cmd-evaluate [run-manifest]
+  "Delegate to learn.evaluate/evaluate-run."
+  (evaluate/evaluate-run run-manifest))
+
+(defn cmd-aggregate [more]
+  "Delegate to learn.aggregate/compare-runs."
+  (apply aggregate/compare-runs more))
+
+(defn cmd-run-baseline []
+  "Generate run manifests for baseline conditions A, B, C.
+
+   Condition A: Opus via API, direct generation, no tools
+   Condition B: GPT-5.4 via API, direct generation, no tools
+   Condition C: Qwen3-8B-Base, direct generation, no tools"
+  (let [tasks (load-tasks)
+        base-date (-> (java.time.Instant/now)
+                      (.toString)
+                      (str/split #"T")
+                      first)]
+    ;; Condition A: Opus via API
+    (let [run-id (str base-date "-condition-a-opus-direct")
+          plan (run-plan run-id "claude-opus-4.6" :direct tasks)
+          path (format "%s/%s.edn" runs-dir run-id)]
+      (ensure-dir! runs-dir)
+      (spit path (with-out-str (pprint/pprint plan)))
+      (println "Wrote Condition A (Opus):" path))
+
+    ;; Condition B: GPT-5.4 via API
+    (let [run-id (str base-date "-condition-b-gpt54-direct")
+          plan (run-plan run-id "gpt-5.4" :direct tasks)
+          path (format "%s/%s.edn" runs-dir run-id)]
+      (spit path (with-out-str (pprint/pprint plan)))
+      (println "Wrote Condition B (GPT-5.4):" path))
+
+    ;; Condition C: Qwen3-8B-Base, direct generation
+    (let [run-id (str base-date "-condition-c-qwen38b-base-direct")
+          plan (run-plan run-id "Qwen/Qwen3-8B-Base" :direct tasks)
+          path (format "%s/%s.edn" runs-dir run-id)]
+      (spit path (with-out-str (pprint/pprint plan)))
+      (println "Wrote Condition C (Qwen3-8B-Base):" path)))
+
+  (println)
+  (println "Baseline run manifests generated.")
+  (println "Condition D (Qwen3-8B + SFT + RLVR with tools) requires manual configuration."))
+
 (defn -main [& args]
   (let [[cmd & more] args]
     (case cmd
@@ -165,6 +225,9 @@
       "list" (cmd-list)
       "stats" (cmd-stats)
       "plan-run" (cmd-plan-run more)
+      "evaluate" (cmd-evaluate (first more))
+      "aggregate" (cmd-aggregate more)
+      "run-baseline" (cmd-run-baseline)
       (do
         (print-usage)
         (System/exit 1)))))
