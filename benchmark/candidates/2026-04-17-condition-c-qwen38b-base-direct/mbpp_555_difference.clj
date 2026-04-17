@@ -1,0 +1,5 @@
+(defn difference
+  "	Write a cljthon function to find the difference between the sum of cubes of the first n natural numbers and the sum of the first n natural numbers."
+  [n]
+  
+  nil)

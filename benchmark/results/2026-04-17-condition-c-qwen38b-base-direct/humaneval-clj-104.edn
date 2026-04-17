@@ -1,0 +1,9 @@
+{:task-id "humaneval-clj-104",
+ :error-kind :compile-error,
+ :outcome :fail,
+ :syntax-ok true,
+ :tests-ok false,
+ :notes "Skipped due to previous failures",
+ :wall-ms 7,
+ :kondo-ok false,
+ :tokens 0}

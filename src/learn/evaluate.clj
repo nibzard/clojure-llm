@@ -16,6 +16,7 @@
             [clojure.string :as str]
             [clojure.test :as test])
   (:import [java.io File PushbackReader]
+           [java.lang ProcessBuilder]
            [java.time Instant]))
 
 ;; Directory paths
@@ -47,7 +48,7 @@
   "Execute a shell command and return stdout as string."
   [& args]
   (try
-    (let [pb (apply ProcessBuilder. (map str args))
+    (let [pb (ProcessBuilder. (into-array String (map str args)))
           _ (.redirectErrorStream pb true)
           proc (.start pb)
           out (slurp (.getInputStream proc))
@@ -116,9 +117,18 @@
 
 ;; Task evaluation
 
-(defn candidate-file-for-task [run-id task-id]
+(defn name-from-prompt-ref [prompt-ref]
+  "Extract the MultiPL-E task name from prompt-ref."
+  (if (= :file (:kind prompt-ref))
+    (let [path (:path prompt-ref "")
+          fname (.getName (io/file path))]
+      (str/replace fname #"\.clj$" ""))
+    (:name prompt-ref)))
+
+(defn candidate-file-for-task [run-id task]
   "Returns the path to the candidate code file for a task."
-  (io/file candidates-dir run-id (str task-id ".clj")))
+  (let [multipl-name (name-from-prompt-ref (:prompt-ref task))]
+    (io/file candidates-dir run-id (str multipl-name ".clj"))))
 
 (defn test-file-for-task [tests-ref]
   "Returns the path to the test file based on tests-ref."
@@ -126,14 +136,14 @@
     :file (io/file (:path tests-ref))
     ;; For MultiPL-E, we'd need to implement loading from that format
     ;; For now, assume file-based tests
-    (io/file "benchmark/tests" (str (:name tests-ref) "_test.clj")))
+    (io/file "benchmark/tests" (str (:name tests-ref) "_test.clj"))))
 
 (defn evaluate-task
   "Evaluate a single task and return a result map."
   [run manifest task]
   (let [task-id (:id task)
         run-id (:run-id manifest)
-        candidate-file (candidate-file-for-task run-id task-id)
+        candidate-file (candidate-file-for-task run-id task)
         test-file (test-file-for-task (:tests-ref task))
         timeout-sec (get-in task [:runner :timeout-sec] 10)
         start-time (System/currentTimeMillis)

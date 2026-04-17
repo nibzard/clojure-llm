@@ -1,0 +1,4 @@
+(defn max_sum_increasing_subseq
+  "	Write a function to find the maximum sum of increasing subsequence from prefix until ith index and also including a given kth element which is after i, i.e., k > i ."
+  [a n index k]
+  

@@ -1,0 +1,5 @@
+(defn max_sum_list
+  "	Write a function that returns the list in a list of lists whose sum of elements is the highest."
+  [lists]
+  
+  nil)

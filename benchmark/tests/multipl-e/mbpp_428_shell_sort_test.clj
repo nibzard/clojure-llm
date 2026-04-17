@@ -1,0 +1,12 @@
+(require '[clojure.test :refer [deftest is run-test]])
+
+(def candidate shell_sort)
+
+(deftest test-humaneval
+
+  (is (= (candidate [12 23 4 5 3 2 12 81 56 95]) [2 3 4 5 12 12 23 56 81 95]))
+  (is (= (candidate [24 22 39 34 87 73 68]) [22 24 34 39 68 73 87]))
+  (is (= (candidate [32 30 16 96 82 83 74]) [16 30 32 74 82 83 96]))
+)
+
+(run-test test-humaneval)

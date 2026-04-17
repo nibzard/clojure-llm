@@ -179,7 +179,7 @@
 
 (defn cmd-aggregate [more]
   "Delegate to learn.aggregate/compare-runs."
-  (apply aggregate/compare-runs more))
+  (aggregate/compare-runs (vec more)))
 
 (defn cmd-run-baseline []
   "Generate run manifests for baseline conditions A, B, C.

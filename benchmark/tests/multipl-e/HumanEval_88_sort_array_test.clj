@@ -1,0 +1,16 @@
+(require '[clojure.test :refer [deftest is run-test]])
+
+(def candidate sort_array)
+
+(deftest test-humaneval
+
+  (is (= (candidate []) []))
+  (is (= (candidate [5]) [5]))
+  (is (= (candidate [2 4 3 0 1 5]) [0 1 2 3 4 5]))
+  (is (= (candidate [2 4 3 0 1 5 6]) [6 5 4 3 2 1 0]))
+  (is (= (candidate [2 1]) [1 2]))
+  (is (= (candidate [15 42 87 32 11 0]) [0 11 15 32 42 87]))
+  (is (= (candidate [21 14 23 11]) [23 21 14 11]))
+)
+
+(run-test test-humaneval)

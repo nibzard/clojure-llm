@@ -1,0 +1,4 @@
+(defn find_Index
+  "	Write a cljthon function to find the index of smallest triangular number with n digits. https://www.geeksforgeeks.org/index-of-smallest-triangular-number-with-n-digits/"
+  [n]
+  

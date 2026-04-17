@@ -1,0 +1,4 @@
+(defn sequence
+  "	Write a function to find the nth number in the newman conway sequence."
+  [n]
+  

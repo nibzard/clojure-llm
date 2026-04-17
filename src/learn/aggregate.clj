@@ -197,18 +197,16 @@
 (defn format-percent
   "Format a ratio as a percentage string."
   [x]
-  (if (Number/isNaN x)
+  (if (Double/isNaN (double x))
     "N/A"
-    (format "%.1f%%" (* 100.0 x))))
+    (format "%.1f%%" (* 100.0 (double x)))))
 
 (defn format-number
   "Format a number with appropriate precision."
   [x]
-  (if (Number/isNaN x)
+  (if (Double/isNaN (double x))
     "N/A"
-    (if (< x 1000)
-      (format "%.2f" x)
-      (format "%.2f" x))))
+    (format "%.2f" (double x))))
 
 (defn print-summary
   "Print a single run summary to stdout."
@@ -229,16 +227,16 @@
   (println "  mean wall-ms:   " (format-number (:mean-wall-ms summary)))
   (println "  mean tokens:    " (format-number (:mean-tokens summary)))
   (println)
-    (when (seq (:outcome-distribution summary))
-      (println "Outcome Distribution:")
-      (doseq [[outcome {:keys [count pct]}] (sort-by key (:outcome-distribution summary))]
-        (println "  " outcome ":" count " (" (format-percent pct) ")"))
-      (println))
-    (when (seq (:error-kind-distribution summary))
-      (println "Error Kind Distribution:")
-      (doseq [[kind {:keys [count pct]}] (sort-by key (:error-kind-distribution summary))]
-        (println "  " kind ":" count " (" (format-percent pct) ")"))
-      (println))))
+  (when (seq (:outcome-distribution summary))
+    (println "Outcome Distribution:")
+    (doseq [[outcome {:keys [count pct]}] (sort-by key (:outcome-distribution summary))]
+      (println "  " outcome ":" count " (" (format-percent pct) ")"))
+    (println))
+  (when (seq (:error-kind-distribution summary))
+    (println "Error Kind Distribution:")
+    (doseq [[kind {:keys [count pct]}] (sort-by key (:error-kind-distribution summary))]
+      (println "  " kind ":" count " (" (format-percent pct) ")"))
+    (println)))
 
 (defn compare-runs
   "Side-by-side comparison table for multiple runs.
@@ -263,7 +261,7 @@
     ;; Separator
     (printf "%-30s" (apply str (repeat 30 \-)))
     (doseq [_ summaries]
-      (printf " %+s" (apply str (repeat 18 \-))))
+      (printf " %s" (apply str (repeat 18 \-))))
     (println)
 
     ;; Primary metrics rows

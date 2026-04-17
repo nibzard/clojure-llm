@@ -1,0 +1,5 @@
+(defn combinations_list
+  "	Write a function to find all possible combinations of the elements of a given list."
+  [list1]
+  
+  nil)
