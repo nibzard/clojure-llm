@@ -1,174 +1,99 @@
-# AGENTS.md — clojure-llm
+# clojure-llm
 
-## What this project is
+Can an 8B model beat frontier models at Clojure code generation?
 
-We are proving that a small (8B) domain-specialized model, trained with verifier-in-the-loop RLVR, can outperform frontier models (Opus 4.7, GPT-5.4) on Clojure code generation.
+We train Qwen3-8B with SFT + verifier-in-the-loop RLVR and compare against
+Opus 4.7 (48% pass@1) and GPT-5.4 (65.4%). The thesis: fast feedback loops
+(REPL, clj-kondo, clojure.test) matter more than model scale.
+Precedent: QED-Nano (4B beats 120B on proofs). → `THESIS.md`
 
-The thesis: iteration speed in the generate-evaluate-revise loop matters more than raw model size. Clojure's REPL, `clj-kondo`, and `clojure.test` give us fast, granular verification that an agent can exploit. The precedent is QED-Nano — a 4B model beating 120B on proofs via verifier-in-the-loop RL.
+## Status
 
-## Current status
-
-**Gate 1 (baselines) is in progress.** Three of four baseline conditions are complete:
-
-| Condition | Model | pass@1 | Status |
-|-----------|-------|--------|--------|
+| # | Condition | pass@1 | Status |
+|---|-----------|--------|--------|
 | A | Opus 4.7 | 48.0% | Done |
-| B | GPT-5.4 | 65.4% | Done |
-| B | GPT-5.4-mini | 60.0% | Done |
-| C | Qwen3.5-plus | 54.7%* | Partial (75/558) |
-| D | Qwen3-8B + SFT + RLVR | — | Phase 2-3 |
+| B | GPT-5.4 / mini | 65.4 / 60.0% | Done |
+| C | Qwen3.5-plus | ~55% | Partial |
+| **D** | **Qwen3-8B + SFT + RLVR** | — | **Next** |
 
-**Success criterion: Condition D pass@1 > Condition A pass@1 (48.0%).**
+**Target: D > A (48%).** Analysis → `research/baseline-analysis.md`
 
-## Project layout
+## Layout (what matters)
 
 ```
-clojure-llm/
-├── AGENTS.md              ← you are here
-├── THESIS.md              ← core argument: iteration speed > model size
-├── PLAN.md                ← original staged autoresearch plan
-├── BENCHMARK.md           ← benchmark contract (task/run/result schemas)
-├── PI-AGENT-INTEGRATION.md ← Pi agent extension specs (clj-verifier tools)
-│
-├── benchmark/
-│   ├── tasks-v0.edn       ← 558 MultiPL-E task definitions
-│   ├── prompts/multipl-e/ ← 558 .clj prompt files (task inputs)
-│   ├── tests/             ← 558 .clj test files (clojure.test)
-│   ├── candidates/        ← generated code per run (candidates/{run-id}/*.clj)
-│   ├── results/           ← evaluation results per run (results/{run-id}/*.edn)
-│   └── runs/              ← run manifests (*.edn)
-│
-├── scripts/
-│   └── run_baseline.py    ← baseline runner (OpenAI + Anthropic APIs)
-│
-├── src/learn/
-│   ├── benchmark.clj      ← CLI: plan-run, evaluate, check, summarize
-│   ├── evaluate.clj       ← evaluation runner (syntax → kondo → tests → result)
-│   └── aggregate.clj      ← result aggregation/summarization
-│
-├── training/
-│   ├── sft/               ← SFT training scripts (Tinker platform)
-│   └── rlvr/              ← RLVR training scripts (Tinker + Pi rollout)
-│
-├── research/
-│   ├── baseline-analysis.md  ← baseline results and analysis
-│   ├── literature-review.md  ← 30+ papers on RLVR, QED-Nano, code RL
-│   ├── tinker-platform.md    ← Tinker training platform docs
-│   └── clojure-ecosystem.md  ← MultiPL-E, 4clojure, clj-kondo details
-│
-├── data/
-│   ├── multipl-e/         ← raw MultiPL-E dataset
-│   └── 4clojure/          ← raw 4clojure problems
-│
-├── demo/
-│   └── run-demo.sh        ← side-by-side demo script
-│
-└── deps.edn               ← Clojure deps (tools-deps)
+benchmark/          Tasks, prompts, generated code, evaluation results
+  prompts/multipl-e/  558 .clj prompt files (input)
+  tests/              558 .clj test files (ground truth)
+  candidates/{run}/   Generated code per run
+  results/{run}/      Evaluated outcomes per run
+src/learn/          Clojure evaluation tooling (CLI, eval, aggregation)
+scripts/            Python runners (baseline generation, training)
+training/sft/       SFT on Tinker platform
+training/rlvr/      RLVR with GRPO rewards
+research/           Literature review, platform docs, analysis
 ```
 
-## Key workflows
+## How it works
 
-### Running baselines
+```
+Prompt → Model API → Candidate → Evaluator → Result (.edn)
+                                    ↓
+                              syntax (clojure.core/read)
+                                    ↓
+                              clj-kondo lint
+                                    ↓
+                              clojure.test (timeout-guarded)
+                                    ↓
+                              :pass | :fail | :timeout | :crash
+```
+
+- Eval is resumable (skips existing results), containerized, per-task
+- Results are EDN maps: `{:task-id :outcome :syntax-ok :kondo-ok :tests-ok :wall-ms}`
+- 558 tasks from MultiPL-E (humaneval-clj + mbpp-clj)
+
+## Commands
 
 ```bash
-# Dry run to check config
-python3 scripts/run_baseline.py --condition B --dry-run
+# Generate candidates via API
+python3 scripts/run_baseline.py --condition B --run-id <id>   # .env → OPENAI_*
+python3 scripts/run_baseline.py --provider anthropic -c A ...  # .env → ANTHROPIC_*
 
-# Run with OpenAI-compatible API
-python3 scripts/run_baseline.py --condition B --run-id <run-id>
-
-# Run with Anthropic API (Opus)
-python3 scripts/run_baseline.py --provider anthropic --condition A --run-id <run-id>
-
-# Run with Qwen (via mulerouter)
-python3 scripts/run_baseline.py --condition C --run-id <run-id>
-```
-
-Conditions map to env vars in `.env`: B→OPENAI_*, C→QWEN_*. Provider `anthropic` uses ANTHROPIC_*.
-
-### Evaluation pipeline
-
-```bash
-# Create run manifest
-clojure -M:bench plan-run <run-id> <model-id> direct
-
-# Evaluate (syntax → clj-kondo → clojure.test → result EDN)
+# Evaluate
+clojure -M:bench plan-run <run-id> <model> direct
 clojure -M:bench evaluate benchmark/runs/<run-id>.edn
 
-# Results go to benchmark/results/<run-id>/<task-id>.edn
+# Aggregate
+clojure -M:bench aggregate <run-id> [<run-id2> ...]
 ```
 
-Each result EDN contains: `{:task-id, :outcome, :syntax-ok, :kondo-ok, :tests-ok, :wall-ms, :error-kind, :notes}`
+## Training pipeline (Phases 2-3)
 
-Outcomes: `:pass`, `:fail`, `:timeout`, `:crash`, `:invalid-output`
+SFT → LoRA fine-tune on 2,459 verified Clojure pairs → `training/sft/`
 
-### Analyzing results
+RLVR → GRPO with shaped rewards:
+- 0.1 syntax valid + 0.2 kondo-clean + 0.1 namespace-loads + 0.6 tests-pass
+- Pi agent as rollout environment → `PI-AGENT-INTEGRATION.md`
 
-```bash
-# Count passes
-grep -cl ":outcome :pass" benchmark/results/<run-id>/*.edn | wc -l
+Config: `training/rlvr/config.yaml`
 
-# Outcome distribution
-for o in pass fail timeout crash invalid-output; do
-  echo "$o: $(grep -cl ":outcome :$o" benchmark/results/<run-id>/*.edn | wc -l)"
-done
-```
+## Key docs (progressive disclosure)
 
-## Architecture
-
-### Evaluation pipeline
-
-```
-Prompt (.clj) → Model API → Candidate (.clj) → Evaluator → Result (.edn)
-                                              ↓
-                                          syntax check (edn/read)
-                                              ↓
-                                          clj-kondo lint
-                                              ↓
-                                          clojure.test (with timeout)
-                                              ↓
-                                          outcome classification
-```
-
-### Planned training pipeline (Phase 2-3)
-
-```
-Tinker (model weights)
-    ↕ sample() / forward_backward()
-Pi in RPC mode (agent runtime)
-    ↕ tool calls
-clj-verifier (REPL, kondo, tests)
-    ↕
-Docker sandbox (isolated execution)
-```
-
-## Phases
-
-1. **Infrastructure + Baselines** (current) — eval pipeline, Pi extension, 3 baselines
-2. **Data Curation** — extract verified Clojure solution pairs (3,500+)
-3. **SFT** — LoRA fine-tune Qwen3-8B-Base on Tinker
-4. **RLVR** — code RL with verifier-in-the-loop, Pi as rollout environment
-5. **Demo** — side-by-side comparison: 8B + agent loop vs Opus
-
-## Key documents
-
-| Document | What it covers |
-|----------|---------------|
-| `THESIS.md` | Core argument and framing |
-| `PLAN.md` | Full staged research plan |
-| `BENCHMARK.md` | Task/run/result schemas, evaluation contract |
-| `PI-AGENT-INTEGRATION.md` | Pi extension specs, RPC, clj-verifier tools |
-| `research/baseline-analysis.md` | Baseline numbers and analysis |
-| `research/literature-review.md` | 30+ papers (RLVR, QED-Nano, code RL) |
-| `research/tinker-platform.md` | Tinker training platform capabilities |
-| `research/clojure-ecosystem.md` | MultiPL-E, 4clojure, tooling details |
+| Want to… | Read |
+|----------|------|
+| Understand the argument | `THESIS.md` |
+| See the full research plan | `PLAN.md` |
+| Know the benchmark contract | `BENCHMARK.md` |
+| Understand evaluation internals | `src/learn/evaluate.clj` |
+| See baseline numbers + error analysis | `research/baseline-analysis.md` |
+| Review the RL/code-RL literature | `research/literature-review.md` |
+| Learn the training platform | `research/tinker-platform.md` |
+| Understand Clojure tooling fit | `research/clojure-ecosystem.md` |
+| Build the Pi agent integration | `PI-AGENT-INTEGRATION.md` |
 
 ## Conventions
 
-- Clojure source in `src/learn/`, run via `clojure -M:bench <command>`
-- Python scripts in `scripts/`, used for API-based generation
-- EDN for all config/data (tasks, manifests, results)
-- Candidates and results are per-run, keyed by run-id
-- Evaluation is resumable (skips tasks with existing result files)
-- Test timeout protection via Clojure futures with `deref` timeout
-- All API credentials in `.env` (never committed)
+- Clojure source in `src/learn/`, invoked via `clojure -M:bench`
+- Python in `scripts/` for API calls and training orchestration
+- All config/data in EDN (tasks, manifests, results)
+- API credentials in `.env` (never committed)
+- Candidates/results keyed by run-id, never mutated after evaluation

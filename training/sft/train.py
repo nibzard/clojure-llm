@@ -19,6 +19,7 @@ import time
 from pathlib import Path
 
 import numpy as np
+import wandb
 import yaml
 from dotenv import load_dotenv
 from transformers import AutoTokenizer
@@ -135,6 +136,28 @@ def train(config, limit=None):
 
     train_path = data_cfg.get("train_path", "data/sft/sft_train.jsonl")
 
+    wandb_project = log_cfg.get("wandb_project", "clojure-llm")
+    wandb_entity = log_cfg.get("wandb_entity", "nibzard-org")
+
+    wandb.init(
+        entity=wandb_entity,
+        project=wandb_project,
+        name=f"sft-{model_name}-lora{rank}",
+        config={
+            "model": tinker_model,
+            "lora_rank": rank,
+            "lora_alpha": lora_cfg.get("alpha", 64),
+            "learning_rate": lr,
+            "batch_size": batch_size,
+            "max_seq_length": max_length,
+            "num_epochs": num_epochs,
+            "optimizer": training_cfg.get("optimizer", "adamw"),
+            "weight_decay": weight_decay,
+            "warmup_ratio": warmup_ratio,
+            "lr_scheduler": training_cfg.get("lr_scheduler", "cosine"),
+        },
+    )
+
     print("=" * 60)
     print("SFT Training — Tinker Platform")
     print("=" * 60)
@@ -144,6 +167,7 @@ def train(config, limit=None):
     print(f"  Batch size:     {batch_size}")
     print(f"  Max seq length: {max_length}")
     print(f"  Epochs:         {num_epochs}")
+    print(f"  wandb:          {wandb_entity}/{wandb_project}")
 
     # Load tokenizer
     print("\nLoading tokenizer...")
@@ -244,6 +268,12 @@ def train(config, limit=None):
                     f"LR: {current_lr:.2e} | "
                     f"Speed: {steps_per_sec:.1f} steps/s"
                 )
+                wandb.log({
+                    "train/loss": avg_loss,
+                    "train/learning_rate": current_lr,
+                    "train/steps_per_sec": steps_per_sec,
+                    "train/epoch": epoch + step / steps_per_epoch,
+                }, step=global_step)
                 total_loss = 0.0
 
             # Checkpoint
@@ -264,6 +294,8 @@ def train(config, limit=None):
     print(f"  Total time:   {elapsed:.0f}s")
     print(f"  Total steps:  {global_step}")
     print(f"  Skipped:      {total_skipped} pairs (too long)")
+
+    wandb.finish()
 
     return sampling_client
 

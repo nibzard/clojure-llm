@@ -1,13 +1,17 @@
 #!/usr/bin/env python3
-"""Evaluate SFT model on held-out tasks and compare with baselines.
+"""Evaluate trained model on held-out tasks and compare with baselines.
 
 Generates candidates for 111 held-out tasks using the trained model,
 evaluates via the Clojure benchmark pipeline, then compares pass@1
 against baseline models on the same held-out tasks.
 
+Supports both SFT and RLVR checkpoints via --checkpoint flag.
+
 Usage:
     python3 scripts/evaluate_heldout.py
+    python3 scripts/evaluate_heldout.py --checkpoint checkpoints/rlvr/final
     python3 scripts/evaluate_heldout.py --limit 10  # test
+    python3 scripts/evaluate_heldout.py --skip-gen --skip-eval  # just comparison table
 """
 
 import argparse
@@ -24,15 +28,23 @@ from transformers import AutoTokenizer
 
 ROOT = Path(__file__).resolve().parent.parent
 
-RUN_ID = "2026-04-18-sft-qwen3-8b-heldout"
 BASELINE_RUNS = {
     "2026-04-17-gpt-5-4-direct": "GPT-5.4",
     "2026-04-17-gpt-5-4-mini-2026-03-17-direct": "GPT-5.4-mini",
     "2026-04-17-claude-opus-4-7-direct": "Opus-4.7",
 }
 
-# The tinker:// path to the final SFT checkpoint
-CHECKPOINT_PATH = "tinker://b5c7e66e-618a-5f71-919e-da1db6844679:train:0/weights/checkpoint-step-600"
+# Model evaluation run IDs (for comparison table)
+MODEL_RUNS = {
+    "sft": {
+        "run_id": "2026-04-18-sft-qwen3-8b-heldout",
+        "label": "SFT Qwen3-8B",
+        "checkpoint": "tinker://b5c7e66e-618a-5f71-919e-da1db6844679:train:0/weights/checkpoint-step-600",
+    },
+}
+
+# Default checkpoint (SFT)
+DEFAULT_CHECKPOINT = "tinker://b5c7e66e-618a-5f71-919e-da1db6844679:train:0/weights/checkpoint-step-600"
 
 
 def load_heldout_tasks():
@@ -59,7 +71,7 @@ def load_heldout_tasks():
     return heldout
 
 
-def create_run_manifest(task_ids, run_id):
+def create_run_manifest(task_ids, run_id, model_label="sft-qwen3-8b"):
     """Create a benchmark run manifest."""
     manifest = (
         '{:task-ids [' +
@@ -71,7 +83,7 @@ def create_run_manifest(task_ids, run_id):
         f' :created-at "{time.strftime("%Y-%m-%dT%H:%M:%S.000000Z")}"\n'
         f' :run-id "{run_id}"\n'
         ' :benchmark-version :clj-bench/v0\n'
-        ' :model {:provider :tinker :id "sft-qwen3-8b"}}}\n'
+        f' :model {{:provider :tinker :id "{model_label}"}}}}\n'
     )
     manifest_path = ROOT / "benchmark" / "runs" / f"{run_id}.edn"
     manifest_path.parent.mkdir(parents=True, exist_ok=True)
@@ -174,48 +186,62 @@ def load_eval_results(run_id):
     return results
 
 
-def compare_baselines(heldout_tasks):
-    """Compare SFT model with baselines on held-out tasks."""
+def compare_baselines(heldout_tasks, model_label="SFT Qwen3-8B", model_run_id=None):
+    """Compare model with baselines on held-out tasks."""
     heldout_ids = {t["task_id"] for t in heldout_tasks}
 
-    # Load SFT results
-    sft_results = load_eval_results(RUN_ID)
-    sft_pass = sum(1 for o in sft_results.values() if o == ":pass")
-    sft_total = len(sft_results)
+    # If a specific run_id is given, use it; otherwise use the default SFT run
+    if model_run_id:
+        run_id = model_run_id
+    else:
+        run_id = MODEL_RUNS["sft"]["run_id"]
+
+    model_results = load_eval_results(run_id)
+    model_pass = sum(1 for o in model_results.values() if o == ":pass")
+    model_total = len(model_results)
 
     print(f"\n{'=' * 60}")
     print("HELD-OUT EVALUATION RESULTS (111 tasks)")
     print(f"{'=' * 60}")
 
-    # SFT model
-    if sft_total > 0:
-        print(f"  SFT Qwen3-8B:  {sft_pass}/{sft_total} = {sft_pass/sft_total*100:.1f}%")
+    # Model results
+    if model_total > 0:
+        print(f"  {model_label:20s} {model_pass}/{model_total} = {model_pass/model_total*100:.1f}%")
     else:
-        print(f"  SFT Qwen3-8B:  (not yet evaluated)")
+        print(f"  {model_label:20s} (not yet evaluated)")
 
-    # Baselines
-    for run_id, label in sorted(BASELINE_RUNS.items(), key=lambda x: x[1]):
+    # Also show SFT baseline if we're evaluating RLVR
+    if model_run_id and model_run_id != MODEL_RUNS["sft"]["run_id"]:
+        sft_results = load_eval_results(MODEL_RUNS["sft"]["run_id"])
+        sft_pass = sum(1 for o in sft_results.values() if o == ":pass")
+        sft_total = len(sft_results)
+        if sft_total > 0:
+            print(f"  {'SFT Qwen3-8B':20s} {sft_pass}/{sft_total} = {sft_pass/sft_total*100:.1f}%")
+
+    # Baselines (sorted by pass rate, descending)
+    baseline_rows = []
+    for run_id, label in BASELINE_RUNS.items():
         all_results = load_eval_results(run_id)
-        # Filter to held-out tasks only
         heldout_results = {tid: o for tid, o in all_results.items() if tid in heldout_ids}
         passed = sum(1 for o in heldout_results.values() if o == ":pass")
         total = len(heldout_results)
         if total > 0:
-            pct = passed / total * 100
-            print(f"  {label:15s} {passed}/{total} = {pct:.1f}%")
+            baseline_rows.append((label, passed, total))
 
-    # Per-task comparison
-    if sft_total > 0:
+    for label, passed, total in sorted(baseline_rows, key=lambda x: x[1]/x[2], reverse=True):
+        print(f"  {label:20s} {passed}/{total} = {passed/total*100:.1f}%")
+
+    # Per-task comparison (model vs baselines)
+    if model_total > 0:
         print(f"\n  --- Per-task analysis ---")
-        only_sft = 0
+        only_model = 0
         only_baseline = 0
         both = 0
         neither = 0
 
-        # Aggregate baseline: pass if ANY baseline passed
         for task in heldout_tasks:
             tid = task["task_id"]
-            sft_passed = sft_results.get(tid) == ":pass"
+            model_passed = model_results.get(tid) == ":pass"
 
             any_baseline = False
             for run_id in BASELINE_RUNS:
@@ -224,35 +250,79 @@ def compare_baselines(heldout_tasks):
                     any_baseline = True
                     break
 
-            if sft_passed and any_baseline:
+            if model_passed and any_baseline:
                 both += 1
-            elif sft_passed:
-                only_sft += 1
+            elif model_passed:
+                only_model += 1
             elif any_baseline:
                 only_baseline += 1
             else:
                 neither += 1
 
-        print(f"  Both pass:        {both}")
-        print(f"  Only SFT passes:  {only_sft}")
-        print(f"  Only baseline:    {only_baseline}")
-        print(f"  Neither:          {neither}")
+        print(f"  Both pass:           {both}")
+        print(f"  Only {model_label}:  {only_model}")
+        print(f"  Only baseline:       {only_baseline}")
+        print(f"  Neither:             {neither}")
+
+        # Success check
+        if model_total > 0:
+            model_pct = model_pass / model_total * 100
+            opus_results = load_eval_results("2026-04-17-claude-opus-4-7-direct")
+            opus_heldout = {tid: o for tid, o in opus_results.items() if tid in heldout_ids}
+            opus_pass = sum(1 for o in opus_heldout.values() if o == ":pass")
+            opus_total = len(opus_heldout)
+            if opus_total > 0:
+                opus_pct = opus_pass / opus_total * 100
+                if model_pct > opus_pct:
+                    print(f"\n  ** {model_label} ({model_pct:.1f}%) BEATS Opus 4.7 ({opus_pct:.1f}%) **")
+                else:
+                    gap = opus_pct - model_pct
+                    print(f"\n  {model_label} ({model_pct:.1f}%) is {gap:.1f}% behind Opus 4.7 ({opus_pct:.1f}%)")
 
 
 def main():
-    parser = argparse.ArgumentParser(description="Evaluate SFT model on held-out tasks")
+    parser = argparse.ArgumentParser(description="Evaluate model on held-out tasks")
     parser.add_argument("--limit", type=int, default=None)
     parser.add_argument("--skip-gen", action="store_true")
     parser.add_argument("--skip-eval", action="store_true")
+    parser.add_argument(
+        "--checkpoint",
+        default=None,
+        help="Tinker checkpoint path (e.g., tinker://... or checkpoints/rlvr/final)",
+    )
+    parser.add_argument(
+        "--label",
+        default=None,
+        help="Model label for results table (e.g., 'RLVR Qwen3-8B')",
+    )
+    parser.add_argument(
+        "--run-id",
+        default=None,
+        help="Override run ID for candidates/results",
+    )
     args = parser.parse_args()
 
     load_dotenv(ROOT / ".env")
 
+    # Determine checkpoint and run configuration
+    checkpoint = args.checkpoint or DEFAULT_CHECKPOINT
+    is_rlvr = "rlvr" in checkpoint.lower() if args.checkpoint else False
+    model_label = args.label or ("RLVR Qwen3-8B" if is_rlvr else "SFT Qwen3-8B")
+
+    if args.run_id:
+        run_id = args.run_id
+    elif is_rlvr:
+        run_id = f"2026-04-18-rlvr-qwen3-8b-heldout"
+    else:
+        run_id = MODEL_RUNS["sft"]["run_id"]
+
     from tinker import ServiceClient
 
     print("=" * 60)
-    print("SFT Model Evaluation on Held-Out Tasks")
+    print(f"{model_label} Evaluation on Held-Out Tasks")
     print("=" * 60)
+    print(f"  Checkpoint: {checkpoint}")
+    print(f"  Run ID:     {run_id}")
 
     # Load held-out tasks
     heldout_tasks = load_heldout_tasks()
@@ -262,23 +332,22 @@ def main():
         heldout_tasks = heldout_tasks[:args.limit]
         print(f"  Limited to: {args.limit}")
 
-    cand_dir = ROOT / "benchmark" / "candidates" / RUN_ID
+    cand_dir = ROOT / "benchmark" / "candidates" / run_id
     cand_dir.mkdir(parents=True, exist_ok=True)
 
-    # ── Phase 1: Generate candidates ─────────────────────────────────────────
+    # -- Phase 1: Generate candidates ------------------------------------------
 
     if not args.skip_gen:
         print(f"\n{'─' * 40}")
-        print("Generating candidates with SFT model")
+        print(f"Generating candidates with {model_label}")
         print(f"{'─' * 40}")
 
         print("\nConnecting to Tinker...")
         client = ServiceClient()
 
-        # Load checkpoint and save for sampler
-        print(f"Loading checkpoint: {CHECKPOINT_PATH}")
-        tc = client.create_training_client_from_state(CHECKPOINT_PATH)
-        save_result = tc.save_weights_for_sampler("sft-eval-heldout").result()
+        print(f"Loading checkpoint: {checkpoint}")
+        tc = client.create_training_client_from_state(checkpoint)
+        save_result = tc.save_weights_for_sampler(f"eval-heldout-{run_id}").result()
         print(f"  Sampler path: {save_result.path}")
 
         sc = client.create_sampling_client(model_path=save_result.path)
@@ -291,7 +360,7 @@ def main():
 
         generate_candidates(sc, tokenizer, heldout_tasks, cand_dir, args.limit)
 
-    # ── Phase 2: Evaluate ────────────────────────────────────────────────────
+    # -- Phase 2: Evaluate -----------------------------------------------------
 
     if not args.skip_eval:
         print(f"\n{'─' * 40}")
@@ -299,12 +368,13 @@ def main():
         print(f"{'─' * 40}")
 
         task_ids = [t["task_id"] for t in heldout_tasks]
-        manifest_path = create_run_manifest(task_ids, RUN_ID)
+        model_id_tag = "rlvr-qwen3-8b" if is_rlvr else "sft-qwen3-8b"
+        manifest_path = create_run_manifest(task_ids, run_id, model_label=model_id_tag)
         run_evaluation(manifest_path)
 
-    # ── Phase 3: Compare ─────────────────────────────────────────────────────
+    # -- Phase 3: Compare ------------------------------------------------------
 
-    compare_baselines(heldout_tasks)
+    compare_baselines(heldout_tasks, model_label=model_label, model_run_id=run_id)
 
 
 if __name__ == "__main__":

@@ -51,7 +51,7 @@ checkpointing:
 logging:
   log_steps: 10
   wandb_project: clojure-llm
-  wandb_entity: null  # Set to your wandb username
+  wandb_entity: nibzard-org
 
 # Evaluation
 evaluation:

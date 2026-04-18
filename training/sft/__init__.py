@@ -8,9 +8,8 @@ Components:
 - evaluate: Evaluation and comparison scripts
 """
 
-from .train import SFTConfig, train_sft
+from .train import train as train_sft
 
 __all__ = [
-    "SFTConfig",
     "train_sft",
 ]
