@@ -11,3 +11,4 @@ tmp/
 
 # Results (untracked like autoresearch)
 results.tsv
+.env

@@ -61,11 +61,16 @@
 
 (defn check-syntax
   "Check if the code file is valid Clojure syntax.
-   Returns {:ok boolean, :error string-or-nil}"
+   Uses clojure.core/read (LispReader) instead of edn/read,
+   which cannot parse #(), #\"\", @, and other reader macros.
+   Only parses — does not evaluate. Returns {:ok boolean, :error string-or-nil}"
   [code-file]
   (try
-    (with-open [r (io/reader code-file)]
-      (edn/read (PushbackReader. r))
+    (with-open [rdr (PushbackReader. (io/reader code-file))]
+      ;; Read all forms; clojure.core/read handles all reader macros
+      (loop []
+        (when-not (= ::eof (read rdr false ::eof))
+          (recur)))
       {:ok true :error nil})
     (catch Exception e
       {:ok false :error (.getMessage e)})))
@@ -97,11 +102,12 @@
     ;; Load candidate code
     (load-file (str code-file))
 
-    ;; Load test file
+    ;; Load test file (MultiPL-E files call run-test at load time)
     (load-file (str test-file))
 
-    ;; Find and run tests
-    (let [test-ns (find-ns (symbol (str/replace (last (str/split (str test-file) #"/")) ".clj" "")))]
+    ;; Try to find test namespace: first by filename, then fall back to 'user'
+    (let [fname-ns (find-ns (symbol (str/replace (last (str/split (str test-file) #"/")) ".clj" "")))
+          test-ns (or fname-ns (find-ns 'user))]
       (if test-ns
         (let [results (test/run-tests test-ns)
               pass? (zero? (+ (:fail results) (:error results)))]
@@ -114,6 +120,24 @@
       {:ok false :error (.getMessage e) :test-count 0})
     (catch Error e
       {:ok false :error (.getMessage e) :test-count 0})))
+
+(defn run-tests-with-timeout
+  "Run tests with a timeout. If the test hangs (e.g. infinite loop),
+   return a timeout result instead of blocking forever."
+  [code-file test-file entrypoint timeout-ms]
+  (let [f (future
+            (try
+              (load-and-run-tests code-file test-file entrypoint timeout-ms)
+              (catch Exception e
+                {:ok false :error (.getMessage e) :test-count 0})
+              (catch Error e
+                {:ok false :error (.getMessage e) :test-count 0})))
+        result (deref f timeout-ms ::timeout)]
+    (if (= result ::timeout)
+      (do
+        (future-cancel f)
+        {:ok false :error (str "Timeout after " timeout-ms "ms") :test-count 0})
+      result)))
 
 ;; Task evaluation
 
@@ -163,23 +187,28 @@
 
         ;; Run tests (only if previous checks pass)
         test-result (if (:ok kondo-result)
-                      (load-and-run-tests candidate-file test-file (:entrypoint task) timeout-sec)
+                      (run-tests-with-timeout candidate-file test-file (:entrypoint task)
+                                              (* timeout-sec 1000))
                       {:ok false :error "Skipped due to previous failures" :test-count 0})
 
         end-time (System/currentTimeMillis)
         wall-ms (- end-time start-time)
 
         ;; Determine outcome
+        timeout? (and (not (:ok test-result))
+                      (str/includes? (or (:error test-result) "") "Timeout"))
         outcome (cond
                   (not file-exists) :crash
                   (not (:ok syntax-result)) :invalid-output
                   (not (:ok kondo-result)) :fail
+                  timeout? :timeout
                   (:ok test-result) :pass
                   :else :fail)
 
         ;; Determine error kind
         error-kind (cond
                      (= outcome :pass) nil
+                     (= outcome :timeout) :runtime-error
                      (not file-exists) :read-error
                      (not (:ok syntax-result)) :read-error
                      (not (:ok kondo-result)) :compile-error
@@ -219,13 +248,16 @@
     (println "Run ID:" run-id)
     (println "Tasks to evaluate:" (count tasks-to-run))
 
-    ;; Evaluate each task
+    ;; Evaluate each task (skip if result already exists for resume support)
     (doseq [task tasks-to-run]
-      (println "Evaluating task:" (:id task))
-      (let [result (evaluate-task run-id manifest task)]
-        (println "  Outcome:" (:outcome result))
-        ;; Write result to file
-        (spit-edn (io/file results-path (str (:id task) ".edn")) result)))
+      (let [result-path (io/file results-path (str (:id task) ".edn"))]
+        (if (.exists result-path)
+          (println "Skipping (already evaluated):" (:id task))
+          (do
+            (println "Evaluating task:" (:id task))
+            (let [result (evaluate-task run-id manifest task)]
+              (println "  Outcome:" (:outcome result))
+              (spit-edn result-path result))))))
 
     (println "Results written to:" (str results-path))))
 
