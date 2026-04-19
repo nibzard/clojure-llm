@@ -97,6 +97,8 @@ Best-of-K → `scripts/best_of_k.py` — generate K samples per task, pick first
 | Know the benchmark contract | `BENCHMARK.md` |
 | Understand evaluation internals | `src/learn/evaluate.clj` |
 | See baseline numbers + error analysis | `research/baseline-analysis.md` |
+| See best-of-K results (8B beats GPT-5.4 with verifier) | `research/best-of-k-results.md` |
+| See RLVR training analysis | `research/rlvr-results.md` |
 | Review the RL/code-RL literature | `research/literature-review.md` |
 | Learn the training platform | `research/tinker-platform.md` |
 | Understand Clojure tooling fit | `research/clojure-ecosystem.md` |
