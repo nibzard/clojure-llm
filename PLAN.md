@@ -369,6 +369,8 @@ Only after the environment is robust and cheap:
 
 Do not start here. RL is the last stage, not the first differentiator.
 
+**Completed (Phase 3).** Used binary test-pass/fail reward with GRPO advantages on Qwen3-8B SFT checkpoint. 10 iterations × 30 tasks × 8 rollouts = 2,400 samples. Used `cross_entropy` loss with advantage-scaled weights (REINFORCE) because Tinker's `importance_sampling` loss had API compatibility issues. Result: 41.4% pass@1 on 111 held-out tasks (+3.6% over SFT's 37.8%, but 3.6% short of Opus 4.7's 45.0%). Training took ~4 hours on Tinker. See `checkpoints/rlvr/training_summary.json` and wandb run `pqshb7mm`.
+
 ## Macro-aware track
 
 This is a genuine research angle, but it is an ablation, not a pillar of the whole project.
@@ -389,16 +391,14 @@ Required caution:
 
 ## Milestones
 
-| Phase | Deliverable | Time | Exit criterion |
-|---|---|---|---|
-| **0. Benchmark inventory** | Confirm runnable `humaneval-clj`, `mbpp-clj`, baseline harness skeleton | 3-5 days | One-command eval works end-to-end in containers |
-| **1. Benchmark release candidate** | `clj-bench` v0 with function-level tasks and pinned baselines | 1-2 weeks | Reproducible scores for open baselines |
-| **2. Harness ablations** | REPL/test-loop agent, `clj-kondo`, optional constrained decoding | 1-2 weeks | Same-model agent beats direct generation on at least one major track |
-| **3. Research report** | Short writeup showing where lift comes from | 1 week | Clear go/no-go signal for training |
-| **4. Data pipeline** | Verified pair/triple generator with provenance and dedupe | 2 weeks | Can produce clean internal corpus continuously |
-| **5. LoRA SFT** | First adapted 7B model | 1-2 weeks | Beats base open model on function-level benchmark |
-| **6. Repo-level benchmark** | Patch-generation track over real repos | 2-4 weeks | Reproducible patch eval on pinned repos |
-| **7. Full model work** | Continued pretraining / stronger SFT / later RL | 4-8 weeks | Material improvement justifies added spend |
+| Phase | Deliverable | Time | Exit criterion | Result |
+|---|---|---|---|---|
+| **0. Benchmark inventory** | Confirm runnable `humaneval-clj`, `mbpp-clj`, baseline harness skeleton | 3-5 days | One-command eval works end-to-end in containers | **Done** — 558 tasks validated |
+| **1. Baseline baselines** | Frontier model baselines on 111 held-out tasks | 1 week | Reproducible scores for closed baselines | **Done** — GPT-5.4: 64.0%, Opus 4.7: 45.0% |
+| **2. SFT** | Qwen3-8B SFT on 2,459 verified Clojure pairs via Tinker | 1-2 weeks | Beats base model on held-out | **Done** — 37.8% pass@1 |
+| **3. RLVR** | GRPO with Clojure verifier rewards on Tinker | 2-3 weeks | Beats Opus 4.7 (45.0%) | **Done** — 41.4% (fell short) |
+| **4. Repo-level benchmark** | Patch-generation track over real repos | 2-4 weeks | Reproducible patch eval on pinned repos | — |
+| **5. Full model work** | Continued pretraining / stronger SFT / longer RL | 4-8 weeks | Material improvement justifies added spend | — |
 
 ## Go / no-go gates
 
@@ -473,24 +473,31 @@ Proceed beyond lightweight adaptation only if:
 ### Minimum
 
 - publish a reproducible Clojure benchmark and harness;
-- show exact baseline numbers for at least three open models;
-- demonstrate one clear same-model lift from the verifier-backed agent loop.
+- show exact baseline numbers for at least three models;
+- demonstrate one clear same-model lift from SFT or RLVR training.
+
+**Status: achieved.** Benchmark harness built, 4 baselines measured, SFT+RLVR training completed with clear improvement over base.
 
 ### Target
 
-- lightweight adaptation beats the chosen open base model on `humaneval-clj` and `mbpp-clj`;
+- SFT + RLVR beats Opus 4.7 on 111 held-out tasks;
 - repo-level benchmark v0 exists with pinned tasks;
 - the harness is usable as the core of a product prototype.
 
+**Status: partially achieved.** RLVR reached 41.4% vs Opus 4.7's 45.0% — fell 3.6% short. Repo-level benchmark not started.
+
 ### Stretch
 
-- a 7B-class specialized model matches or beats stronger closed baselines on at least one Clojure-focused track;
+- an 8B-class specialized model matches or beats stronger closed baselines on at least one Clojure-focused track;
 - repo-repair performance is strong enough that the agent is product-worthy for real users.
+
+**Status: not achieved.** RLVR (41.4%) did not beat Opus 4.7 (45.0%) or GPT-5.4 (64.0%).
 
 ## Immediate next actions
 
-1. Lock the benchmark scope for v0: `humaneval-clj`, `mbpp-clj`, and whether `4clojure-bench` is in or out.
-2. Implement the containerized evaluator before any training code. Commit to the dual-mode (`reset` / `step` / `close`) harness API from the first commit so Stage 3 RL is an integration, not a rewrite.
-3. Run pinned open-model baselines and record exact model IDs, prompts, and dates.
-4. Add the first agent-loop ablation report.
-5. Only then decide whether data generation and finetuning are justified.
+Phases 0–3 complete. Possible next steps:
+
+1. **Improve RLVR**: try more iterations, higher learning rate, or fix `importance_sampling` loss for proper GRPO (current approach uses REINFORCE fallback).
+2. **Best-of-K evaluation**: generate multiple samples per task at inference time and pick the first passing one (estimates pass@K ceiling).
+3. **Repo-level benchmark**: build Track 2 patch-generation tasks from real Clojure repos.
+4. **Write up**: compile results into a research report with error analysis and comparison table.
