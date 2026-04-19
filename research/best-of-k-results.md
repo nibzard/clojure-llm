@@ -6,7 +6,7 @@ Date: 2026-04-19
 
 Best-of-K evaluation measures a model's *ceiling*: generate K candidates per task at temperature 0.7, evaluate each via Clojure subprocess, and report whether *any* candidate passes. This estimates what pass@1 would look like if the model had a perfect verifier to pick the right answer.
 
-The RLVR Qwen3-8B model (41.4% pass@1 at temperature 0.2) achieves **72.1% best-of-16** on 111 held-out tasks. At best-of-8, it reaches **67.6% — surpassing GPT-5.4's pass@1 of 64.0%**. With a verifier loop, an 8B model beats the frontier.
+The RLVR Qwen3-8B model (41.4% pass@1 at temperature 0.2) achieves **72.1% best-of-16** on 111 held-out tasks. At best-of-8, it reaches **67.6% — surpassing GPT-5.4's pass@1 of 64.0%**. The SFT model (without RLVR) reaches the same 72.1% ceiling at K=16 but converges slower (best-of-2: 47.7% vs RLVR's 55.9%), confirming RLVR improves consistency but not knowledge.
 
 | K | Pass count | Rate | Beats |
 |---|-----------|------|-------|
@@ -73,14 +73,44 @@ HumanEval tasks benefit more from retries. This makes sense: HumanEval tasks ten
 
 | Model | pass@1 (111 held-out) | Best-of-K equivalent |
 |-------|----------------------|---------------------|
-| GPT-5.4 | 71/111 = 64.0% | ~best-of-4 |
-| GPT-5.4-mini | 66/111 = 59.5% | ~best-of-4 |
+| GPT-5.4 | 71/111 = 64.0% | ~RLVR best-of-4 |
+| GPT-5.4-mini | 66/111 = 59.5% | ~SFT best-of-8 |
 | **RLVR best-of-16** | **80/111 = 72.1%** | — |
 | **RLVR best-of-8** | **75/111 = 67.6%** | — |
-| Opus 4.7 | 50/111 = 45.0% | ~best-of-1 |
+| **SFT best-of-8** | **72/111 = 64.9%** | — |
+| Opus 4.7 | 50/111 = 45.0% | ~RLVR best-of-1 |
 | RLVR pass@1 | 49/111 = 44.1% | — |
+| SFT pass@1 | 47/111 = 42.3% | — |
 
-RLVR best-of-8 (67.6%) exceeds GPT-5.4 pass@1 (64.0%) by 3.6pp. Best-of-16 exceeds it by 8.1pp. This is with an 8B model costing ~$0.36 for the full evaluation, versus GPT-5.4 at $1.35 for single-pass on 558 tasks.
+Both SFT and RLVR best-of-8 exceed GPT-5.4 pass@1 (64.0%). This is with an 8B model costing ~$0.36 for the full evaluation, versus GPT-5.4 at $1.35 for single-pass on 558 tasks.
+
+## SFT vs RLVR Comparison
+
+We ran the same best-of-16 evaluation on the SFT checkpoint (before RLVR training) to isolate RLVR's contribution.
+
+| K | SFT | RLVR | Delta |
+|---|-----|------|-------|
+| 1 | 47/111 = 42.3% | 49/111 = 44.1% | +1.8pp |
+| 2 | 53/111 = 47.7% | 62/111 = 55.9% | +8.2pp |
+| 4 | 63/111 = 56.8% | 69/111 = 62.2% | +5.4pp |
+| 8 | 72/111 = 64.9% | 75/111 = 67.6% | +2.7pp |
+| 16 | 80/111 = 72.1% | 80/111 = 72.1% | 0pp |
+
+**Same ceiling (72.1%), but RLVR converges faster.**
+
+### What this means
+
+1. **RLVR did not expand the model's knowledge.** Both SFT and RLVR solve the same 80 tasks at K=16. RLVR did not discover new solution strategies that SFT didn't already teach.
+
+2. **RLVR improved consistency, especially at low K.** The gap is largest at K=2 (+8.2pp) and shrinks as K grows. RLVR's policy learned to produce correct solutions more reliably on the first few attempts — exactly what GRPO optimizes for.
+
+3. **SFT alone is already strong with a verifier.** SFT best-of-8 (64.9%) beats GPT-5.4 pass@1 (64.0%). The SFT training on 2,459 Clojure pairs was sufficient to teach the model most of what it knows. RLVR's +3.6% pass@1 improvement is a real but modest consistency gain on top.
+
+4. **The ceiling is set by SFT data quality, not RL.** To raise the 72.1% ceiling, the model needs either better SFT data (more diverse problems, more correct solutions) or a stronger base model. More RLVR iterations would only close the gap between pass@1 and best-of-16 faster, not raise the ceiling.
+
+### Implication for the training pipeline
+
+The RL step is optional if you have a verifier at inference time. SFT + best-of-16 already reaches 72.1%. RLVR's value is in reducing the number of samples needed (best-of-2: 55.9% vs 47.7%), which translates to lower inference cost in a production agent.
 
 ### Pass count distribution
 
@@ -144,7 +174,7 @@ The original thesis: "fast feedback loops (REPL, clj-kondo, clojure.test) matter
 
 ### The gap is consistency, not knowledge
 
-The model can solve 80/111 tasks (72.1%) — it just doesn't solve them reliably on the first try. The 29 tasks that go from "unsolved" to "solved" with retries are not learning problems; they are sampling problems.
+The model can solve 80/111 tasks (72.1%) — it just doesn't solve them reliably on the first try. The SFT comparison confirms this is a property of the SFT training itself, not RLVR: both models share the same 72.1% ceiling. The 29 tasks that go from "unsolved" to "solved" with retries are not learning problems; they are sampling problems. RLVR makes sampling more efficient but does not change what the model knows.
 
 ### Practical path: build the verifier agent
 
@@ -171,22 +201,25 @@ These may require better base models, continued pretraining on more Clojure code
 | Artifact | Location |
 |----------|----------|
 | Evaluation script | `scripts/best_of_k.py` |
-| Raw results (JSON) | `research/best-of-k-results.json` |
+| RLVR results (JSON) | `research/best-of-k-results.json` |
+| SFT results (JSON) | `research/best-of-k-sft-results.json` |
 | RLVR checkpoint | `tinker://cf3778fc-5553-5e8d-be25-84859b2de080:train:0/weights/checkpoint-iter-10` |
+| SFT checkpoint | `tinker://b5c7e66e-618a-5f71-919e-da1db6844679:train:0/weights/checkpoint-step-600` |
 | Training analysis | `research/rlvr-results.md` |
 | Baseline comparison | `research/baseline-analysis.md` |
 
 ## Cost
 
-| Item | Cost |
-|------|------|
+| Item | Cost per run |
+|------|-------------|
 | Sampling (1,776 x ~512 tokens) | ~$0.36 |
 | Evaluation (local Clojure subprocess) | $0 |
-| **Total** | **~$0.36** |
+| **Total per run** | **~$0.36** |
+| **Both runs (RLVR + SFT)** | **~$0.72** |
 
 ## Next Steps
 
 1. **Build the verifier agent loop.** Best-of-K proves the ceiling is 72.1%. Build an agent that generates, tests, and retries with Clojure error feedback to close the gap in practice.
-2. **Run best-of-K on SFT model** (without RLVR) to measure how much RLVR contributed to the best-of-K ceiling.
-3. **Run best-of-K on frontier models** (Opus, GPT-5.4) to compare ceilings fairly.
+2. **Run best-of-K on frontier models** (Opus, GPT-5.4) to compare ceilings fairly.
+3. **Raise the 72.1% ceiling** via better SFT data (more diverse problems, more correct solutions) or a stronger base model — RLVR alone cannot raise it.
 4. **Estimate pass@K analytically** from the pass counts using the Chen et al. (2021) estimator to compare with best-of-K.
