@@ -371,6 +371,8 @@ Do not start here. RL is the last stage, not the first differentiator.
 
 **Completed (Phase 3).** Used binary test-pass/fail reward with GRPO advantages on Qwen3-8B SFT checkpoint. 10 iterations × 30 tasks × 8 rollouts = 2,400 samples. Used `cross_entropy` loss with advantage-scaled weights (REINFORCE) because Tinker's `importance_sampling` loss had API compatibility issues. Result: 41.4% pass@1 on 111 held-out tasks (+3.6% over SFT's 37.8%, but 3.6% short of Opus 4.7's 45.0%). Training took ~4 hours on Tinker. See `checkpoints/rlvr/training_summary.json` and wandb run `pqshb7mm`.
 
+**Best-of-K evaluation (Phase 3b).** Ran best-of-16 on both SFT and RLVR models. Both reach the same 72.1% ceiling (80/111 tasks). RLVR converges faster: best-of-2 is 55.9% (RLVR) vs 47.7% (SFT). RLVR best-of-8 (67.6%) beats GPT-5.4 pass@1 (64.0%). SFT best-of-8 (64.9%) also beats GPT-5.4. RLVR improved consistency but not knowledge — the 72.1% ceiling is set by SFT data quality. See `research/best-of-k-results.md`.
+
 ## Macro-aware track
 
 This is a genuine research angle, but it is an ablation, not a pillar of the whole project.
@@ -397,6 +399,7 @@ Required caution:
 | **1. Baseline baselines** | Frontier model baselines on 111 held-out tasks | 1 week | Reproducible scores for closed baselines | **Done** — GPT-5.4: 64.0%, Opus 4.7: 45.0% |
 | **2. SFT** | Qwen3-8B SFT on 2,459 verified Clojure pairs via Tinker | 1-2 weeks | Beats base model on held-out | **Done** — 37.8% pass@1 |
 | **3. RLVR** | GRPO with Clojure verifier rewards on Tinker | 2-3 weeks | Beats Opus 4.7 (45.0%) | **Done** — 41.4% (fell short) |
+| **3b. Best-of-K** | Best-of-K eval on SFT + RLVR models | 1 day | Estimate pass@K ceiling | **Done** — RLVR best-of-8 (67.6%) > GPT-5.4 pass@1 (64.0%); same 72.1% ceiling for SFT and RLVR |
 | **4. Repo-level benchmark** | Patch-generation track over real repos | 2-4 weeks | Reproducible patch eval on pinned repos | — |
 | **5. Full model work** | Continued pretraining / stronger SFT / longer RL | 4-8 weeks | Material improvement justifies added spend | — |
 
@@ -491,13 +494,13 @@ Proceed beyond lightweight adaptation only if:
 - an 8B-class specialized model matches or beats stronger closed baselines on at least one Clojure-focused track;
 - repo-repair performance is strong enough that the agent is product-worthy for real users.
 
-**Status: partially achieved (best-of-K).** RLVR pass@1 (41.4%) did not beat Opus or GPT-5.4. But RLVR best-of-8 (67.6%) beats GPT-5.4 pass@1 (64.0%), and best-of-16 reaches 72.1%. With a verifier-in-the-loop, the 8B model surpasses the frontier — validating the thesis that fast feedback loops matter more than scale.
+**Status: partially achieved (best-of-K).** RLVR pass@1 (41.4%) did not beat Opus or GPT-5.4. But both SFT and RLVR best-of-8 beat GPT-5.4 pass@1 (64.0%): RLVR at 67.6%, SFT at 64.9%. Best-of-16 reaches 72.1% for both. SFT and RLVR share the same ceiling — RLVR only improves consistency, not knowledge. With a verifier-in-the-loop, the 8B model surpasses the frontier — validating the thesis that fast feedback loops matter more than scale.
 
 ## Immediate next actions
 
-Phases 0–3 complete. Best-of-K evaluation done. Possible next steps:
+Phases 0–3b complete. Best-of-K evaluation done (SFT + RLVR). Possible next steps:
 
 1. **Build verifier agent loop**: best-of-K proves the ceiling is 72.1%. Build an actual agent that generates, tests, and retries with Clojure feedback to close the gap between pass@1 and best-of-K in practice.
-2. **Improve RLVR**: try more iterations, higher learning rate, or fix `importance_sampling` loss for proper GRPO (current approach uses REINFORCE fallback).
+2. **Raise the 72.1% ceiling** via better SFT data or a stronger base model — RLVR cannot raise it further since SFT and RLVR share the same ceiling.
 3. **Repo-level benchmark**: build Track 2 patch-generation tasks from real Clojure repos.
 4. **Write up**: compile results into a research report with error analysis and comparison table.
