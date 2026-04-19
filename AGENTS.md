@@ -9,14 +9,18 @@ Precedent: QED-Nano (4B beats 120B on proofs). → `THESIS.md`
 
 ## Status
 
-| # | Condition | pass@1 | Status |
-|---|-----------|--------|--------|
-| A | Opus 4.7 | 48.0% | Done |
-| B | GPT-5.4 / mini | 65.4 / 60.0% | Done |
+| # | Condition | pass@1 (111 held-out) | Status |
+|---|-----------|----------------------|--------|
+| B | GPT-5.4 | 64.0% | Done |
+| B | GPT-5.4-mini | 59.5% | Done |
 | C | Qwen3.5-plus | ~55% | Partial |
-| **D** | **Qwen3-8B + SFT + RLVR** | — | **Next** |
+| A | Opus 4.7 | 45.0% | Done |
+| **D** | **RLVR Qwen3-8B** | **41.4%** | **Done** |
+| D | SFT Qwen3-8B | 37.8% | Done |
 
-**Target: D > A (48%).** Analysis → `research/baseline-analysis.md`
+**Result: D (41.4%) did not beat A (45.0%).** RLVR improved +3.6% over SFT but fell short of Opus.
+Training: 10 iters × 30 tasks × 8 rollouts, cross_entropy + advantage-weighted masks (REINFORCE).
+Analysis → `research/baseline-analysis.md`
 
 ## Layout (what matters)
 
@@ -70,11 +74,12 @@ clojure -M:bench aggregate <run-id> [<run-id2> ...]
 
 SFT → LoRA fine-tune on 2,459 verified Clojure pairs → `training/sft/`
 
-RLVR → GRPO with shaped rewards:
-- 0.1 syntax valid + 0.2 kondo-clean + 0.1 namespace-loads + 0.6 tests-pass
-- Pi agent as rollout environment → `PI-AGENT-INTEGRATION.md`
-
-Config: `training/rlvr/config.yaml`
+RLVR → GRPO with binary verifier rewards (Clojure subprocess eval):
+- Binary reward: 1.0 tests-pass, 0.0 fail
+- GRPO advantages normalized per task group (K=8 rollouts)
+- REINFORCE with cross_entropy + advantage-scaled weights (importance_sampling unavailable)
+- Tinker SDK: `forward_backward` + `optim_step` on cloud training infrastructure
+- Checkpoint: `training/rlvr/config.yaml`
 
 ## Key docs (progressive disclosure)
 
