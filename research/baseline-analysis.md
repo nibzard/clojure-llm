@@ -57,25 +57,26 @@ RLVR gained 9 tasks and lost 5, net +4. Two tasks (`humaneval-clj-141`, `mbpp-cl
 
 Generate K candidates per task at temperature 0.7, evaluate each, report whether *any* candidate passes:
 
-| K | pass@K | vs Baselines |
-|---|--------|-------------|
-| 1 | 49/111 = 44.1% | |
-| 2 | 62/111 = 55.9% | > Opus 4.7 (45.0%) |
-| 4 | 69/111 = 62.2% | > GPT-5.4-mini (59.5%) |
-| **8** | **75/111 = 67.6%** | **> GPT-5.4 (64.0%)** |
-| 16 | 80/111 = 72.1% | +8pp above GPT-5.4 |
+| K | RLVR | SFT | Delta | vs Baselines |
+|---|------|-----|-------|-------------|
+| 1 | 49/111 = 44.1% | 47/111 = 42.3% | +1.8pp | |
+| 2 | 62/111 = 55.9% | 53/111 = 47.7% | +8.2pp | RLVR > Opus 4.7 |
+| 4 | 69/111 = 62.2% | 63/111 = 56.8% | +5.4pp | RLVR > GPT-5.4-mini |
+| **8** | **75/111 = 67.6%** | **72/111 = 64.9%** | +2.7pp | **Both > GPT-5.4** |
+| 16 | 80/111 = 72.1% | 80/111 = 72.1% | 0pp | +8pp above GPT-5.4 |
 
-**Key finding: RLVR best-of-8 (67.6%) beats GPT-5.4 pass@1 (64.0%).** With a verifier loop, the 8B model surpasses the frontier model's single-pass performance. Best-of-16 reaches 72.1%.
+**Key finding: both SFT and RLVR best-of-8 beat GPT-5.4 pass@1 (64.0%).** With a verifier loop, the 8B model surpasses the frontier model's single-pass performance.
 
-- 31 tasks gained by best-of-16 (failed pass@1, passed with retries), 0 tasks lost
-- 31 tasks genuinely unsolvable (0/16 pass in all samples)
+- Same 72.1% ceiling for both SFT and RLVR — RLVR did not expand knowledge
+- RLVR converges faster: best-of-2 is 55.9% (RLVR) vs 47.7% (SFT), a +8.2pp gap
+- 31 tasks genuinely unsolvable (0/16 pass in all samples for both models)
 - 17 tasks pass all 16/16 samples (model is highly consistent on these)
 
 ### Implications
 
-The bottleneck is **consistency, not knowledge**. The model *can* solve far more tasks than pass@1 suggests — it just needs multiple attempts and a verifier to pick the right one. This validates the thesis that fast feedback loops (REPL, tests) matter more than model scale.
+The bottleneck is **consistency, not knowledge**. Both models solve the same 80/111 tasks at K=16 — the 72.1% ceiling is set by SFT data quality, not RL. RLVR's contribution is reducing the number of samples needed (especially at low K), which lowers inference cost in a production agent.
 
-Results: `research/best-of-k-results.json`, script: `scripts/best_of_k.py`
+Results: `research/best-of-k-results.json` (RLVR), `research/best-of-k-sft-results.json` (SFT), script: `scripts/best_of_k.py`
 
 ## Outcome Distribution
 
