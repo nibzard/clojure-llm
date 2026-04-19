@@ -84,9 +84,11 @@ RLVR → GRPO with binary verifier rewards (Clojure subprocess eval):
 - Checkpoint: `training/rlvr/config.yaml`
 
 Best-of-K → `scripts/best_of_k.py` — generate K samples per task, pick first passing one:
-- best-of-8 (67.6%) > GPT-5.4 pass@1 (64.0%)
-- best-of-16 (72.1%) — +31 tasks over pass@1, only 31 genuinely unsolvable
-- Results: `research/best-of-k-results.json`
+- SFT and RLVR share same 72.1% ceiling (80/111) at K=16
+- RLVR converges faster: best-of-2 is 55.9% (RLVR) vs 47.7% (SFT)
+- Both best-of-8 beat GPT-5.4 pass@1 (RLVR 67.6%, SFT 64.9% vs 64.0%)
+- RLVR improved consistency, not knowledge — ceiling set by SFT data
+- Results: `research/best-of-k-results.json` (RLVR), `research/best-of-k-sft-results.json` (SFT)
 
 ## Key docs (progressive disclosure)
 
