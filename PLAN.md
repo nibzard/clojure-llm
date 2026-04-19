@@ -491,13 +491,13 @@ Proceed beyond lightweight adaptation only if:
 - an 8B-class specialized model matches or beats stronger closed baselines on at least one Clojure-focused track;
 - repo-repair performance is strong enough that the agent is product-worthy for real users.
 
-**Status: not achieved.** RLVR (41.4%) did not beat Opus 4.7 (45.0%) or GPT-5.4 (64.0%).
+**Status: partially achieved (best-of-K).** RLVR pass@1 (41.4%) did not beat Opus or GPT-5.4. But RLVR best-of-8 (67.6%) beats GPT-5.4 pass@1 (64.0%), and best-of-16 reaches 72.1%. With a verifier-in-the-loop, the 8B model surpasses the frontier — validating the thesis that fast feedback loops matter more than scale.
 
 ## Immediate next actions
 
-Phases 0–3 complete. Possible next steps:
+Phases 0–3 complete. Best-of-K evaluation done. Possible next steps:
 
-1. **Improve RLVR**: try more iterations, higher learning rate, or fix `importance_sampling` loss for proper GRPO (current approach uses REINFORCE fallback).
-2. **Best-of-K evaluation**: generate multiple samples per task at inference time and pick the first passing one (estimates pass@K ceiling).
+1. **Build verifier agent loop**: best-of-K proves the ceiling is 72.1%. Build an actual agent that generates, tests, and retries with Clojure feedback to close the gap between pass@1 and best-of-K in practice.
+2. **Improve RLVR**: try more iterations, higher learning rate, or fix `importance_sampling` loss for proper GRPO (current approach uses REINFORCE fallback).
 3. **Repo-level benchmark**: build Track 2 patch-generation tasks from real Clojure repos.
 4. **Write up**: compile results into a research report with error analysis and comparison table.

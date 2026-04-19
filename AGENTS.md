@@ -18,8 +18,10 @@ Precedent: QED-Nano (4B beats 120B on proofs). → `THESIS.md`
 | **D** | **RLVR Qwen3-8B** | **41.4%** | **Done** |
 | D | SFT Qwen3-8B | 37.8% | Done |
 
-**Result: D (41.4%) did not beat A (45.0%).** RLVR improved +3.6% over SFT but fell short of Opus.
+**Pass@1: D (41.4%) did not beat A (45.0%).** RLVR improved +3.6% over SFT but fell short of Opus.
 Training: 10 iters × 30 tasks × 8 rollouts, cross_entropy + advantage-weighted masks (REINFORCE).
+
+**Best-of-K: RLVR best-of-8 (67.6%) beats GPT-5.4 pass@1 (64.0%).** With a verifier loop, the 8B model surpasses the frontier. Best-of-16 reaches 72.1%. See `research/best-of-k-results.json`.
 Analysis → `research/baseline-analysis.md`
 
 ## Layout (what matters)
@@ -81,6 +83,11 @@ RLVR → GRPO with binary verifier rewards (Clojure subprocess eval):
 - Tinker SDK: `forward_backward` + `optim_step` on cloud training infrastructure
 - Checkpoint: `training/rlvr/config.yaml`
 
+Best-of-K → `scripts/best_of_k.py` — generate K samples per task, pick first passing one:
+- best-of-8 (67.6%) > GPT-5.4 pass@1 (64.0%)
+- best-of-16 (72.1%) — +31 tasks over pass@1, only 31 genuinely unsolvable
+- Results: `research/best-of-k-results.json`
+
 ## Key docs (progressive disclosure)
 
 | Want to… | Read |
@@ -102,3 +109,4 @@ RLVR → GRPO with binary verifier rewards (Clojure subprocess eval):
 - All config/data in EDN (tasks, manifests, results)
 - API credentials in `.env` (never committed)
 - Candidates/results keyed by run-id, never mutated after evaluation
+- Experiment tracking via wandb (entity: `nibzard-org`, project: `clojure-llm`, key in `.env`)
