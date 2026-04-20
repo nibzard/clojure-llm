@@ -13,15 +13,17 @@ Precedent: QED-Nano (4B beats 120B on proofs). → `THESIS.md`
 |---|-----------|----------------------|--------|
 | B | GPT-5.4 | 64.0% | Done |
 | B | GPT-5.4-mini | 59.5% | Done |
+| **E** | **SFT Qwen3-30B** | **52.3%** | **Phase 4** |
 | C | Qwen3.5-plus | ~55% | Partial |
 | A | Opus 4.7 | 45.0% | Done |
 | **D** | **RLVR Qwen3-8B** | **41.4%** | **Done** |
 | D | SFT Qwen3-8B | 37.8% | Done |
 
-**Pass@1: D (41.4%) did not beat A (45.0%).** RLVR improved +3.6% over SFT but fell short of Opus.
-Training: 10 iters × 30 tasks × 8 rollouts, cross_entropy + advantage-weighted masks (REINFORCE).
+**Phase 4: Qwen3-30B-A3B SFT pass@1 = 52.3% (beats Opus 4.7 by +7.3pp).**
+Best-of-16 ceiling: **83.8% (93/111)** — up from 72.1% (8B). Best-of-2 (64.9%) matches GPT-5.4 single-pass.
+Same 2,459 SFT pairs, MoE model (30B total / 3B active). Only 18 unsolvable tasks (vs 31 for 8B).
 
-**Best-of-K: RLVR best-of-8 (67.6%) beats GPT-5.4 pass@1 (64.0%).** With a verifier loop, the 8B model surpasses the frontier. Best-of-16 reaches 72.1%. See `research/best-of-k-results.json`.
+**8B Best-of-K: RLVR best-of-8 (67.6%) beats GPT-5.4 pass@1 (64.0%).** With a verifier loop, the 8B model surpasses the frontier.
 Analysis → `research/baseline-analysis.md`
 
 ## Layout (what matters)
@@ -84,11 +86,11 @@ RLVR → GRPO with binary verifier rewards (Clojure subprocess eval):
 - Checkpoint: `training/rlvr/config.yaml`
 
 Best-of-K → `scripts/best_of_k.py` — generate K samples per task, pick first passing one:
-- SFT and RLVR share same 72.1% ceiling (80/111) at K=16
-- RLVR converges faster: best-of-2 is 55.9% (RLVR) vs 47.7% (SFT)
-- Both best-of-8 beat GPT-5.4 pass@1 (RLVR 67.6%, SFT 64.9% vs 64.0%)
-- RLVR improved consistency, not knowledge — ceiling set by SFT data
-- Results: `research/best-of-k-results.json` (RLVR), `research/best-of-k-sft-results.json` (SFT)
+- **30B SFT**: best-of-16 ceiling 83.8% (93/111), pass@1 52.3%, best-of-8 75.7%
+- **8B RLVR**: best-of-16 ceiling 72.1% (80/111), pass@1 41.4%, best-of-8 67.6%
+- **8B SFT**: best-of-16 ceiling 72.1% (80/111), pass@1 37.8%, best-of-8 64.9%
+- 30B raised ceiling by +11.7pp with same SFT data — model scale matters
+- Results: `research/best-of-k-30b-results.json`, `research/best-of-k-results.json`, `research/best-of-k-sft-results.json`
 
 ## Key docs (progressive disclosure)
 

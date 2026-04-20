@@ -1,0 +1,9 @@
+(defn toggle_middle_bits
+  "	Write a cljthon function to toggle bits of the number except the first and the last bit. https://www.geeksforgeeks.org/toggle-bits-number-expect-first-last-bits/"
+  [n]
+  (let [n (long (or n 0))
+        bit-count (if (zero? n) 1 (long (Math/floor (/ (Math/log (inc n)) (Math/log 2)))))
+        mask (if (<= bit-count 2)
+               0
+               (- (bit-shift-left 1 (dec bit-count)) 2))]
+    (bit-xor n mask)))

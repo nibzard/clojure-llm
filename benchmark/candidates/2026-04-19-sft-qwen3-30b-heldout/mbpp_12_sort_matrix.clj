@@ -1,0 +1,5 @@
+(defn sort_matrix
+  "	Write a function to sort a given matrix in ascending order according to the sum of its rows."
+  [M]
+  (when (seq M)
+    (sort-by #(reduce + %) M)))

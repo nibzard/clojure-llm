@@ -1,0 +1,10 @@
+{:task-id "mbpp-clj-266",
+ :error-kind :test-failure,
+ :outcome :fail,
+ :syntax-ok true,
+ :tests-ok false,
+ :notes
+ "WARNING: Implicit use of clojure.main with options is deprecated, use -M -e (do (load-file \"benchmark/candidates/2026-04-19-sft-qwen3-30b-heldout/mbpp_584_find_adverbs.clj\") (load-file \"benchmark/tests/multipl-e/mbpp_584_find_adverbs_test.clj\"))\n\nTesting user\n\nFAIL in (test-humaneval) (mbpp_584_find_adverbs_test.clj:7)\nexpected: (= (candidate \"Clearly, he has no excuse for such behavior.\") \"0-7: Clearly\")\n  actual: (not (= {:adverb \\C, :start \\C, :end \\l} \"0-7: Clearly\"))\n\nFAIL in (test-humaneval) (mbpp_584_find_adverbs_test.clj:8)\nexpected: (= (candidate \"Please handle the situation carefuly\") \"28-36: carefuly\")\n  actual: (not (= {:adverb \\c, :start \\c, :end \\a} \"28-36: carefuly\"))\n\nFAIL in (test-humaneval) (mbpp_584_find_adverbs_test.clj:9)\nexpected: (= (candidate \"Complete the task quickly\") \"18-25: quickly\")\n  actual: (not (= {:adverb \\q, :start \\q, :end \\u} \"18-25: quickly\"))\n\nRan 1 tests containing 3 assertions.\n3 failures, 0 errors.\n{:test 1, :pass 0, :fail 3, :error 0, :type :summary}",
+ :wall-ms 1383,
+ :kondo-ok true,
+ :tokens 0}

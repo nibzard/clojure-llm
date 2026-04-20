@@ -1,0 +1,10 @@
+{:task-id "mbpp-clj-363",
+ :error-kind :test-failure,
+ :outcome :fail,
+ :syntax-ok true,
+ :tests-ok false,
+ :notes
+ "WARNING: Implicit use of clojure.main with options is deprecated, use -M -e (do (load-file \"benchmark/candidates/2026-04-19-sft-qwen3-30b-heldout/mbpp_771_check_expression.clj\") (load-file \"benchmark/tests/multipl-e/mbpp_771_check_expression_test.clj\"))\n\nTesting user\n\nFAIL in (test-humaneval) (mbpp_771_check_expression_test.clj:7)\nexpected: (= (candidate \"{()}[{}]\") true)\n  actual: (not (= false true))\n\nFAIL in (test-humaneval) (mbpp_771_check_expression_test.clj:9)\nexpected: (= (candidate \"{()}[{}][]({})\") true)\n  actual: (not (= false true))\n\nRan 1 tests containing 3 assertions.\n2 failures, 0 errors.\n{:test 1, :pass 1, :fail 2, :error 0, :type :summary}",
+ :wall-ms 1563,
+ :kondo-ok true,
+ :tokens 0}

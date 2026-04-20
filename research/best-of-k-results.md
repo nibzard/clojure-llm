@@ -1,20 +1,33 @@
-# Best-of-K Evaluation: RLVR Qwen3-8B
+# Best-of-K Evaluation Results
 
-Date: 2026-04-19
+Date: 2026-04-19 (8B), 2026-04-20 (30B)
 
 ## Summary
 
 Best-of-K evaluation measures a model's *ceiling*: generate K candidates per task at temperature 0.7, evaluate each via Clojure subprocess, and report whether *any* candidate passes. This estimates what pass@1 would look like if the model had a perfect verifier to pick the right answer.
 
-The RLVR Qwen3-8B model (41.4% pass@1 at temperature 0.2) achieves **72.1% best-of-16** on 111 held-out tasks. At best-of-8, it reaches **67.6% — surpassing GPT-5.4's pass@1 of 64.0%**. The SFT model (without RLVR) reaches the same 72.1% ceiling at K=16 but converges slower (best-of-2: 47.7% vs RLVR's 55.9%), confirming RLVR improves consistency but not knowledge.
+### Phase 4: Qwen3-30B-A3B raises the ceiling to 83.8%
 
-| K | Pass count | Rate | Beats |
-|---|-----------|------|-------|
-| 1 | 49/111 | 44.1% | — |
-| 2 | 62/111 | 55.9% | Opus 4.7 (45.0%) |
-| 4 | 69/111 | 62.2% | GPT-5.4-mini (59.5%) |
-| **8** | **75/111** | **67.6%** | **GPT-5.4 (64.0%)** |
-| 16 | 80/111 | 72.1% | +8pp above GPT-5.4 |
+The 30B MoE model (30B total / 3B active) trained on the **same 2,459 SFT pairs** as the 8B model achieves **83.8% best-of-16** (93/111) — up from 72.1% with the 8B model. Best-of-2 already matches GPT-5.4's pass@1.
+
+| K | 30B Pass | 30B Rate | 8B RLVR | 8B SFT |
+|---|----------|----------|---------|--------|
+| 1 | 59/111 | 53.2% | 49/111 = 44.1% | 47/111 = 42.3% |
+| 2 | 72/111 | 64.9% | 62/111 = 55.9% | 53/111 = 47.7% |
+| 4 | 78/111 | 70.3% | 69/111 = 62.2% | 63/111 = 56.8% |
+| 8 | 84/111 | 75.7% | 75/111 = 67.6% | 72/111 = 64.9% |
+| **16** | **93/111** | **83.8%** | 80/111 = 72.1% | 80/111 = 72.1% |
+
+### Key comparisons
+
+| Model | pass@1 | best-of-8 | best-of-16 |
+|-------|--------|-----------|------------|
+| **30B SFT** | **52.3%** | **75.7%** | **83.8%** |
+| GPT-5.4 | 64.0% | — | — |
+| GPT-5.4-mini | 59.5% | — | — |
+| 8B RLVR | 41.4% | 67.6% | 72.1% |
+| 8B SFT | 37.8% | 64.9% | 72.1% |
+| Opus 4.7 | 45.0% | — | — |
 
 ## Motivation
 
@@ -201,10 +214,12 @@ These may require better base models, continued pretraining on more Clojure code
 | Artifact | Location |
 |----------|----------|
 | Evaluation script | `scripts/best_of_k.py` |
+| 30B results (JSON) | `research/best-of-k-30b-results.json` |
 | RLVR results (JSON) | `research/best-of-k-results.json` |
 | SFT results (JSON) | `research/best-of-k-sft-results.json` |
+| 30B SFT checkpoint | `tinker://6d56c642-fed2-539d-853b-8311cc4939ed:train:0/weights/checkpoint-step-600` |
 | RLVR checkpoint | `tinker://cf3778fc-5553-5e8d-be25-84859b2de080:train:0/weights/checkpoint-iter-10` |
-| SFT checkpoint | `tinker://b5c7e66e-618a-5f71-919e-da1db6844679:train:0/weights/checkpoint-step-600` |
+| 8B SFT checkpoint | `tinker://b5c7e66e-618a-5f71-919e-da1db6844679:train:0/weights/checkpoint-step-600` |
 | Training analysis | `research/rlvr-results.md` |
 | Baseline comparison | `research/baseline-analysis.md` |
 
@@ -219,7 +234,7 @@ These may require better base models, continued pretraining on more Clojure code
 
 ## Next Steps
 
-1. **Build the verifier agent loop.** Best-of-K proves the ceiling is 72.1%. Build an agent that generates, tests, and retries with Clojure error feedback to close the gap in practice.
-2. **Run best-of-K on frontier models** (Opus, GPT-5.4) to compare ceilings fairly.
-3. **Raise the 72.1% ceiling** via better SFT data (more diverse problems, more correct solutions) or a stronger base model — RLVR alone cannot raise it.
-4. **Estimate pass@K analytically** from the pass counts using the Chen et al. (2021) estimator to compare with best-of-K.
+1. **Expand SFT data for 30B.** The 30B model raised the ceiling from 72.1% to 83.8% with the same data. Adding ~3,000-4,000 more diverse SFT pairs (multi-solution, evol-instruct, error-correction) could push toward 90%+.
+2. **RLVR on 30B.** RLVR improved 8B consistency by +3.6pp pass@1. On 30B, RLVR might push pass@1 from 52.3% toward 55-58%, making best-of-2 competitive with GPT-5.4.
+3. **Build the verifier agent loop.** The 30B ceiling is 83.8%. A smart agent that generates, tests, and retries with error feedback should close most of the gap between pass@1 and best-of-K.
+4. **Write up for publication.** The result — 30B + SFT + verifier beats GPT-5.4 pass@1 at best-of-2 (64.9% vs 64.0%) — is publishable.

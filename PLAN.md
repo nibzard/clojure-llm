@@ -400,8 +400,10 @@ Required caution:
 | **2. SFT** | Qwen3-8B SFT on 2,459 verified Clojure pairs via Tinker | 1-2 weeks | Beats base model on held-out | **Done** — 37.8% pass@1 |
 | **3. RLVR** | GRPO with Clojure verifier rewards on Tinker | 2-3 weeks | Beats Opus 4.7 (45.0%) | **Done** — 41.4% (fell short) |
 | **3b. Best-of-K** | Best-of-K eval on SFT + RLVR models | 1 day | Estimate pass@K ceiling | **Done** — RLVR best-of-8 (67.6%) > GPT-5.4 pass@1 (64.0%); same 72.1% ceiling for SFT and RLVR |
-| **4. Repo-level benchmark** | Patch-generation track over real repos | 2-4 weeks | Reproducible patch eval on pinned repos | — |
-| **5. Full model work** | Continued pretraining / stronger SFT / longer RL | 4-8 weeks | Material improvement justifies added spend | — |
+| **4a. Larger model SFT** | Qwen3-30B-A3B SFT on same 2,459 pairs | 1 day | Higher pass@1 than 8B | **Done** — 52.3% (beats Opus 4.7 by +7.3pp) |
+| **4b. 30B best-of-K** | Best-of-16 on 30B model | 1 day | Higher ceiling than 8B's 72.1% | **Done** — 83.8% ceiling (93/111), +11.7pp over 8B |
+| **4c. Expanded SFT data** | Multi-solution + evol-instruct + error-correction pairs | 1-2 weeks | ~5,000-6,500 total pairs | — |
+| **4d. Repo-level benchmark** | Patch-generation track over real repos | 2-4 weeks | Reproducible patch eval on pinned repos | — |
 
 ## Go / no-go gates
 
