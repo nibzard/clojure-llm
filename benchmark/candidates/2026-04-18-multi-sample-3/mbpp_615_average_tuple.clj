@@ -1,0 +1,8 @@
+(defn average_tuple
+  "	Write a function which takes a lists of lists and returns the average value for each sublist as a list."
+  [nums]
+  (mapv (fn [sub]
+          (if (seq sub)
+            (/ (reduce + sub) (count sub))
+            0))
+        (or nums [])))

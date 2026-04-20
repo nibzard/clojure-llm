@@ -1,0 +1,10 @@
+{:task-id "mbpp-clj-342",
+ :error-kind :test-failure,
+ :outcome :fail,
+ :syntax-ok true,
+ :tests-ok false,
+ :notes
+ "WARNING: Implicit use of clojure.main with options is deprecated, use -M -e (do (load-file \"benchmark/candidates/2026-04-17-gpt-5-4-direct/mbpp_747_lcs_of_three.clj\") (load-file \"benchmark/tests/multipl-e/mbpp_747_lcs_of_three_test.clj\"))\n\nTesting user\n\nFAIL in (test-humaneval) (mbpp_747_lcs_of_three_test.clj:7)\nexpected: (= (candidate \"AGGT12\" \"12TXAYB\" \"12XBA\") 2)\n  actual: (not (= \"12\" 2))\n\nFAIL in (test-humaneval) (mbpp_747_lcs_of_three_test.clj:8)\nexpected: (= (candidate \"Reels\" \"Reelsfor\" \"ReelsforReels\") 5)\n  actual: (not (= \"Reels\" 5))\n\nFAIL in (test-humaneval) (mbpp_747_lcs_of_three_test.clj:9)\nexpected: (= (candidate \"abcd1e2\" \"bc12ea\" \"bd1ea\") 3)\n  actual: (not (= \"b1e\" 3))\n\nRan 1 tests containing 3 assertions.\n3 failures, 0 errors.\n{:test 1, :pass 0, :fail 3, :error 0, :type :summary}",
+ :wall-ms 1247,
+ :kondo-ok true,
+ :tokens 0}

@@ -1,0 +1,10 @@
+{:task-id "mbpp-clj-008",
+ :error-kind :test-failure,
+ :outcome :fail,
+ :syntax-ok true,
+ :tests-ok false,
+ :notes
+ "WARNING: Implicit use of clojure.main with options is deprecated, use -M -e (do (load-file \"benchmark/candidates/2026-04-17-gpt-5-4-mini-2026-03-17-direct/mbpp_14_find_Volume.clj\") (load-file \"benchmark/tests/multipl-e/mbpp_14_find_Volume_test.clj\"))\n\nTesting user\n\nFAIL in (test-humaneval) (mbpp_14_find_Volume_test.clj:7)\nexpected: (= (candidate 10 8 6) 240)\n  actual: (not (= 240.0 240))\n\nFAIL in (test-humaneval) (mbpp_14_find_Volume_test.clj:8)\nexpected: (= (candidate 3 2 2) 6)\n  actual: (not (= 6.0 6))\n\nFAIL in (test-humaneval) (mbpp_14_find_Volume_test.clj:9)\nexpected: (= (candidate 1 2 1) 1)\n  actual: (not (= 1.0 1))\n\nRan 1 tests containing 3 assertions.\n3 failures, 0 errors.\n{:test 1, :pass 0, :fail 3, :error 0, :type :summary}",
+ :wall-ms 1092,
+ :kondo-ok true,
+ :tokens 0}

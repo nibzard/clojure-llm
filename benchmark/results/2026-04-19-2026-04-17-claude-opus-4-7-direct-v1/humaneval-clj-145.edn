@@ -1,0 +1,10 @@
+{:task-id "humaneval-clj-145",
+ :error-kind :test-failure,
+ :outcome :fail,
+ :syntax-ok true,
+ :tests-ok false,
+ :notes
+ "WARNING: Implicit use of clojure.main with options is deprecated, use -M -e (do (load-file \"benchmark/candidates/2026-04-17-claude-opus-4-7-direct/HumanEval_147_get_max_triples.clj\") (load-file \"benchmark/tests/multipl-e/HumanEval_147_get_max_triples_test.clj\"))\nSyntax error compiling at (benchmark/tests/multipl-e/HumanEval_147_get_max_triples_test.clj:3:1).\nUnable to resolve symbol: get_max_triples in this context\n\nFull report at:\n/tmp/clojure-4819730504692380187.edn",
+ :wall-ms 1336,
+ :kondo-ok true,
+ :tokens 0}

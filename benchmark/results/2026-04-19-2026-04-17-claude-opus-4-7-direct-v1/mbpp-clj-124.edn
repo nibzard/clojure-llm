@@ -1,0 +1,10 @@
+{:task-id "mbpp-clj-124",
+ :error-kind :test-failure,
+ :outcome :fail,
+ :syntax-ok true,
+ :tests-ok false,
+ :notes
+ "WARNING: Implicit use of clojure.main with options is deprecated, use -M -e (do (load-file \"benchmark/candidates/2026-04-17-claude-opus-4-7-direct/mbpp_267_square_Sum.clj\") (load-file \"benchmark/tests/multipl-e/mbpp_267_square_Sum_test.clj\"))\nSyntax error compiling at (benchmark/tests/multipl-e/mbpp_267_square_Sum_test.clj:3:1).\nUnable to resolve symbol: square_Sum in this context\n\nFull report at:\n/tmp/clojure-4996635065129321107.edn",
+ :wall-ms 1289,
+ :kondo-ok true,
+ :tokens 0}

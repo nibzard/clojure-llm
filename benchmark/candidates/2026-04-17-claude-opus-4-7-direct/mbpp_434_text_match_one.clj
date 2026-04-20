@@ -1,0 +1,5 @@
+(defn text_match_one
+  "Write a function that matches a string that has an a followed by one or more b's."
+  [text]
+  (boolean (and (string? text)
+                (re-matches #".*ab+.*" text))))

@@ -1,0 +1,10 @@
+{:task-id "mbpp-clj-391",
+ :error-kind :test-failure,
+ :outcome :fail,
+ :syntax-ok true,
+ :tests-ok false,
+ :notes
+ "WARNING: Implicit use of clojure.main with options is deprecated, use -M -e (do (load-file \"benchmark/candidates/2026-04-19-gemini-31-pro-direct/mbpp_803_is_perfect_square.clj\") (load-file \"benchmark/tests/multipl-e/mbpp_803_is_perfect_square_test.clj\"))\nSyntax error compiling at (benchmark/tests/multipl-e/mbpp_803_is_perfect_square_test.clj:3:1).\nUnable to resolve symbol: is_perfect_square in this context\n\nFull report at:\n/tmp/clojure-327394009756203485.edn",
+ :wall-ms 1229,
+ :kondo-ok true,
+ :tokens 0}

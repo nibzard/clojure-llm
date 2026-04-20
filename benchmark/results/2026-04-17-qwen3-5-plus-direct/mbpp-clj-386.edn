@@ -1,0 +1,10 @@
+{:task-id "mbpp-clj-386",
+ :error-kind :test-failure,
+ :outcome :fail,
+ :syntax-ok true,
+ :tests-ok false,
+ :notes
+ "Syntax error compiling at (/home/agent/clojure-llm/benchmark/tests/multipl-e/mbpp_798__sum_test.clj:3:1).",
+ :wall-ms 14,
+ :kondo-ok true,
+ :tokens 0}

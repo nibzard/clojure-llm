@@ -1,0 +1,9 @@
+{:task-id "mbpp-clj-221",
+ :error-kind :compile-error,
+ :outcome :fail,
+ :syntax-ok true,
+ :tests-ok false,
+ :notes "Skipped due to previous failures",
+ :wall-ms 12,
+ :kondo-ok false,
+ :tokens 0}

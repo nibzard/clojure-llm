@@ -1,0 +1,10 @@
+{:task-id "mbpp-clj-037",
+ :error-kind :test-failure,
+ :outcome :fail,
+ :syntax-ok true,
+ :tests-ok false,
+ :notes
+ "WARNING: Implicit use of clojure.main with options is deprecated, use -M -e (do (load-file \"benchmark/candidates/2026-04-19-gemini-31-pro-direct/mbpp_86_centered_hexagonal_number.clj\") (load-file \"benchmark/tests/multipl-e/mbpp_86_centered_hexagonal_number_test.clj\"))\nSyntax error compiling at (benchmark/tests/multipl-e/mbpp_86_centered_hexagonal_number_test.clj:3:1).\nUnable to resolve symbol: centered_hexagonal_number in this context\n\nFull report at:\n/tmp/clojure-18014426480317845004.edn",
+ :wall-ms 1090,
+ :kondo-ok true,
+ :tokens 0}

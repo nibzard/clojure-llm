@@ -1,0 +1,10 @@
+{:task-id "humaneval-clj-159",
+ :error-kind :test-failure,
+ :outcome :fail,
+ :syntax-ok true,
+ :tests-ok false,
+ :notes
+ "Syntax error compiling fn* at (/home/agent/clojure-llm/benchmark/candidates/2026-04-18-multi-sample-2/HumanEval_161_solve.clj:18:19).",
+ :wall-ms 11,
+ :kondo-ok true,
+ :tokens 0}

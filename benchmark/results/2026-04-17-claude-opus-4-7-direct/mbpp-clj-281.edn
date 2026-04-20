@@ -1,0 +1,10 @@
+{:task-id "mbpp-clj-281",
+ :error-kind :test-failure,
+ :outcome :fail,
+ :syntax-ok true,
+ :tests-ok false,
+ :notes
+ "Syntax error compiling at (/home/agent/clojure-llm/benchmark/candidates/2026-04-17-claude-opus-4-7-direct/mbpp_602_first_repeated_char.clj:8:9).",
+ :wall-ms 16,
+ :kondo-ok true,
+ :tokens 0}

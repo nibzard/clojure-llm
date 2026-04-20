@@ -1,0 +1,8 @@
+(defn parabola-focus
+  "Return the focus of the parabola y = ax^2 + bx + c as [x y].
+
+  Examples:
+  (parabola-focus 1 0 0) => [0 1/4]
+  (parabola-focus 2 4 1) => [-1 0]
+  "
+  [a b c])

@@ -1,0 +1,10 @@
+{:task-id "humaneval-clj-144",
+ :error-kind :test-failure,
+ :outcome :fail,
+ :syntax-ok true,
+ :tests-ok false,
+ :notes
+ "WARNING: Implicit use of clojure.main with options is deprecated, use -M -e (do (load-file \"benchmark/candidates/2026-04-20-rlvr-v1-qwen3-8b-heldout/HumanEval_146_specialFilter.clj\") (load-file \"benchmark/tests/multipl-e/HumanEval_146_specialFilter_test.clj\"))\n\nTesting user\n\nFAIL in (test-humaneval) (HumanEval_146_specialFilter_test.clj:8)\nexpected: (= (candidate [15 -73 14 -15]) 1)\n  actual: (not (= 0 1))\n\nFAIL in (test-humaneval) (HumanEval_146_specialFilter_test.clj:9)\nexpected: (= (candidate [33 -2 -3 45 21 109]) 2)\n  actual: (not (= 1 2))\n\nFAIL in (test-humaneval) (HumanEval_146_specialFilter_test.clj:10)\nexpected: (= (candidate [43 -12 93 125 121 109]) 4)\n  actual: (not (= 1 4))\n\nFAIL in (test-humaneval) (HumanEval_146_specialFilter_test.clj:11)\nexpected: (= (candidate [71 -2 -33 75 21 19]) 3)\n  actual: (not (= 0 3))\n\nRan 1 tests containing 7 assertions.\n4 failures, 0 errors.\n{:test 1, :pass 3, :fail 4, :error 0, :type :summary}",
+ :wall-ms 1353,
+ :kondo-ok true,
+ :tokens 0}

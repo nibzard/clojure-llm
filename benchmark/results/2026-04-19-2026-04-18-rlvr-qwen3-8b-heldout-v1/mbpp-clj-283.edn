@@ -1,0 +1,10 @@
+{:task-id "mbpp-clj-283",
+ :error-kind :test-failure,
+ :outcome :fail,
+ :syntax-ok true,
+ :tests-ok false,
+ :notes
+ "WARNING: Implicit use of clojure.main with options is deprecated, use -M -e (do (load-file \"benchmark/candidates/2026-04-18-rlvr-qwen3-8b-heldout/mbpp_604_reverse_words.clj\") (load-file \"benchmark/tests/multipl-e/mbpp_604_reverse_words_test.clj\"))\n\nTesting user\n\nFAIL in (test-humaneval) (mbpp_604_reverse_words_test.clj:7)\nexpected: (= (candidate \"python program\") \"program python\")\n  actual: (not (= \"programpython\" \"program python\"))\n\nFAIL in (test-humaneval) (mbpp_604_reverse_words_test.clj:8)\nexpected: (= (candidate \"java language\") \"language java\")\n  actual: (not (= \"languagejava\" \"language java\"))\n\nFAIL in (test-humaneval) (mbpp_604_reverse_words_test.clj:9)\nexpected: (= (candidate \"indian man\") \"man indian\")\n  actual: (not (= \"manindian\" \"man indian\"))\n\nRan 1 tests containing 3 assertions.\n3 failures, 0 errors.\n{:test 1, :pass 0, :fail 3, :error 0, :type :summary}",
+ :wall-ms 1290,
+ :kondo-ok true,
+ :tokens 0}

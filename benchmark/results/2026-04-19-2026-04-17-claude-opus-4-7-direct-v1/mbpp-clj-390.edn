@@ -1,0 +1,9 @@
+{:task-id "mbpp-clj-390",
+ :error-kind :runtime-error,
+ :outcome :timeout,
+ :syntax-ok true,
+ :tests-ok false,
+ :notes "Timeout after 10000ms",
+ :wall-ms 10024,
+ :kondo-ok true,
+ :tokens 0}

@@ -1,0 +1,10 @@
+{:task-id "mbpp-clj-334",
+ :error-kind :test-failure,
+ :outcome :fail,
+ :syntax-ok true,
+ :tests-ok false,
+ :notes
+ "WARNING: Implicit use of clojure.main with options is deprecated, use -M -e (do (load-file \"benchmark/candidates/2026-04-17-claude-opus-4-7-direct/mbpp_739_find_Index.clj\") (load-file \"benchmark/tests/multipl-e/mbpp_739_find_Index_test.clj\"))\nSyntax error compiling at (benchmark/tests/multipl-e/mbpp_739_find_Index_test.clj:3:1).\nUnable to resolve symbol: find_Index in this context\n\nFull report at:\n/tmp/clojure-5314981140530895603.edn",
+ :wall-ms 1450,
+ :kondo-ok true,
+ :tokens 0}

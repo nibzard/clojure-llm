@@ -1,0 +1,10 @@
+{:task-id "humaneval-clj-143",
+ :error-kind :test-failure,
+ :outcome :fail,
+ :syntax-ok true,
+ :tests-ok false,
+ :notes
+ "WARNING: Implicit use of clojure.main with options is deprecated, use -M -e (do (load-file \"benchmark/candidates/2026-04-17-claude-opus-4-7-direct/HumanEval_145_order_by_points.clj\") (load-file \"benchmark/tests/multipl-e/HumanEval_145_order_by_points_test.clj\"))\n\nTesting user\n\nFAIL in (test-humaneval) (HumanEval_145_order_by_points_test.clj:7)\nexpected: (= (candidate [1 11 -1 -11 -12]) [-1 -11 1 -12 11])\n  actual: (not (= [1 -1 11 -11 -12] [-1 -11 1 -12 11]))\n\nFAIL in (test-humaneval) (HumanEval_145_order_by_points_test.clj:10)\nexpected: (= (candidate [1 -11 -32 43 54 -98 2 -3]) [-3 -32 -98 -11 1 2 43 54])\n  actual: (not (= [1 -11 2 -3 -32 43 54 -98] [-3 -32 -98 -11 1 2 43 54]))\n\nFAIL in (test-humaneval) (HumanEval_145_order_by_points_test.clj:12)\nexpected: (= (candidate [0 6 6 -76 -21 23 4]) [-76 -21 0 4 23 6 6])\n  actual: (not (= [0 -21 4 23 6 6 -76] [-76 -21 0 4 23 6 6]))\n\nRan 1 tests containing 6 assertions.\n3 failures, 0 errors.\n{:test 1, :pass 3, :fail 3, :error 0, :type :summary}",
+ :wall-ms 1095,
+ :kondo-ok true,
+ :tokens 0}

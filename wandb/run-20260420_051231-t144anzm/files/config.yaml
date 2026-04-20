@@ -1,0 +1,83 @@
+_wandb:
+    value:
+        cli_version: 0.26.0
+        e:
+            v9i6mq1nm1cnx4qkyjhw0boqohrgpyj7:
+                args:
+                    - --config
+                    - training/rlvr/config-30b.yaml
+                codePath: training/rlvr/train.py
+                codePathLocal: training/rlvr/train.py
+                cpu_count: 4
+                cpu_count_logical: 4
+                disk:
+                    /:
+                        total: "156454371328"
+                        used: "114074808320"
+                email: niko@steelbrowser.com
+                executable: /usr/bin/python3
+                git:
+                    commit: 22122eb514a91a8b07b95531defc5c0aaa3404bd
+                    remote: https://github.com/nibzard/clojure-llm
+                host: claude-code-vm
+                memory:
+                    total: "12542238720"
+                os: Linux-6.8.0-106-generic-x86_64-with-glibc2.39
+                program: /home/agent/clojure-llm/training/rlvr/train.py
+                python: CPython 3.12.3
+                root: /home/agent/clojure-llm
+                startedAt: "2026-04-20T05:12:31.530456Z"
+                writerId: v9i6mq1nm1cnx4qkyjhw0boqohrgpyj7
+        m: []
+        python_version: 3.12.3
+        t:
+            "1":
+                - 11
+                - 49
+                - 105
+            "2":
+                - 11
+                - 49
+                - 105
+            "3":
+                - 2
+                - 13
+                - 16
+                - 61
+            "4": 3.12.3
+            "5": 0.26.0
+            "6": 5.5.4
+            "12": 0.26.0
+            "13": linux-x86_64
+clip_range:
+    value: 0.2
+kl_penalty_coeff:
+    value: 0.1
+learning_rate:
+    value: 5e-06
+max_tokens:
+    value: 512
+model:
+    value: Qwen/Qwen3-30B-A3B-Base
+num_iterations:
+    value: 10
+refresh_sampler_every_iteration:
+    value: true
+reward_mode:
+    value: shaped
+reward_weights:
+    value:
+        kondo: 0.2
+        load: 0.1
+        syntax: 0.1
+        tests: 0.6
+rollouts_per_task:
+    value: 8
+sft_checkpoint:
+    value: tinker://6d56c642-fed2-539d-853b-8311cc4939ed:train:0/weights/checkpoint-step-600
+tasks_per_batch:
+    value: 30
+temperature:
+    value: 0.7
+weight_decay:
+    value: 0.01

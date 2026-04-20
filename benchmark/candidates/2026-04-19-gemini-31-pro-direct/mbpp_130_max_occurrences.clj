@@ -1,0 +1,5 @@
+(defn max_occurrences
+  "Write a function to find the item with maximum frequency in a given list."
+  [nums]
+  (when (seq nums)
+    (key (apply max-key val (frequencies nums)))))

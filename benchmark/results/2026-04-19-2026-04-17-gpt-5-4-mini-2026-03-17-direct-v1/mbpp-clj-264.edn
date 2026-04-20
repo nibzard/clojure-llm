@@ -1,0 +1,10 @@
+{:task-id "mbpp-clj-264",
+ :error-kind :test-failure,
+ :outcome :fail,
+ :syntax-ok true,
+ :tests-ok false,
+ :notes
+ "WARNING: Implicit use of clojure.main with options is deprecated, use -M -e (do (load-file \"benchmark/candidates/2026-04-17-gpt-5-4-mini-2026-03-17-direct/mbpp_581_surface_Area.clj\") (load-file \"benchmark/tests/multipl-e/mbpp_581_surface_Area_test.clj\"))\n\nTesting user\n\nFAIL in (test-humaneval) (mbpp_581_surface_Area_test.clj:7)\nexpected: (= (candidate 3 4) 33)\n  actual: (not (= 34.63201123595259 33))\n\nFAIL in (test-humaneval) (mbpp_581_surface_Area_test.clj:8)\nexpected: (= (candidate 4 5) 56)\n  actual: (not (= 59.08131845707603 56))\n\nFAIL in (test-humaneval) (mbpp_581_surface_Area_test.clj:9)\nexpected: (= (candidate 1 2) 5)\n  actual: (not (= 5.123105625617661 5))\n\nRan 1 tests containing 3 assertions.\n3 failures, 0 errors.\n{:test 1, :pass 0, :fail 3, :error 0, :type :summary}",
+ :wall-ms 1174,
+ :kondo-ok true,
+ :tokens 0}

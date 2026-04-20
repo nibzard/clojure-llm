@@ -1,0 +1,10 @@
+{:task-id "mbpp-clj-264",
+ :error-kind :test-failure,
+ :outcome :fail,
+ :syntax-ok true,
+ :tests-ok false,
+ :notes
+ "WARNING: Implicit use of clojure.main with options is deprecated, use -M -e (do (load-file \"benchmark/candidates/2026-04-17-claude-opus-4-7-direct/mbpp_581_surface_Area.clj\") (load-file \"benchmark/tests/multipl-e/mbpp_581_surface_Area_test.clj\"))\nSyntax error compiling at (benchmark/tests/multipl-e/mbpp_581_surface_Area_test.clj:3:1).\nUnable to resolve symbol: surface_Area in this context\n\nFull report at:\n/tmp/clojure-1096957811696750749.edn",
+ :wall-ms 1389,
+ :kondo-ok true,
+ :tokens 0}

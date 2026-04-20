@@ -1,0 +1,10 @@
+{:task-id "humaneval-clj-123",
+ :error-kind :test-failure,
+ :outcome :fail,
+ :syntax-ok true,
+ :tests-ok false,
+ :notes
+ "WARNING: Implicit use of clojure.main with options is deprecated, use -M -e (do (load-file \"benchmark/candidates/2026-04-18-sft-qwen3-8b-heldout/HumanEval_125_split_words.clj\") (load-file \"benchmark/tests/multipl-e/HumanEval_125_split_words_test.clj\"))\n\nTesting user\n\nFAIL in (test-humaneval) (HumanEval_125_split_words_test.clj:13)\nexpected: (= (candidate \"aaaBb\") 1)\n  actual: (not (= 2 1))\n\nRan 1 tests containing 8 assertions.\n1 failures, 0 errors.\n{:test 1, :pass 7, :fail 1, :error 0, :type :summary}",
+ :wall-ms 1312,
+ :kondo-ok true,
+ :tokens 0}

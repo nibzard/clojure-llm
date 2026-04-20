@@ -1,0 +1,10 @@
+{:task-id "mbpp-clj-359",
+ :error-kind :test-failure,
+ :outcome :fail,
+ :syntax-ok true,
+ :tests-ok false,
+ :notes
+ "WARNING: Implicit use of clojure.main with options is deprecated, use -M -e (do (load-file \"benchmark/candidates/2026-04-19-gemini-31-pro-direct/mbpp_766_pair_wise.clj\") (load-file \"benchmark/tests/multipl-e/mbpp_766_pair_wise_test.clj\"))\nSyntax error compiling at (benchmark/tests/multipl-e/mbpp_766_pair_wise_test.clj:3:1).\nUnable to resolve symbol: pair_wise in this context\n\nFull report at:\n/tmp/clojure-967612830827159887.edn",
+ :wall-ms 1252,
+ :kondo-ok true,
+ :tokens 0}

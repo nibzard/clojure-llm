@@ -1,0 +1,10 @@
+{:task-id "mbpp-clj-188",
+ :error-kind :test-failure,
+ :outcome :fail,
+ :syntax-ok true,
+ :tests-ok false,
+ :notes
+ "WARNING: Implicit use of clojure.main with options is deprecated, use -M -e (do (load-file \"benchmark/candidates/2026-04-17-gpt-5-4-direct/mbpp_421_concatenate_tuple.clj\") (load-file \"benchmark/tests/multipl-e/mbpp_421_concatenate_tuple_test.clj\"))\n\nTesting user\n\nFAIL in (test-humaneval) (mbpp_421_concatenate_tuple_test.clj:7)\nexpected: (= (candidate [\"ID\" \"is\" 4 \"UTS\"]) \"ID-is-4-UTS\")\n  actual: (not (= \"ID is 4 UTS\" \"ID-is-4-UTS\"))\n\nFAIL in (test-humaneval) (mbpp_421_concatenate_tuple_test.clj:8)\nexpected: (= (candidate [\"QWE\" \"is\" 4 \"RTY\"]) \"QWE-is-4-RTY\")\n  actual: (not (= \"QWE is 4 RTY\" \"QWE-is-4-RTY\"))\n\nFAIL in (test-humaneval) (mbpp_421_concatenate_tuple_test.clj:9)\nexpected: (= (candidate [\"ZEN\" \"is\" 4 \"OP\"]) \"ZEN-is-4-OP\")\n  actual: (not (= \"ZEN is 4 OP\" \"ZEN-is-4-OP\"))\n\nRan 1 tests containing 3 assertions.\n3 failures, 0 errors.\n{:test 1, :pass 0, :fail 3, :error 0, :type :summary}",
+ :wall-ms 1497,
+ :kondo-ok true,
+ :tokens 0}

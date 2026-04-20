@@ -1,0 +1,10 @@
+(defn vector_xor
+  "Given two vectors of booleans a and b, return a vector where each element is the XOR of the corresponding elements.
+  The vectors may be different lengths; treat missing values as false.
+  Examples:
+  (vector_xor [true false true] [false false true])
+  => [true false false]
+
+  (vector_xor [true true] [false true false])
+  => [true false true]"
+  [a b])

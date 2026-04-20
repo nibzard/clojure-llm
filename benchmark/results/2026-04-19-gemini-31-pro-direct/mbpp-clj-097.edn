@@ -1,0 +1,10 @@
+{:task-id "mbpp-clj-097",
+ :error-kind :test-failure,
+ :outcome :fail,
+ :syntax-ok true,
+ :tests-ok false,
+ :notes
+ "WARNING: Implicit use of clojure.main with options is deprecated, use -M -e (do (load-file \"benchmark/candidates/2026-04-19-gemini-31-pro-direct/mbpp_228_all_Bits_Set_In_The_Given_Range.clj\") (load-file \"benchmark/tests/multipl-e/mbpp_228_all_Bits_Set_In_The_Given_Range_test.clj\"))\n\nTesting user\n\nFAIL in (test-humaneval) (mbpp_228_all_Bits_Set_In_The_Given_Range_test.clj:7)\nexpected: (= (candidate 4 1 2) true)\n  actual: (not (= false true))\n\nFAIL in (test-humaneval) (mbpp_228_all_Bits_Set_In_The_Given_Range_test.clj:8)\nexpected: (= (candidate 17 2 4) true)\n  actual: (not (= false true))\n\nRan 1 tests containing 3 assertions.\n2 failures, 0 errors.\n{:test 1, :pass 1, :fail 2, :error 0, :type :summary}",
+ :wall-ms 1238,
+ :kondo-ok true,
+ :tokens 0}

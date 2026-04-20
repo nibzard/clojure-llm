@@ -1,0 +1,21 @@
+(defn prod_signs
+  "You are given a vector arr of integers and you need to return
+  sum of magnitudes of integers multiplied by product of all signs
+  of each number in the vector, represented by 1, -1 or 0.
+  Note: return nil for empty arr.
+  Example:
+  >>> (prod_signs [1 2 2 -4])
+  9
+  >>> (prod_signs [0 1])
+  0
+  >>> (prod_signs [])
+  nil"
+  [arr]
+  (when (seq arr)
+    (let [sign-product (reduce * (map #(cond
+                                         (pos? %) 1
+                                         (neg? %) -1
+                                         :else 0)
+                                      arr))
+          magnitude-sum (reduce + (map #(Math/abs (long %)) arr))]
+      (* sign-product magnitude-sum))))

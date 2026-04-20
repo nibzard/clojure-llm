@@ -1,0 +1,9 @@
+{:task-id "humaneval-clj-059",
+ :error-kind :test-failure,
+ :outcome :fail,
+ :syntax-ok true,
+ :tests-ok false,
+ :notes "Tests failed: 0 failures, 5 errors",
+ :wall-ms 56,
+ :kondo-ok true,
+ :tokens 0}

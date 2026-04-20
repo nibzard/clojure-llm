@@ -1,0 +1,9 @@
+(defn difference-of-powers
+  "Return the difference between the sum of squares of the first n even numbers and the sum of the first n odd numbers.
+  If n is nil or non-positive, return 0.
+
+  Examples:
+  (difference-of-powers 1) ;=> 3   ; 2^2 - 1
+  (difference-of-powers 3) ;=> 29  ; (2^2+4^2+6^2) - (1+3+5)
+  (difference-of-powers nil) ;=> 0"
+  [n])

@@ -1,0 +1,10 @@
+{:task-id "mbpp-clj-281",
+ :error-kind :test-failure,
+ :outcome :fail,
+ :syntax-ok true,
+ :tests-ok false,
+ :notes
+ "WARNING: Implicit use of clojure.main with options is deprecated, use -M -e (do (load-file \"benchmark/candidates/2026-04-17-claude-opus-4-7-direct/mbpp_602_first_repeated_char.clj\") (load-file \"benchmark/tests/multipl-e/mbpp_602_first_repeated_char_test.clj\"))\nSyntax error (IllegalArgumentException) compiling at (benchmark/candidates/2026-04-17-claude-opus-4-7-direct/mbpp_602_first_repeated_char.clj:8:9).\nCan't call nil, form: (nil ch)\n\nFull report at:\n/tmp/clojure-3532386854963995720.edn",
+ :wall-ms 1426,
+ :kondo-ok true,
+ :tokens 0}

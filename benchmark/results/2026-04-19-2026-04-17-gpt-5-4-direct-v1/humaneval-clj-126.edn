@@ -1,0 +1,9 @@
+{:task-id "humaneval-clj-126",
+ :error-kind nil,
+ :outcome :pass,
+ :syntax-ok true,
+ :tests-ok true,
+ :notes nil,
+ :wall-ms 1510,
+ :kondo-ok true,
+ :tokens 0}

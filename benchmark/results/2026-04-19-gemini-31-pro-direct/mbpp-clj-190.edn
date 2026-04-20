@@ -1,0 +1,10 @@
+{:task-id "mbpp-clj-190",
+ :error-kind :test-failure,
+ :outcome :fail,
+ :syntax-ok true,
+ :tests-ok false,
+ :notes
+ "WARNING: Implicit use of clojure.main with options is deprecated, use -M -e (do (load-file \"benchmark/candidates/2026-04-19-gemini-31-pro-direct/mbpp_424_extract_rear.clj\") (load-file \"benchmark/tests/multipl-e/mbpp_424_extract_rear_test.clj\"))\n\nTesting user\n\nFAIL in (test-humaneval) (mbpp_424_extract_rear_test.clj:7)\nexpected: (= (candidate [\"Mers\" \"for\" \"Vers\"]) [\"s\" \"r\" \"s\"])\n  actual: (not (= (\\s \\r \\s) [\"s\" \"r\" \"s\"]))\n\nFAIL in (test-humaneval) (mbpp_424_extract_rear_test.clj:8)\nexpected: (= (candidate [\"Avenge\" \"for\" \"People\"]) [\"e\" \"r\" \"e\"])\n  actual: (not (= (\\e \\r \\e) [\"e\" \"r\" \"e\"]))\n\nFAIL in (test-humaneval) (mbpp_424_extract_rear_test.clj:9)\nexpected: (= (candidate [\"Gotta\" \"get\" \"go\"]) [\"a\" \"t\" \"o\"])\n  actual: (not (= (\\a \\t \\o) [\"a\" \"t\" \"o\"]))\n\nRan 1 tests containing 3 assertions.\n3 failures, 0 errors.\n{:test 1, :pass 0, :fail 3, :error 0, :type :summary}",
+ :wall-ms 1246,
+ :kondo-ok true,
+ :tokens 0}

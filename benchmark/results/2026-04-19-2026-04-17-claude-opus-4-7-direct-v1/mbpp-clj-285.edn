@@ -1,0 +1,10 @@
+{:task-id "mbpp-clj-285",
+ :error-kind :test-failure,
+ :outcome :fail,
+ :syntax-ok true,
+ :tests-ok false,
+ :notes
+ "WARNING: Implicit use of clojure.main with options is deprecated, use -M -e (do (load-file \"benchmark/candidates/2026-04-17-claude-opus-4-7-direct/mbpp_606_radian_degree.clj\") (load-file \"benchmark/tests/multipl-e/mbpp_606_radian_degree_test.clj\"))\nSyntax error compiling at (benchmark/tests/multipl-e/mbpp_606_radian_degree_test.clj:3:1).\nUnable to resolve symbol: radian_degree in this context\n\nFull report at:\n/tmp/clojure-4381451603092849805.edn",
+ :wall-ms 1392,
+ :kondo-ok true,
+ :tokens 0}

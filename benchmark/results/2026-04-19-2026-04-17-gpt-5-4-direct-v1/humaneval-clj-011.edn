@@ -1,0 +1,10 @@
+{:task-id "humaneval-clj-011",
+ :error-kind :test-failure,
+ :outcome :fail,
+ :syntax-ok true,
+ :tests-ok false,
+ :notes
+ "WARNING: Implicit use of clojure.main with options is deprecated, use -M -e (do (load-file \"benchmark/candidates/2026-04-17-gpt-5-4-direct/HumanEval_10_make_palindrome.clj\") (load-file \"benchmark/tests/multipl-e/HumanEval_10_make_palindrome_test.clj\"))\nSyntax error macroexpanding clojure.core/defn at (benchmark/candidates/2026-04-17-gpt-5-4-direct/HumanEval_10_make_palindrome.clj:1:1).\n\")\\n  \" - failed: vector? at: [:fn-tail :arity-1 :params] spec: :clojure.core.specs.alpha/param-list\n\")\\n  \" - failed: (or (nil? %) (sequential? %)) at: [:fn-tail :arity-n :bodies] spec: :clojure.core.specs.alpha/params+body\n\nFull report at:\n/tmp/clojure-8310225079538378714.edn",
+ :wall-ms 1486,
+ :kondo-ok true,
+ :tokens 0}

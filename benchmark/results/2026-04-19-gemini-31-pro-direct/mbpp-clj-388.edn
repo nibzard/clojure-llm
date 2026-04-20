@@ -1,0 +1,10 @@
+{:task-id "mbpp-clj-388",
+ :error-kind :test-failure,
+ :outcome :fail,
+ :syntax-ok true,
+ :tests-ok false,
+ :notes
+ "WARNING: Implicit use of clojure.main with options is deprecated, use -M -e (do (load-file \"benchmark/candidates/2026-04-19-gemini-31-pro-direct/mbpp_800_remove_all_spaces.clj\") (load-file \"benchmark/tests/multipl-e/mbpp_800_remove_all_spaces_test.clj\"))\nSyntax error compiling at (benchmark/tests/multipl-e/mbpp_800_remove_all_spaces_test.clj:3:1).\nUnable to resolve symbol: remove_all_spaces in this context\n\nFull report at:\n/tmp/clojure-16739099121231003516.edn",
+ :wall-ms 1182,
+ :kondo-ok true,
+ :tokens 0}

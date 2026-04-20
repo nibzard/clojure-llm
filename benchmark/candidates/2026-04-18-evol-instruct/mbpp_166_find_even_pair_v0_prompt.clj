@@ -1,0 +1,10 @@
+(defn count-odd-xor-pairs
+  "Count the number of pairs of numbers in a collection whose bitwise xor is odd.
+
+  Examples:
+  (count-odd-xor-pairs [1 2 3 4]) => 4
+  (count-odd-xor-pairs [2 4 6]) => 0
+  (count-odd-xor-pairs nil) => 0
+
+  The function should work with any sequential collection and return 0 for nil."
+  [xs])

@@ -9,6 +9,7 @@ import uuid
 from pathlib import Path
 from typing import Any, Dict, List
 
+from dotenv import load_dotenv
 from tinker import ServiceClient
 from transformers import AutoTokenizer
 import yaml
@@ -16,6 +17,8 @@ import yaml
 
 ROOT = Path(__file__).resolve().parents[2]
 DEFAULT_TOKENIZER = "Qwen/Qwen3-8B-Base"
+
+load_dotenv(ROOT / ".env")
 
 
 def load_benchmark_tasks(tasks_path: str) -> List[Dict[str, Any]]:
@@ -180,75 +183,81 @@ def evaluate_on_benchmark(
 
     print(f"Evaluating on {len(tasks)} tasks...")
 
-    _, sc = _load_sampler(checkpoint_path)
-    tokenizer = AutoTokenizer.from_pretrained(DEFAULT_TOKENIZER, trust_remote_code=True)
-    run_id = _make_run_id(Path(checkpoint_path).name or "model")
-    cand_dir = ROOT / "benchmark" / "candidates" / run_id
-    cand_dir.mkdir(parents=True, exist_ok=True)
+    client, sc = _load_sampler(checkpoint_path)
+    try:
+        tokenizer = AutoTokenizer.from_pretrained(DEFAULT_TOKENIZER, trust_remote_code=True)
+        run_id = _make_run_id(Path(checkpoint_path).name or "model")
+        cand_dir = ROOT / "benchmark" / "candidates" / run_id
+        cand_dir.mkdir(parents=True, exist_ok=True)
 
-    results = []
-    pass_count = 0
+        results = []
+        pass_count = 0
 
-    for i, task in enumerate(tasks):
-        task_id = task.get("id", f"task-{i}")
-        print(f"[{i+1}/{len(tasks)}] Generating solution for {task_id}...")
+        for i, task in enumerate(tasks):
+            task_id = task.get("id", f"task-{i}")
+            print(f"[{i+1}/{len(tasks)}] Generating solution for {task_id}...", flush=True)
 
-        try:
-            solution = generate_solution(sc, tokenizer, task)
-            stem = Path(task["prompt_path"]).stem
-            (cand_dir / f"{stem}.clj").write_text(solution)
-        except Exception as e:
-            print(f"  Error: {e}")
-            stem = Path(task["prompt_path"]).stem
-            (cand_dir / f"{stem}.clj").write_text(f";; Generation failed: {e}")
+            try:
+                solution = generate_solution(sc, tokenizer, task)
+                stem = Path(task["prompt_path"]).stem
+                (cand_dir / f"{stem}.clj").write_text(solution)
+                print(f"  Wrote candidate for {task_id}", flush=True)
+            except Exception as e:
+                print(f"  Error: {e}", flush=True)
+                stem = Path(task["prompt_path"]).stem
+                (cand_dir / f"{stem}.clj").write_text(f";; Generation failed: {e}")
 
-    manifest_path = _create_run_manifest([task["id"] for task in tasks], run_id, checkpoint_path)
-    _run_benchmark_eval(manifest_path)
-    eval_results = _load_eval_results(run_id)
+        manifest_path = _create_run_manifest([task["id"] for task in tasks], run_id, checkpoint_path)
+        print(f"Running benchmark evaluation for {run_id}...", flush=True)
+        _run_benchmark_eval(manifest_path)
+        print(f"Loading benchmark results for {run_id}...", flush=True)
+        eval_results = _load_eval_results(run_id)
 
-    for task in tasks:
-        task_id = task["id"]
-        eval_result = eval_results.get(task_id, {})
-        passed = eval_result.get("outcome") == ":pass"
-        result = {
-            "task_id": task_id,
-            "passed": passed,
-            "source": task.get("source", "unknown"),
-            "outcome": eval_result.get("outcome", ":missing"),
-            "syntax_ok": eval_result.get("syntax_ok", False),
-            "kondo_ok": eval_result.get("kondo_ok", False),
-            "tests_ok": eval_result.get("tests_ok", False),
-            "wall_ms": eval_result.get("wall_ms"),
+        for task in tasks:
+            task_id = task["id"]
+            eval_result = eval_results.get(task_id, {})
+            passed = eval_result.get("outcome") == ":pass"
+            result = {
+                "task_id": task_id,
+                "passed": passed,
+                "source": task.get("source", "unknown"),
+                "outcome": eval_result.get("outcome", ":missing"),
+                "syntax_ok": eval_result.get("syntax_ok", False),
+                "kondo_ok": eval_result.get("kondo_ok", False),
+                "tests_ok": eval_result.get("tests_ok", False),
+                "wall_ms": eval_result.get("wall_ms"),
+            }
+            results.append(result)
+            if passed:
+                pass_count += 1
+
+        # Calculate metrics
+        pass_rate = pass_count / len(tasks) if tasks else 0.0
+
+        summary = {
+            "checkpoint": checkpoint_path,
+            "run_id": run_id,
+            "num_tasks": len(tasks),
+            "pass_count": pass_count,
+            "pass_rate": pass_rate,
+            "results": results,
         }
-        results.append(result)
-        if passed:
-            pass_count += 1
 
-    # Calculate metrics
-    pass_rate = pass_count / len(tasks) if tasks else 0.0
+        # Save results
+        output_dir = os.path.dirname(output_path)
+        if output_dir:
+            os.makedirs(output_dir, exist_ok=True)
+        with open(output_path, "w") as f:
+            json.dump(summary, f, indent=2)
 
-    summary = {
-        "checkpoint": checkpoint_path,
-        "run_id": run_id,
-        "num_tasks": len(tasks),
-        "pass_count": pass_count,
-        "pass_rate": pass_rate,
-        "results": results,
-    }
+        print(f"\nEvaluation complete!")
+        print(f"  Pass rate: {pass_rate:.2%} ({pass_count}/{len(tasks)})")
+        print(f"  Benchmark run ID: {run_id}")
+        print(f"  Results saved to: {output_path}")
 
-    # Save results
-    output_dir = os.path.dirname(output_path)
-    if output_dir:
-        os.makedirs(output_dir, exist_ok=True)
-    with open(output_path, "w") as f:
-        json.dump(summary, f, indent=2)
-
-    print(f"\nEvaluation complete!")
-    print(f"  Pass rate: {pass_rate:.2%} ({pass_count}/{len(tasks)})")
-    print(f"  Benchmark run ID: {run_id}")
-    print(f"  Results saved to: {output_path}")
-
-    return summary
+        return summary
+    finally:
+        client.holder.close()
 
 
 def compare_models(

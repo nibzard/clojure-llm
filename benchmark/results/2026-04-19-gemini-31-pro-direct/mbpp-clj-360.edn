@@ -1,0 +1,10 @@
+{:task-id "mbpp-clj-360",
+ :error-kind :test-failure,
+ :outcome :fail,
+ :syntax-ok true,
+ :tests-ok false,
+ :notes
+ "WARNING: Implicit use of clojure.main with options is deprecated, use -M -e (do (load-file \"benchmark/candidates/2026-04-19-gemini-31-pro-direct/mbpp_767_get_pairs_count.clj\") (load-file \"benchmark/tests/multipl-e/mbpp_767_get_pairs_count_test.clj\"))\nSyntax error compiling at (benchmark/tests/multipl-e/mbpp_767_get_pairs_count_test.clj:3:1).\nUnable to resolve symbol: get_pairs_count in this context\n\nFull report at:\n/tmp/clojure-10048859645732744438.edn",
+ :wall-ms 1198,
+ :kondo-ok true,
+ :tokens 0}

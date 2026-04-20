@@ -1,0 +1,6 @@
+(defn move_zero
+  "Write a cljthon function to move all zeroes to the end of the given list."
+  [num_list]
+  (let [non-zeros (filter #(not (zero? %)) num_list)
+        zeros (repeat (count (filter zero? num_list)) 0)]
+    (concat non-zeros zeros)))

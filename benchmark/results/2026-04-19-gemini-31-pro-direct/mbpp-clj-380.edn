@@ -1,0 +1,10 @@
+{:task-id "mbpp-clj-380",
+ :error-kind :test-failure,
+ :outcome :fail,
+ :syntax-ok true,
+ :tests-ok false,
+ :notes
+ "WARNING: Implicit use of clojure.main with options is deprecated, use -M -e (do (load-file \"benchmark/candidates/2026-04-19-gemini-31-pro-direct/mbpp_791_remove_nested.clj\") (load-file \"benchmark/tests/multipl-e/mbpp_791_remove_nested_test.clj\"))\nSyntax error compiling at (benchmark/tests/multipl-e/mbpp_791_remove_nested_test.clj:3:1).\nUnable to resolve symbol: remove_nested in this context\n\nFull report at:\n/tmp/clojure-3138043087781272990.edn",
+ :wall-ms 1001,
+ :kondo-ok true,
+ :tokens 0}

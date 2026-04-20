@@ -1,0 +1,9 @@
+{:task-id "mbpp-clj-168",
+ :error-kind :test-failure,
+ :outcome :fail,
+ :syntax-ok true,
+ :tests-ok false,
+ :notes "Tests failed: 2 failures, 1 errors",
+ :wall-ms 14,
+ :kondo-ok true,
+ :tokens 0}

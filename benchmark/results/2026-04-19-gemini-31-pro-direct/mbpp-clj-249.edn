@@ -1,0 +1,10 @@
+{:task-id "mbpp-clj-249",
+ :error-kind :test-failure,
+ :outcome :fail,
+ :syntax-ok true,
+ :tests-ok false,
+ :notes
+ "WARNING: Implicit use of clojure.main with options is deprecated, use -M -e (do (load-file \"benchmark/candidates/2026-04-19-gemini-31-pro-direct/mbpp_563_extract_values.clj\") (load-file \"benchmark/tests/multipl-e/mbpp_563_extract_values_test.clj\"))\nSyntax error compiling at (benchmark/tests/multipl-e/mbpp_563_extract_values_test.clj:7:10).\nUnable to resolve symbol: Python in this context\n\nFull report at:\n/tmp/clojure-1904364481784558209.edn",
+ :wall-ms 1434,
+ :kondo-ok true,
+ :tokens 0}

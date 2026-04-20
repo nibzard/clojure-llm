@@ -1,0 +1,10 @@
+{:task-id "mbpp-clj-015",
+ :error-kind :test-failure,
+ :outcome :fail,
+ :syntax-ok true,
+ :tests-ok false,
+ :notes
+ "WARNING: Implicit use of clojure.main with options is deprecated, use -M -e (do (load-file \"benchmark/candidates/2026-04-17-claude-opus-4-7-direct/mbpp_57_find_Max_Num.clj\") (load-file \"benchmark/tests/multipl-e/mbpp_57_find_Max_Num_test.clj\"))\nSyntax error compiling at (benchmark/tests/multipl-e/mbpp_57_find_Max_Num_test.clj:3:1).\nUnable to resolve symbol: find_Max_Num in this context\n\nFull report at:\n/tmp/clojure-1769783542215580343.edn",
+ :wall-ms 1358,
+ :kondo-ok true,
+ :tokens 0}

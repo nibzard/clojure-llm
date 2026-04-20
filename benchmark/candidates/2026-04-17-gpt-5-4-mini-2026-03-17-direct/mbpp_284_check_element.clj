@@ -1,0 +1,4 @@
+(defn check_element
+  "Write a function that takes in a list and element and checks whether all items in the list are equal to the given element."
+  [list element]
+  (every? #(= % element) list))

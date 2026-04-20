@@ -1,0 +1,26 @@
+(defn min_product_infinite
+  "Return the minimum product of adjacent elements in a sequence.
+
+  The input may be finite or infinite. If the sequence has fewer than 2 elements,
+  return nil.
+
+  Examples:
+  (min_product_infinite [3 7 2 5]) ;=> 10
+  (min_product_infinite (range 1 1000000)) ;=> 2
+  (min_product_infinite [4]) ;=> nil"
+  [xs]
+  (when-let [[a b & more] (seq xs)]
+    (if (nil? b)
+      nil
+      (reduce min
+              (map * (cons a (take-while some? (rest xs)))
+                   (take-while some? (rest xs)))))))
+
+(require '[clojure.test :refer [deftest is run-test]])
+
+(deftest test-variation
+  (is (= 10 (min_product_infinite [3 7 2 5])))
+  (is (= 2 (min_product_infinite (range 1 1000000))))
+  (is (= nil (min_product_infinite [4]))))
+
+(run-test test-variation)

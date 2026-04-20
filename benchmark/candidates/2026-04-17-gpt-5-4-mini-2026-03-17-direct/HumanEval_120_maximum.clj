@@ -1,0 +1,10 @@
+(defn maximum
+  "Given a vector arr of integers and a positive integer k, return a sorted list 
+  of length k with the maximum k numbers in arr."
+  [arr k]
+  (->> arr
+       sort
+       reverse
+       (take k)
+       sort
+       vec))

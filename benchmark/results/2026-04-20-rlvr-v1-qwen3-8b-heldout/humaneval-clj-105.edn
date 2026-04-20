@@ -1,0 +1,10 @@
+{:task-id "humaneval-clj-105",
+ :error-kind :test-failure,
+ :outcome :fail,
+ :syntax-ok true,
+ :tests-ok false,
+ :notes
+ "WARNING: Implicit use of clojure.main with options is deprecated, use -M -e (do (load-file \"benchmark/candidates/2026-04-20-rlvr-v1-qwen3-8b-heldout/HumanEval_107_even_odd_palindrome.clj\") (load-file \"benchmark/tests/multipl-e/HumanEval_107_even_odd_palindrome_test.clj\"))\n\nTesting user\n\nFAIL in (test-humaneval) (HumanEval_107_even_odd_palindrome_test.clj:7)\nexpected: (= (candidate 123) [8 13])\n  actual: (not (= [21 13] [8 13]))\n\nFAIL in (test-humaneval) (HumanEval_107_even_odd_palindrome_test.clj:8)\nexpected: (= (candidate 12) [4 6])\n  actual: (not (= [10 6] [4 6]))\n\nFAIL in (test-humaneval) (HumanEval_107_even_odd_palindrome_test.clj:9)\nexpected: (= (candidate 3) [1 2])\n  actual: (not (= [3 2] [1 2]))\n\nFAIL in (test-humaneval) (HumanEval_107_even_odd_palindrome_test.clj:10)\nexpected: (= (candidate 63) [6 8])\n  actual: (not (= [14 8] [6 8]))\n\nFAIL in (test-humaneval) (HumanEval_107_even_odd_palindrome_test.clj:11)\nexpected: (= (candidate 25) [5 6])\n  actual: (not (= [11 6] [5 6]))\n\nFAIL in (test-humaneval) (HumanEval_107_even_odd_palindrome_test.clj:12)\nexpected: (= (candidate 19) [4 6])\n  actual: (not (= [10 6] [4 6]))\n\nFAIL in (test-humaneval) (HumanEval_107_even_odd_palindrome_test.clj:13)\nexpected: (= (candidate 9) [4 5])\n  actual: (not (= [9 5] [4 5]))\n\nFAIL in (test-humaneval) (HumanEval_107_even_odd_palindrome_test.clj:14)\nexpected: (= (candidate 1) [0 1])\n  actual: (not (= [1 1] [0 1]))\n\nRan 1 tests containing 8 assertions.\n8 failures, 0 errors.\n{:test 1, :pass 0, :fail 8, :error 0, :type :summary}",
+ :wall-ms 1283,
+ :kondo-ok true,
+ :tokens 0}

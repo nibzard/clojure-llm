@@ -1,0 +1,10 @@
+{:task-id "mbpp-clj-038",
+ :error-kind :test-failure,
+ :outcome :fail,
+ :syntax-ok true,
+ :tests-ok false,
+ :notes
+ "WARNING: Implicit use of clojure.main with options is deprecated, use -M -e (do (load-file \"benchmark/candidates/2026-04-17-gpt-5-4-mini-2026-03-17-direct/mbpp_87_merge_dictionaries_three.clj\") (load-file \"benchmark/tests/multipl-e/mbpp_87_merge_dictionaries_three_test.clj\"))\n\nTesting user\n\nFAIL in (test-humaneval) (mbpp_87_merge_dictionaries_three_test.clj:8)\nexpected: (= (candidate {\"R\" \"Red\", \"B\" \"Black\", \"P\" \"Pink\"} {\"G\" \"Green\", \"W\" \"White\"} {\"L\" \"lavender\", \"B\" \"Blue\"}) {\"W\" \"White\", \"P\" \"Pink\", \"B\" \"Black\", \"R\" \"Red\", \"G\" \"Green\", \"L\" \"lavender\"})\n  actual: (not (= {\"R\" \"Red\", \"B\" \"Blue\", \"P\" \"Pink\", \"G\" \"Green\", \"W\" \"White\", \"L\" \"lavender\"} {\"W\" \"White\", \"P\" \"Pink\", \"B\" \"Black\", \"R\" \"Red\", \"G\" \"Green\", \"L\" \"lavender\"}))\n\nFAIL in (test-humaneval) (mbpp_87_merge_dictionaries_three_test.clj:9)\nexpected: (= (candidate {\"R\" \"Red\", \"B\" \"Black\", \"P\" \"Pink\"} {\"L\" \"lavender\", \"B\" \"Blue\"} {\"G\" \"Green\", \"W\" \"White\"}) {\"B\" \"Black\", \"P\" \"Pink\", \"R\" \"Red\", \"G\" \"Green\", \"L\" \"lavender\", \"W\" \"White\"})\n  actual: (not (= {\"R\" \"Red\", \"B\" \"Blue\", \"P\" \"Pink\", \"L\" \"lavender\", \"G\" \"Green\", \"W\" \"White\"} {\"B\" \"Black\", \"P\" \"Pink\", \"R\" \"Red\", \"G\" \"Green\", \"L\" \"lavender\", \"W\" \"White\"}))\n\nRan 1 tests containing 3 assertions.\n2 failures, 0 errors.\n{:test 1, :pass 1, :fail 2, :error 0, :type :summary}",
+ :wall-ms 1293,
+ :kondo-ok true,
+ :tokens 0}

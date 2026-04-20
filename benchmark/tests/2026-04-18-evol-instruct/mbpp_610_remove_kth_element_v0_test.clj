@@ -1,0 +1,6 @@
+(require '[clojure.test :refer [deftest is run-test]])
+
+(deftest test-variation
+  (is (= [1 3 4] (remove-nth [1 2 3 4] 1))))
+
+(run-test test-variation)

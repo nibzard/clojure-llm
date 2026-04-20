@@ -1,0 +1,18 @@
+(defn sort-by-key-desc
+  "Return a map sorted by key in descending order.
+
+  Examples:
+  (sort-by-key-desc {:b 2, :a 1, :c 3})
+  ;; => {:c 3, :b 2, :a 1}
+
+  Works with nil input by returning {}."
+  [m]
+  (into (sorted-map-by (fn [a b] (compare b a)))
+        (or m {})))
+
+(require '[clojure.test :refer [deftest is run-test]])
+
+(deftest test-variation
+  (is (= {:c 3, :b 2, :a 1} (sort-by-key-desc {:b 2, :a 1, :c 3}))))
+
+(run-test test-variation)

@@ -1,0 +1,22 @@
+(defn lucas-prefix
+  "Return the first n Lucas numbers as a vector.
+  Use the sequence [2 1 3 4 7 11 ...].
+
+  Examples:
+  (lucas-prefix 0) => []
+  (lucas-prefix 1) => [2]
+  (lucas-prefix 5) => [2 1 3 4 7]"
+  [n]
+  (vec
+   (take n
+         (map first
+              (iterate (fn [[a b]] [b (+ a b)]) [2 1])))))
+
+(require '[clojure.test :refer [deftest is run-test]])
+
+(deftest test-variation
+  (is (= [] (lucas-prefix 0)))
+  (is (= [2] (lucas-prefix 1)))
+  (is (= [2 1 3 4 7] (lucas-prefix 5))))
+
+(run-test test-variation)

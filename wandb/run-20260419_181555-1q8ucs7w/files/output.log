@@ -1,0 +1,35 @@
+============================================================
+SFT Training — Tinker Platform
+============================================================
+  Model:          Qwen/Qwen3-30B-A3B-Base
+  LoRA rank:      32
+  Learning rate:  2e-05
+  Batch size:     8
+  Max seq length: 2048
+  Epochs:         3
+  wandb:          nibzard-org/clojure-llm
+
+Loading tokenizer...
+Loading data from data/sft/sft_train.jsonl...
+  Training pairs: 5
+
+Connecting to Tinker...
+  Connected. LoRA training client ready.
+
+  Steps per epoch: 1
+  Total steps:     3
+  Warmup steps:    0
+
+=== Epoch 1/3 ===
+
+=== Epoch 2/3 ===
+
+=== Epoch 3/3 ===
+
+Saving final model...
+  Model saved. Sampling client ready.
+
+Training complete!
+  Total time:   65s
+  Total steps:  3
+  Skipped:      0 pairs (too long)

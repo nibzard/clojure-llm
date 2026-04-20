@@ -1,0 +1,73 @@
+_wandb:
+    value:
+        cli_version: 0.26.0
+        e:
+            t9g5fh0iqunxqag8hwupw1bp8kzp6zob:
+                args:
+                    - --config
+                    - training/sft/config-30b.yaml
+                codePath: training/sft/train.py
+                codePathLocal: training/sft/train.py
+                cpu_count: 4
+                cpu_count_logical: 4
+                disk:
+                    /:
+                        total: "156454371328"
+                        used: "113827127296"
+                email: niko@steelbrowser.com
+                executable: /usr/bin/python3
+                git:
+                    commit: 848256bbbe727c3d282b4b6073e330674ecaa8fa
+                    remote: https://github.com/nibzard/clojure-llm
+                host: claude-code-vm
+                memory:
+                    total: "12542238720"
+                os: Linux-6.8.0-106-generic-x86_64-with-glibc2.39
+                program: /home/agent/clojure-llm/training/sft/train.py
+                python: CPython 3.12.3
+                root: /home/agent/clojure-llm
+                startedAt: "2026-04-19T18:17:26.811105Z"
+                writerId: t9g5fh0iqunxqag8hwupw1bp8kzp6zob
+        m: []
+        python_version: 3.12.3
+        t:
+            "1":
+                - 11
+                - 49
+                - 105
+            "2":
+                - 11
+                - 49
+                - 105
+            "3":
+                - 2
+                - 13
+                - 16
+                - 61
+            "4": 3.12.3
+            "5": 0.26.0
+            "6": 5.5.4
+            "12": 0.26.0
+            "13": linux-x86_64
+batch_size:
+    value: 8
+learning_rate:
+    value: 2e-05
+lora_alpha:
+    value: 64
+lora_rank:
+    value: 32
+lr_scheduler:
+    value: cosine
+max_seq_length:
+    value: 2048
+model:
+    value: Qwen/Qwen3-30B-A3B-Base
+num_epochs:
+    value: 3
+optimizer:
+    value: adamw
+warmup_ratio:
+    value: 0.1
+weight_decay:
+    value: 0.01

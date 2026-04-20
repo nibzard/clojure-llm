@@ -1,0 +1,10 @@
+{:task-id "mbpp-clj-353",
+ :error-kind :test-failure,
+ :outcome :fail,
+ :syntax-ok true,
+ :tests-ok false,
+ :notes
+ "WARNING: Implicit use of clojure.main with options is deprecated, use -M -e (do (load-file \"benchmark/candidates/2026-04-17-claude-opus-4-7-direct/mbpp_759_is_decimal.clj\") (load-file \"benchmark/tests/multipl-e/mbpp_759_is_decimal_test.clj\"))\n\nTesting user\n\nFAIL in (test-humaneval) (mbpp_759_is_decimal_test.clj:7)\nexpected: (= (candidate \"123.11\") true)\n  actual: (not (= \"123.11\" true))\n\nFAIL in (test-humaneval) (mbpp_759_is_decimal_test.clj:8)\nexpected: (= (candidate \"e666.86\") false)\n  actual: (not (= nil false))\n\nFAIL in (test-humaneval) (mbpp_759_is_decimal_test.clj:9)\nexpected: (= (candidate \"3.124587\") false)\n  actual: (not (= nil false))\n\nFAIL in (test-humaneval) (mbpp_759_is_decimal_test.clj:10)\nexpected: (= (candidate \"1.11\") true)\n  actual: (not (= \"1.11\" true))\n\nFAIL in (test-humaneval) (mbpp_759_is_decimal_test.clj:11)\nexpected: (= (candidate \"1.1.11\") false)\n  actual: (not (= nil false))\n\nRan 1 tests containing 5 assertions.\n5 failures, 0 errors.\n{:test 1, :pass 0, :fail 5, :error 0, :type :summary}",
+ :wall-ms 1208,
+ :kondo-ok true,
+ :tokens 0}

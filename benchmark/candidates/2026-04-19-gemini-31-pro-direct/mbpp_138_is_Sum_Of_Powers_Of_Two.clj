@@ -1,0 +1,3 @@
+(defn is_Sum_Of_Powers_Of_Two
+  [n]
+  (even? n))

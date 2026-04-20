@@ -1,0 +1,8 @@
+(defn all-greater?
+  "Return true if every element in the vector is greater than the threshold.
+  
+  Examples:
+  (all-greater? [5 6 7] 4) => true
+  (all-greater? [1 5 7] 4) => false
+  (all-greater? [] 10) => true"
+  [v threshold])

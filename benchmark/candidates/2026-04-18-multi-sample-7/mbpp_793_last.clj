@@ -1,0 +1,16 @@
+(defn last
+  "	Write a cljthon function to find the last position of an element in a sorted vector."
+  [arr x]
+  (when (seq arr)
+    (let [n (count arr)]
+      (loop [lo 0
+             hi (dec n)
+             result nil]
+        (if (> lo hi)
+          result
+          (let [mid (+ lo (quot (- hi lo) 2))
+                v   (nth arr mid)]
+            (cond
+              (< v x) (recur (inc mid) hi result)
+              (> v x) (recur lo (dec mid) result)
+              :else   (recur (inc mid) hi mid))))))))

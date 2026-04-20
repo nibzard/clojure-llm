@@ -1,0 +1,15 @@
+(defn xor-bytes
+  "Given two byte arrays of equal length, return a new byte array where each
+  position is the bitwise XOR of the corresponding bytes.
+
+  If either input is nil, treat it as an empty byte array.
+  If the arrays have different lengths, XOR up to the shorter length.
+
+  Examples:
+  (xor-bytes (byte-array [1 2 3]) (byte-array [4 5 6]))
+  => (byte-array [5 7 5])
+
+  (xor-bytes nil (byte-array [1 2]))
+  => (byte-array [])
+
+  [a b])

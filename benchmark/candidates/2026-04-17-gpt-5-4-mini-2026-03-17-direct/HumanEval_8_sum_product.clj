@@ -1,0 +1,10 @@
+(defn sum_product
+  " For a given list of integers, return a vector consisting of a sum and a product of all the integers in a list.
+  Empty sum should be equal to 0 and empty product should be equal to 1.
+  >>> (sum_product [])
+  [0 1]
+  >>> (sum_product [1 2 3 4])
+  [10 24]"
+  [numbers]
+  [(reduce + 0 numbers)
+   (reduce * 1 numbers)])

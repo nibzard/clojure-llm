@@ -1,0 +1,25 @@
+(defn same-non-nil-count?
+  "Return true if all non-nil collections in coll have the same count.
+  
+  Nil values are ignored. An empty input or a collection containing only nils
+  should return true.
+  
+  Examples:
+  (same-non-nil-count? []) ;=> true
+  (same-non-nil-count? [nil nil]) ;=> true
+  (same-non-nil-count? [[1 2] nil [3 4]]) ;=> true
+  (same-non-nil-count? [[1] [2 3]]) ;=> false"
+  [coll]
+  (let [counts (map count (filter some? coll))]
+    (or (empty? counts)
+        (apply = counts))))
+
+(require '[clojure.test :refer [deftest is run-test]])
+
+(deftest test-variation
+  (is (= true (same-non-nil-count? [])))
+  (is (= true (same-non-nil-count? [nil nil])))
+  (is (= true (same-non-nil-count? [[1 2] nil [3 4]])))
+  (is (= false (same-non-nil-count? [[1] [2 3]]))))
+
+(run-test test-variation)

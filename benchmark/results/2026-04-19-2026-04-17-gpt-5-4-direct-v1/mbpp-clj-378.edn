@@ -1,0 +1,10 @@
+{:task-id "mbpp-clj-378",
+ :error-kind :test-failure,
+ :outcome :fail,
+ :syntax-ok true,
+ :tests-ok false,
+ :notes
+ "WARNING: Implicit use of clojure.main with options is deprecated, use -M -e (do (load-file \"benchmark/candidates/2026-04-17-gpt-5-4-direct/mbpp_788_new_tuple.clj\") (load-file \"benchmark/tests/multipl-e/mbpp_788_new_tuple_test.clj\"))\n\nTesting user\n\nFAIL in (test-humaneval) (mbpp_788_new_tuple_test.clj:7)\nexpected: (= (candidate [\"WEB\" \"is\"] \"best\") [\"WEB\" \"is\" \"best\"])\n  actual: (not (= [\"best\" [\"WEB\" \"is\"]] [\"WEB\" \"is\" \"best\"]))\n\nFAIL in (test-humaneval) (mbpp_788_new_tuple_test.clj:8)\nexpected: (= (candidate [\"We\" \"are\"] \"Developers\") [\"We\" \"are\" \"Developers\"])\n  actual: (not (= [\"Developers\" [\"We\" \"are\"]] [\"We\" \"are\" \"Developers\"]))\n\nFAIL in (test-humaneval) (mbpp_788_new_tuple_test.clj:9)\nexpected: (= (candidate [\"Part\" \"is\"] \"Wrong\") [\"Part\" \"is\" \"Wrong\"])\n  actual: (not (= [\"Wrong\" [\"Part\" \"is\"]] [\"Part\" \"is\" \"Wrong\"]))\n\nRan 1 tests containing 3 assertions.\n3 failures, 0 errors.\n{:test 1, :pass 0, :fail 3, :error 0, :type :summary}",
+ :wall-ms 1240,
+ :kondo-ok true,
+ :tokens 0}

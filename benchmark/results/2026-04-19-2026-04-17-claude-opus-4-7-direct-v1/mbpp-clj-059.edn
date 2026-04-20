@@ -1,0 +1,10 @@
+{:task-id "mbpp-clj-059",
+ :error-kind :test-failure,
+ :outcome :fail,
+ :syntax-ok true,
+ :tests-ok false,
+ :notes
+ "WARNING: Implicit use of clojure.main with options is deprecated, use -M -e (do (load-file \"benchmark/candidates/2026-04-17-claude-opus-4-7-direct/mbpp_113_check_integer.clj\") (load-file \"benchmark/tests/multipl-e/mbpp_113_check_integer_test.clj\"))\n\nTesting user\n\nFAIL in (test-humaneval) (mbpp_113_check_integer_test.clj:7)\nexpected: (= (candidate \"python\") false)\n  actual: (not (= nil false))\n\nFAIL in (test-humaneval) (mbpp_113_check_integer_test.clj:8)\nexpected: (= (candidate \"1\") true)\n  actual: (not (= \"1\" true))\n\nFAIL in (test-humaneval) (mbpp_113_check_integer_test.clj:9)\nexpected: (= (candidate \"12345\") true)\n  actual: (not (= \"12345\" true))\n\nRan 1 tests containing 3 assertions.\n3 failures, 0 errors.\n{:test 1, :pass 0, :fail 3, :error 0, :type :summary}",
+ :wall-ms 1123,
+ :kondo-ok true,
+ :tokens 0}

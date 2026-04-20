@@ -1,0 +1,10 @@
+{:task-id "mbpp-clj-236",
+ :error-kind :test-failure,
+ :outcome :fail,
+ :syntax-ok true,
+ :tests-ok false,
+ :notes
+ "WARNING: Implicit use of clojure.main with options is deprecated, use -M -e (do (load-file \"benchmark/candidates/2026-04-17-gpt-5-4-mini-2026-03-17-direct/mbpp_475_sort_counter.clj\") (load-file \"benchmark/tests/multipl-e/mbpp_475_sort_counter_test.clj\"))\n\nTesting user\n\nFAIL in (test-humaneval) (mbpp_475_sort_counter_test.clj:7)\nexpected: (= (candidate {\"Math\" 81, \"Physics\" 83, \"Chemistry\" 87}) [[\"Chemistry\" 87] [\"Physics\" 83] [\"Math\" 81]])\n  actual: (not (= {\"Math\" 81, \"Physics\" 83, \"Chemistry\" 87} [[\"Chemistry\" 87] [\"Physics\" 83] [\"Math\" 81]]))\n\nFAIL in (test-humaneval) (mbpp_475_sort_counter_test.clj:8)\nexpected: (= (candidate {\"Math\" 400, \"Physics\" 300, \"Chemistry\" 250}) [[\"Math\" 400] [\"Physics\" 300] [\"Chemistry\" 250]])\n  actual: (not (= {\"Chemistry\" 250, \"Physics\" 300, \"Math\" 400} [[\"Math\" 400] [\"Physics\" 300] [\"Chemistry\" 250]]))\n\nFAIL in (test-humaneval) (mbpp_475_sort_counter_test.clj:9)\nexpected: (= (candidate {\"Math\" 900, \"Physics\" 1000, \"Chemistry\" 1250}) [[\"Chemistry\" 1250] [\"Physics\" 1000] [\"Math\" 900]])\n  actual: (not (= {\"Math\" 900, \"Physics\" 1000, \"Chemistry\" 1250} [[\"Chemistry\" 1250] [\"Physics\" 1000] [\"Math\" 900]]))\n\nRan 1 tests containing 3 assertions.\n3 failures, 0 errors.\n{:test 1, :pass 0, :fail 3, :error 0, :type :summary}",
+ :wall-ms 1033,
+ :kondo-ok true,
+ :tokens 0}

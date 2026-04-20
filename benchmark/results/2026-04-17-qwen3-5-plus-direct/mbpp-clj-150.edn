@@ -1,0 +1,10 @@
+{:task-id "mbpp-clj-150",
+ :error-kind :test-failure,
+ :outcome :fail,
+ :syntax-ok true,
+ :tests-ok false,
+ :notes
+ "Syntax error compiling at (/home/agent/clojure-llm/benchmark/tests/multipl-e/mbpp_297_flatten_list_test.clj:3:1).",
+ :wall-ms 8,
+ :kondo-ok true,
+ :tokens 0}

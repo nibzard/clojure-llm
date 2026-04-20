@@ -1,0 +1,10 @@
+{:task-id "mbpp-clj-084",
+ :error-kind :test-failure,
+ :outcome :fail,
+ :syntax-ok true,
+ :tests-ok false,
+ :notes
+ "WARNING: Implicit use of clojure.main with options is deprecated, use -M -e (do (load-file \"benchmark/candidates/2026-04-18-sft-qwen3-8b-heldout/mbpp_164_are_equivalent.clj\") (load-file \"benchmark/tests/multipl-e/mbpp_164_are_equivalent_test.clj\"))\nSyntax error compiling at (benchmark/tests/multipl-e/mbpp_164_are_equivalent_test.clj:3:1).\nUnable to resolve symbol: are_equivalent in this context\n\nFull report at:\n/tmp/clojure-13864150328310230629.edn",
+ :wall-ms 1488,
+ :kondo-ok true,
+ :tokens 0}

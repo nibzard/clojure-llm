@@ -1,0 +1,12 @@
+{
+  "total_groups": 600,
+  "mean_reward": 0.6884791666666666,
+  "final_reward": 0.85,
+  "reward_improvement": 0.29999999999999993,
+  "mean_pass_rate": 0.555625,
+  "final_pass_rate": 0.75,
+  "total_time_s": 36831.40554666519,
+  "total_iterations": 20,
+  "model": "Qwen3-8B-Base",
+  "sft_checkpoint": "tinker://b5c7e66e-618a-5f71-919e-da1db6844679:train:0/weights/checkpoint-step-600"
+}

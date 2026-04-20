@@ -1,0 +1,10 @@
+{:task-id "humaneval-clj-147",
+ :error-kind :test-failure,
+ :outcome :fail,
+ :syntax-ok true,
+ :tests-ok false,
+ :notes
+ "WARNING: Implicit use of clojure.main with options is deprecated, use -M -e (do (load-file \"benchmark/candidates/2026-04-17-gpt-5-4-mini-2026-03-17-direct/HumanEval_149_sorted_list_sum.clj\") (load-file \"benchmark/tests/multipl-e/HumanEval_149_sorted_list_sum_test.clj\"))\n\nTesting user\n\nFAIL in (test-humaneval) (HumanEval_149_sorted_list_sum_test.clj:8)\nexpected: (= (candidate [\"school\" \"AI\" \"asdf\" \"b\"]) [\"AI\" \"asdf\" \"school\"])\n  actual: (not (= (\"school\" \"asdf\" \"AI\") [\"AI\" \"asdf\" \"school\"]))\n\nFAIL in (test-humaneval) (HumanEval_149_sorted_list_sum_test.clj:10)\nexpected: (= (candidate [\"d\" \"dcba\" \"abcd\" \"a\"]) [\"abcd\" \"dcba\"])\n  actual: (not (= (\"dcba\" \"abcd\") [\"abcd\" \"dcba\"]))\n\nFAIL in (test-humaneval) (HumanEval_149_sorted_list_sum_test.clj:11)\nexpected: (= (candidate [\"AI\" \"ai\" \"au\"]) [\"AI\" \"ai\" \"au\"])\n  actual: (not (= (\"au\" \"ai\" \"AI\") [\"AI\" \"ai\" \"au\"]))\n\nFAIL in (test-humaneval) (HumanEval_149_sorted_list_sum_test.clj:13)\nexpected: (= (candidate [\"aaaa\" \"bbbb\" \"dd\" \"cc\"]) [\"cc\" \"dd\" \"aaaa\" \"bbbb\"])\n  actual: (not (= (\"bbbb\" \"aaaa\" \"dd\" \"cc\") [\"cc\" \"dd\" \"aaaa\" \"bbbb\"]))\n\nRan 1 tests containing 7 assertions.\n4 failures, 0 errors.\n{:test 1, :pass 3, :fail 4, :error 0, :type :summary}",
+ :wall-ms 1171,
+ :kondo-ok true,
+ :tokens 0}

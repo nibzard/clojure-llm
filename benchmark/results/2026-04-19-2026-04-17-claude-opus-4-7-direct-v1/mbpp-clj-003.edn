@@ -1,0 +1,10 @@
+{:task-id "mbpp-clj-003",
+ :error-kind :test-failure,
+ :outcome :fail,
+ :syntax-ok true,
+ :tests-ok false,
+ :notes
+ "WARNING: Implicit use of clojure.main with options is deprecated, use -M -e (do (load-file \"benchmark/candidates/2026-04-17-claude-opus-4-7-direct/mbpp_6_differ_At_One_Bit_Pos.clj\") (load-file \"benchmark/tests/multipl-e/mbpp_6_differ_At_One_Bit_Pos_test.clj\"))\nSyntax error compiling at (benchmark/tests/multipl-e/mbpp_6_differ_At_One_Bit_Pos_test.clj:3:1).\nUnable to resolve symbol: differ_At_One_Bit_Pos in this context\n\nFull report at:\n/tmp/clojure-5786876652522057622.edn",
+ :wall-ms 1359,
+ :kondo-ok true,
+ :tokens 0}

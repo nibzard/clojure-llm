@@ -1,0 +1,9 @@
+(defn first_repeated_char
+  "	Write a cljthon function to find the first repeated character in a given string."
+  [str1]
+  (loop [chars (seq str1)
+         seen #{}]
+    (when-let [ch (first chars)]
+      (if (contains? seen ch)
+        ch
+        (recur (next chars) (conj seen ch))))))

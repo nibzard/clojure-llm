@@ -1,0 +1,10 @@
+{:task-id "mbpp-clj-397",
+ :error-kind :test-failure,
+ :outcome :fail,
+ :syntax-ok true,
+ :tests-ok false,
+ :notes
+ "WARNING: Implicit use of clojure.main with options is deprecated, use -M -e (do (load-file \"benchmark/candidates/2026-04-19-gemini-31-pro-direct/mbpp_809_check_smaller.clj\") (load-file \"benchmark/tests/multipl-e/mbpp_809_check_smaller_test.clj\"))\nSyntax error compiling at (benchmark/tests/multipl-e/mbpp_809_check_smaller_test.clj:3:1).\nUnable to resolve symbol: check_smaller in this context\n\nFull report at:\n/tmp/clojure-17543228941401531819.edn",
+ :wall-ms 1101,
+ :kondo-ok true,
+ :tokens 0}

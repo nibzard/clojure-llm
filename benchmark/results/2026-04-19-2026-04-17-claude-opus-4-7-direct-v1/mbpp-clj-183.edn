@@ -1,0 +1,10 @@
+{:task-id "mbpp-clj-183",
+ :error-kind :test-failure,
+ :outcome :fail,
+ :syntax-ok true,
+ :tests-ok false,
+ :notes
+ "WARNING: Implicit use of clojure.main with options is deprecated, use -M -e (do (load-file \"benchmark/candidates/2026-04-17-claude-opus-4-7-direct/mbpp_415_max_Product.clj\") (load-file \"benchmark/tests/multipl-e/mbpp_415_max_Product_test.clj\"))\nSyntax error compiling at (benchmark/tests/multipl-e/mbpp_415_max_Product_test.clj:3:1).\nUnable to resolve symbol: max_Product in this context\n\nFull report at:\n/tmp/clojure-14360697154670235487.edn",
+ :wall-ms 1427,
+ :kondo-ok true,
+ :tokens 0}

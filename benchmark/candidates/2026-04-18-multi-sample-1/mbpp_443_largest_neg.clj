@@ -1,0 +1,6 @@
+(defn largest_neg
+  "	Write a cljthon function to find the largest negative number from the given list."
+  [list1]
+  (->> list1
+       (filter #(and (number? %) (neg? %)))
+       (reduce max nil)))

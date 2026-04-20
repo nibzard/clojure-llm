@@ -1,0 +1,25 @@
+(defn count-xor-odd-pairs
+  "Return the number of pairs of integers in a collection whose xor is odd.
+
+  Examples:
+  (count-xor-odd-pairs [1 2 3 4]) ;=> 4
+  (count-xor-odd-pairs [0 0 1])   ;=> 0
+  (count-xor-odd-pairs nil)       ;=> 0
+
+  Notes:
+  - Treat nil as an empty collection.
+  - Work for any sequential collection of integers."
+  [xs]
+  (let [xs (or xs [])
+        odds (count (filter odd? xs))
+        evens (- (count xs) odds)]
+    (* odds evens)))
+
+(require '[clojure.test :refer [deftest is run-test]])
+
+(deftest test-variation
+  (is (= 4 (count-xor-odd-pairs [1 2 3 4])))
+  (is (= 0 (count-xor-odd-pairs [0 0 1])))
+  (is (= 0 (count-xor-odd-pairs nil))))
+
+(run-test test-variation)

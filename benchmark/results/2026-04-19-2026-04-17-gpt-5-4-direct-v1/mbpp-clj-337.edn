@@ -1,0 +1,10 @@
+{:task-id "mbpp-clj-337",
+ :error-kind :test-failure,
+ :outcome :fail,
+ :syntax-ok true,
+ :tests-ok false,
+ :notes
+ "WARNING: Implicit use of clojure.main with options is deprecated, use -M -e (do (load-file \"benchmark/candidates/2026-04-17-gpt-5-4-direct/mbpp_742_area_tetrahedron.clj\") (load-file \"benchmark/tests/multipl-e/mbpp_742_area_tetrahedron_test.clj\"))\n\nTesting user\n\nFAIL in (test-humaneval) (mbpp_742_area_tetrahedron_test.clj:7)\nexpected: (= (candidate 3) 15.588457268119894)\n  actual: (not (= 15.588457268119896 15.588457268119894))\n\nFAIL in (test-humaneval) (mbpp_742_area_tetrahedron_test.clj:8)\nexpected: (= (candidate 20) 692.8203230275509)\n  actual: (not (= 692.8203230275508 692.8203230275509))\n\nFAIL in (test-humaneval) (mbpp_742_area_tetrahedron_test.clj:9)\nexpected: (= (candidate 10) 173.20508075688772)\n  actual: (not (= 173.2050807568877 173.20508075688772))\n\nRan 1 tests containing 3 assertions.\n3 failures, 0 errors.\n{:test 1, :pass 0, :fail 3, :error 0, :type :summary}",
+ :wall-ms 1212,
+ :kondo-ok true,
+ :tokens 0}

@@ -1,0 +1,10 @@
+{:task-id "humaneval-clj-103",
+ :error-kind :test-failure,
+ :outcome :fail,
+ :syntax-ok true,
+ :tests-ok false,
+ :notes
+ "WARNING: Implicit use of clojure.main with options is deprecated, use -M -e (do (load-file \"benchmark/candidates/2026-04-17-claude-opus-4-7-direct/HumanEval_105_by_length.clj\") (load-file \"benchmark/tests/multipl-e/HumanEval_105_by_length_test.clj\"))\nSyntax error macroexpanding clojure.core/defn at (benchmark/candidates/2026-04-17-claude-opus-4-7-direct/HumanEval_105_by_length.clj:1:1).\nOne - failed: vector? at: [:fn-tail :arity-1 :params] spec: :clojure.core.specs.alpha/param-list\nOne - failed: (or (nil? %) (sequential? %)) at: [:fn-tail :arity-n :bodies] spec: :clojure.core.specs.alpha/params+body\n\nFull report at:\n/tmp/clojure-4526548542115410342.edn",
+ :wall-ms 1482,
+ :kondo-ok true,
+ :tokens 0}

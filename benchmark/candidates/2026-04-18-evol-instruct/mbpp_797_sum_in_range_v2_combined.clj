@@ -1,0 +1,21 @@
+(defn sum-in-range
+  "Return the sum of all numbers in the inclusive range from l to r that are divisible by 3.
+
+  Examples:
+  (sum-in-range 1 10) => 18
+  (sum-in-range 10 1) => 18
+  (sum-in-range -5 5) => 0
+  "
+  [l r]
+  (->> (range (min l r) (inc (max l r)))
+       (filter #(zero? (mod % 3)))
+       (reduce + 0)))
+
+(require '[clojure.test :refer [deftest is run-test]])
+
+(deftest test-variation
+  (is (= 18 (sum-in-range 1 10)))
+  (is (= 18 (sum-in-range 10 1)))
+  (is (= 0 (sum-in-range -5 5))))
+
+(run-test test-variation)

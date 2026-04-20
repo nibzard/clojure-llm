@@ -1,0 +1,19 @@
+(defn vowels_count
+  "Write a function vowels_count which takes a string representing
+  a word as input and returns the number of vowels in the string.
+  Vowels in this case are 'a', 'e', 'i', 'o', 'u'. Here, 'y' is also a
+  vowel, but only when it is at the end of the given word.
+  Example:
+  >>> (vowels_count \"abcde\")
+  2
+  >>> (vowels_count \"ACEDY\")
+  3"
+  [s]
+  (let [s (or s "")
+        lower-s (.toLowerCase s)
+        vowels #{\a \e \i \o \u}
+        base-count (count (filter vowels lower-s))
+        ends-with-y? (and (seq lower-s) (= \y (last lower-s)))]
+    (if ends-with-y?
+      (inc base-count)
+      base-count)))

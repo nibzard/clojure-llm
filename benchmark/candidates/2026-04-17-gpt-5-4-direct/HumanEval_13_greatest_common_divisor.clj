@@ -1,0 +1,12 @@
+(defn greatest_common_divisor
+  " Return a greatest common divisor of two integers a and b
+  >>> (greatest_common_divisor 3 5)
+  1
+  >>> (greatest_common_divisor 25 15)
+  5"
+  [a b]
+  (loop [x (bigint (if (nil? a) 0 a))
+         y (bigint (if (nil? b) 0 b))]
+    (if (zero? y)
+      (abs x)
+      (recur y (mod x y)))))

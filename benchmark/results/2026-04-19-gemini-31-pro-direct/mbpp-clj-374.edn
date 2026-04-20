@@ -1,0 +1,10 @@
+{:task-id "mbpp-clj-374",
+ :error-kind :test-failure,
+ :outcome :fail,
+ :syntax-ok true,
+ :tests-ok false,
+ :notes
+ "WARNING: Implicit use of clojure.main with options is deprecated, use -M -e (do (load-file \"benchmark/candidates/2026-04-19-gemini-31-pro-direct/mbpp_784_mul_even_odd.clj\") (load-file \"benchmark/tests/multipl-e/mbpp_784_mul_even_odd_test.clj\"))\nSyntax error compiling at (benchmark/tests/multipl-e/mbpp_784_mul_even_odd_test.clj:3:1).\nUnable to resolve symbol: mul_even_odd in this context\n\nFull report at:\n/tmp/clojure-6080955680251073910.edn",
+ :wall-ms 986,
+ :kondo-ok true,
+ :tokens 0}

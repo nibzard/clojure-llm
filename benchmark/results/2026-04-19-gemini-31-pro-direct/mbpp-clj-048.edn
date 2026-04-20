@@ -1,0 +1,10 @@
+{:task-id "mbpp-clj-048",
+ :error-kind :test-failure,
+ :outcome :fail,
+ :syntax-ok true,
+ :tests-ok false,
+ :notes
+ "WARNING: Implicit use of clojure.main with options is deprecated, use -M -e (do (load-file \"benchmark/candidates/2026-04-19-gemini-31-pro-direct/mbpp_97_frequency_lists.clj\") (load-file \"benchmark/tests/multipl-e/mbpp_97_frequency_lists_test.clj\"))\nSyntax error compiling at (benchmark/tests/multipl-e/mbpp_97_frequency_lists_test.clj:3:1).\nUnable to resolve symbol: frequency_lists in this context\n\nFull report at:\n/tmp/clojure-14774434290904633604.edn",
+ :wall-ms 1128,
+ :kondo-ok true,
+ :tokens 0}

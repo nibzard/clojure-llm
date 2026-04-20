@@ -1,0 +1,32 @@
+{
+  "os": "Linux-6.8.0-106-generic-x86_64-with-glibc2.39",
+  "python": "CPython 3.12.3",
+  "startedAt": "2026-04-19T18:17:26.811105Z",
+  "args": [
+    "--config",
+    "training/sft/config-30b.yaml"
+  ],
+  "program": "/home/agent/clojure-llm/training/sft/train.py",
+  "codePath": "training/sft/train.py",
+  "codePathLocal": "training/sft/train.py",
+  "git": {
+    "remote": "https://github.com/nibzard/clojure-llm",
+    "commit": "848256bbbe727c3d282b4b6073e330674ecaa8fa"
+  },
+  "email": "niko@steelbrowser.com",
+  "root": "/home/agent/clojure-llm",
+  "host": "claude-code-vm",
+  "executable": "/usr/bin/python3",
+  "cpu_count": 4,
+  "cpu_count_logical": 4,
+  "disk": {
+    "/": {
+      "total": "156454371328",
+      "used": "113827127296"
+    }
+  },
+  "memory": {
+    "total": "12542238720"
+  },
+  "writerId": "t9g5fh0iqunxqag8hwupw1bp8kzp6zob"
+}

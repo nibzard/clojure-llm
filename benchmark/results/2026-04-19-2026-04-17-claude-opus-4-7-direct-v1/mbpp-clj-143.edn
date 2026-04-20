@@ -1,0 +1,10 @@
+{:task-id "mbpp-clj-143",
+ :error-kind :test-failure,
+ :outcome :fail,
+ :syntax-ok true,
+ :tests-ok false,
+ :notes
+ "WARNING: Implicit use of clojure.main with options is deprecated, use -M -e (do (load-file \"benchmark/candidates/2026-04-17-claude-opus-4-7-direct/mbpp_290_max_length.clj\") (load-file \"benchmark/tests/multipl-e/mbpp_290_max_length_test.clj\"))\n\nTesting user\n\nFAIL in (test-humaneval) (mbpp_290_max_length_test.clj:7)\nexpected: (= (candidate [[0] [1 3] [5 7] [9 11] [13 15 17]]) [3 [13 15 17]])\n  actual: (not (= [13 15 17] [3 [13 15 17]]))\n\nFAIL in (test-humaneval) (mbpp_290_max_length_test.clj:8)\nexpected: (= (candidate [[1] [5 7] [10 12 14 15]]) [4 [10 12 14 15]])\n  actual: (not (= [10 12 14 15] [4 [10 12 14 15]]))\n\nFAIL in (test-humaneval) (mbpp_290_max_length_test.clj:9)\nexpected: (= (candidate [[5] [15 20 25]]) [3 [15 20 25]])\n  actual: (not (= [15 20 25] [3 [15 20 25]]))\n\nRan 1 tests containing 3 assertions.\n3 failures, 0 errors.\n{:test 1, :pass 0, :fail 3, :error 0, :type :summary}",
+ :wall-ms 1141,
+ :kondo-ok true,
+ :tokens 0}

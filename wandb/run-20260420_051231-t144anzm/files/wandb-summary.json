@@ -1,0 +1,1 @@
+{"_step":9,"_wandb":{"runtime":25776},"_runtime":25776.217886951,"rlvr/loss":707.5312089920044,"rlvr/mean_reward":0.7595833333333334,"rlvr/pass_rate":0.6375,"rlvr/rollouts_total":240,"_timestamp":1.7766877174695342e+09}

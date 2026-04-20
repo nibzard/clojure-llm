@@ -1,0 +1,24 @@
+(defn count-odd-xor-pairs
+  "Return the number of pairs of elements in a vector whose bitwise XOR is odd.
+
+  The input may be nil or any sequential collection of integers.
+  Only distinct index pairs are counted.
+
+  Examples:
+  (count-odd-xor-pairs [1 2 3 4]) ;=> 4
+  (count-odd-xor-pairs [2 4 6])   ;=> 0
+  (count-odd-xor-pairs nil)       ;=> 0"
+  [xs]
+  (let [nums (or xs [])
+        odds (count (filter odd? nums))
+        evens (- (count nums) odds)]
+    (* odds evens)))
+
+(require '[clojure.test :refer [deftest is run-test]])
+
+(deftest test-variation
+  (is (= 4 (count-odd-xor-pairs [1 2 3 4])))
+  (is (= 0 (count-odd-xor-pairs [2 4 6])))
+  (is (= 0 (count-odd-xor-pairs nil))))
+
+(run-test test-variation)

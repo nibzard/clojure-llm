@@ -1,0 +1,10 @@
+{:task-id "mbpp-clj-305",
+ :error-kind :test-failure,
+ :outcome :fail,
+ :syntax-ok true,
+ :tests-ok false,
+ :notes
+ "WARNING: Implicit use of clojure.main with options is deprecated, use -M -e (do (load-file \"benchmark/candidates/2026-04-19-gemini-31-pro-direct/mbpp_630_get_coordinates.clj\") (load-file \"benchmark/tests/multipl-e/mbpp_630_get_coordinates_test.clj\"))\n\nTesting user\n\nFAIL in (test-humaneval) (mbpp_630_get_coordinates_test.clj:7)\nexpected: (= (candidate [3 4]) [[2 3] [2 4] [2 5] [3 3] [3 4] [3 5] [4 3] [4 4] [4 5]])\n  actual: (not (= ([2 3] [2 4] [2 5] [3 3] [3 5] [4 3] [4 4] [4 5]) [[2 3] [2 4] [2 5] [3 3] [3 4] [3 5] [4 3] [4 4] [4 5]]))\n\nFAIL in (test-humaneval) (mbpp_630_get_coordinates_test.clj:8)\nexpected: (= (candidate [4 5]) [[3 4] [3 5] [3 6] [4 4] [4 5] [4 6] [5 4] [5 5] [5 6]])\n  actual: (not (= ([3 4] [3 5] [3 6] [4 4] [4 6] [5 4] [5 5] [5 6]) [[3 4] [3 5] [3 6] [4 4] [4 5] [4 6] [5 4] [5 5] [5 6]]))\n\nFAIL in (test-humaneval) (mbpp_630_get_coordinates_test.clj:9)\nexpected: (= (candidate [5 6]) [[4 5] [4 6] [4 7] [5 5] [5 6] [5 7] [6 5] [6 6] [6 7]])\n  actual: (not (= ([4 5] [4 6] [4 7] [5 5] [5 7] [6 5] [6 6] [6 7]) [[4 5] [4 6] [4 7] [5 5] [5 6] [5 7] [6 5] [6 6] [6 7]]))\n\nRan 1 tests containing 3 assertions.\n3 failures, 0 errors.\n{:test 1, :pass 0, :fail 3, :error 0, :type :summary}",
+ :wall-ms 1297,
+ :kondo-ok true,
+ :tokens 0}

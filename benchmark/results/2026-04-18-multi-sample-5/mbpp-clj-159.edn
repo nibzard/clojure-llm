@@ -1,0 +1,9 @@
+{:task-id "mbpp-clj-159",
+ :error-kind nil,
+ :outcome :pass,
+ :syntax-ok true,
+ :tests-ok true,
+ :notes nil,
+ :wall-ms 15,
+ :kondo-ok true,
+ :tokens 0}

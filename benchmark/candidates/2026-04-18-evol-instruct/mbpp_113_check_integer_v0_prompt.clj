@@ -1,0 +1,10 @@
+(defn parse-positive-integer
+  "Return the integer value of s if it is a valid positive integer string, otherwise nil.
+  
+  Examples:
+  (parse-positive-integer \"42\")   => 42
+  (parse-positive-integer \"+7\")   => 7
+  (parse-positive-integer \"0\")    => nil
+  (parse-positive-integer \"-3\")   => nil
+  (parse-positive-integer \"12a\")  => nil"
+  [s])

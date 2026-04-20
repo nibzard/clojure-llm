@@ -1,0 +1,17 @@
+(defn below_zero
+  "You're given a list of deposit and withdrawal operations on a bank account that starts with
+  zero balance. Your task is to detect if at any point the balance of account fallls below zero, and
+  at that point function should return true. Otherwise it should return false.
+  >>> (below_zero [1 2 3])
+  false
+  >>> (below_zero [1 2 -4 5])
+  true"
+  [operations]
+  (loop [ops operations
+         balance 0]
+    (if (empty? ops)
+      false
+      (let [new-balance (+ balance (first ops))]
+        (if (< new-balance 0)
+          true
+          (recur (rest ops) new-balance))))))

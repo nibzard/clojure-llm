@@ -1,0 +1,10 @@
+{:task-id "mbpp-clj-203",
+ :error-kind :test-failure,
+ :outcome :fail,
+ :syntax-ok true,
+ :tests-ok false,
+ :notes
+ "WARNING: Implicit use of clojure.main with options is deprecated, use -M -e (do (load-file \"benchmark/candidates/2026-04-19-gemini-31-pro-direct/mbpp_437_remove_odd.clj\") (load-file \"benchmark/tests/multipl-e/mbpp_437_remove_odd_test.clj\"))\n\nTesting user\n\nFAIL in (test-humaneval) (mbpp_437_remove_odd_test.clj:7)\nexpected: (= (candidate \"python\") \"yhn\")\n  actual: (not (= \"pto\" \"yhn\"))\n\nFAIL in (test-humaneval) (mbpp_437_remove_odd_test.clj:8)\nexpected: (= (candidate \"program\") \"rga\")\n  actual: (not (= \"porm\" \"rga\"))\n\nFAIL in (test-humaneval) (mbpp_437_remove_odd_test.clj:9)\nexpected: (= (candidate \"language\") \"agae\")\n  actual: (not (= \"lnug\" \"agae\"))\n\nRan 1 tests containing 3 assertions.\n3 failures, 0 errors.\n{:test 1, :pass 0, :fail 3, :error 0, :type :summary}",
+ :wall-ms 1304,
+ :kondo-ok true,
+ :tokens 0}

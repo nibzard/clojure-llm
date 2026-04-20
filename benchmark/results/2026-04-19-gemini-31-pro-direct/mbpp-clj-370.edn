@@ -1,0 +1,10 @@
+{:task-id "mbpp-clj-370",
+ :error-kind :test-failure,
+ :outcome :fail,
+ :syntax-ok true,
+ :tests-ok false,
+ :notes
+ "WARNING: Implicit use of clojure.main with options is deprecated, use -M -e (do (load-file \"benchmark/candidates/2026-04-19-gemini-31-pro-direct/mbpp_780_find_combinations.clj\") (load-file \"benchmark/tests/multipl-e/mbpp_780_find_combinations_test.clj\"))\nSyntax error compiling at (benchmark/tests/multipl-e/mbpp_780_find_combinations_test.clj:3:1).\nUnable to resolve symbol: find_combinations in this context\n\nFull report at:\n/tmp/clojure-5375277002000604727.edn",
+ :wall-ms 1139,
+ :kondo-ok true,
+ :tokens 0}

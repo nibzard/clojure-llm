@@ -1,0 +1,13 @@
+(defn count_reverse_pairs
+  "	Write a function to count the pairs of reverse strings in the given string list. https://www.geeksforgeeks.org/cljthon-program-to-count-the-pairs-of-reverse-strings/"
+  [test_list]
+  (let [freqs (frequencies (or test_list []))]
+    (/ (reduce
+         (fn [acc [s cnt]]
+           (let [rs (apply str (reverse s))]
+             (if (= s rs)
+               (+ acc (* cnt (dec cnt)))
+               (+ acc (* cnt (get freqs rs 0))))))
+         0
+         freqs)
+       2)))

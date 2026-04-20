@@ -1,0 +1,10 @@
+{:task-id "mbpp-clj-033",
+ :error-kind :test-failure,
+ :outcome :fail,
+ :syntax-ok true,
+ :tests-ok false,
+ :notes
+ "WARNING: Implicit use of clojure.main with options is deprecated, use -M -e (do (load-file \"benchmark/candidates/2026-04-19-gemini-31-pro-direct/mbpp_79_word_len.clj\") (load-file \"benchmark/tests/multipl-e/mbpp_79_word_len_test.clj\"))\nSyntax error compiling at (benchmark/tests/multipl-e/mbpp_79_word_len_test.clj:3:1).\nUnable to resolve symbol: word_len in this context\n\nFull report at:\n/tmp/clojure-15299793622771914848.edn",
+ :wall-ms 1342,
+ :kondo-ok true,
+ :tokens 0}

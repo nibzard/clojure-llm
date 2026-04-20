@@ -1,0 +1,10 @@
+{:task-id "humaneval-clj-080",
+ :error-kind :test-failure,
+ :outcome :fail,
+ :syntax-ok true,
+ :tests-ok false,
+ :notes
+ "WARNING: Implicit use of clojure.main with options is deprecated, use -M -e (do (load-file \"benchmark/candidates/2026-04-17-gpt-5-4-mini-2026-03-17-direct/HumanEval_82_prime_length.clj\") (load-file \"benchmark/tests/multipl-e/HumanEval_82_prime_length_test.clj\"))\n\nTesting user\n\nFAIL in (test-humaneval) (HumanEval_82_prime_length_test.clj:16)\nexpected: (= (candidate \"HI\") true)\n  actual: (not (= false true))\n\nFAIL in (test-humaneval) (HumanEval_82_prime_length_test.clj:17)\nexpected: (= (candidate \"go\") true)\n  actual: (not (= false true))\n\nRan 1 tests containing 16 assertions.\n2 failures, 0 errors.\n{:test 1, :pass 14, :fail 2, :error 0, :type :summary}",
+ :wall-ms 1151,
+ :kondo-ok true,
+ :tokens 0}

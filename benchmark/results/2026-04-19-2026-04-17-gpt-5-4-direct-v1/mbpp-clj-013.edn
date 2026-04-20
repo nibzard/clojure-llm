@@ -1,0 +1,10 @@
+{:task-id "mbpp-clj-013",
+ :error-kind :test-failure,
+ :outcome :fail,
+ :syntax-ok true,
+ :tests-ok false,
+ :notes
+ "WARNING: Implicit use of clojure.main with options is deprecated, use -M -e (do (load-file \"benchmark/candidates/2026-04-17-gpt-5-4-direct/mbpp_20_is_woodall.clj\") (load-file \"benchmark/tests/multipl-e/mbpp_20_is_woodall_test.clj\"))\n\nTesting user\n\nFAIL in (test-humaneval) (mbpp_20_is_woodall_test.clj:7)\nexpected: (= (candidate 383) true)\n  actual: (not (= false true))\n\nRan 1 tests containing 3 assertions.\n1 failures, 0 errors.\n{:test 1, :pass 2, :fail 1, :error 0, :type :summary}",
+ :wall-ms 1550,
+ :kondo-ok true,
+ :tokens 0}

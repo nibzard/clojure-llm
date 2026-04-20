@@ -1,0 +1,10 @@
+{:task-id "mbpp-clj-038",
+ :error-kind :test-failure,
+ :outcome :fail,
+ :syntax-ok true,
+ :tests-ok false,
+ :notes
+ "WARNING: Implicit use of clojure.main with options is deprecated, use -M -e (do (load-file \"benchmark/candidates/2026-04-19-gemini-31-pro-direct/mbpp_87_merge_dictionaries_three.clj\") (load-file \"benchmark/tests/multipl-e/mbpp_87_merge_dictionaries_three_test.clj\"))\nSyntax error compiling at (benchmark/tests/multipl-e/mbpp_87_merge_dictionaries_three_test.clj:3:1).\nUnable to resolve symbol: merge_dictionaries_three in this context\n\nFull report at:\n/tmp/clojure-3764745782933758479.edn",
+ :wall-ms 1279,
+ :kondo-ok true,
+ :tokens 0}

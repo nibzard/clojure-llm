@@ -1,0 +1,1 @@
+(defn problem-rearranging-code [a] (first a))

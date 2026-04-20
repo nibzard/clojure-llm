@@ -1,0 +1,10 @@
+{:task-id "mbpp-clj-189",
+ :error-kind :test-failure,
+ :outcome :fail,
+ :syntax-ok true,
+ :tests-ok false,
+ :notes
+ "WARNING: Implicit use of clojure.main with options is deprecated, use -M -e (do (load-file \"benchmark/candidates/2026-04-17-claude-opus-4-7-direct/mbpp_422_find_Average_Of_Cube.clj\") (load-file \"benchmark/tests/multipl-e/mbpp_422_find_Average_Of_Cube_test.clj\"))\nSyntax error compiling at (benchmark/tests/multipl-e/mbpp_422_find_Average_Of_Cube_test.clj:3:1).\nUnable to resolve symbol: find_Average_Of_Cube in this context\n\nFull report at:\n/tmp/clojure-7294418844835675988.edn",
+ :wall-ms 1480,
+ :kondo-ok true,
+ :tokens 0}

@@ -1,0 +1,10 @@
+{:task-id "mbpp-clj-206",
+ :error-kind :test-failure,
+ :outcome :fail,
+ :syntax-ok true,
+ :tests-ok false,
+ :notes
+ "WARNING: Implicit use of clojure.main with options is deprecated, use -M -e (do (load-file \"benchmark/candidates/2026-04-17-gpt-5-4-mini-2026-03-17-direct/mbpp_440_find_adverb_position.clj\") (load-file \"benchmark/tests/multipl-e/mbpp_440_find_adverb_position_test.clj\"))\n\nTesting user\n\nFAIL in (test-humaneval) (mbpp_440_find_adverb_position_test.clj:7)\nexpected: (= (candidate \"clearly!! we can see the sky\") [0 7 \"clearly\"])\n  actual: (not (= [0 \"clearly\"] [0 7 \"clearly\"]))\n\nFAIL in (test-humaneval) (mbpp_440_find_adverb_position_test.clj:8)\nexpected: (= (candidate \"seriously!! there are many roses\") [0 9 \"seriously\"])\n  actual: (not (= [0 \"seriously\"] [0 9 \"seriously\"]))\n\nFAIL in (test-humaneval) (mbpp_440_find_adverb_position_test.clj:9)\nexpected: (= (candidate \"unfortunately!! sita is going to home\") [0 13 \"unfortunately\"])\n  actual: (not (= [0 \"unfortunately\"] [0 13 \"unfortunately\"]))\n\nRan 1 tests containing 3 assertions.\n3 failures, 0 errors.\n{:test 1, :pass 0, :fail 3, :error 0, :type :summary}",
+ :wall-ms 1114,
+ :kondo-ok true,
+ :tokens 0}

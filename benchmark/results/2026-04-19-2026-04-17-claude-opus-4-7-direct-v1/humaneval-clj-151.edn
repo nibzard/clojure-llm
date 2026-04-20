@@ -1,0 +1,10 @@
+{:task-id "humaneval-clj-151",
+ :error-kind :test-failure,
+ :outcome :fail,
+ :syntax-ok true,
+ :tests-ok false,
+ :notes
+ "WARNING: Implicit use of clojure.main with options is deprecated, use -M -e (do (load-file \"benchmark/candidates/2026-04-17-claude-opus-4-7-direct/HumanEval_153_Strongest_Extension.clj\") (load-file \"benchmark/tests/multipl-e/HumanEval_153_Strongest_Extension_test.clj\"))\n\nTesting user\n\nFAIL in (test-humaneval) (HumanEval_153_Strongest_Extension_test.clj:11)\nexpected: (= (candidate \"__HAHA\" [\"Tab\" \"123\" \"781345\" \"-_-\"]) \"__HAHA.123\")\n  actual: (not (= \"__HAHA.-_-\" \"__HAHA.123\"))\n\nFAIL in (test-humaneval) (HumanEval_153_Strongest_Extension_test.clj:14)\nexpected: (= (candidate \"_\" [\"Bb\" \"91245\"]) \"_.Bb\")\n  actual: (not (= \"_.91245\" \"_.Bb\"))\n\nFAIL in (test-humaneval) (HumanEval_153_Strongest_Extension_test.clj:15)\nexpected: (= (candidate \"Sp\" [\"671235\" \"Bb\"]) \"Sp.671235\")\n  actual: (not (= \"Sp.Bb\" \"Sp.671235\"))\n\nRan 1 tests containing 9 assertions.\n3 failures, 0 errors.\n{:test 1, :pass 6, :fail 3, :error 0, :type :summary}",
+ :wall-ms 1485,
+ :kondo-ok true,
+ :tokens 0}

@@ -1,0 +1,5 @@
+(defn is_samepatterns
+  "	Write a function to check whether it follows the sequence given in the patterns vector."
+  [colors patterns]
+  (let [runs (mapv count (partition-by identity colors))]
+    (= runs (vec patterns))))

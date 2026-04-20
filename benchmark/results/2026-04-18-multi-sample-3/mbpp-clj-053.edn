@@ -1,0 +1,9 @@
+{:task-id "mbpp-clj-053",
+ :error-kind :read-error,
+ :outcome :invalid-output,
+ :syntax-ok false,
+ :tests-ok false,
+ :notes "Skipped due to previous failures",
+ :wall-ms 0,
+ :kondo-ok false,
+ :tokens 0}

@@ -1,0 +1,10 @@
+{:task-id "mbpp-clj-322",
+ :error-kind :test-failure,
+ :outcome :fail,
+ :syntax-ok true,
+ :tests-ok false,
+ :notes
+ "WARNING: Implicit use of clojure.main with options is deprecated, use -M -e (do (load-file \"benchmark/candidates/2026-04-19-gemini-31-pro-direct/mbpp_725_extract_quotation.clj\") (load-file \"benchmark/tests/multipl-e/mbpp_725_extract_quotation_test.clj\"))\nSyntax error reading source at (benchmark/tests/multipl-e/mbpp_725_extract_quotation_test.clj:9:39).\nInvalid number: 4k\n\nFull report at:\n/tmp/clojure-17014397397437229270.edn",
+ :wall-ms 1313,
+ :kondo-ok true,
+ :tokens 0}

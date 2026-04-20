@@ -1,0 +1,16 @@
+(defn sum-extremes
+  "Return the sum of the smallest and largest numeric values in a possibly nested
+  collection.
+
+  Nil values are ignored. Non-numeric values are ignored.
+
+  Examples:
+  (sum-extremes [3 1 9 4])
+  ;; => 10
+
+  (sum-extremes [nil [7 2] #{5 1} 8])
+  ;; => 10
+
+  (sum-extremes [])
+  ;; => nil"
+  [coll])

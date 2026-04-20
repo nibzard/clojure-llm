@@ -1,0 +1,10 @@
+{:task-id "humaneval-clj-002",
+ :error-kind :test-failure,
+ :outcome :fail,
+ :syntax-ok true,
+ :tests-ok false,
+ :notes
+ "WARNING: Implicit use of clojure.main with options is deprecated, use -M -e (do (load-file \"benchmark/candidates/2026-04-20-sft-eval-checkpoint-step-600-f42c914b/HumanEval_1_separate_paren_groups.clj\") (load-file \"benchmark/tests/multipl-e/HumanEval_1_separate_paren_groups_test.clj\"))\n\nTesting user\n\nFAIL in (test-humaneval) (HumanEval_1_separate_paren_groups_test.clj:7)\nexpected: (= (candidate \"(()()) ((())) () ((())()())\") [\"(()())\" \"((()))\" \"()\" \"((())()())\"])\n  actual: (not (= [\"\" \"\" \"\" \"\" \"\" \"\" \"\"] [\"(()())\" \"((()))\" \"()\" \"((())()())\"]))\n\nFAIL in (test-humaneval) (HumanEval_1_separate_paren_groups_test.clj:8)\nexpected: (= (candidate \"() (()) ((())) (((())))\") [\"()\" \"(())\" \"((()))\" \"(((())))\"])\n  actual: (not (= [\"\" \"\" \"\" \"\"] [\"()\" \"(())\" \"((()))\" \"(((())))\"]))\n\nFAIL in (test-humaneval) (HumanEval_1_separate_paren_groups_test.clj:9)\nexpected: (= (candidate \"(()(())((())))\") [\"(()(())((())))\"])\n  actual: (not (= [\"\" \"\" \"\"] [\"(()(())((())))\"]))\n\nFAIL in (test-humaneval) (HumanEval_1_separate_paren_groups_test.clj:10)\nexpected: (= (candidate \"( ) (( )) (( )( ))\") [\"()\" \"(())\" \"(()())\"])\n  actual: (not (= [\"\" \"\" \"\" \"\"] [\"()\" \"(())\" \"(()())\"]))\n\nRan 1 tests containing 4 assertions.\n4 failures, 0 errors.\n{:test 1, :pass 0, :fail 4, :error 0, :type :summary}",
+ :wall-ms 1023,
+ :kondo-ok true,
+ :tokens 0}

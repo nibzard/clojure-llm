@@ -1,0 +1,10 @@
+{:task-id "humaneval-clj-047",
+ :error-kind :test-failure,
+ :outcome :fail,
+ :syntax-ok true,
+ :tests-ok false,
+ :notes
+ "Syntax error macroexpanding clojure.core/defn at (/home/agent/clojure-llm/benchmark/candidates/2026-04-18-multi-sample-7/HumanEval_48_is_palindrome.clj:1:1).",
+ :wall-ms 28,
+ :kondo-ok true,
+ :tokens 0}

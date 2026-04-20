@@ -1,0 +1,9 @@
+(defn lucas-prefix
+  "Return the first n Lucas numbers as a vector.
+  Use the sequence [2 1 3 4 7 11 ...].
+
+  Examples:
+  (lucas-prefix 0) => []
+  (lucas-prefix 1) => [2]
+  (lucas-prefix 5) => [2 1 3 4 7]"
+  [n])

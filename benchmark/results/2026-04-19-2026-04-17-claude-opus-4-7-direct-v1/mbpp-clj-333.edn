@@ -1,0 +1,10 @@
+{:task-id "mbpp-clj-333",
+ :error-kind :test-failure,
+ :outcome :fail,
+ :syntax-ok true,
+ :tests-ok false,
+ :notes
+ "WARNING: Implicit use of clojure.main with options is deprecated, use -M -e (do (load-file \"benchmark/candidates/2026-04-17-claude-opus-4-7-direct/mbpp_738_geometric_sum.clj\") (load-file \"benchmark/tests/multipl-e/mbpp_738_geometric_sum_test.clj\"))\n\nTesting user\n\nFAIL in (test-humaneval) (mbpp_738_geometric_sum_test.clj:7)\nexpected: (= (candidate 7) 1.9921875)\n  actual: (not (= 0.9921875 1.9921875))\n\nFAIL in (test-humaneval) (mbpp_738_geometric_sum_test.clj:8)\nexpected: (= (candidate 4) 1.9375)\n  actual: (not (= 0.9375 1.9375))\n\nFAIL in (test-humaneval) (mbpp_738_geometric_sum_test.clj:9)\nexpected: (= (candidate 8) 1.99609375)\n  actual: (not (= 0.99609375 1.99609375))\n\nRan 1 tests containing 3 assertions.\n3 failures, 0 errors.\n{:test 1, :pass 0, :fail 3, :error 0, :type :summary}",
+ :wall-ms 1167,
+ :kondo-ok true,
+ :tokens 0}

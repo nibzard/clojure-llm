@@ -1,0 +1,11 @@
+(defn nested-product
+  "Return the product of all numeric values found in a nested collection.
+
+  The input may contain lists, vectors, sets, and maps. For maps, multiply both keys and values.
+  Ignore nil values. If no numeric values are found, return 1.
+
+  Examples:
+  (nested-product [1 [2 nil] {:a 3}]) ;=> 6
+  (nested-product {:x 2, :y [3 4]})   ;=> 24
+  (nested-product [])                ;=> 1"
+  [data])

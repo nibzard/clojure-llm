@@ -1,0 +1,10 @@
+{:task-id "mbpp-clj-160",
+ :error-kind :test-failure,
+ :outcome :fail,
+ :syntax-ok true,
+ :tests-ok false,
+ :notes
+ "WARNING: Implicit use of clojure.main with options is deprecated, use -M -e (do (load-file \"benchmark/candidates/2026-04-17-gpt-5-4-mini-2026-03-17-direct/mbpp_390_add_string.clj\") (load-file \"benchmark/tests/multipl-e/mbpp_390_add_string_test.clj\"))\n\nTesting user\n\nFAIL in (test-humaneval) (mbpp_390_add_string_test.clj:7)\nexpected: (= (candidate [1 2 3 4] \"temp{0}\") [\"temp1\" \"temp2\" \"temp3\" \"temp4\"])\n  actual: (not (= (\"1temp{0}\" \"2temp{0}\" \"3temp{0}\" \"4temp{0}\") [\"temp1\" \"temp2\" \"temp3\" \"temp4\"]))\n\nFAIL in (test-humaneval) (mbpp_390_add_string_test.clj:8)\nexpected: (= (candidate [\"a\" \"b\" \"c\" \"d\"] \"python{0}\") [\"pythona\" \"pythonb\" \"pythonc\" \"pythond\"])\n  actual: (not (= (\"apython{0}\" \"bpython{0}\" \"cpython{0}\" \"dpython{0}\") [\"pythona\" \"pythonb\" \"pythonc\" \"pythond\"]))\n\nFAIL in (test-humaneval) (mbpp_390_add_string_test.clj:9)\nexpected: (= (candidate [5 6 7 8] \"string{0}\") [\"string5\" \"string6\" \"string7\" \"string8\"])\n  actual: (not (= (\"5string{0}\" \"6string{0}\" \"7string{0}\" \"8string{0}\") [\"string5\" \"string6\" \"string7\" \"string8\"]))\n\nRan 1 tests containing 3 assertions.\n3 failures, 0 errors.\n{:test 1, :pass 0, :fail 3, :error 0, :type :summary}",
+ :wall-ms 1202,
+ :kondo-ok true,
+ :tokens 0}

@@ -1,0 +1,10 @@
+{:task-id "mbpp-clj-330",
+ :error-kind :test-failure,
+ :outcome :fail,
+ :syntax-ok true,
+ :tests-ok false,
+ :notes
+ "Syntax error compiling Long/size at (/home/agent/clojure-llm/benchmark/candidates/2026-04-18-multi-sample-3/mbpp_735_toggle_middle_bits.clj:7:21).",
+ :wall-ms 9,
+ :kondo-ok true,
+ :tokens 0}

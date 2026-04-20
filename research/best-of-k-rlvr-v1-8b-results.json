@@ -1,0 +1,521 @@
+{
+  "K": 16,
+  "temperature": 0.7,
+  "checkpoint": "tinker://414c63a0-2e45-504f-89f9-e2d9c7b37d3c:train:0/weights/checkpoint-iter-20",
+  "total_tasks": 7,
+  "pass_at_1": 3,
+  "best_of_K": 4,
+  "per_task": {
+    "humaneval-clj-001": {
+      "source": ":multipl-e/humaneval-clj",
+      "first_pass": false,
+      "any_pass": false,
+      "pass_count": 0,
+      "total_samples": 16,
+      "samples": [
+        {
+          "k": 0,
+          "passed": false
+        },
+        {
+          "k": 1,
+          "passed": false
+        },
+        {
+          "k": 2,
+          "passed": false
+        },
+        {
+          "k": 3,
+          "passed": false
+        },
+        {
+          "k": 4,
+          "passed": false
+        },
+        {
+          "k": 5,
+          "passed": false
+        },
+        {
+          "k": 6,
+          "passed": false
+        },
+        {
+          "k": 7,
+          "passed": false
+        },
+        {
+          "k": 8,
+          "passed": false
+        },
+        {
+          "k": 9,
+          "passed": false
+        },
+        {
+          "k": 10,
+          "passed": false
+        },
+        {
+          "k": 11,
+          "passed": false
+        },
+        {
+          "k": 12,
+          "passed": false
+        },
+        {
+          "k": 13,
+          "passed": false
+        },
+        {
+          "k": 14,
+          "passed": false
+        },
+        {
+          "k": 15,
+          "passed": false
+        }
+      ]
+    },
+    "humaneval-clj-003": {
+      "source": ":multipl-e/humaneval-clj",
+      "first_pass": true,
+      "any_pass": true,
+      "pass_count": 16,
+      "total_samples": 16,
+      "samples": [
+        {
+          "k": 0,
+          "passed": true
+        },
+        {
+          "k": 1,
+          "passed": true
+        },
+        {
+          "k": 2,
+          "passed": true
+        },
+        {
+          "k": 3,
+          "passed": true
+        },
+        {
+          "k": 4,
+          "passed": true
+        },
+        {
+          "k": 5,
+          "passed": true
+        },
+        {
+          "k": 6,
+          "passed": true
+        },
+        {
+          "k": 7,
+          "passed": true
+        },
+        {
+          "k": 8,
+          "passed": true
+        },
+        {
+          "k": 9,
+          "passed": true
+        },
+        {
+          "k": 10,
+          "passed": true
+        },
+        {
+          "k": 11,
+          "passed": true
+        },
+        {
+          "k": 12,
+          "passed": true
+        },
+        {
+          "k": 13,
+          "passed": true
+        },
+        {
+          "k": 14,
+          "passed": true
+        },
+        {
+          "k": 15,
+          "passed": true
+        }
+      ]
+    },
+    "humaneval-clj-012": {
+      "source": ":multipl-e/humaneval-clj",
+      "first_pass": false,
+      "any_pass": true,
+      "pass_count": 4,
+      "total_samples": 16,
+      "samples": [
+        {
+          "k": 0,
+          "passed": false
+        },
+        {
+          "k": 1,
+          "passed": true
+        },
+        {
+          "k": 2,
+          "passed": false
+        },
+        {
+          "k": 3,
+          "passed": false
+        },
+        {
+          "k": 4,
+          "passed": false
+        },
+        {
+          "k": 5,
+          "passed": false
+        },
+        {
+          "k": 6,
+          "passed": false
+        },
+        {
+          "k": 7,
+          "passed": false
+        },
+        {
+          "k": 8,
+          "passed": false
+        },
+        {
+          "k": 9,
+          "passed": false
+        },
+        {
+          "k": 10,
+          "passed": false
+        },
+        {
+          "k": 11,
+          "passed": true
+        },
+        {
+          "k": 12,
+          "passed": true
+        },
+        {
+          "k": 13,
+          "passed": false
+        },
+        {
+          "k": 14,
+          "passed": true
+        },
+        {
+          "k": 15,
+          "passed": false
+        }
+      ]
+    },
+    "humaneval-clj-018": {
+      "source": ":multipl-e/humaneval-clj",
+      "first_pass": false,
+      "any_pass": false,
+      "pass_count": 0,
+      "total_samples": 16,
+      "samples": [
+        {
+          "k": 0,
+          "passed": false
+        },
+        {
+          "k": 1,
+          "passed": false
+        },
+        {
+          "k": 2,
+          "passed": false
+        },
+        {
+          "k": 3,
+          "passed": false
+        },
+        {
+          "k": 4,
+          "passed": false
+        },
+        {
+          "k": 5,
+          "passed": false
+        },
+        {
+          "k": 6,
+          "passed": false
+        },
+        {
+          "k": 7,
+          "passed": false
+        },
+        {
+          "k": 8,
+          "passed": false
+        },
+        {
+          "k": 9,
+          "passed": false
+        },
+        {
+          "k": 10,
+          "passed": false
+        },
+        {
+          "k": 11,
+          "passed": false
+        },
+        {
+          "k": 12,
+          "passed": false
+        },
+        {
+          "k": 13,
+          "passed": false
+        },
+        {
+          "k": 14,
+          "passed": false
+        },
+        {
+          "k": 15,
+          "passed": false
+        }
+      ]
+    },
+    "humaneval-clj-019": {
+      "source": ":multipl-e/humaneval-clj",
+      "first_pass": true,
+      "any_pass": true,
+      "pass_count": 9,
+      "total_samples": 16,
+      "samples": [
+        {
+          "k": 0,
+          "passed": true
+        },
+        {
+          "k": 1,
+          "passed": false
+        },
+        {
+          "k": 2,
+          "passed": false
+        },
+        {
+          "k": 3,
+          "passed": true
+        },
+        {
+          "k": 4,
+          "passed": false
+        },
+        {
+          "k": 5,
+          "passed": false
+        },
+        {
+          "k": 6,
+          "passed": true
+        },
+        {
+          "k": 7,
+          "passed": true
+        },
+        {
+          "k": 8,
+          "passed": false
+        },
+        {
+          "k": 9,
+          "passed": true
+        },
+        {
+          "k": 10,
+          "passed": true
+        },
+        {
+          "k": 11,
+          "passed": true
+        },
+        {
+          "k": 12,
+          "passed": true
+        },
+        {
+          "k": 13,
+          "passed": false
+        },
+        {
+          "k": 14,
+          "passed": false
+        },
+        {
+          "k": 15,
+          "passed": true
+        }
+      ]
+    },
+    "humaneval-clj-020": {
+      "source": ":multipl-e/humaneval-clj",
+      "first_pass": false,
+      "any_pass": false,
+      "pass_count": 0,
+      "total_samples": 16,
+      "samples": [
+        {
+          "k": 0,
+          "passed": false
+        },
+        {
+          "k": 1,
+          "passed": false
+        },
+        {
+          "k": 2,
+          "passed": false
+        },
+        {
+          "k": 3,
+          "passed": false
+        },
+        {
+          "k": 4,
+          "passed": false
+        },
+        {
+          "k": 5,
+          "passed": false
+        },
+        {
+          "k": 6,
+          "passed": false
+        },
+        {
+          "k": 7,
+          "passed": false
+        },
+        {
+          "k": 8,
+          "passed": false
+        },
+        {
+          "k": 9,
+          "passed": false
+        },
+        {
+          "k": 10,
+          "passed": false
+        },
+        {
+          "k": 11,
+          "passed": false
+        },
+        {
+          "k": 12,
+          "passed": false
+        },
+        {
+          "k": 13,
+          "passed": false
+        },
+        {
+          "k": 14,
+          "passed": false
+        },
+        {
+          "k": 15,
+          "passed": false
+        }
+      ]
+    },
+    "humaneval-clj-031": {
+      "source": ":multipl-e/humaneval-clj",
+      "first_pass": true,
+      "any_pass": true,
+      "pass_count": 16,
+      "total_samples": 16,
+      "samples": [
+        {
+          "k": 0,
+          "passed": true
+        },
+        {
+          "k": 1,
+          "passed": true
+        },
+        {
+          "k": 2,
+          "passed": true
+        },
+        {
+          "k": 3,
+          "passed": true
+        },
+        {
+          "k": 4,
+          "passed": true
+        },
+        {
+          "k": 5,
+          "passed": true
+        },
+        {
+          "k": 6,
+          "passed": true
+        },
+        {
+          "k": 7,
+          "passed": true
+        },
+        {
+          "k": 8,
+          "passed": true
+        },
+        {
+          "k": 9,
+          "passed": true
+        },
+        {
+          "k": 10,
+          "passed": true
+        },
+        {
+          "k": 11,
+          "passed": true
+        },
+        {
+          "k": 12,
+          "passed": true
+        },
+        {
+          "k": 13,
+          "passed": true
+        },
+        {
+          "k": 14,
+          "passed": true
+        },
+        {
+          "k": 15,
+          "passed": true
+        }
+      ]
+    }
+  }
+}

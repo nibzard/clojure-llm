@@ -1,0 +1,5 @@
+(defn even_Power_Sum
+  "	Write a cljthon function that takes in an integer n and finds the sum of the first n even natural numbers that are raised to the fifth power."
+  [n]
+  (let [n (max 0 (or n 0))]
+    (reduce + (map #(long (Math/pow % 5)) (take n (iterate #(+ % 2) 2))))))

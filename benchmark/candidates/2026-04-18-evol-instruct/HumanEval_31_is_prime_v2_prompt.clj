@@ -1,0 +1,14 @@
+(defn is_prime_in_range
+  "Return true if every number in the inclusive range [start, end] is prime.
+  Treat nil bounds as invalid and return false.
+  >>> (is_prime_in_range 11 13)
+  true
+  >>> (is_prime_in_range 10 13)
+  false
+  >>> (is_prime_in_range 2 2)
+  true
+  >>> (is_prime_in_range nil 7)
+  false
+  >>> (is_prime_in_range 17 11)
+  false"
+  [start end])

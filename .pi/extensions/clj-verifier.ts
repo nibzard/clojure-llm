@@ -25,6 +25,8 @@
 import { execSync } from "child_process";
 import { readFileSync, existsSync } from "fs";
 import { join } from "path";
+import { type ExtensionAPI } from "@mariozechner/pi-coding-agent";
+import { Type } from "@sinclair/typebox";
 
 // ============================================
 // Type Definitions
@@ -108,33 +110,6 @@ function execCommand(
     }
     throw error;
   }
-}
-
-/**
- * Parse EDN file (simplified - assumes you have an edn parser available)
- * In production, use a proper EDN parser like 'edn' or 'cljs-node'
- */
-function parseEDN(content: string): any {
-  // For now, assume we have a global edn parser or use eval in a REPL
-  // In practice, you'd import a proper EDN library
-  try {
-    // This is a placeholder - real implementation would use an EDN parser
-    // For now, we'll rely on the Clojure CLI to read EDN
-    return null;
-  } catch {
-    return null;
-  }
-}
-
-/**
- * Read EDN file using Clojure CLI
- */
-function readEDNWithClojure(filePath: string): any {
-  const result = execCommand(
-    `clojure -M -e "(require '[clojure.edn :as edn]) (pr-str (edn/read-string (slurp \\\"${filePath}\\\")))"`,
-    { timeout: 10000 }
-  );
-  return JSON.parse(result.stdout);
 }
 
 /**
@@ -525,131 +500,74 @@ async function benchmarkGetTask(input: {
 }
 
 // ============================================
-// Extension Definition
+// Extension Definition (Pi factory function)
 // ============================================
 
-/**
- * Tool schemas following JSON Schema format
- */
-const TOOL_SCHEMAS = {
-  clj_kondo_check: {
-    type: "object",
-    properties: {
-      code: {
-        type: "string",
-        description: "Clojure code to lint (as string)",
-      },
-      file_path: {
-        type: "string",
-        description: "Path to Clojure file to lint",
-      },
-    },
-    oneOf: [
-      { required: ["code"] },
-      { required: ["file_path"] },
-    ],
-  },
+export default function cljVerifier(pi: ExtensionAPI) {
+	// clj_kondo_check
+	pi.registerTool({
+		name: "clj_kondo_check",
+		label: "Lint Clojure code",
+		description: "Lint Clojure code using clj-kondo static analyzer. Returns structured findings with level, message, line, and column.",
+		parameters: Type.Object({
+			code: Type.Optional(Type.String({ description: "Clojure code to lint (as string)" })),
+			file_path: Type.Optional(Type.String({ description: "Path to Clojure file to lint" })),
+		}),
+		async execute(_toolCallId, params, _signal, _onUpdate, _ctx) {
+			const result = await cljKondoCheck(params);
+			return {
+				content: [{ type: "text" as const, text: JSON.stringify(result, null, 2) }],
+			};
+		},
+	});
 
-  clj_eval_form: {
-    type: "object",
-    properties: {
-      code: {
-        type: "string",
-        description: "Clojure form to evaluate",
-      },
-      namespace: {
-        type: "string",
-        description: "Optional namespace to load before evaluating",
-      },
-    },
-    required: ["code"],
-  },
+	// clj_eval_form
+	pi.registerTool({
+		name: "clj_eval_form",
+		label: "Evaluate Clojure form",
+		description: "Evaluate a single Clojure form. Returns the result string and whether the namespace loaded successfully.",
+		parameters: Type.Object({
+			code: Type.String({ description: "Clojure form to evaluate" }),
+			namespace: Type.Optional(Type.String({ description: "Optional namespace to load before evaluating" })),
+		}),
+		async execute(_toolCallId, params, _signal, _onUpdate, _ctx) {
+			const result = await cljEvalForm(params);
+			return {
+				content: [{ type: "text" as const, text: JSON.stringify(result, null, 2) }],
+			};
+		},
+	});
 
-  clj_run_tests: {
-    type: "object",
-    properties: {
-      entrypoint: {
-        type: "string",
-        description: "Namespace or file containing tests",
-      },
-      test_file: {
-        type: "string",
-        description: "Optional specific test file to run",
-      },
-    },
-    required: ["entrypoint"],
-  },
+	// clj_run_tests
+	pi.registerTool({
+		name: "clj_run_tests",
+		label: "Run Clojure tests",
+		description: "Run clojure.test suite and return structured results with pass/fail/error counts.",
+		parameters: Type.Object({
+			entrypoint: Type.String({ description: "Namespace or file containing tests" }),
+			test_file: Type.Optional(Type.String({ description: "Optional specific test file to run" })),
+		}),
+		async execute(_toolCallId, params, _signal, _onUpdate, _ctx) {
+			const result = await cljRunTests(params);
+			return {
+				content: [{ type: "text" as const, text: JSON.stringify(result, null, 2) }],
+			};
+		},
+	});
 
-  benchmark_get_task: {
-    type: "object",
-    properties: {
-      task_id: {
-        type: "string",
-        description: "Task identifier to fetch",
-      },
-    },
-    required: ["task_id"],
-  },
-};
-
-/**
- * Export the extension
- *
- * ADAPTATION: Adjust this export to match the pi-mono extension API.
- * Common patterns include:
- * - Default export of an Extension object
- * - Named export of a tools map
- * - Registration function
- */
-export default {
-  name: "clj-verifier",
-  version: "0.1.0",
-  description: "Clojure code verification tools for benchmark-driven development",
-
-  tools: [
-    {
-      name: "clj_kondo_check",
-      description: "Lint Clojure code using clj-kondo static analyzer",
-      inputSchema: TOOL_SCHEMAS.clj_kondo_check,
-      handler: cljKondoCheck,
-    },
-    {
-      name: "clj_eval_form",
-      description: "Evaluate a single Clojure form in a REPL context",
-      inputSchema: TOOL_SCHEMAS.clj_eval_form,
-      handler: cljEvalForm,
-    },
-    {
-      name: "clj_run_tests",
-      description: "Run clojure.test suite and return structured results",
-      inputSchema: TOOL_SCHEMAS.clj_run_tests,
-      handler: cljRunTests,
-    },
-    {
-      name: "benchmark_get_task",
-      description: "Fetch a benchmark task by ID from the tasks-v0.edn inventory",
-      inputSchema: TOOL_SCHEMAS.benchmark_get_task,
-      handler: benchmarkGetTask,
-    },
-  ],
-
-  // Optional: Extension-level configuration
-  config: {
-    // Default timeouts (in milliseconds)
-    timeouts: {
-      kondo: 10000,
-      eval: 15000,
-      test: 30000,
-    },
-    // Project root detection
-    projectRootMarkers: ["benchmark", "deps.edn", "project.clj"],
-  },
-};
-
-// Alternative exports for compatibility
-export const tools = {
-  cljKondoCheck,
-  cljEvalForm,
-  cljRunTests,
-  benchmarkGetTask,
-};
+	// benchmark_get_task
+	pi.registerTool({
+		name: "benchmark_get_task",
+		label: "Get benchmark task",
+		description: "Fetch a benchmark task by ID. Returns the task prompt, entrypoint, and test code.",
+		parameters: Type.Object({
+			task_id: Type.String({ description: "Task identifier to fetch" }),
+		}),
+		async execute(_toolCallId, params, _signal, _onUpdate, _ctx) {
+			const result = await benchmarkGetTask(params);
+			return {
+				content: [{ type: "text" as const, text: JSON.stringify(result, null, 2) }],
+			};
+		},
+	});
+}

@@ -1,0 +1,27 @@
+(defn get_closest_vowel
+  "You are given a word. Your task is to find the closest vowel that stands between 
+  two consonants from the right side of the word (case sensitive).
+  Vowels in the beginning and ending doesn't count. Return empty string if you didn't
+  find any vowel met the above condition. 
+  You may assume that the given string contains English letter only.
+  Example:
+  >>> (get_closest_vowel \"yogurt\")
+  \"u\"
+  >>> (get_closest_vowel \"FULL\")
+  \"U\"
+  >>> (get_closest_vowel \"quick\")
+  \"\"
+  >>> (get_closest_vowel \"ab\")
+  \"\""
+  [word]
+  (let [vowels? (fn [ch] (contains? #{\a \e \i \o \u \A \E \I \O \U} ch))
+        n (count word)]
+    (or
+     (some (fn [i]
+             (let [c (nth word i)]
+               (when (and (vowels? c)
+                          (not (vowels? (nth word (dec i))))
+                          (not (vowels? (nth word (inc i)))))
+                 (str c))))
+           (range (- n 2) 0 -1))
+     "")))

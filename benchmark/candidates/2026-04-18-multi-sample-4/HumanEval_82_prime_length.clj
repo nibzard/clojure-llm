@@ -1,0 +1,20 @@
+(defn prime_length
+  "Write a function that takes a string and returns true if the string
+  length is a prime number or false otherwise
+  Examples
+  >>> (prime_length \"Hello\")
+  true
+  >>> (prime_length \"abcdcba\")
+  true
+  >>> (prime_length \"kittens\")
+  true
+  >>> (prime_length \"orange\")
+  false"
+  [string]
+  (let [n (count string)]
+    (cond
+      (< n 2) false
+      (= n 2) true
+      (zero? (mod n 2)) false
+      :else (not-any? #(zero? (mod n %))
+                      (range 3 (inc (long (Math/sqrt n))) 2)))))

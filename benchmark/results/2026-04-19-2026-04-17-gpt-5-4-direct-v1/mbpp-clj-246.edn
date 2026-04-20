@@ -1,0 +1,10 @@
+{:task-id "mbpp-clj-246",
+ :error-kind :test-failure,
+ :outcome :fail,
+ :syntax-ok true,
+ :tests-ok false,
+ :notes
+ "WARNING: Implicit use of clojure.main with options is deprecated, use -M -e (do (load-file \"benchmark/candidates/2026-04-17-gpt-5-4-direct/mbpp_559_max_sub_array_sum.clj\") (load-file \"benchmark/tests/multipl-e/mbpp_559_max_sub_array_sum_test.clj\"))\n\nTesting user\n\nFAIL in (test-humaneval) (mbpp_559_max_sub_array_sum_test.clj:7)\nexpected: (= (candidate [-2 -3 4 -1 -2 1 5 -3] 8) 7)\n  actual: (not (= [7 4] 7))\n\nFAIL in (test-humaneval) (mbpp_559_max_sub_array_sum_test.clj:8)\nexpected: (= (candidate [-3 -4 5 -2 -3 2 6 -4] 8) 8)\n  actual: (not (= [8 4] 8))\n\nFAIL in (test-humaneval) (mbpp_559_max_sub_array_sum_test.clj:9)\nexpected: (= (candidate [-4 -5 6 -3 -4 3 7 -5] 8) 10)\n  actual: (not (= [10 5] 10))\n\nRan 1 tests containing 3 assertions.\n3 failures, 0 errors.\n{:test 1, :pass 0, :fail 3, :error 0, :type :summary}",
+ :wall-ms 1240,
+ :kondo-ok true,
+ :tokens 0}

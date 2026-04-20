@@ -1,0 +1,10 @@
+{:task-id "humaneval-clj-079",
+ :error-kind :test-failure,
+ :outcome :fail,
+ :syntax-ok true,
+ :tests-ok false,
+ :notes
+ "WARNING: Implicit use of clojure.main with options is deprecated, use -M -e (do (load-file \"benchmark/candidates/2026-04-17-gpt-5-4-mini-2026-03-17-direct/HumanEval_81_numerical_letter_grade.clj\") (load-file \"benchmark/tests/multipl-e/HumanEval_81_numerical_letter_grade_test.clj\"))\n\nTesting user\n\nFAIL in (test-humaneval) (HumanEval_81_numerical_letter_grade_test.clj:7)\nexpected: (= (candidate [4.0 3 1.7 2 3.5]) [\"A+\" \"B\" \"C-\" \"C\" \"A-\"])\n  actual: (not (= [\"A+\" \"B+\" \"C\" \"C+\" \"A-\"] [\"A+\" \"B\" \"C-\" \"C\" \"A-\"]))\n\nFAIL in (test-humaneval) (HumanEval_81_numerical_letter_grade_test.clj:10)\nexpected: (= (candidate [0.0]) [\"E\"])\n  actual: (not (= [\"D-\"] [\"E\"]))\n\nFAIL in (test-humaneval) (HumanEval_81_numerical_letter_grade_test.clj:11)\nexpected: (= (candidate [1.0 0.3 1.5 2.8 3.3]) [\"D\" \"D-\" \"C-\" \"B\" \"B+\"])\n  actual: (not (= [\"D+\" \"D-\" \"C-\" \"B\" \"A-\"] [\"D\" \"D-\" \"C-\" \"B\" \"B+\"]))\n\nFAIL in (test-humaneval) (HumanEval_81_numerical_letter_grade_test.clj:12)\nexpected: (= (candidate [0.0 0.7]) [\"E\" \"D-\"])\n  actual: (not (= [\"D-\" \"D\"] [\"E\" \"D-\"]))\n\nRan 1 tests containing 6 assertions.\n4 failures, 0 errors.\n{:test 1, :pass 2, :fail 4, :error 0, :type :summary}",
+ :wall-ms 1243,
+ :kondo-ok true,
+ :tokens 0}

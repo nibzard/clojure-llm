@@ -1,0 +1,10 @@
+(defn snake_to_camel
+  "	Write a function to convert the given snake case string to camel case string."
+  [word]
+  (let [s (or word "")]
+    (if (empty? s)
+      s
+      (apply str
+             (first (clojure.string/split s #"_+"))
+             (map clojure.string/capitalize
+                  (rest (clojure.string/split s #"_+")))))))

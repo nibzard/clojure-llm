@@ -1,0 +1,8 @@
+(defn split-evenly
+  "Split a collection into two vectors: items at even indexes and items at odd indexes.
+
+  Examples:
+  (split-evenly [1 2 3 4 5]) ;=> [[1 3 5] [2 4]]
+  (split-evenly \"abcd\")    ;=> [[\\a \\c] [\\b \\d]]
+  (split-evenly nil)         ;=> [[] []]"
+  [coll])

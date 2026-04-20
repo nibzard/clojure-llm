@@ -1,0 +1,10 @@
+{:task-id "humaneval-clj-017",
+ :error-kind :test-failure,
+ :outcome :fail,
+ :syntax-ok true,
+ :tests-ok false,
+ :notes
+ "Syntax error macroexpanding clojure.core/defn at (/home/agent/clojure-llm/benchmark/candidates/2026-04-17-qwen3-5-plus-direct/HumanEval_16_count_distinct_characters.clj:1:1).",
+ :wall-ms 25,
+ :kondo-ok true,
+ :tokens 0}

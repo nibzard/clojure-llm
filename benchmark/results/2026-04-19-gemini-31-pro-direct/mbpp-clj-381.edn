@@ -1,0 +1,10 @@
+{:task-id "mbpp-clj-381",
+ :error-kind :test-failure,
+ :outcome :fail,
+ :syntax-ok true,
+ :tests-ok false,
+ :notes
+ "WARNING: Implicit use of clojure.main with options is deprecated, use -M -e (do (load-file \"benchmark/candidates/2026-04-19-gemini-31-pro-direct/mbpp_792_count_list.clj\") (load-file \"benchmark/tests/multipl-e/mbpp_792_count_list_test.clj\"))\nSyntax error compiling at (benchmark/tests/multipl-e/mbpp_792_count_list_test.clj:3:1).\nUnable to resolve symbol: count_list in this context\n\nFull report at:\n/tmp/clojure-7607432745477648141.edn",
+ :wall-ms 1164,
+ :kondo-ok true,
+ :tokens 0}

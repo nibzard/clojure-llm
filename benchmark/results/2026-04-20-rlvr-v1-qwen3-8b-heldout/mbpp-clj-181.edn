@@ -1,0 +1,10 @@
+{:task-id "mbpp-clj-181",
+ :error-kind :test-failure,
+ :outcome :fail,
+ :syntax-ok true,
+ :tests-ok false,
+ :notes
+ "WARNING: Implicit use of clojure.main with options is deprecated, use -M -e (do (load-file \"benchmark/candidates/2026-04-20-rlvr-v1-qwen3-8b-heldout/mbpp_413_extract_nth_element.clj\") (load-file \"benchmark/tests/multipl-e/mbpp_413_extract_nth_element_test.clj\"))\n\nTesting user\n\nFAIL in (test-humaneval) (mbpp_413_extract_nth_element_test.clj:7)\nexpected: (= (candidate [[\"Greyson Fulton\" 98 99] [\"Brady Kent\" 97 96] [\"Wyatt Knott\" 91 94] [\"Beau Turnbull\" 94 98]] 0) [\"Greyson Fulton\" \"Brady Kent\" \"Wyatt Knott\" \"Beau Turnbull\"])\n  actual: (not (= \"Greyson Fulton\" [\"Greyson Fulton\" \"Brady Kent\" \"Wyatt Knott\" \"Beau Turnbull\"]))\n\nFAIL in (test-humaneval) (mbpp_413_extract_nth_element_test.clj:8)\nexpected: (= (candidate [[\"Greyson Fulton\" 98 99] [\"Brady Kent\" 97 96] [\"Wyatt Knott\" 91 94] [\"Beau Turnbull\" 94 98]] 2) [99 96 94 98])\n  actual: (not (= 99 [99 96 94 98]))\n\nFAIL in (test-humaneval) (mbpp_413_extract_nth_element_test.clj:9)\nexpected: (= (candidate [[\"Greyson Fulton\" 98 99] [\"Brady Kent\" 97 96] [\"Wyatt Knott\" 91 94] [\"Beau Turnbull\" 94 98]] 1) [98 97 91 94])\n  actual: (not (= 98 [98 97 91 94]))\n\nRan 1 tests containing 3 assertions.\n3 failures, 0 errors.\n{:test 1, :pass 0, :fail 3, :error 0, :type :summary}",
+ :wall-ms 1142,
+ :kondo-ok true,
+ :tokens 0}

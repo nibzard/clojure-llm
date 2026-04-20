@@ -1,0 +1,24 @@
+(defn longest-by
+  "Return the item in `coll` whose `keyfn` returns the largest value.
+
+  If `coll` is empty, return nil.
+  If there is a tie, return the first item with the maximum key value.
+
+  Examples:
+  (longest-by count [\"a\" \"bbb\" \"cc\"]) ;=> \"bbb\"
+  (longest-by :len [{:len 2} {:len 5} {:len 3}]) ;=> {:len 5}"
+  [keyfn coll]
+  (when-let [xs (seq coll)]
+    (reduce (fn [best item]
+              (if (> (keyfn item) (keyfn best))
+                item
+                best))
+            (first xs)
+            (rest xs))))
+
+(require '[clojure.test :refer [deftest is run-test]])
+
+(deftest test-variation
+  (is (= "bbb" (longest-by count ["a" "bbb" "cc"]))))
+
+(run-test test-variation)

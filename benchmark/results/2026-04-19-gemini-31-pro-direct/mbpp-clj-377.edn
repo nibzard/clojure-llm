@@ -1,0 +1,10 @@
+{:task-id "mbpp-clj-377",
+ :error-kind :test-failure,
+ :outcome :fail,
+ :syntax-ok true,
+ :tests-ok false,
+ :notes
+ "WARNING: Implicit use of clojure.main with options is deprecated, use -M -e (do (load-file \"benchmark/candidates/2026-04-19-gemini-31-pro-direct/mbpp_787_text_match_three.clj\") (load-file \"benchmark/tests/multipl-e/mbpp_787_text_match_three_test.clj\"))\nSyntax error compiling at (benchmark/tests/multipl-e/mbpp_787_text_match_three_test.clj:3:1).\nUnable to resolve symbol: text_match_three in this context\n\nFull report at:\n/tmp/clojure-5710201160483002092.edn",
+ :wall-ms 1100,
+ :kondo-ok true,
+ :tokens 0}

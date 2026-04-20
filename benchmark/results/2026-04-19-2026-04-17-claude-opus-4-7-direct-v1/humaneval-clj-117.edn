@@ -1,0 +1,10 @@
+{:task-id "humaneval-clj-117",
+ :error-kind :test-failure,
+ :outcome :fail,
+ :syntax-ok true,
+ :tests-ok false,
+ :notes
+ "WARNING: Implicit use of clojure.main with options is deprecated, use -M -e (do (load-file \"benchmark/candidates/2026-04-17-claude-opus-4-7-direct/HumanEval_119_match_parens.clj\") (load-file \"benchmark/tests/multipl-e/HumanEval_119_match_parens_test.clj\"))\nSyntax error compiling at (benchmark/tests/multipl-e/HumanEval_119_match_parens_test.clj:3:1).\nUnable to resolve symbol: match_parens in this context\n\nFull report at:\n/tmp/clojure-4618349445250674671.edn",
+ :wall-ms 1415,
+ :kondo-ok true,
+ :tokens 0}
