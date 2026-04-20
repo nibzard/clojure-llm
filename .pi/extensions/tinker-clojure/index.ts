@@ -197,7 +197,7 @@ const TOOL_PARAMS = Type.Object({
 		Type.Number({ description: "Base sampling temperature (increases by 0.1 per retry, capped at 1.0)", default: 0.7 }),
 	),
 	max_tokens: Type.Optional(
-		Type.Number({ description: "Max tokens per sample (default: 1024). Use 2048+ for complex functions.", default: 1024 }),
+		Type.Number({ description: "Max tokens per sample (default: 8192). Use higher for complex functions.", default: 8192 }),
 	),
 	test_path: Type.Optional(
 		Type.String({ description: "Path to test .clj file for full test verification. If omitted, verification stops at kondo lint." }),
@@ -271,7 +271,7 @@ export default function tinkerClojure(pi: ExtensionAPI) {
 				prompt: params.prompt,
 				num_samples: numSamples,
 				temperature: params.temperature ?? 0.7,
-				max_tokens: params.max_tokens ?? 1024,
+				max_tokens: params.max_tokens ?? 8192,
 				test_path: params.test_path || null,
 				temp_increase_per_retry: verifier.temp_increase_per_retry ?? 0.1,
 				max_temp: verifier.max_temp ?? 1.0,

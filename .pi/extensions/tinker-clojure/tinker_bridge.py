@@ -355,7 +355,7 @@ def handle_generate_clojure(params):
     prompt = params["prompt"]
     num_samples = params.get("num_samples", 4)
     base_temperature = params.get("temperature", 0.7)
-    max_tokens = params.get("max_tokens", 1024)
+    max_tokens = params.get("max_tokens", 8192)
     test_path = params.get("test_path")
     temp_increase = params.get("temp_increase_per_retry", 0.1)
     max_temp = params.get("max_temp", 1.0)
