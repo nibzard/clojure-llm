@@ -23,6 +23,7 @@ The 30B MoE model (30B total / 3B active) trained on the **same 2,459 SFT pairs*
 | Model | pass@1 | best-of-8 | best-of-16 |
 |-------|--------|-----------|------------|
 | **30B SFT** | **52.3%** | **75.7%** | **83.8%** |
+| **30B RLVR** | **55.0%** | **75.7%** | **79.3%** |
 | GPT-5.4 | 64.0% | — | — |
 | GPT-5.4-mini | 59.5% | — | — |
 | 8B RLVR | 41.4% | 67.6% | 72.1% |
@@ -209,16 +210,47 @@ This is more efficient than brute-force best-of-K because the agent can learn fr
 
 These may require better base models, continued pretraining on more Clojure code, or multi-step reasoning.
 
+## 30B RLVR vs SFT Comparison
+
+RLVR on the 30B model showed a different pattern than on the 8B model.
+
+| K | 30B SFT | 30B RLVR | Delta |
+|---|---------|----------|-------|
+| 1 | 59/111 = 53.2% | 60/111 = 54.1% | +0.9pp |
+| 2 | 72/111 = 64.9% | 68/111 = 61.3% | -3.6pp |
+| 4 | 78/111 = 70.3% | 79/111 = 71.2% | +0.9pp |
+| 8 | 84/111 = 75.7% | 84/111 = 75.7% | 0pp |
+| **16** | **93/111 = 83.8%** | **88/111 = 79.3%** | **-4.5pp** |
+
+**RLVR 30B lowered the ceiling by 4.5pp.** Unlike the 8B model where SFT and RLVR shared the same 72.1% ceiling, RLVR on the 30B model made 5 tasks unsolvable that the SFT model could handle at K=16.
+
+### Why this happened
+
+1. **RLVR narrowed the solution distribution.** GRPO with shaped rewards pushes the policy toward the highest-reward solution strategy. On the 30B model (which has more capacity to specialize), this pushed harder toward a single approach per task — losing diversity.
+
+2. **Same best-of-8, different best-of-16.** At K=8, both models solve the same 84 tasks. The 5 lost tasks are only solvable at K=9-16 by the SFT model — they rely on rare diverse solutions that RLVR's narrower distribution no longer produces.
+
+3. **pass@1 improved (+2.7pp)** because RLVR made the most common correct solution more reliable. But the long tail of diverse correct solutions was pruned.
+
+### What this means
+
+- **SFT 30B is the better model for verifier-in-the-loop deployment.** Its 83.8% ceiling means a verifier agent has more correct solutions to find.
+- **RLVR 30B is better for single-shot use** (55.0% vs 52.3% pass@1) but worse with retries.
+- **RLVR behaves differently at different scales.** On 8B, it preserved the ceiling. On 30B, it narrowed it. This may be because the 30B model's greater capacity allowed more aggressive specialization during GRPO.
+- **The shaped reward function (syntax + kondo + tests) may be too constraining.** It encourages solutions that maximize all reward components rather than just passing tests, which could eliminate unconventional but correct approaches.
+
 ## Artifacts
 
 | Artifact | Location |
 |----------|----------|
 | Evaluation script | `scripts/best_of_k.py` |
-| 30B results (JSON) | `research/best-of-k-30b-results.json` |
-| RLVR results (JSON) | `research/best-of-k-results.json` |
-| SFT results (JSON) | `research/best-of-k-sft-results.json` |
+| 30B SFT results (JSON) | `research/best-of-k-30b-results.json` |
+| 30B RLVR results (JSON) | `research/best-of-k-rlvr-30b-results.json` |
+| 8B RLVR results (JSON) | `research/best-of-k-results.json` |
+| 8B SFT results (JSON) | `research/best-of-k-sft-results.json` |
 | 30B SFT checkpoint | `tinker://6d56c642-fed2-539d-853b-8311cc4939ed:train:0/weights/checkpoint-step-600` |
-| RLVR checkpoint | `tinker://cf3778fc-5553-5e8d-be25-84859b2de080:train:0/weights/checkpoint-iter-10` |
+| 30B RLVR checkpoint | `tinker://a0694e12-b840-53e9-8942-3dd21a0a29a7:train:0/weights/checkpoint-iter-10` |
+| 8B RLVR checkpoint | `tinker://cf3778fc-5553-5e8d-be25-84859b2de080:train:0/weights/checkpoint-iter-10` |
 | 8B SFT checkpoint | `tinker://b5c7e66e-618a-5f71-919e-da1db6844679:train:0/weights/checkpoint-step-600` |
 | Training analysis | `research/rlvr-results.md` |
 | Baseline comparison | `research/baseline-analysis.md` |
@@ -234,7 +266,7 @@ These may require better base models, continued pretraining on more Clojure code
 
 ## Next Steps
 
-1. **Expand SFT data for 30B.** The 30B model raised the ceiling from 72.1% to 83.8% with the same data. Adding ~3,000-4,000 more diverse SFT pairs (multi-solution, evol-instruct, error-correction) could push toward 90%+.
-2. **RLVR on 30B.** RLVR improved 8B consistency by +3.6pp pass@1. On 30B, RLVR might push pass@1 from 52.3% toward 55-58%, making best-of-2 competitive with GPT-5.4.
-3. **Build the verifier agent loop.** The 30B ceiling is 83.8%. A smart agent that generates, tests, and retries with error feedback should close most of the gap between pass@1 and best-of-K.
-4. **Write up for publication.** The result — 30B + SFT + verifier beats GPT-5.4 pass@1 at best-of-2 (64.9% vs 64.0%) — is publishable.
+1. **Use SFT 30B as the production model.** Despite RLVR 30B's higher pass@1 (55.0% vs 52.3%), the SFT model's 83.8% ceiling makes it the better choice for verifier-in-the-loop deployment. The 4.5pp ceiling advantage is more valuable than the 2.7pp pass@1 gain.
+2. **Expand SFT data for 30B.** The 30B model's ceiling (83.8%) is set by the 2,459 SFT pairs. Adding ~3,000-4,000 more diverse SFT pairs (multi-solution, evol-instruct, error-correction) could push toward 90%+.
+3. **Build the verifier agent loop.** The SFT 30B ceiling is 83.8%. A smart agent that generates, tests, and retries with error feedback should close most of the gap between pass@1 (52.3%) and best-of-K.
+4. **Write up for publication.** The result — 30B + SFT + verifier beats GPT-5.4 pass@1 at best-of-2 (64.9% vs 64.0%) — is publishable. The finding that RLVR can lower the ceiling on larger models is a novel contribution.

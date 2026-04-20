@@ -13,13 +13,16 @@ Precedent: QED-Nano (4B beats 120B on proofs). → `THESIS.md`
 |---|-----------|----------------------|--------|
 | B | GPT-5.4 | 64.0% | Done |
 | B | GPT-5.4-mini | 59.5% | Done |
-| **E** | **SFT Qwen3-30B** | **52.3%** | **Phase 4** |
+| **E** | **RLVR Qwen3-30B** | **55.0%** | **Phase 4b** |
+| **E** | **SFT Qwen3-30B** | **52.3%** | **Phase 4a** |
 | C | Qwen3.5-plus | ~55% | Partial |
 | A | Opus 4.7 | 45.0% | Done |
 | **D** | **RLVR Qwen3-8B** | **41.4%** | **Done** |
 | D | SFT Qwen3-8B | 37.8% | Done |
 
-**Phase 4: Qwen3-30B-A3B SFT pass@1 = 52.3% (beats Opus 4.7 by +7.3pp).**
+**Phase 4b: RLVR 30B pass@1 = 55.0% (+2.7pp over SFT 30B).** But best-of-16 ceiling *dropped* from 83.8% to 79.3% — RLVR narrowed the solution distribution, losing 5 tasks the SFT model could solve. RLVR 30B best-of-8 = 75.7% (same as SFT 30B).
+
+**Phase 4a: SFT 30B pass@1 = 52.3% (beats Opus 4.7 by +7.3pp).**
 Best-of-16 ceiling: **83.8% (93/111)** — up from 72.1% (8B). Best-of-2 (64.9%) matches GPT-5.4 single-pass.
 Same 2,459 SFT pairs, MoE model (30B total / 3B active). Only 18 unsolvable tasks (vs 31 for 8B).
 
@@ -87,10 +90,11 @@ RLVR → GRPO with binary verifier rewards (Clojure subprocess eval):
 
 Best-of-K → `scripts/best_of_k.py` — generate K samples per task, pick first passing one:
 - **30B SFT**: best-of-16 ceiling 83.8% (93/111), pass@1 52.3%, best-of-8 75.7%
+- **30B RLVR**: best-of-16 ceiling 79.3% (88/111), pass@1 55.0%, best-of-8 75.7%
 - **8B RLVR**: best-of-16 ceiling 72.1% (80/111), pass@1 41.4%, best-of-8 67.6%
 - **8B SFT**: best-of-16 ceiling 72.1% (80/111), pass@1 37.8%, best-of-8 64.9%
-- 30B raised ceiling by +11.7pp with same SFT data — model scale matters
-- Results: `research/best-of-k-30b-results.json`, `research/best-of-k-results.json`, `research/best-of-k-sft-results.json`
+- 30B SFT raised ceiling by +11.7pp with same SFT data; RLVR lowered it by 4.5pp
+- Results: `research/best-of-k-30b-results.json`, `research/best-of-k-rlvr-30b-results.json`, `research/best-of-k-results.json`, `research/best-of-k-sft-results.json`
 
 ## Key docs (progressive disclosure)
 

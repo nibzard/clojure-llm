@@ -29,17 +29,21 @@ from transformers import AutoTokenizer
 ROOT = Path(__file__).resolve().parent.parent
 
 BASELINE_RUNS = {
-    "2026-04-17-gpt-5-4-direct": "GPT-5.4",
-    "2026-04-17-gpt-5-4-mini-2026-03-17-direct": "GPT-5.4-mini",
-    "2026-04-17-claude-opus-4-7-direct": "Opus-4.7",
+    "2026-04-19-2026-04-17-gpt-5-4-direct-v1": "GPT-5.4",
+    "2026-04-19-2026-04-17-gpt-5-4-mini-2026-03-17-direct-v1": "GPT-5.4-mini",
+    "2026-04-19-2026-04-17-claude-opus-4-7-direct-v1": "Opus-4.7",
 }
 
 # Model evaluation run IDs (for comparison table)
 MODEL_RUNS = {
     "sft": {
-        "run_id": "2026-04-18-sft-qwen3-8b-heldout",
+        "run_id": "2026-04-19-2026-04-18-sft-qwen3-8b-heldout-v1",
         "label": "SFT Qwen3-8B",
         "checkpoint": "tinker://b5c7e66e-618a-5f71-919e-da1db6844679:train:0/weights/checkpoint-step-600",
+    },
+    "rlvr_v1_prev": {
+        "run_id": "2026-04-19-2026-04-18-rlvr-qwen3-8b-heldout-v1",
+        "label": "RLVR Qwen3-8B (Prev)",
     },
 }
 
@@ -79,10 +83,10 @@ def create_run_manifest(task_ids, run_id, model_label="sft-qwen3-8b"):
         ' :policy {:kind :direct}\n'
         f' :tasks-file "benchmark/tasks-v0.edn"\n'
         ' :prompting {:template :sft-eval :temperature 0.2 :top-p 0.95 :samples 1}\n'
-        ' :executor {:kind :container :image "clj-bench/eval:dev" :network :none}\n'
+        ' :executor {:kind :local-process :isolation :task-subprocess :network :none}\n'
         f' :created-at "{time.strftime("%Y-%m-%dT%H:%M:%S.000000Z")}"\n'
         f' :run-id "{run_id}"\n'
-        ' :benchmark-version :clj-bench/v0\n'
+        ' :benchmark-version :clj-bench/v1\n'
         f' :model {{:provider :tinker :id "{model_label}"}}}}\n'
     )
     manifest_path = ROOT / "benchmark" / "runs" / f"{run_id}.edn"

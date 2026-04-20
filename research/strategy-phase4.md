@@ -148,12 +148,12 @@ This should close most of the gap between pass@1 and best-of-K, potentially reac
 
 ## Success criteria
 
-| Metric | 8B Result | 30B Result | Target | Stretch |
-|--------|-----------|------------|--------|---------|
-| pass@1 | 41.4% | **52.3%** | > 50% ✓ | > 55% |
-| best-of-16 | 72.1% | **83.8%** | > 80% ✓ | > 85% |
-| best-of-8 vs GPT-5.4 | +3.6pp | **+11.7pp** | +10pp ✓ | +15pp |
+| Metric | 8B Result | 30B SFT | 30B RLVR | Target | Stretch |
+|--------|-----------|---------|----------|--------|---------|
+| pass@1 | 41.4% | **52.3%** | **55.0%** | > 50% ✓ | > 55% |
+| best-of-16 | 72.1% | **83.8%** | 79.3% | > 80% ✓ | > 85% |
+| best-of-8 vs GPT-5.4 | +3.6pp | **+11.7pp** | +11.7pp | +10pp ✓ | +15pp |
 
-**All targets met.** The 30B model raised the ceiling from 72.1% to 83.8% with the same 2,459 SFT pairs. Best-of-8 (75.7%) beats GPT-5.4 (64.0%) by 11.7pp. Only 18 tasks genuinely unsolvable (vs 31 for 8B). The model scale hypothesis is confirmed.
+**All targets met (SFT 30B is the best model).** RLVR 30B improved pass@1 to 55.0% (hitting the stretch target) but lowered the best-of-16 ceiling to 79.3%. SFT 30B remains the better model for verifier-in-the-loop deployment due to its 83.8% ceiling.
 
 If Qwen3-30B-A3B + expanded SFT + best-of-8 > 75%, that's a clear win over GPT-5.4 (64.0%) by 11+ points — a publishable result. **Achieved: 75.7% best-of-8 = +11.7pp over GPT-5.4.**

@@ -402,6 +402,7 @@ Required caution:
 | **3b. Best-of-K** | Best-of-K eval on SFT + RLVR models | 1 day | Estimate pass@K ceiling | **Done** — RLVR best-of-8 (67.6%) > GPT-5.4 pass@1 (64.0%); same 72.1% ceiling for SFT and RLVR |
 | **4a. Larger model SFT** | Qwen3-30B-A3B SFT on same 2,459 pairs | 1 day | Higher pass@1 than 8B | **Done** — 52.3% (beats Opus 4.7 by +7.3pp) |
 | **4b. 30B best-of-K** | Best-of-16 on 30B model | 1 day | Higher ceiling than 8B's 72.1% | **Done** — 83.8% ceiling (93/111), +11.7pp over 8B |
+| **4b-RLVR. 30B RLVR** | GRPO on 30B SFT checkpoint | 1 day | Higher pass@1 than 30B SFT | **Done** — 55.0% (+2.7pp), but ceiling dropped to 79.3% |
 | **4c. Expanded SFT data** | Multi-solution + evol-instruct + error-correction pairs | 1-2 weeks | ~5,000-6,500 total pairs | — |
 | **4d. Repo-level benchmark** | Patch-generation track over real repos | 2-4 weeks | Reproducible patch eval on pinned repos | — |
 
@@ -500,9 +501,9 @@ Proceed beyond lightweight adaptation only if:
 
 ## Immediate next actions
 
-Phases 0–3b complete. Best-of-K evaluation done (SFT + RLVR). Possible next steps:
+Phases 0–4b-RLVR complete. All training and evaluation done. Possible next steps:
 
-1. **Build verifier agent loop**: best-of-K proves the ceiling is 72.1%. Build an actual agent that generates, tests, and retries with Clojure feedback to close the gap between pass@1 and best-of-K in practice.
-2. **Raise the 72.1% ceiling** via better SFT data or a stronger base model — RLVR cannot raise it further since SFT and RLVR share the same ceiling.
+1. **Build verifier agent loop**: SFT 30B best-of-K ceiling is 83.8%. Build an actual agent that generates, tests, and retries with Clojure feedback to close the gap between pass@1 (52.3%) and best-of-K in practice.
+2. **Expand SFT data** to raise the 83.8% ceiling — the current ceiling is set by 2,459 SFT pairs. Multi-solution, evol-instruct, error-correction pairs could push toward 90%+.
 3. **Repo-level benchmark**: build Track 2 patch-generation tasks from real Clojure repos.
-4. **Write up**: compile results into a research report with error analysis and comparison table.
+4. **Write up**: compile results into a research report. The RLVR-ceiling-drop finding (RLVR lowers ceiling on 30B but not 8B) is a novel contribution.

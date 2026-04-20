@@ -6,7 +6,7 @@ Provides two evaluation modes:
 1. evaluate_single() - subprocess-based eval for a single code/test pair
 2. evaluate_batch() - write candidates + manifest, run via clojure -M:bench evaluate
 
-Binary reward: 1.0 (tests pass) or 0.0 (fail).
+Supports both binary rewards and benchmark-aligned shaped reward components.
 """
 
 import json
@@ -19,6 +19,13 @@ from pathlib import Path
 from typing import Dict, List, Optional, Tuple
 
 ROOT = Path(__file__).resolve().parent.parent.parent
+
+DEFAULT_REWARD_WEIGHTS = {
+    "syntax": 0.1,
+    "kondo": 0.2,
+    "load": 0.1,
+    "tests": 0.6,
+}
 
 
 def evaluate_single(
@@ -56,7 +63,7 @@ def evaluate_single(
             f'(load-file "{test_path}") '
             f'(catch Exception e (binding [*out* *err*] (println "ERROR:" (.getMessage e)))))'
         )
-        cmd = ["clojure", "-e", expr]
+        cmd = ["clojure", "-M", "-e", expr]
 
         result = subprocess.run(
             cmd,
@@ -104,6 +111,142 @@ def evaluate_single(
         return False, str(e)
     finally:
         os.unlink(code_path)
+
+
+def evaluate_single_detailed(
+    code: str,
+    test_path: str,
+    timeout: int = 10,
+) -> Dict[str, object]:
+    """Evaluate one candidate with benchmark-aligned intermediate signals."""
+    with tempfile.NamedTemporaryFile(
+        mode="w", suffix=".clj", delete=False, dir="/tmp"
+    ) as f:
+        f.write(code)
+        code_path = f.name
+
+    try:
+        syntax_ok = _check_syntax(code_path)
+        if not syntax_ok:
+            return {
+                "passed": False,
+                "syntax_ok": False,
+                "kondo_ok": False,
+                "load_ok": False,
+                "tests_ok": False,
+                "timed_out": False,
+                "error": "Syntax/read error",
+            }
+
+        kondo_ok, kondo_out = _run_kondo(code_path)
+        if not kondo_ok:
+            return {
+                "passed": False,
+                "syntax_ok": True,
+                "kondo_ok": False,
+                "load_ok": False,
+                "tests_ok": False,
+                "timed_out": False,
+                "error": kondo_out[-500:],
+            }
+
+        load_ok, tests_ok, timed_out, output = _run_load_and_tests(
+            code_path, test_path, timeout
+        )
+        return {
+            "passed": bool(load_ok and tests_ok and not timed_out),
+            "syntax_ok": True,
+            "kondo_ok": True,
+            "load_ok": bool(load_ok),
+            "tests_ok": bool(tests_ok),
+            "timed_out": bool(timed_out),
+            "error": output[-500:] if output else "",
+        }
+    finally:
+        os.unlink(code_path)
+
+
+def _check_syntax(code_path: str) -> bool:
+    expr = (
+        f'(try (with-open [r (java.io.PushbackReader. (clojure.java.io/reader "{code_path}"))] '
+        f'(loop [] (when-not (= ::eof (read r false ::eof)) (recur)))) '
+        f'(catch Throwable _ (System/exit 1)))'
+    )
+    result = subprocess.run(
+        ["clojure", "-M", "-e", expr],
+        capture_output=True,
+        text=True,
+        cwd=str(ROOT),
+    )
+    return result.returncode == 0
+
+
+def _run_kondo(code_path: str) -> Tuple[bool, str]:
+    try:
+        result = subprocess.run(
+            ["clj-kondo", "--lint", code_path, "--no-summary"],
+            capture_output=True,
+            text=True,
+            cwd=str(ROOT),
+        )
+    except Exception as e:
+        return False, str(e)
+    output = result.stdout + result.stderr
+    return result.returncode == 0, output
+
+
+def _run_load_and_tests(
+    code_path: str,
+    test_path: str,
+    timeout: int,
+) -> Tuple[bool, bool, bool, str]:
+    expr = (
+        f'(try (load-file "{code_path}") '
+        f'(println "__LOAD_OK__") '
+        f'(load-file "{test_path}") '
+        f'(catch Throwable e '
+        f'(binding [*out* *err*] '
+        f'(println "ERROR:" (.getMessage e))) '
+        f'(System/exit 1)))'
+    )
+    try:
+        result = subprocess.run(
+            ["clojure", "-M", "-e", expr],
+            capture_output=True,
+            text=True,
+            timeout=timeout,
+            cwd=str(ROOT),
+        )
+    except subprocess.TimeoutExpired:
+        return False, False, True, f"Timeout after {timeout}s"
+    output = result.stdout + result.stderr
+    load_ok = "__LOAD_OK__" in output
+    zero_failures = bool(re.search(r"0 failures,\s+0 errors\.?", output))
+    tests_ok = (
+        zero_failures
+        and "FAIL in" not in output
+        and "ERROR in" not in output
+        and "ERROR:" not in output
+    )
+    return load_ok, tests_ok, False, output
+
+
+def compute_reward(
+    details: Dict[str, object],
+    reward_weights: Optional[Dict[str, float]] = None,
+) -> float:
+    """Compute a scalar reward from detailed verifier signals."""
+    weights = reward_weights or DEFAULT_REWARD_WEIGHTS
+    reward = 0.0
+    if details.get("syntax_ok"):
+        reward += weights.get("syntax", 0.0)
+    if details.get("kondo_ok"):
+        reward += weights.get("kondo", 0.0)
+    if details.get("load_ok"):
+        reward += weights.get("load", 0.0)
+    if details.get("tests_ok"):
+        reward += weights.get("tests", 0.0)
+    return float(reward)
 
 
 def evaluate_batch(
@@ -194,10 +337,10 @@ def _create_manifest(task_ids: List[str], run_id: str) -> Path:
         ' :policy {:kind :direct}\n'
         f' :tasks-file "benchmark/tasks-v0.edn"\n'
         ' :prompting {:template :rlvr :temperature 0.7 :samples 1}\n'
-        ' :executor {:kind :container :image "clj-bench/eval:dev" :network :none}\n'
+        ' :executor {:kind :local-process :isolation :task-subprocess :network :none}\n'
         f' :created-at "{time.strftime("%Y-%m-%dT%H:%M:%S.000000Z")}"\n'
         f' :run-id "{run_id}"\n'
-        ' :benchmark-version :clj-bench/v0\n'
+        ' :benchmark-version :clj-bench/v1\n'
         ' :model {:provider :tinker :id "rlvr-qwen3-8b"}}}'
     )
     manifest_path = ROOT / "benchmark" / "runs" / f"{run_id}.edn"

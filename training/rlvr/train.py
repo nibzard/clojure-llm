@@ -50,7 +50,9 @@ ROOT = Path(__file__).resolve().parent.parent.parent
 # Import our own modules
 sys.path.insert(0, str(ROOT))
 from training.rlvr.evaluate import (
+    compute_reward,
     evaluate_single,
+    evaluate_single_detailed,
     load_training_tasks,
 )
 from training.rlvr.rewards import (
@@ -76,6 +78,7 @@ class RLVRConfig:
     tasks_per_batch: int = 30
     temperature: float = 0.7
     max_tokens: int = 512
+    refresh_sampler_every_iteration: bool = True
 
     # Training
     learning_rate: float = 5.0e-6
@@ -99,6 +102,10 @@ class RLVRConfig:
     heldout_tasks: str = "data/sft/heldout_task_ids.json"
     benchmark_tasks: str = "benchmark/tasks-v0.edn"
 
+    # Reward
+    reward_mode: str = "shaped"
+    reward_weights: Optional[Dict[str, float]] = None
+
     @classmethod
     def from_yaml(cls, path: str) -> "RLVRConfig":
         with open(path) as f:
@@ -117,6 +124,7 @@ class RLVRConfig:
             tasks_per_batch=rollouts.get("tasks_per_batch", 30),
             temperature=rollouts.get("temperature", 0.7),
             max_tokens=rollouts.get("max_tokens", 512),
+            refresh_sampler_every_iteration=rollouts.get("refresh_sampler_every_iteration", True),
             learning_rate=training.get("learning_rate", 5.0e-6),
             weight_decay=training.get("weight_decay", 0.01),
             grad_clip_norm=training.get("grad_clip_norm", 1.0),
@@ -126,6 +134,8 @@ class RLVRConfig:
             output_dir=ckpt.get("output_dir", "checkpoints/rlvr"),
             wandb_project=log.get("wandb_project", "clojure-llm"),
             wandb_entity=log.get("wandb_entity", "nibzard-org"),
+            reward_mode=training.get("reward_mode", "shaped"),
+            reward_weights=training.get("reward_weights"),
         )
 
 
@@ -142,6 +152,7 @@ class RolloutResult:
     logprobs: List[float]
     reward: float
     passed: bool
+    reward_components: Optional[Dict[str, float]] = None
 
 
 def generate_rollouts(
@@ -204,6 +215,7 @@ def generate_rollouts(
                     logprobs=[0.0] * len(prompt_tokens) + logprobs,
                     reward=0.0,  # Will be filled by evaluation
                     passed=False,
+                    reward_components=None,
                 ))
 
             except Exception as e:
@@ -215,6 +227,7 @@ def generate_rollouts(
                     logprobs=[],
                     reward=0.0,
                     passed=False,
+                    reward_components=None,
                 ))
 
     return all_rollouts
@@ -249,6 +262,8 @@ def evaluate_rollouts(
     rollouts: List[RolloutResult],
     tasks: List[Dict],
     timeout: int = 10,
+    reward_mode: str = "binary",
+    reward_weights: Optional[Dict[str, float]] = None,
 ) -> List[RolloutResult]:
     """Evaluate rollouts via Clojure subprocess.
 
@@ -273,9 +288,26 @@ def evaluate_rollouts(
             rollout.passed = False
             continue
 
-        passed, _ = evaluate_single(rollout.code, test_path, timeout=timeout)
-        rollout.reward = 1.0 if passed else 0.0
-        rollout.passed = passed
+        if reward_mode == "shaped":
+            details = evaluate_single_detailed(rollout.code, test_path, timeout=timeout)
+            rollout.reward = compute_reward(details, reward_weights)
+            rollout.passed = bool(details["passed"])
+            rollout.reward_components = {
+                "syntax": 1.0 if details["syntax_ok"] else 0.0,
+                "kondo": 1.0 if details["kondo_ok"] else 0.0,
+                "load": 1.0 if details["load_ok"] else 0.0,
+                "tests": 1.0 if details["tests_ok"] else 0.0,
+            }
+        else:
+            passed, _ = evaluate_single(rollout.code, test_path, timeout=timeout)
+            rollout.reward = 1.0 if passed else 0.0
+            rollout.passed = passed
+            rollout.reward_components = {
+                "syntax": 1.0 if passed else 0.0,
+                "kondo": 1.0 if passed else 0.0,
+                "load": 1.0 if passed else 0.0,
+                "tests": 1.0 if passed else 0.0,
+            }
 
     return rollouts
 
@@ -410,10 +442,13 @@ def train(config: RLVRConfig, smoke: bool = False):
             "tasks_per_batch": config.tasks_per_batch,
             "temperature": config.temperature,
             "max_tokens": config.max_tokens,
+            "refresh_sampler_every_iteration": config.refresh_sampler_every_iteration,
             "learning_rate": config.learning_rate,
             "weight_decay": config.weight_decay,
             "kl_penalty_coeff": config.kl_penalty_coeff,
             "clip_range": config.clip_range,
+            "reward_mode": config.reward_mode,
+            "reward_weights": config.reward_weights,
         },
     )
 
@@ -426,6 +461,7 @@ def train(config: RLVRConfig, smoke: bool = False):
     print(f"  Iterations:       {config.num_iterations}")
     print(f"  Tasks/batch:      {config.tasks_per_batch}")
     print(f"  Temperature:      {config.temperature}")
+    print(f"  Reward mode:      {config.reward_mode}")
     print(f"  Learning rate:    {config.learning_rate}")
     print(f"  wandb:            {config.wandb_entity}/{config.wandb_project}")
 
@@ -505,7 +541,12 @@ def train(config: RLVRConfig, smoke: bool = False):
 
         # 3. Evaluate rollouts
         print(f"  Evaluating rollouts via Clojure...")
-        rollouts = evaluate_rollouts(rollouts, batch_tasks)
+        rollouts = evaluate_rollouts(
+            rollouts,
+            batch_tasks,
+            reward_mode=config.reward_mode,
+            reward_weights=config.reward_weights,
+        )
         pass_count = sum(1 for r in rollouts if r.passed)
         mean_reward = np.mean([r.reward for r in rollouts])
         print(f"  Results: {pass_count}/{len(rollouts)} passed ({mean_reward:.1%})")
@@ -547,7 +588,7 @@ def train(config: RLVRConfig, smoke: bool = False):
         tc.optim_step(adam).result()
 
         # 7. Refresh sampling client with updated weights
-        if (iteration + 1) % 2 == 0:
+        if config.refresh_sampler_every_iteration or (iteration + 1) % 2 == 0:
             save_result = tc.save_weights_for_sampler(
                 f"rlvr-train-iter-{iteration + 1}"
             ).result()
