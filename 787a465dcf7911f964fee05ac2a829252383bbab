@@ -1,0 +1,1 @@
+Context: hardened the v1 benchmark path after review by failing fast on bad manifests, making single-run pass@k report as N/A, replacing the placeholder SFT evaluator with a real benchmark-backed flow, and updating helper scripts to emit v1 local-process manifests.
