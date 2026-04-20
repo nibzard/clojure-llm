@@ -1,7 +1,32 @@
-# Baseline Analysis: Results Through Phase 3
+# Baseline Analysis: Results Through Phase 4
 
 Date: 2026-04-17
-Updated: 2026-04-20 (added Gemini 3.1 Pro baseline)
+Updated: 2026-04-20 (added Gemini 3.1 Pro, 30B models, RLVR v1)
+
+## Unified Comparison Table
+
+All models on 111 held-out MultiPL-E Clojure tasks. Frontier baselines: single pass, temperature 0.2. Trained models: same eval protocol. Best-of-K: temperature 0.7, pick first passing candidate.
+
+| Model | Type | pass@1 | best-of-2 | best-of-8 | best-of-16 | Full 558 |
+|-------|------|--------|-----------|-----------|------------|----------|
+| GPT-5.4 | Frontier API | **64.0%** | — | — | — | 65.4% |
+| Gemini 3.1 Pro | Frontier API | — | — | — | — | 64.5% |
+| GPT-5.4-mini | Frontier API | 59.5% | — | — | — | 60.0% |
+| **RLVR Qwen3-30B** | Trained (30B MoE) | **55.0%** | 61.3% | 75.7% | 79.3% | — |
+| **SFT Qwen3-30B** | Trained (30B MoE) | **52.3%** | **64.9%** | **75.7%** | **83.8%** | — |
+| Qwen3.5-plus | Frontier API | ~55% | — | — | — | — |
+| Opus 4.7 | Frontier API | 45.0% | — | — | — | 48.0% |
+| **RLVR v1 Qwen3-8B** | Trained (8B dense) | **48.6%** | — | — | — | — |
+| **RLVR v0 Qwen3-8B** | Trained (8B dense) | **42.3%** | 55.9% | 67.6% | 72.1% | — |
+| **SFT Qwen3-8B** | Trained (8B dense) | **37.8%** | 47.7% | 64.9% | 72.1% | — |
+| Qwen3-8B base | No training | ~0% | — | — | — | — |
+
+Key comparisons:
+- **30B SFT best-of-2 (64.9%) matches GPT-5.4 pass@1 (64.0%)** — same quality with 3B active params
+- **30B SFT best-of-8 (75.7%) beats GPT-5.4 by +11.7pp** — verifier loop amplifies small model
+- **30B RLVR best-of-16 (79.3%) < 30B SFT best-of-16 (83.8%)** — RLVR lowered the ceiling on 30B
+- **8B RLVR v0 best-of-8 (67.6%) beats GPT-5.4 pass@1 (64.0%)** — 8B model with verifier beats frontier
+- **RLVR v1 8B (48.6%) > Opus 4.7 (45.0%)** — 8B model beats Opus at pass@1
 
 ## Evaluator Bug Fix
 
