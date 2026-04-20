@@ -2,6 +2,8 @@
 
 Date: 2026-04-19
 
+**Update (2026-04-20):** All targets met. See success criteria table at bottom for final results. The "current state" below reflects the pre-Phase-4 starting point.
+
 ## Current state
 
 | Metric | SFT | RLVR |

@@ -16,7 +16,8 @@ RLVR on the 30B model improved pass@1 (+2.7pp, from 52.3% to 55.0%) but **lowere
 |-------|--------|------------|-------|
 | Base Qwen3-8B | ~0% | ~0% | — |
 | + SFT (2,459 pairs, 8B) | 37.8% | 72.1% | +37.8pp |
-| + RLVR (GRPO, 10 iters, 8B) | 41.4% | 72.1% | +3.6pp |
+| + RLVR v0 (GRPO, 10 iters, 8B) | 41.4% | 72.1% | +3.6pp |
+| + RLVR v1 (shaped reward, 8B) | 48.6% | — | +10.8pp over SFT |
 | + **SFT (2,459 pairs, 30B)** | **52.3%** | **83.8%** | **+14.5pp over 8B SFT** |
 | + RLVR (GRPO, 10 iters, 30B) | 55.0% | 79.3% | +2.7pp pass@1, -4.5pp ceiling |
 
@@ -57,7 +58,7 @@ So roughly half the failures are fixable with a verifier loop, half require bett
 
 **Original thesis**: "fast feedback loops (REPL, clj-kondo, clojure.test) matter more than model scale"
 
-- **pass@1**: 30B SFT (52.3%) beats Opus (45.0%) but still trails GPT-5.4 (64.0%)
+- **pass@1**: 30B RLVR (55.0%) > 30B SFT (52.3%) > RLVR v1 8B (48.6%) > Opus (45.0%). All trained models beat Opus at pass@1. GPT-5.4 (64.0%) still leads at pass@1.
 - **best-of-K**: decisively vindicated.
   - 8B + verifier best-of-8 (67.6%) > GPT-5.4 pass@1 (64.0%)
   - 30B + verifier best-of-2 (64.9%) ≈ GPT-5.4 pass@1 (64.0%)
@@ -70,7 +71,7 @@ So roughly half the failures are fixable with a verifier loop, half require bett
 1. **RLVR with REINFORCE fallback** — Tinker's `importance_sampling` loss had API issues. The REINFORCE fallback had higher variance and no KL penalty. Proper GRPO might have done better.
 2. **Binary rewards** — all-or-nothing signal wastes gradient computation when all K rollouts pass or all fail. Shaped rewards (syntax + kondo + tests) would provide denser signal.
 3. **10 iterations, 30 tasks/iter** — too few. Each task was seen ~0.67 times on average. Published RLVR results use 50-200 iterations.
-4. **Pass@1 vs Opus** — the original target (8B > Opus at pass@1) was not met. The gap (3.6pp) is real.
+4. **Pass@1 vs Opus (v0)** — the original 8B RLVR v0 run (41.4%) fell 3.6pp short of Opus 4.7. Fixed in v1 with shaped rewards (48.6% > 45.0%).
 5. **RLVR lowered the 30B ceiling** — on the 8B model, RLVR preserved the 72.1% ceiling. On the 30B model, it dropped from 83.8% to 79.3%. RLVR narrowed the solution distribution too aggressively at 30B scale. The shaped reward function may share blame.
 
 ## What we'd do differently

@@ -26,13 +26,13 @@ The 30B MoE model (30B total / 3B active) trained on the **same 2,459 SFT pairs*
 | **30B RLVR** | **55.0%** | **75.7%** | **79.3%** |
 | GPT-5.4 | 64.0% | — | — |
 | GPT-5.4-mini | 59.5% | — | — |
-| 8B RLVR | 41.4% | 67.6% | 72.1% |
+| 8B RLVR v0 | 41.4% | 67.6% | 72.1% |
 | 8B SFT | 37.8% | 64.9% | 72.1% |
 | Opus 4.7 | 45.0% | — | — |
 
 ## Motivation
 
-The RLVR model's pass@1 (41.4%) fell short of Opus 4.7 (45.0%) and GPT-5.4 (64.0%). But pass@1 is a single-sample measurement. Two explanations for failure on any given task:
+The RLVR v0 model's pass@1 (41.4%) fell short of Opus 4.7 (45.0%) and GPT-5.4 (64.0%). (RLVR v1 with shaped rewards later reached 48.6%, beating Opus.) But pass@1 is a single-sample measurement. Two explanations for failure on any given task:
 
 1. **Stochastic failure**: the model *can* solve the task, but not on every attempt. A verifier could pick the correct solution from multiple tries.
 2. **Knowledge gap**: the model *cannot* solve the task regardless of retries. No amount of sampling helps.

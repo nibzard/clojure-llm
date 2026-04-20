@@ -1,10 +1,10 @@
-# Benchmark Spec: `clj-bench` v0
+# Benchmark Spec: `clj-bench`
 
 ## Purpose
 
 `clj-bench` is the benchmark contract for the benchmark-first plan in [PLAN.md](./PLAN.md).
 
-Version `v0` is intentionally narrow:
+Version `v0` was intentionally narrow:
 
 - function-level generation first;
 - pinned task metadata;
@@ -12,6 +12,13 @@ Version `v0` is intentionally narrow:
 - explicit run/result schema;
 - containerized execution contract;
 - no model-specific implementation details baked into the task format.
+
+Version `v1` preserves the same task inventory but upgrades the evaluation boundary:
+
+- old `v0` run artifacts remain frozen and should never be overwritten;
+- `v1` reevaluates candidates in a fresh subprocess per task;
+- hard timeouts kill the subprocess rather than cancelling in-process work;
+- reevaluation runs may point at an older candidate directory while writing new results.
 
 The benchmark exists to support the autoresearch loop:
 
@@ -21,7 +28,7 @@ The benchmark exists to support the autoresearch loop:
 
 ## Scope
 
-### Included in v0
+### Included in v0/v1
 
 - MultiPL-E `humaneval-clj`
 - MultiPL-E `mbpp-clj`
@@ -135,7 +142,7 @@ Required keys:
 - unique id, e.g. `2026-04-16-qwen25coder7b-base-direct-v0`
 
 `:benchmark-version`
-- current benchmark contract version, starting at `:clj-bench/v0`
+- benchmark contract version, e.g. `:clj-bench/v0` or `:clj-bench/v1`
 
 `:model`
 - exact model identity
@@ -159,6 +166,19 @@ Required keys:
 - execution boundary
 - example:
   - `{:kind :container :image "clj-bench/eval:dev" :network :none}`
+  - `{:kind :local-process :isolation :task-subprocess :network :none}`
+
+Optional reevaluation fields:
+
+- `:reeval-of`
+- `:candidate-run-id`
+
+` :reeval-of`
+- prior run-id whose methodology is being superseded by reevaluation
+
+`:candidate-run-id`
+- run-id that owns the candidate files to evaluate
+- allows `v1` manifests to reuse frozen `v0` candidates without copying them
 
 ## Result model
 
@@ -223,12 +243,12 @@ The runner interface is intentionally simple:
 3. run tests in an isolated environment;
 4. emit one result map per task.
 
-The execution boundary for v0 is container-first:
+The execution boundary for `v0` was container-first on paper, but `v1` makes task isolation explicit in the local evaluator:
 
 - no network;
-- ephemeral writable workspace;
+- fresh subprocess per task;
+- hard wall-clock timeout at the subprocess boundary;
 - readonly benchmark assets;
-- cpu/memory/wall limits;
 - no secrets.
 
 ## Repository layout
@@ -252,6 +272,15 @@ The execution boundary for v0 is container-first:
 3. inspect inventory with `clojure -M:bench stats`;
 4. generate a run manifest with `clojure -M:bench plan-run ...`;
 5. build the real executor against the generated run manifest instead of inventing a second schema later.
+
+## Reevaluation workflow
+
+To preserve historical `v0` results while rerunning on the fixed `v1` evaluator:
+
+1. keep the old run manifest and candidate directory unchanged;
+2. create a reevaluation manifest with `clojure -M:bench plan-reeval <new-run-id> <old-run-id>`;
+3. run `clojure -M:bench evaluate <new-run-id>.edn`;
+4. compare `benchmark/results/<old-run-id>/` vs `benchmark/results/<new-run-id>/`.
 
 ## Immediate next work
 

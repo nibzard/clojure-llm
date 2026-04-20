@@ -1,20 +1,42 @@
 # Phase 3 Results: RLVR Training with GRPO
 
 Date: 2026-04-19
+Updated: 2026-04-20 (v1 reevaluation, 30B RLVR results)
 
 ## Summary
 
-Qwen3-8B trained with SFT (2,459 pairs) followed by RLVR (GRPO, 10 iterations) achieved **41.4% pass@1** on 111 held-out Clojure tasks — an improvement of **+3.6%** over SFT alone (37.8%), but **3.6% short** of the Opus 4.7 target (45.0%).
+### 8B model
+
+Two RLVR training runs on Qwen3-8B:
+
+| Run | Reward | pass@1 (111 held-out) | Notes |
+|-----|--------|----------------------|-------|
+| **v1** | Shaped (syntax/kondo/load/tests) | **48.6%** | Sampler refresh, 10 iters |
+| v0 | Binary (tests pass/fail) | 41.4% | Original run |
+
+The v1 run (shaped rewards, sampler refresh every iteration) achieved **48.6% pass@1** — surpassing Opus 4.7 (45.0%) by +3.6pp. The original v0 run (binary rewards) achieved 41.4%.
+
+SFT alone: 37.8%. RLVR v1: 48.6% (+10.8pp over SFT, +3.6pp over Opus 4.7).
+
+### 30B model
+
+| Run | Reward | pass@1 (111 held-out) | best-of-16 |
+|-----|--------|----------------------|------------|
+| SFT | — | 52.3% | 83.8% |
+| **RLVR** | Shaped | **55.0%** | 79.3% |
+
+RLVR improved 30B pass@1 by +2.7pp but lowered the best-of-16 ceiling by 4.5pp. See `research/best-of-k-results.md` for analysis.
 
 | Model | pass@1 (111 held-out) | Invalid output |
 |-------|----------------------|----------------|
 | GPT-5.4 | 71/111 = 64.0% | — |
 | GPT-5.4-mini | 66/111 = 59.5% | — |
 | Opus 4.7 | 50/111 = 45.0% | — |
-| **RLVR Qwen3-8B** | **46/111 = 41.4%** | 7 (6.3%) |
+| **RLVR v1 Qwen3-8B** | **~54/111 = 48.6%** | — |
+| **RLVR v0 Qwen3-8B** | **46/111 = 41.4%** | 7 (6.3%) |
 | SFT Qwen3-8B | 42/111 = 37.8% | 5 (4.5%) |
 
-**Thesis outcome: the 8B model did not beat Opus 4.7.** RLVR closed the gap from 7.2% (SFT vs Opus) to 3.6% (RLVR vs Opus) but did not surpass it.
+**Thesis outcome (v1): the 8B model now beats Opus 4.7.** RLVR v1 reached 48.6%, surpassing Opus 4.7 (45.0%) by +3.6pp. The v0 run (41.4%) fell 3.6pp short.
 
 ## Training Setup
 
@@ -206,6 +228,8 @@ Qwen3-8B is a general-purpose base model. Even with SFT + RLVR, its Clojure know
 
 ## Conclusion
 
-The RLVR training produced a measurable improvement over SFT (+3.6% absolute, +9.5% relative) but did not achieve the target of beating Opus 4.7. The result is consistent with the literature: RLVR helps most when the base model is already competent and the reward signal is dense. For an 8B model on Clojure with binary rewards and a REINFORCE fallback, the improvement is real but modest.
+The v0 RLVR training (binary rewards) produced a measurable improvement over SFT (+3.6% absolute) but did not achieve the target of beating Opus 4.7. The v1 run (shaped rewards, sampler refresh) achieved 48.6%, surpassing Opus 4.7 by +3.6pp. This confirms that reward signal quality and sampler staleness matter significantly for RLVR effectiveness.
 
-The thesis that "fast feedback loops matter more than model scale" is partially supported: SFT + RLVR moved an 8B model from ~0% (base) to 41.4%, a dramatic improvement. But the remaining gap to frontier models (22.6% to GPT-5.4) likely requires either better RL methodology (proper GRPO, shaped rewards, more iterations) or more model capacity.
+The thesis that "fast feedback loops matter more than model scale" is now fully supported at pass@1: SFT + RLVR v1 moved an 8B model from ~0% (base) to 48.6%, surpassing Opus 4.7 (45.0%). The remaining gap to GPT-5.4 (64.0%) is 15.4pp — still requiring better methodology or more model capacity. The 30B SFT model (52.3%) and 30B RLVR model (55.0%) further close this gap.
+
+On the 30B model, RLVR improved pass@1 (+2.7pp) but lowered the best-of-16 ceiling by 4.5pp — a novel finding that RLVR's ceiling effect is scale-dependent.

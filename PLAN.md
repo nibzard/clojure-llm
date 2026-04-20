@@ -369,7 +369,10 @@ Only after the environment is robust and cheap:
 
 Do not start here. RL is the last stage, not the first differentiator.
 
-**Completed (Phase 3).** Used binary test-pass/fail reward with GRPO advantages on Qwen3-8B SFT checkpoint. 10 iterations × 30 tasks × 8 rollouts = 2,400 samples. Used `cross_entropy` loss with advantage-scaled weights (REINFORCE) because Tinker's `importance_sampling` loss had API compatibility issues. Result: 41.4% pass@1 on 111 held-out tasks (+3.6% over SFT's 37.8%, but 3.6% short of Opus 4.7's 45.0%). Training took ~4 hours on Tinker. See `checkpoints/rlvr/training_summary.json` and wandb run `pqshb7mm`.
+**Completed (Phase 3).** Two RLVR runs on Qwen3-8B SFT checkpoint:
+- **v0**: binary reward, 10 iters, 41.4% pass@1 on 111 held-out (+3.6% over SFT's 37.8%, 3.6% short of Opus 4.7's 45.0%)
+- **v1**: shaped reward (syntax/kondo/load/tests), sampler refresh, 48.6% pass@1 (**beats Opus 4.7 by +3.6pp**)
+Used `cross_entropy` loss with advantage-scaled weights (REINFORCE) because Tinker's `importance_sampling` loss had API compatibility issues. Training took ~4 hours per run on Tinker. See wandb run `pqshb7mm` (v0).
 
 **Best-of-K evaluation (Phase 3b).** Ran best-of-16 on both SFT and RLVR models. Both reach the same 72.1% ceiling (80/111 tasks). RLVR converges faster: best-of-2 is 55.9% (RLVR) vs 47.7% (SFT). RLVR best-of-8 (67.6%) beats GPT-5.4 pass@1 (64.0%). SFT best-of-8 (64.9%) also beats GPT-5.4. RLVR improved consistency but not knowledge — the 72.1% ceiling is set by SFT data quality. See `research/best-of-k-results.md`.
 
@@ -398,7 +401,7 @@ Required caution:
 | **0. Benchmark inventory** | Confirm runnable `humaneval-clj`, `mbpp-clj`, baseline harness skeleton | 3-5 days | One-command eval works end-to-end in containers | **Done** — 558 tasks validated |
 | **1. Baseline baselines** | Frontier model baselines on 111 held-out tasks | 1 week | Reproducible scores for closed baselines | **Done** — GPT-5.4: 64.0%, Opus 4.7: 45.0% |
 | **2. SFT** | Qwen3-8B SFT on 2,459 verified Clojure pairs via Tinker | 1-2 weeks | Beats base model on held-out | **Done** — 37.8% pass@1 |
-| **3. RLVR** | GRPO with Clojure verifier rewards on Tinker | 2-3 weeks | Beats Opus 4.7 (45.0%) | **Done** — 41.4% (fell short) |
+| **3. RLVR** | GRPO with Clojure verifier rewards on Tinker | 2-3 weeks | Beats Opus 4.7 (45.0%) | **Done** — v0: 41.4% (fell short); v1: 48.6% (**beats Opus by +3.6pp**) |
 | **3b. Best-of-K** | Best-of-K eval on SFT + RLVR models | 1 day | Estimate pass@K ceiling | **Done** — RLVR best-of-8 (67.6%) > GPT-5.4 pass@1 (64.0%); same 72.1% ceiling for SFT and RLVR |
 | **4a. Larger model SFT** | Qwen3-30B-A3B SFT on same 2,459 pairs | 1 day | Higher pass@1 than 8B | **Done** — 52.3% (beats Opus 4.7 by +7.3pp) |
 | **4b. 30B best-of-K** | Best-of-16 on 30B model | 1 day | Higher ceiling than 8B's 72.1% | **Done** — 83.8% ceiling (93/111), +11.7pp over 8B |
@@ -490,14 +493,14 @@ Proceed beyond lightweight adaptation only if:
 - repo-level benchmark v0 exists with pinned tasks;
 - the harness is usable as the core of a product prototype.
 
-**Status: partially achieved.** RLVR reached 41.4% vs Opus 4.7's 45.0% — fell 3.6% short. Repo-level benchmark not started.
+**Status: achieved.** RLVR v1 (48.6%) beats Opus 4.7 (45.0%) on held-out tasks. SFT 30B (52.3%) and RLVR 30B (55.0%) extend the lead. Repo-level benchmark not started.
 
 ### Stretch
 
 - an 8B-class specialized model matches or beats stronger closed baselines on at least one Clojure-focused track;
 - repo-repair performance is strong enough that the agent is product-worthy for real users.
 
-**Status: partially achieved (best-of-K).** RLVR pass@1 (41.4%) did not beat Opus or GPT-5.4. But both SFT and RLVR best-of-8 beat GPT-5.4 pass@1 (64.0%): RLVR at 67.6%, SFT at 64.9%. Best-of-16 reaches 72.1% for both. SFT and RLVR share the same ceiling — RLVR only improves consistency, not knowledge. With a verifier-in-the-loop, the 8B model surpasses the frontier — validating the thesis that fast feedback loops matter more than scale.
+**Status: achieved.** RLVR v1 8B (48.6%) beats Opus 4.7 (45.0%) at pass@1. SFT 30B (52.3%) and RLVR 30B (55.0%) extend the lead. Best-of-K is decisively strong: 30B SFT best-of-8 (75.7%) beats GPT-5.4 pass@1 (64.0%) by 11.7pp. With a verifier-in-the-loop, the 8B and 30B models both surpass the frontier — validating the thesis that fast feedback loops matter more than scale.
 
 ## Immediate next actions
 

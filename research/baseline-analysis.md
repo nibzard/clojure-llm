@@ -1,7 +1,7 @@
 # Baseline Analysis: Results Through Phase 3
 
 Date: 2026-04-17
-Updated: 2026-04-19 (added SFT + RLVR training results)
+Updated: 2026-04-20 (added Gemini 3.1 Pro baseline)
 
 ## Evaluator Bug Fix
 
@@ -13,12 +13,14 @@ Three frontier model baselines on 558 MultiPL-E Clojure tasks (161 humaneval-clj
 
 | Condition | Model | pass@1 | HumanEval | MBPP | Cost |
 |-----------|-------|--------|-----------|------|------|
-| **A** | Opus 4.7 | **48.0%** (268/558) | 50.9% (82/161) | 46.8% (186/397) | $5.33 |
 | **B** | GPT-5.4 | **65.4%** (365/558) | 70.8% (114/161) | 63.2% (251/397) | $1.35 |
+| **E** | Gemini 3.1 Pro (low thinking) | **64.5%** (360/558) | — | — | $0.55 |
 | **B** | GPT-5.4-mini | **60.0%** (335/558) | — | — | $0.33 |
+| **A** | Opus 4.7 | **48.0%** (268/558) | 50.9% (82/161) | 46.8% (186/397) | $5.33 |
 | **C** | Qwen3.5-plus | **54.7%*** (41/75) | — | — | — |
 
 \* Qwen3.5-plus: partial run (75/558 valid candidates, balance exhausted on mulerouter). 54.7% is biased — only first 75 tasks.
+\** Gemini 3.1 Pro: 493/558 valid candidates (65 hit daily API quota). Native Google GenAI SDK, thinking_level="low". 100% syntax-ok rate. Cost estimated from 2-day run (~114K input + ~41K output tokens). Final number may shift slightly when remaining 65 tasks are generated.
 
 ## SFT + RLVR Results (111 held-out tasks)
 
@@ -29,7 +31,10 @@ After Phase 2 (SFT) and Phase 3 (RLVR), evaluating on the 111 held-out tasks not
 | GPT-5.4 | 71/111 = 64.0% | — |
 | GPT-5.4-mini | 66/111 = 59.5% | — |
 | Opus 4.7 | 50/111 = 45.0% | — |
-| **RLVR Qwen3-8B** | **46/111 = 41.4%** | 7 (6.3%) |
+| **RLVR v1 Qwen3-30B** | **~61/111 = 55.0%** | — |
+| **SFT Qwen3-30B** | **~58/111 = 52.3%** | — |
+| **RLVR v1 Qwen3-8B** | **~54/111 = 48.6%** | — |
+| RLVR v0 Qwen3-8B | 46/111 = 41.4% | 7 (6.3%) |
 | SFT Qwen3-8B | 42/111 = 37.8% | 5 (4.5%) |
 
 ### Training progression
@@ -38,7 +43,10 @@ After Phase 2 (SFT) and Phase 3 (RLVR), evaluating on the 111 held-out tasks not
 |-------|-------|----------------------|-------|
 | Base | Qwen3-8B (no training) | ~0% (est.) | — |
 | SFT | Qwen3-8B + 2,459 Clojure pairs | 37.8% | +37.8% |
-| RLVR | SFT + GRPO (10 iters) | 41.4% | +3.6% |
+| RLVR v0 | SFT + GRPO (binary reward) | 41.4% | +3.6% |
+| RLVR v1 | SFT + GRPO (shaped reward) | 48.6% | +10.8% over SFT |
+| SFT 30B | Qwen3-30B-A3B + 2,459 pairs | 52.3% | +14.5pp over 8B SFT |
+| RLVR v1 30B | 30B SFT + GRPO (shaped reward) | 55.0% | +2.7pp over 30B SFT |
 
 ### Per-task analysis (RLVR vs SFT)
 
@@ -51,32 +59,46 @@ After Phase 2 (SFT) and Phase 3 (RLVR), evaluating on the 111 held-out tasks not
 
 RLVR gained 9 tasks and lost 5, net +4. Two tasks (`humaneval-clj-141`, `mbpp-clj-084`) were solved by RLVR but by none of the frontier baselines.
 
-**Result: the thesis target (8B > Opus 4.7) was not met at pass@1.** RLVR closed the gap from 7.2% to 3.6% but did not surpass Opus. However, best-of-K evaluation shows the model's ceiling far exceeds pass@1. See `research/rlvr-results.md` for the full training analysis.
+**Result: the thesis target (8B > Opus 4.7) was met with RLVR v1 (48.6% > 45.0%).** The v0 run (41.4%) fell 3.6pp short, but shaped rewards and sampler refresh closed the gap. Best-of-K evaluation shows the model's ceiling far exceeds pass@1. See `research/rlvr-results.md` for the full training analysis.
 
 ## Best-of-K Evaluation (111 held-out tasks)
 
 Generate K candidates per task at temperature 0.7, evaluate each, report whether *any* candidate passes:
 
-| K | RLVR | SFT | Delta | vs Baselines |
-|---|------|-----|-------|-------------|
-| 1 | 49/111 = 44.1% | 47/111 = 42.3% | +1.8pp | |
-| 2 | 62/111 = 55.9% | 53/111 = 47.7% | +8.2pp | RLVR > Opus 4.7 |
-| 4 | 69/111 = 62.2% | 63/111 = 56.8% | +5.4pp | RLVR > GPT-5.4-mini |
-| **8** | **75/111 = 67.6%** | **72/111 = 64.9%** | +2.7pp | **Both > GPT-5.4** |
-| 16 | 80/111 = 72.1% | 80/111 = 72.1% | 0pp | +8pp above GPT-5.4 |
+### 30B models
 
-**Key finding: both SFT and RLVR best-of-8 beat GPT-5.4 pass@1 (64.0%).** With a verifier loop, the 8B model surpasses the frontier model's single-pass performance.
+| K | 30B SFT | 30B RLVR | Delta |
+|---|---------|----------|-------|
+| 1 | 59/111 = 53.2% | 60/111 = 54.1% | +0.9pp |
+| 2 | 72/111 = 64.9% | 68/111 = 61.3% | -3.6pp |
+| 4 | 78/111 = 70.3% | 79/111 = 71.2% | +0.9pp |
+| **8** | **84/111 = 75.7%** | **84/111 = 75.7%** | 0pp |
+| **16** | **93/111 = 83.8%** | **88/111 = 79.3%** | **-4.5pp** |
 
-- Same 72.1% ceiling for both SFT and RLVR — RLVR did not expand knowledge
+**Key finding: RLVR 30B lowered the ceiling by 4.5pp.** SFT 30B is the better model for verifier-in-the-loop deployment.
+
+### 8B models
+
+| K | 8B RLVR v0 | 8B SFT | Delta |
+|---|------|-----|-------|
+| 1 | 49/111 = 44.1% | 47/111 = 42.3% | +1.8pp |
+| 2 | 62/111 = 55.9% | 53/111 = 47.7% | +8.2pp |
+| 4 | 69/111 = 62.2% | 63/111 = 56.8% | +5.4pp |
+| **8** | **75/111 = 67.6%** | **72/111 = 64.9%** | +2.7pp |
+| 16 | 80/111 = 72.1% | 80/111 = 72.1% | 0pp |
+
+**Key finding: both 8B SFT and RLVR best-of-8 beat GPT-5.4 pass@1 (64.0%).** With a verifier loop, the 8B model surpasses the frontier model's single-pass performance.
+
+- Same 72.1% ceiling for both 8B SFT and RLVR — RLVR did not expand knowledge
 - RLVR converges faster: best-of-2 is 55.9% (RLVR) vs 47.7% (SFT), a +8.2pp gap
-- 31 tasks genuinely unsolvable (0/16 pass in all samples for both models)
-- 17 tasks pass all 16/16 samples (model is highly consistent on these)
 
 ### Implications
 
-The bottleneck is **consistency, not knowledge**. Both models solve the same 80/111 tasks at K=16 — the 72.1% ceiling is set by SFT data quality, not RL. RLVR's contribution is reducing the number of samples needed (especially at low K), which lowers inference cost in a production agent.
+The bottleneck is **consistency, not knowledge**. The 30B SFT model solves 93/111 tasks at K=16 (83.8%) — only 18 tasks are genuinely unsolvable. The gap between pass@1 (52.3%) and best-of-16 (83.8%) is the addressable market for a verifier agent.
 
-Results: `research/best-of-k-results.json` (RLVR), `research/best-of-k-sft-results.json` (SFT), script: `scripts/best_of_k.py`
+RLVR's effect is scale-dependent: it preserved the 8B ceiling (72.1%) but lowered the 30B ceiling (83.8% → 79.3%). The shaped reward function may be too constraining at larger scales.
+
+Results: `research/best-of-k-results.json` (8B RLVR), `research/best-of-k-sft-results.json` (8B SFT), `research/best-of-k-30b-results.json` (30B SFT), `research/best-of-k-rlvr-30b-results.json` (30B RLVR), script: `scripts/best_of_k.py`
 
 ## Outcome Distribution
 
@@ -140,9 +162,9 @@ GPT-5.4's 108 unique wins show patterns:
 
 ## Implications for the Thesis
 
-### The target proved harder than initially estimated
+### The target proved harder than initially estimated (v0), then achieved (v1)
 
-The original thesis was that an 8B model with SFT + RLVR could beat Opus 4.7 (48.0% on full benchmark, 45.0% on held-out). In practice, RLVR achieved 41.4% — 3.6% short. The gap is narrower than the starting point (base model ~0% → SFT 37.8% → RLVR 41.4%) but the remaining distance to Opus was not closed in 10 GRPO iterations.
+The original thesis was that an 8B model with SFT + RLVR could beat Opus 4.7 (48.0% on full benchmark, 45.0% on held-out). The v0 RLVR run achieved 41.4% — 3.6% short. The v1 run with shaped rewards achieved 48.6%, surpassing Opus by +3.6pp. The 30B model extended the lead further (SFT: 52.3%, RLVR: 55.0%).
 
 ### SFT was the bigger win, RLVR was incremental
 
@@ -165,15 +187,19 @@ Of 111 held-out tasks, 60 are solved by neither SFT nor RLVR at pass@1. Best-of-
 - [x] Error analysis on failures
 - [x] Task-level comparison (Opus vs GPT-5.4)
 - [x] SFT on 2,459 verified Clojure pairs (Phase 2) — 37.8% pass@1
-- [x] RLVR with GRPO (Phase 3) — 41.4% pass@1
+- [x] RLVR v0 with GRPO (Phase 3) — 41.4% pass@1
+- [x] RLVR v1 with shaped rewards — 48.6% pass@1 (beats Opus 4.7)
+- [x] SFT on Qwen3-30B-A3B (Phase 4a) — 52.3% pass@1
+- [x] Best-of-K on 30B SFT — 83.8% ceiling
+- [x] RLVR on Qwen3-30B-A3B (Phase 4b) — 55.0% pass@1, 79.3% ceiling
+- [x] Gemini 3.1 Pro baseline — 64.5% on full 558
 
 ### Possible follow-up
 
-- [ ] Build verifier agent loop (best-of-K proves 72.1% ceiling; build actual agent to close gap)
-- [ ] Fix `importance_sampling` loss for proper GRPO (used REINFORCE fallback)
-- [ ] More RLVR iterations (50-100) with larger batches
-- [ ] Shaped rewards (syntax + kondo + namespace + tests instead of binary)
-- [ ] Try larger base model (Qwen3-30B-A3B MoE)
+- [ ] Build verifier agent loop (best-of-K proves 83.8% ceiling; build actual agent to close gap)
+- [ ] Expand SFT data (multi-solution, evol-instruct, error-correction) to raise ceiling
+- [ ] Complete Gemini 3.1 Pro run (65 tasks remaining)
+- [ ] Repo-level benchmark (Track 2)
 
 ## Run Artifacts
 

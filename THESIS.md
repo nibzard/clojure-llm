@@ -1,5 +1,20 @@
 # Thesis
 
+## Current status
+
+As of April 20, 2026, the cleaned `v1` evaluation regime shows:
+
+- GPT-5.4: 64.0% on the 111-task held-out split, 65.4% on the full 558-task benchmark
+- Gemini 3.1 Pro: 64.5% on full 558 (65 tasks pending)
+- GPT-5.4-mini: 59.5% on held-out, 60.0% on full benchmark
+- Opus 4.7: 45.0% on held-out, 48.0% on full benchmark
+- **Qwen3-30B RLVR**: 55.0% on held-out
+- **Qwen3-30B SFT**: 52.3% on held-out, 83.8% best-of-16 ceiling
+- Qwen3-8B RLVR `v1`: 48.6% on held-out
+- Qwen3-8B SFT: 37.8% on held-out
+
+All trained models now beat Opus 4.7 on the held-out slice. The 30B SFT model's best-of-2 (64.9%) matches GPT-5.4's single-pass (64.0%), and best-of-8 (75.7%) leads by 11.7pp. Verifier-shaped training plus a trustworthy evaluator can move a small specialized model past frontier baselines on Clojure code generation.
+
 ## The claim
 
 A small, domain-specialized model can outperform larger general-purpose code models on Clojure-specific tasks, and the path to proving that claim produces publishable research artifacts at every stage -- regardless of whether training ultimately works.
