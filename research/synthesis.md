@@ -8,7 +8,7 @@ A 30B MoE model (3B active params) with SFT + verifier loop **beats GPT-5.4** (t
 
 The 8B model was the first proof: best-of-8 (67.6%) beats GPT-5.4 pass@1 (64.0%). The 30B model, trained on the **exact same 2,459 SFT pairs**, raised the ceiling from 72.1% to 83.8% — proving that model scale compounds with the verifier approach.
 
-RLVR on the 30B model improved pass@1 (+2.7pp, from 52.3% to 55.0%) but **lowered the best-of-16 ceiling** from 83.8% to 79.3%. Unlike the 8B model where SFT and RLVR shared the same ceiling, RLVR on the 30B model narrowed the solution distribution, losing 5 tasks that the SFT model could solve at K=16. This is a novel finding: RLVR's effect on the capability ceiling is scale-dependent.
+RLVR on the 30B model improved pass@1 (+2.7pp, from 52.3% to 55.0%) but **lowered the best-of-16 ceiling** from 83.8% to 79.3%. Unlike the 8B v0 model where SFT and RLVR shared the same 72.1% ceiling, shaped-reward RLVR consistently narrows the solution distribution. The 8B v1 RLVR (shaped rewards, 20 iterations) confirmed this: its ceiling dropped to 64.0% — even lower than v0's 72.1%. This is a novel finding: **shaped-reward RLVR trades diversity for consistency at every model scale.**
 
 ## SFT did the heavy lifting — and model scale multiplied it
 
@@ -16,8 +16,8 @@ RLVR on the 30B model improved pass@1 (+2.7pp, from 52.3% to 55.0%) but **lowere
 |-------|--------|------------|-------|
 | Base Qwen3-8B | ~0% | ~0% | — |
 | + SFT (2,459 pairs, 8B) | 37.8% | 72.1% | +37.8pp |
-| + RLVR v0 (GRPO, 10 iters, 8B) | 41.4% | 72.1% | +3.6pp |
-| + RLVR v1 (shaped reward, 8B) | 48.6% | — | +10.8pp over SFT |
+| + RLVR v0 (binary reward, 10 iters, 8B) | 41.4% | 72.1% | +3.6pp |
+| + RLVR v1 (shaped reward, 20 iters, 8B) | 48.6% | 64.0% | +10.8pp pass@1, -8.1pp ceiling |
 | + **SFT (2,459 pairs, 30B)** | **52.3%** | **83.8%** | **+14.5pp over 8B SFT** |
 | + RLVR (GRPO, 10 iters, 30B) | 55.0% | 79.3% | +2.7pp pass@1, -4.5pp ceiling |
 
@@ -44,7 +44,16 @@ RLVR on the 30B model told a different story:
 - **Same best-of-8**: 75.7% for both — the lost tasks are in the K=9-16 range
 - **The lost tasks require rare diverse solutions** that RLVR's narrowed distribution no longer produces
 
-**Implication**: RLVR's effect is scale-dependent. On smaller models, it regularizes without harming diversity. On larger models, it can over-constrain the policy. The shaped reward function (syntax + kondo + tests) may also be too constraining — encouraging solutions that maximize all reward components rather than just passing tests.
+### 8B v1 model
+
+RLVR v1 on the 8B model (shaped rewards, 20 iterations) confirmed the pattern:
+
+- **pass@1 improved**: 48.6% (temp 0.2) / 45.0% (temp 0.7) vs 37.8% — strong consistency gain
+- **Ceiling dropped hard**: 64.0% vs SFT's 72.1% — an 8.1pp drop, worse than the 30B's 4.5pp drop
+- **Flat curve**: best-of-8 (61.3%) barely exceeds best-of-4 (60.4%) — diversity is severely constrained
+- **v0 (binary rewards) preserved the 72.1% ceiling**; v1 (shaped rewards) destroyed it
+
+**Implication**: The shaped reward function (syntax + kondo + load + tests) is the culprit, not RLVR itself. Binary-reward RLVR (v0) preserved the 8B ceiling at 72.1%. Shaped-reward RLVR (v1) pushed the model toward solutions that maximize all reward components, eliminating unconventional but correct approaches. This holds at both 8B and 30B scales.
 
 ## The bottleneck is consistency, not knowledge
 

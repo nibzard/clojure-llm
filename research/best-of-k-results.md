@@ -1,6 +1,6 @@
 # Best-of-K Evaluation Results
 
-Date: 2026-04-19 (8B), 2026-04-20 (30B)
+Date: 2026-04-19 (8B v0), 2026-04-20 (30B, 8B v1)
 
 ## Summary
 
@@ -10,22 +10,23 @@ Best-of-K evaluation measures a model's *ceiling*: generate K candidates per tas
 
 The 30B MoE model (30B total / 3B active) trained on the **same 2,459 SFT pairs** as the 8B model achieves **83.8% best-of-16** (93/111) — up from 72.1% with the 8B model. Best-of-2 already matches GPT-5.4's pass@1.
 
-| K | 30B Pass | 30B Rate | 8B RLVR | 8B SFT |
-|---|----------|----------|---------|--------|
-| 1 | 59/111 | 53.2% | 49/111 = 44.1% | 47/111 = 42.3% |
-| 2 | 72/111 | 64.9% | 62/111 = 55.9% | 53/111 = 47.7% |
-| 4 | 78/111 | 70.3% | 69/111 = 62.2% | 63/111 = 56.8% |
-| 8 | 84/111 | 75.7% | 75/111 = 67.6% | 72/111 = 64.9% |
-| **16** | **93/111** | **83.8%** | 80/111 = 72.1% | 80/111 = 72.1% |
+| K | 30B SFT | 30B RLVR | 8B RLVR v1 | 8B RLVR v0 | 8B SFT |
+|---|---------|----------|------------|------------|--------|
+| 1 | 59/111 = 53.2% | 60/111 = 54.1% | 50/111 = 45.0% | 49/111 = 44.1% | 47/111 = 42.3% |
+| 2 | 72/111 = 64.9% | 68/111 = 61.3% | 60/111 = 54.1% | 62/111 = 55.9% | 53/111 = 47.7% |
+| 4 | 78/111 = 70.3% | 79/111 = 71.2% | 67/111 = 60.4% | 69/111 = 62.2% | 63/111 = 56.8% |
+| 8 | 84/111 = 75.7% | 84/111 = 75.7% | 68/111 = 61.3% | 75/111 = 67.6% | 72/111 = 64.9% |
+| **16** | **93/111 = 83.8%** | 88/111 = 79.3% | 71/111 = 64.0% | 80/111 = 72.1% | 80/111 = 72.1% |
 
 ### Key comparisons
 
 | Model | pass@1 | best-of-8 | best-of-16 |
 |-------|--------|-----------|------------|
 | **30B SFT** | **52.3%** | **75.7%** | **83.8%** |
-| **30B RLVR** | **55.0%** | **75.7%** | **79.3%** |
+| **30B RLVR** | **55.0%** | **75.7%** | 79.3% |
 | GPT-5.4 | 64.0% | — | — |
 | GPT-5.4-mini | 59.5% | — | — |
+| 8B RLVR v1 | 48.6% | 61.3% | 64.0% |
 | 8B RLVR v0 | 41.4% | 67.6% | 72.1% |
 | 8B SFT | 37.8% | 64.9% | 72.1% |
 | Opus 4.7 | 45.0% | — | — |
@@ -239,6 +240,34 @@ RLVR on the 30B model showed a different pattern than on the 8B model.
 - **RLVR behaves differently at different scales.** On 8B, it preserved the ceiling. On 30B, it narrowed it. This may be because the 30B model's greater capacity allowed more aggressive specialization during GRPO.
 - **The shaped reward function (syntax + kondo + tests) may be too constraining.** It encourages solutions that maximize all reward components rather than just passing tests, which could eliminate unconventional but correct approaches.
 
+## 8B RLVR v1 vs v0 Comparison
+
+Shaped-reward RLVR (v1, 20 iterations) vs binary-reward RLVR (v0, 10 iterations) on the 8B model:
+
+| K | 8B SFT | 8B RLVR v0 (binary) | 8B RLVR v1 (shaped) | v1 vs v0 |
+|---|--------|---------------------|---------------------|----------|
+| 1 | 47/111 = 42.3% | 49/111 = 44.1% | 50/111 = 45.0% | +0.9pp |
+| 2 | 53/111 = 47.7% | 62/111 = 55.9% | 60/111 = 54.1% | -1.8pp |
+| 4 | 63/111 = 56.8% | 69/111 = 62.2% | 67/111 = 60.4% | -1.8pp |
+| 8 | 72/111 = 64.9% | 75/111 = 67.6% | 68/111 = 61.3% | -6.3pp |
+| **16** | **80/111 = 72.1%** | **80/111 = 72.1%** | **71/111 = 64.0%** | **-8.1pp** |
+
+**Shaped rewards destroyed the ceiling.** v0 (binary rewards) preserved the SFT ceiling at 72.1%. v1 (shaped rewards) dropped it to 64.0% — an 8.1pp drop, even worse than the 30B model's 4.5pp drop.
+
+### Why shaped rewards harm diversity
+
+1. **Multi-component reward creates pressure toward "clean" solutions.** The shaped reward (syntax 0.1, kondo 0.2, load 0.1, tests 0.6) rewards solutions that pass all intermediate checks. This biases the model toward conventional approaches that satisfy every component.
+
+2. **Unconventional correct solutions get lower shaped reward.** A solution that passes tests but triggers a kondo warning (e.g., unused import, unconventional var naming) gets partial reward. Over many GRPO iterations, the policy learns to avoid these solutions — even though they're correct.
+
+3. **Binary reward (pass/fail) preserves diversity.** v0's binary reward only cares about test outcomes. Any solution that passes gets full reward, regardless of style. This preserves unconventional correct approaches.
+
+4. **The effect is scale-dependent.** The 8B model lost 8.1pp (72.1% → 64.0%) while the 30B model lost only 4.5pp (83.8% → 79.3%). Smaller models may be more susceptible to reward shaping because they have less capacity to maintain diverse strategies under reward pressure.
+
+### Implication
+
+**For production verifier-in-the-loop systems, prefer binary-reward RLVR or SFT-only models.** Shaped rewards improve pass@1 consistency but reduce the diversity ceiling that the verifier loop depends on. The v0 8B model's best-of-8 (67.6%) beats the v1 model's best-of-16 (64.0%) — meaning v0 with 8 retries outperforms v1 with 16 retries, at half the inference cost.
+
 ## Artifacts
 
 | Artifact | Location |
@@ -246,11 +275,13 @@ RLVR on the 30B model showed a different pattern than on the 8B model.
 | Evaluation script | `scripts/best_of_k.py` |
 | 30B SFT results (JSON) | `research/best-of-k-30b-results.json` |
 | 30B RLVR results (JSON) | `research/best-of-k-rlvr-30b-results.json` |
-| 8B RLVR results (JSON) | `research/best-of-k-results.json` |
+| 8B RLVR v1 results (JSON) | `research/best-of-k-rlvr-v1-8b-results.json` |
+| 8B RLVR v0 results (JSON) | `research/best-of-k-results.json` |
 | 8B SFT results (JSON) | `research/best-of-k-sft-results.json` |
 | 30B SFT checkpoint | `tinker://6d56c642-fed2-539d-853b-8311cc4939ed:train:0/weights/checkpoint-step-600` |
 | 30B RLVR checkpoint | `tinker://a0694e12-b840-53e9-8942-3dd21a0a29a7:train:0/weights/checkpoint-iter-10` |
-| 8B RLVR checkpoint | `tinker://cf3778fc-5553-5e8d-be25-84859b2de080:train:0/weights/checkpoint-iter-10` |
+| 8B RLVR v1 checkpoint | `tinker://414c63a0-2e45-504f-89f9-e2d9c7b37d3c:train:0/weights/checkpoint-iter-20` |
+| 8B RLVR v0 checkpoint | `tinker://cf3778fc-5553-5e8d-be25-84859b2de080:train:0/weights/checkpoint-iter-10` |
 | 8B SFT checkpoint | `tinker://b5c7e66e-618a-5f71-919e-da1db6844679:train:0/weights/checkpoint-step-600` |
 | Training analysis | `research/rlvr-results.md` |
 | Baseline comparison | `research/baseline-analysis.md` |
@@ -262,7 +293,7 @@ RLVR on the 30B model showed a different pattern than on the 8B model.
 | Sampling (1,776 x ~512 tokens) | ~$0.36 |
 | Evaluation (local Clojure subprocess) | $0 |
 | **Total per run** | **~$0.36** |
-| **Both runs (RLVR + SFT)** | **~$0.72** |
+| **All runs (30B SFT + 30B RLVR + 8B v0 + 8B v1 + 8B SFT)** | **~$1.80** |
 
 ## Next Steps
 

@@ -2,9 +2,9 @@
   "K": 16,
   "temperature": 0.7,
   "checkpoint": "tinker://414c63a0-2e45-504f-89f9-e2d9c7b37d3c:train:0/weights/checkpoint-iter-20",
-  "total_tasks": 7,
-  "pass_at_1": 3,
-  "best_of_K": 4,
+  "total_tasks": 111,
+  "pass_at_1": 50,
+  "best_of_K": 71,
   "per_task": {
     "humaneval-clj-001": {
       "source": ":multipl-e/humaneval-clj",
@@ -446,6 +446,7598 @@
     },
     "humaneval-clj-031": {
       "source": ":multipl-e/humaneval-clj",
+      "first_pass": true,
+      "any_pass": true,
+      "pass_count": 16,
+      "total_samples": 16,
+      "samples": [
+        {
+          "k": 0,
+          "passed": true
+        },
+        {
+          "k": 1,
+          "passed": true
+        },
+        {
+          "k": 2,
+          "passed": true
+        },
+        {
+          "k": 3,
+          "passed": true
+        },
+        {
+          "k": 4,
+          "passed": true
+        },
+        {
+          "k": 5,
+          "passed": true
+        },
+        {
+          "k": 6,
+          "passed": true
+        },
+        {
+          "k": 7,
+          "passed": true
+        },
+        {
+          "k": 8,
+          "passed": true
+        },
+        {
+          "k": 9,
+          "passed": true
+        },
+        {
+          "k": 10,
+          "passed": true
+        },
+        {
+          "k": 11,
+          "passed": true
+        },
+        {
+          "k": 12,
+          "passed": true
+        },
+        {
+          "k": 13,
+          "passed": true
+        },
+        {
+          "k": 14,
+          "passed": true
+        },
+        {
+          "k": 15,
+          "passed": true
+        }
+      ]
+    },
+    "humaneval-clj-039": {
+      "source": ":multipl-e/humaneval-clj",
+      "first_pass": false,
+      "any_pass": false,
+      "pass_count": 0,
+      "total_samples": 16,
+      "samples": [
+        {
+          "k": 0,
+          "passed": false
+        },
+        {
+          "k": 1,
+          "passed": false
+        },
+        {
+          "k": 2,
+          "passed": false
+        },
+        {
+          "k": 3,
+          "passed": false
+        },
+        {
+          "k": 4,
+          "passed": false
+        },
+        {
+          "k": 5,
+          "passed": false
+        },
+        {
+          "k": 6,
+          "passed": false
+        },
+        {
+          "k": 7,
+          "passed": false
+        },
+        {
+          "k": 8,
+          "passed": false
+        },
+        {
+          "k": 9,
+          "passed": false
+        },
+        {
+          "k": 10,
+          "passed": false
+        },
+        {
+          "k": 11,
+          "passed": false
+        },
+        {
+          "k": 12,
+          "passed": false
+        },
+        {
+          "k": 13,
+          "passed": false
+        },
+        {
+          "k": 14,
+          "passed": false
+        },
+        {
+          "k": 15,
+          "passed": false
+        }
+      ]
+    },
+    "humaneval-clj-043": {
+      "source": ":multipl-e/humaneval-clj",
+      "first_pass": true,
+      "any_pass": true,
+      "pass_count": 1,
+      "total_samples": 16,
+      "samples": [
+        {
+          "k": 0,
+          "passed": true
+        },
+        {
+          "k": 1,
+          "passed": false
+        },
+        {
+          "k": 2,
+          "passed": false
+        },
+        {
+          "k": 3,
+          "passed": false
+        },
+        {
+          "k": 4,
+          "passed": false
+        },
+        {
+          "k": 5,
+          "passed": false
+        },
+        {
+          "k": 6,
+          "passed": false
+        },
+        {
+          "k": 7,
+          "passed": false
+        },
+        {
+          "k": 8,
+          "passed": false
+        },
+        {
+          "k": 9,
+          "passed": false
+        },
+        {
+          "k": 10,
+          "passed": false
+        },
+        {
+          "k": 11,
+          "passed": false
+        },
+        {
+          "k": 12,
+          "passed": false
+        },
+        {
+          "k": 13,
+          "passed": false
+        },
+        {
+          "k": 14,
+          "passed": false
+        },
+        {
+          "k": 15,
+          "passed": false
+        }
+      ]
+    },
+    "humaneval-clj-053": {
+      "source": ":multipl-e/humaneval-clj",
+      "first_pass": true,
+      "any_pass": true,
+      "pass_count": 14,
+      "total_samples": 16,
+      "samples": [
+        {
+          "k": 0,
+          "passed": true
+        },
+        {
+          "k": 1,
+          "passed": true
+        },
+        {
+          "k": 2,
+          "passed": true
+        },
+        {
+          "k": 3,
+          "passed": false
+        },
+        {
+          "k": 4,
+          "passed": true
+        },
+        {
+          "k": 5,
+          "passed": true
+        },
+        {
+          "k": 6,
+          "passed": true
+        },
+        {
+          "k": 7,
+          "passed": true
+        },
+        {
+          "k": 8,
+          "passed": true
+        },
+        {
+          "k": 9,
+          "passed": true
+        },
+        {
+          "k": 10,
+          "passed": true
+        },
+        {
+          "k": 11,
+          "passed": true
+        },
+        {
+          "k": 12,
+          "passed": false
+        },
+        {
+          "k": 13,
+          "passed": true
+        },
+        {
+          "k": 14,
+          "passed": true
+        },
+        {
+          "k": 15,
+          "passed": true
+        }
+      ]
+    },
+    "humaneval-clj-062": {
+      "source": ":multipl-e/humaneval-clj",
+      "first_pass": false,
+      "any_pass": false,
+      "pass_count": 0,
+      "total_samples": 16,
+      "samples": [
+        {
+          "k": 0,
+          "passed": false
+        },
+        {
+          "k": 1,
+          "passed": false
+        },
+        {
+          "k": 2,
+          "passed": false
+        },
+        {
+          "k": 3,
+          "passed": false
+        },
+        {
+          "k": 4,
+          "passed": false
+        },
+        {
+          "k": 5,
+          "passed": false
+        },
+        {
+          "k": 6,
+          "passed": false
+        },
+        {
+          "k": 7,
+          "passed": false
+        },
+        {
+          "k": 8,
+          "passed": false
+        },
+        {
+          "k": 9,
+          "passed": false
+        },
+        {
+          "k": 10,
+          "passed": false
+        },
+        {
+          "k": 11,
+          "passed": false
+        },
+        {
+          "k": 12,
+          "passed": false
+        },
+        {
+          "k": 13,
+          "passed": false
+        },
+        {
+          "k": 14,
+          "passed": false
+        },
+        {
+          "k": 15,
+          "passed": false
+        }
+      ]
+    },
+    "humaneval-clj-067": {
+      "source": ":multipl-e/humaneval-clj",
+      "first_pass": false,
+      "any_pass": false,
+      "pass_count": 0,
+      "total_samples": 16,
+      "samples": [
+        {
+          "k": 0,
+          "passed": false
+        },
+        {
+          "k": 1,
+          "passed": false
+        },
+        {
+          "k": 2,
+          "passed": false
+        },
+        {
+          "k": 3,
+          "passed": false
+        },
+        {
+          "k": 4,
+          "passed": false
+        },
+        {
+          "k": 5,
+          "passed": false
+        },
+        {
+          "k": 6,
+          "passed": false
+        },
+        {
+          "k": 7,
+          "passed": false
+        },
+        {
+          "k": 8,
+          "passed": false
+        },
+        {
+          "k": 9,
+          "passed": false
+        },
+        {
+          "k": 10,
+          "passed": false
+        },
+        {
+          "k": 11,
+          "passed": false
+        },
+        {
+          "k": 12,
+          "passed": false
+        },
+        {
+          "k": 13,
+          "passed": false
+        },
+        {
+          "k": 14,
+          "passed": false
+        },
+        {
+          "k": 15,
+          "passed": false
+        }
+      ]
+    },
+    "humaneval-clj-068": {
+      "source": ":multipl-e/humaneval-clj",
+      "first_pass": false,
+      "any_pass": false,
+      "pass_count": 0,
+      "total_samples": 16,
+      "samples": [
+        {
+          "k": 0,
+          "passed": false
+        },
+        {
+          "k": 1,
+          "passed": false
+        },
+        {
+          "k": 2,
+          "passed": false
+        },
+        {
+          "k": 3,
+          "passed": false
+        },
+        {
+          "k": 4,
+          "passed": false
+        },
+        {
+          "k": 5,
+          "passed": false
+        },
+        {
+          "k": 6,
+          "passed": false
+        },
+        {
+          "k": 7,
+          "passed": false
+        },
+        {
+          "k": 8,
+          "passed": false
+        },
+        {
+          "k": 9,
+          "passed": false
+        },
+        {
+          "k": 10,
+          "passed": false
+        },
+        {
+          "k": 11,
+          "passed": false
+        },
+        {
+          "k": 12,
+          "passed": false
+        },
+        {
+          "k": 13,
+          "passed": false
+        },
+        {
+          "k": 14,
+          "passed": false
+        },
+        {
+          "k": 15,
+          "passed": false
+        }
+      ]
+    },
+    "humaneval-clj-073": {
+      "source": ":multipl-e/humaneval-clj",
+      "first_pass": false,
+      "any_pass": true,
+      "pass_count": 3,
+      "total_samples": 16,
+      "samples": [
+        {
+          "k": 0,
+          "passed": false
+        },
+        {
+          "k": 1,
+          "passed": false
+        },
+        {
+          "k": 2,
+          "passed": true
+        },
+        {
+          "k": 3,
+          "passed": false
+        },
+        {
+          "k": 4,
+          "passed": false
+        },
+        {
+          "k": 5,
+          "passed": true
+        },
+        {
+          "k": 6,
+          "passed": false
+        },
+        {
+          "k": 7,
+          "passed": false
+        },
+        {
+          "k": 8,
+          "passed": false
+        },
+        {
+          "k": 9,
+          "passed": false
+        },
+        {
+          "k": 10,
+          "passed": false
+        },
+        {
+          "k": 11,
+          "passed": false
+        },
+        {
+          "k": 12,
+          "passed": false
+        },
+        {
+          "k": 13,
+          "passed": true
+        },
+        {
+          "k": 14,
+          "passed": false
+        },
+        {
+          "k": 15,
+          "passed": false
+        }
+      ]
+    },
+    "humaneval-clj-077": {
+      "source": ":multipl-e/humaneval-clj",
+      "first_pass": false,
+      "any_pass": true,
+      "pass_count": 7,
+      "total_samples": 16,
+      "samples": [
+        {
+          "k": 0,
+          "passed": false
+        },
+        {
+          "k": 1,
+          "passed": true
+        },
+        {
+          "k": 2,
+          "passed": false
+        },
+        {
+          "k": 3,
+          "passed": false
+        },
+        {
+          "k": 4,
+          "passed": true
+        },
+        {
+          "k": 5,
+          "passed": false
+        },
+        {
+          "k": 6,
+          "passed": true
+        },
+        {
+          "k": 7,
+          "passed": true
+        },
+        {
+          "k": 8,
+          "passed": true
+        },
+        {
+          "k": 9,
+          "passed": true
+        },
+        {
+          "k": 10,
+          "passed": false
+        },
+        {
+          "k": 11,
+          "passed": false
+        },
+        {
+          "k": 12,
+          "passed": false
+        },
+        {
+          "k": 13,
+          "passed": false
+        },
+        {
+          "k": 14,
+          "passed": false
+        },
+        {
+          "k": 15,
+          "passed": true
+        }
+      ]
+    },
+    "humaneval-clj-086": {
+      "source": ":multipl-e/humaneval-clj",
+      "first_pass": false,
+      "any_pass": true,
+      "pass_count": 8,
+      "total_samples": 16,
+      "samples": [
+        {
+          "k": 0,
+          "passed": false
+        },
+        {
+          "k": 1,
+          "passed": true
+        },
+        {
+          "k": 2,
+          "passed": false
+        },
+        {
+          "k": 3,
+          "passed": false
+        },
+        {
+          "k": 4,
+          "passed": true
+        },
+        {
+          "k": 5,
+          "passed": false
+        },
+        {
+          "k": 6,
+          "passed": true
+        },
+        {
+          "k": 7,
+          "passed": false
+        },
+        {
+          "k": 8,
+          "passed": true
+        },
+        {
+          "k": 9,
+          "passed": false
+        },
+        {
+          "k": 10,
+          "passed": false
+        },
+        {
+          "k": 11,
+          "passed": true
+        },
+        {
+          "k": 12,
+          "passed": true
+        },
+        {
+          "k": 13,
+          "passed": true
+        },
+        {
+          "k": 14,
+          "passed": false
+        },
+        {
+          "k": 15,
+          "passed": true
+        }
+      ]
+    },
+    "humaneval-clj-090": {
+      "source": ":multipl-e/humaneval-clj",
+      "first_pass": false,
+      "any_pass": true,
+      "pass_count": 10,
+      "total_samples": 16,
+      "samples": [
+        {
+          "k": 0,
+          "passed": false
+        },
+        {
+          "k": 1,
+          "passed": false
+        },
+        {
+          "k": 2,
+          "passed": false
+        },
+        {
+          "k": 3,
+          "passed": true
+        },
+        {
+          "k": 4,
+          "passed": true
+        },
+        {
+          "k": 5,
+          "passed": true
+        },
+        {
+          "k": 6,
+          "passed": false
+        },
+        {
+          "k": 7,
+          "passed": true
+        },
+        {
+          "k": 8,
+          "passed": true
+        },
+        {
+          "k": 9,
+          "passed": true
+        },
+        {
+          "k": 10,
+          "passed": true
+        },
+        {
+          "k": 11,
+          "passed": true
+        },
+        {
+          "k": 12,
+          "passed": true
+        },
+        {
+          "k": 13,
+          "passed": false
+        },
+        {
+          "k": 14,
+          "passed": false
+        },
+        {
+          "k": 15,
+          "passed": true
+        }
+      ]
+    },
+    "humaneval-clj-095": {
+      "source": ":multipl-e/humaneval-clj",
+      "first_pass": true,
+      "any_pass": true,
+      "pass_count": 16,
+      "total_samples": 16,
+      "samples": [
+        {
+          "k": 0,
+          "passed": true
+        },
+        {
+          "k": 1,
+          "passed": true
+        },
+        {
+          "k": 2,
+          "passed": true
+        },
+        {
+          "k": 3,
+          "passed": true
+        },
+        {
+          "k": 4,
+          "passed": true
+        },
+        {
+          "k": 5,
+          "passed": true
+        },
+        {
+          "k": 6,
+          "passed": true
+        },
+        {
+          "k": 7,
+          "passed": true
+        },
+        {
+          "k": 8,
+          "passed": true
+        },
+        {
+          "k": 9,
+          "passed": true
+        },
+        {
+          "k": 10,
+          "passed": true
+        },
+        {
+          "k": 11,
+          "passed": true
+        },
+        {
+          "k": 12,
+          "passed": true
+        },
+        {
+          "k": 13,
+          "passed": true
+        },
+        {
+          "k": 14,
+          "passed": true
+        },
+        {
+          "k": 15,
+          "passed": true
+        }
+      ]
+    },
+    "humaneval-clj-097": {
+      "source": ":multipl-e/humaneval-clj",
+      "first_pass": false,
+      "any_pass": true,
+      "pass_count": 6,
+      "total_samples": 16,
+      "samples": [
+        {
+          "k": 0,
+          "passed": false
+        },
+        {
+          "k": 1,
+          "passed": false
+        },
+        {
+          "k": 2,
+          "passed": true
+        },
+        {
+          "k": 3,
+          "passed": true
+        },
+        {
+          "k": 4,
+          "passed": false
+        },
+        {
+          "k": 5,
+          "passed": false
+        },
+        {
+          "k": 6,
+          "passed": false
+        },
+        {
+          "k": 7,
+          "passed": true
+        },
+        {
+          "k": 8,
+          "passed": false
+        },
+        {
+          "k": 9,
+          "passed": false
+        },
+        {
+          "k": 10,
+          "passed": true
+        },
+        {
+          "k": 11,
+          "passed": false
+        },
+        {
+          "k": 12,
+          "passed": true
+        },
+        {
+          "k": 13,
+          "passed": true
+        },
+        {
+          "k": 14,
+          "passed": false
+        },
+        {
+          "k": 15,
+          "passed": false
+        }
+      ]
+    },
+    "humaneval-clj-105": {
+      "source": ":multipl-e/humaneval-clj",
+      "first_pass": true,
+      "any_pass": true,
+      "pass_count": 8,
+      "total_samples": 16,
+      "samples": [
+        {
+          "k": 0,
+          "passed": true
+        },
+        {
+          "k": 1,
+          "passed": false
+        },
+        {
+          "k": 2,
+          "passed": false
+        },
+        {
+          "k": 3,
+          "passed": true
+        },
+        {
+          "k": 4,
+          "passed": false
+        },
+        {
+          "k": 5,
+          "passed": true
+        },
+        {
+          "k": 6,
+          "passed": false
+        },
+        {
+          "k": 7,
+          "passed": true
+        },
+        {
+          "k": 8,
+          "passed": false
+        },
+        {
+          "k": 9,
+          "passed": false
+        },
+        {
+          "k": 10,
+          "passed": true
+        },
+        {
+          "k": 11,
+          "passed": false
+        },
+        {
+          "k": 12,
+          "passed": true
+        },
+        {
+          "k": 13,
+          "passed": true
+        },
+        {
+          "k": 14,
+          "passed": false
+        },
+        {
+          "k": 15,
+          "passed": true
+        }
+      ]
+    },
+    "humaneval-clj-121": {
+      "source": ":multipl-e/humaneval-clj",
+      "first_pass": false,
+      "any_pass": true,
+      "pass_count": 2,
+      "total_samples": 16,
+      "samples": [
+        {
+          "k": 0,
+          "passed": false
+        },
+        {
+          "k": 1,
+          "passed": false
+        },
+        {
+          "k": 2,
+          "passed": true
+        },
+        {
+          "k": 3,
+          "passed": false
+        },
+        {
+          "k": 4,
+          "passed": false
+        },
+        {
+          "k": 5,
+          "passed": false
+        },
+        {
+          "k": 6,
+          "passed": false
+        },
+        {
+          "k": 7,
+          "passed": true
+        },
+        {
+          "k": 8,
+          "passed": false
+        },
+        {
+          "k": 9,
+          "passed": false
+        },
+        {
+          "k": 10,
+          "passed": false
+        },
+        {
+          "k": 11,
+          "passed": false
+        },
+        {
+          "k": 12,
+          "passed": false
+        },
+        {
+          "k": 13,
+          "passed": false
+        },
+        {
+          "k": 14,
+          "passed": false
+        },
+        {
+          "k": 15,
+          "passed": false
+        }
+      ]
+    },
+    "humaneval-clj-123": {
+      "source": ":multipl-e/humaneval-clj",
+      "first_pass": true,
+      "any_pass": true,
+      "pass_count": 2,
+      "total_samples": 16,
+      "samples": [
+        {
+          "k": 0,
+          "passed": true
+        },
+        {
+          "k": 1,
+          "passed": false
+        },
+        {
+          "k": 2,
+          "passed": false
+        },
+        {
+          "k": 3,
+          "passed": false
+        },
+        {
+          "k": 4,
+          "passed": false
+        },
+        {
+          "k": 5,
+          "passed": true
+        },
+        {
+          "k": 6,
+          "passed": false
+        },
+        {
+          "k": 7,
+          "passed": false
+        },
+        {
+          "k": 8,
+          "passed": false
+        },
+        {
+          "k": 9,
+          "passed": false
+        },
+        {
+          "k": 10,
+          "passed": false
+        },
+        {
+          "k": 11,
+          "passed": false
+        },
+        {
+          "k": 12,
+          "passed": false
+        },
+        {
+          "k": 13,
+          "passed": false
+        },
+        {
+          "k": 14,
+          "passed": false
+        },
+        {
+          "k": 15,
+          "passed": false
+        }
+      ]
+    },
+    "humaneval-clj-124": {
+      "source": ":multipl-e/humaneval-clj",
+      "first_pass": false,
+      "any_pass": false,
+      "pass_count": 0,
+      "total_samples": 16,
+      "samples": [
+        {
+          "k": 0,
+          "passed": false
+        },
+        {
+          "k": 1,
+          "passed": false
+        },
+        {
+          "k": 2,
+          "passed": false
+        },
+        {
+          "k": 3,
+          "passed": false
+        },
+        {
+          "k": 4,
+          "passed": false
+        },
+        {
+          "k": 5,
+          "passed": false
+        },
+        {
+          "k": 6,
+          "passed": false
+        },
+        {
+          "k": 7,
+          "passed": false
+        },
+        {
+          "k": 8,
+          "passed": false
+        },
+        {
+          "k": 9,
+          "passed": false
+        },
+        {
+          "k": 10,
+          "passed": false
+        },
+        {
+          "k": 11,
+          "passed": false
+        },
+        {
+          "k": 12,
+          "passed": false
+        },
+        {
+          "k": 13,
+          "passed": false
+        },
+        {
+          "k": 14,
+          "passed": false
+        },
+        {
+          "k": 15,
+          "passed": false
+        }
+      ]
+    },
+    "humaneval-clj-132": {
+      "source": ":multipl-e/humaneval-clj",
+      "first_pass": false,
+      "any_pass": false,
+      "pass_count": 0,
+      "total_samples": 16,
+      "samples": [
+        {
+          "k": 0,
+          "passed": false
+        },
+        {
+          "k": 1,
+          "passed": false
+        },
+        {
+          "k": 2,
+          "passed": false
+        },
+        {
+          "k": 3,
+          "passed": false
+        },
+        {
+          "k": 4,
+          "passed": false
+        },
+        {
+          "k": 5,
+          "passed": false
+        },
+        {
+          "k": 6,
+          "passed": false
+        },
+        {
+          "k": 7,
+          "passed": false
+        },
+        {
+          "k": 8,
+          "passed": false
+        },
+        {
+          "k": 9,
+          "passed": false
+        },
+        {
+          "k": 10,
+          "passed": false
+        },
+        {
+          "k": 11,
+          "passed": false
+        },
+        {
+          "k": 12,
+          "passed": false
+        },
+        {
+          "k": 13,
+          "passed": false
+        },
+        {
+          "k": 14,
+          "passed": false
+        },
+        {
+          "k": 15,
+          "passed": false
+        }
+      ]
+    },
+    "humaneval-clj-134": {
+      "source": ":multipl-e/humaneval-clj",
+      "first_pass": false,
+      "any_pass": true,
+      "pass_count": 11,
+      "total_samples": 16,
+      "samples": [
+        {
+          "k": 0,
+          "passed": false
+        },
+        {
+          "k": 1,
+          "passed": true
+        },
+        {
+          "k": 2,
+          "passed": true
+        },
+        {
+          "k": 3,
+          "passed": true
+        },
+        {
+          "k": 4,
+          "passed": true
+        },
+        {
+          "k": 5,
+          "passed": true
+        },
+        {
+          "k": 6,
+          "passed": false
+        },
+        {
+          "k": 7,
+          "passed": false
+        },
+        {
+          "k": 8,
+          "passed": true
+        },
+        {
+          "k": 9,
+          "passed": true
+        },
+        {
+          "k": 10,
+          "passed": true
+        },
+        {
+          "k": 11,
+          "passed": false
+        },
+        {
+          "k": 12,
+          "passed": false
+        },
+        {
+          "k": 13,
+          "passed": true
+        },
+        {
+          "k": 14,
+          "passed": true
+        },
+        {
+          "k": 15,
+          "passed": true
+        }
+      ]
+    },
+    "humaneval-clj-137": {
+      "source": ":multipl-e/humaneval-clj",
+      "first_pass": true,
+      "any_pass": true,
+      "pass_count": 13,
+      "total_samples": 16,
+      "samples": [
+        {
+          "k": 0,
+          "passed": true
+        },
+        {
+          "k": 1,
+          "passed": true
+        },
+        {
+          "k": 2,
+          "passed": true
+        },
+        {
+          "k": 3,
+          "passed": false
+        },
+        {
+          "k": 4,
+          "passed": true
+        },
+        {
+          "k": 5,
+          "passed": true
+        },
+        {
+          "k": 6,
+          "passed": true
+        },
+        {
+          "k": 7,
+          "passed": false
+        },
+        {
+          "k": 8,
+          "passed": true
+        },
+        {
+          "k": 9,
+          "passed": true
+        },
+        {
+          "k": 10,
+          "passed": true
+        },
+        {
+          "k": 11,
+          "passed": true
+        },
+        {
+          "k": 12,
+          "passed": true
+        },
+        {
+          "k": 13,
+          "passed": true
+        },
+        {
+          "k": 14,
+          "passed": false
+        },
+        {
+          "k": 15,
+          "passed": true
+        }
+      ]
+    },
+    "humaneval-clj-141": {
+      "source": ":multipl-e/humaneval-clj",
+      "first_pass": true,
+      "any_pass": true,
+      "pass_count": 13,
+      "total_samples": 16,
+      "samples": [
+        {
+          "k": 0,
+          "passed": true
+        },
+        {
+          "k": 1,
+          "passed": true
+        },
+        {
+          "k": 2,
+          "passed": true
+        },
+        {
+          "k": 3,
+          "passed": false
+        },
+        {
+          "k": 4,
+          "passed": true
+        },
+        {
+          "k": 5,
+          "passed": false
+        },
+        {
+          "k": 6,
+          "passed": true
+        },
+        {
+          "k": 7,
+          "passed": true
+        },
+        {
+          "k": 8,
+          "passed": true
+        },
+        {
+          "k": 9,
+          "passed": true
+        },
+        {
+          "k": 10,
+          "passed": true
+        },
+        {
+          "k": 11,
+          "passed": true
+        },
+        {
+          "k": 12,
+          "passed": true
+        },
+        {
+          "k": 13,
+          "passed": true
+        },
+        {
+          "k": 14,
+          "passed": false
+        },
+        {
+          "k": 15,
+          "passed": true
+        }
+      ]
+    },
+    "humaneval-clj-143": {
+      "source": ":multipl-e/humaneval-clj",
+      "first_pass": false,
+      "any_pass": false,
+      "pass_count": 0,
+      "total_samples": 16,
+      "samples": [
+        {
+          "k": 0,
+          "passed": false
+        },
+        {
+          "k": 1,
+          "passed": false
+        },
+        {
+          "k": 2,
+          "passed": false
+        },
+        {
+          "k": 3,
+          "passed": false
+        },
+        {
+          "k": 4,
+          "passed": false
+        },
+        {
+          "k": 5,
+          "passed": false
+        },
+        {
+          "k": 6,
+          "passed": false
+        },
+        {
+          "k": 7,
+          "passed": false
+        },
+        {
+          "k": 8,
+          "passed": false
+        },
+        {
+          "k": 9,
+          "passed": false
+        },
+        {
+          "k": 10,
+          "passed": false
+        },
+        {
+          "k": 11,
+          "passed": false
+        },
+        {
+          "k": 12,
+          "passed": false
+        },
+        {
+          "k": 13,
+          "passed": false
+        },
+        {
+          "k": 14,
+          "passed": false
+        },
+        {
+          "k": 15,
+          "passed": false
+        }
+      ]
+    },
+    "humaneval-clj-144": {
+      "source": ":multipl-e/humaneval-clj",
+      "first_pass": false,
+      "any_pass": true,
+      "pass_count": 6,
+      "total_samples": 16,
+      "samples": [
+        {
+          "k": 0,
+          "passed": false
+        },
+        {
+          "k": 1,
+          "passed": false
+        },
+        {
+          "k": 2,
+          "passed": true
+        },
+        {
+          "k": 3,
+          "passed": true
+        },
+        {
+          "k": 4,
+          "passed": false
+        },
+        {
+          "k": 5,
+          "passed": true
+        },
+        {
+          "k": 6,
+          "passed": false
+        },
+        {
+          "k": 7,
+          "passed": false
+        },
+        {
+          "k": 8,
+          "passed": false
+        },
+        {
+          "k": 9,
+          "passed": true
+        },
+        {
+          "k": 10,
+          "passed": false
+        },
+        {
+          "k": 11,
+          "passed": false
+        },
+        {
+          "k": 12,
+          "passed": true
+        },
+        {
+          "k": 13,
+          "passed": false
+        },
+        {
+          "k": 14,
+          "passed": false
+        },
+        {
+          "k": 15,
+          "passed": true
+        }
+      ]
+    },
+    "humaneval-clj-153": {
+      "source": ":multipl-e/humaneval-clj",
+      "first_pass": true,
+      "any_pass": true,
+      "pass_count": 14,
+      "total_samples": 16,
+      "samples": [
+        {
+          "k": 0,
+          "passed": true
+        },
+        {
+          "k": 1,
+          "passed": false
+        },
+        {
+          "k": 2,
+          "passed": true
+        },
+        {
+          "k": 3,
+          "passed": true
+        },
+        {
+          "k": 4,
+          "passed": true
+        },
+        {
+          "k": 5,
+          "passed": true
+        },
+        {
+          "k": 6,
+          "passed": false
+        },
+        {
+          "k": 7,
+          "passed": true
+        },
+        {
+          "k": 8,
+          "passed": true
+        },
+        {
+          "k": 9,
+          "passed": true
+        },
+        {
+          "k": 10,
+          "passed": true
+        },
+        {
+          "k": 11,
+          "passed": true
+        },
+        {
+          "k": 12,
+          "passed": true
+        },
+        {
+          "k": 13,
+          "passed": true
+        },
+        {
+          "k": 14,
+          "passed": true
+        },
+        {
+          "k": 15,
+          "passed": true
+        }
+      ]
+    },
+    "humaneval-clj-157": {
+      "source": ":multipl-e/humaneval-clj",
+      "first_pass": false,
+      "any_pass": false,
+      "pass_count": 0,
+      "total_samples": 16,
+      "samples": [
+        {
+          "k": 0,
+          "passed": false
+        },
+        {
+          "k": 1,
+          "passed": false
+        },
+        {
+          "k": 2,
+          "passed": false
+        },
+        {
+          "k": 3,
+          "passed": false
+        },
+        {
+          "k": 4,
+          "passed": false
+        },
+        {
+          "k": 5,
+          "passed": false
+        },
+        {
+          "k": 6,
+          "passed": false
+        },
+        {
+          "k": 7,
+          "passed": false
+        },
+        {
+          "k": 8,
+          "passed": false
+        },
+        {
+          "k": 9,
+          "passed": false
+        },
+        {
+          "k": 10,
+          "passed": false
+        },
+        {
+          "k": 11,
+          "passed": false
+        },
+        {
+          "k": 12,
+          "passed": false
+        },
+        {
+          "k": 13,
+          "passed": false
+        },
+        {
+          "k": 14,
+          "passed": false
+        },
+        {
+          "k": 15,
+          "passed": false
+        }
+      ]
+    },
+    "humaneval-clj-158": {
+      "source": ":multipl-e/humaneval-clj",
+      "first_pass": false,
+      "any_pass": false,
+      "pass_count": 0,
+      "total_samples": 16,
+      "samples": [
+        {
+          "k": 0,
+          "passed": false
+        },
+        {
+          "k": 1,
+          "passed": false
+        },
+        {
+          "k": 2,
+          "passed": false
+        },
+        {
+          "k": 3,
+          "passed": false
+        },
+        {
+          "k": 4,
+          "passed": false
+        },
+        {
+          "k": 5,
+          "passed": false
+        },
+        {
+          "k": 6,
+          "passed": false
+        },
+        {
+          "k": 7,
+          "passed": false
+        },
+        {
+          "k": 8,
+          "passed": false
+        },
+        {
+          "k": 9,
+          "passed": false
+        },
+        {
+          "k": 10,
+          "passed": false
+        },
+        {
+          "k": 11,
+          "passed": false
+        },
+        {
+          "k": 12,
+          "passed": false
+        },
+        {
+          "k": 13,
+          "passed": false
+        },
+        {
+          "k": 14,
+          "passed": false
+        },
+        {
+          "k": 15,
+          "passed": false
+        }
+      ]
+    },
+    "mbpp-clj-006": {
+      "source": ":multipl-e/mbpp-clj",
+      "first_pass": false,
+      "any_pass": true,
+      "pass_count": 2,
+      "total_samples": 16,
+      "samples": [
+        {
+          "k": 0,
+          "passed": false
+        },
+        {
+          "k": 1,
+          "passed": false
+        },
+        {
+          "k": 2,
+          "passed": false
+        },
+        {
+          "k": 3,
+          "passed": true
+        },
+        {
+          "k": 4,
+          "passed": false
+        },
+        {
+          "k": 5,
+          "passed": false
+        },
+        {
+          "k": 6,
+          "passed": false
+        },
+        {
+          "k": 7,
+          "passed": false
+        },
+        {
+          "k": 8,
+          "passed": false
+        },
+        {
+          "k": 9,
+          "passed": false
+        },
+        {
+          "k": 10,
+          "passed": false
+        },
+        {
+          "k": 11,
+          "passed": false
+        },
+        {
+          "k": 12,
+          "passed": false
+        },
+        {
+          "k": 13,
+          "passed": true
+        },
+        {
+          "k": 14,
+          "passed": false
+        },
+        {
+          "k": 15,
+          "passed": false
+        }
+      ]
+    },
+    "mbpp-clj-007": {
+      "source": ":multipl-e/mbpp-clj",
+      "first_pass": true,
+      "any_pass": true,
+      "pass_count": 15,
+      "total_samples": 16,
+      "samples": [
+        {
+          "k": 0,
+          "passed": true
+        },
+        {
+          "k": 1,
+          "passed": true
+        },
+        {
+          "k": 2,
+          "passed": true
+        },
+        {
+          "k": 3,
+          "passed": true
+        },
+        {
+          "k": 4,
+          "passed": true
+        },
+        {
+          "k": 5,
+          "passed": true
+        },
+        {
+          "k": 6,
+          "passed": false
+        },
+        {
+          "k": 7,
+          "passed": true
+        },
+        {
+          "k": 8,
+          "passed": true
+        },
+        {
+          "k": 9,
+          "passed": true
+        },
+        {
+          "k": 10,
+          "passed": true
+        },
+        {
+          "k": 11,
+          "passed": true
+        },
+        {
+          "k": 12,
+          "passed": true
+        },
+        {
+          "k": 13,
+          "passed": true
+        },
+        {
+          "k": 14,
+          "passed": true
+        },
+        {
+          "k": 15,
+          "passed": true
+        }
+      ]
+    },
+    "mbpp-clj-009": {
+      "source": ":multipl-e/mbpp-clj",
+      "first_pass": false,
+      "any_pass": false,
+      "pass_count": 0,
+      "total_samples": 16,
+      "samples": [
+        {
+          "k": 0,
+          "passed": false
+        },
+        {
+          "k": 1,
+          "passed": false
+        },
+        {
+          "k": 2,
+          "passed": false
+        },
+        {
+          "k": 3,
+          "passed": false
+        },
+        {
+          "k": 4,
+          "passed": false
+        },
+        {
+          "k": 5,
+          "passed": false
+        },
+        {
+          "k": 6,
+          "passed": false
+        },
+        {
+          "k": 7,
+          "passed": false
+        },
+        {
+          "k": 8,
+          "passed": false
+        },
+        {
+          "k": 9,
+          "passed": false
+        },
+        {
+          "k": 10,
+          "passed": false
+        },
+        {
+          "k": 11,
+          "passed": false
+        },
+        {
+          "k": 12,
+          "passed": false
+        },
+        {
+          "k": 13,
+          "passed": false
+        },
+        {
+          "k": 14,
+          "passed": false
+        },
+        {
+          "k": 15,
+          "passed": false
+        }
+      ]
+    },
+    "mbpp-clj-022": {
+      "source": ":multipl-e/mbpp-clj",
+      "first_pass": true,
+      "any_pass": true,
+      "pass_count": 15,
+      "total_samples": 16,
+      "samples": [
+        {
+          "k": 0,
+          "passed": true
+        },
+        {
+          "k": 1,
+          "passed": true
+        },
+        {
+          "k": 2,
+          "passed": true
+        },
+        {
+          "k": 3,
+          "passed": true
+        },
+        {
+          "k": 4,
+          "passed": false
+        },
+        {
+          "k": 5,
+          "passed": true
+        },
+        {
+          "k": 6,
+          "passed": true
+        },
+        {
+          "k": 7,
+          "passed": true
+        },
+        {
+          "k": 8,
+          "passed": true
+        },
+        {
+          "k": 9,
+          "passed": true
+        },
+        {
+          "k": 10,
+          "passed": true
+        },
+        {
+          "k": 11,
+          "passed": true
+        },
+        {
+          "k": 12,
+          "passed": true
+        },
+        {
+          "k": 13,
+          "passed": true
+        },
+        {
+          "k": 14,
+          "passed": true
+        },
+        {
+          "k": 15,
+          "passed": true
+        }
+      ]
+    },
+    "mbpp-clj-047": {
+      "source": ":multipl-e/mbpp-clj",
+      "first_pass": true,
+      "any_pass": true,
+      "pass_count": 15,
+      "total_samples": 16,
+      "samples": [
+        {
+          "k": 0,
+          "passed": true
+        },
+        {
+          "k": 1,
+          "passed": true
+        },
+        {
+          "k": 2,
+          "passed": true
+        },
+        {
+          "k": 3,
+          "passed": true
+        },
+        {
+          "k": 4,
+          "passed": true
+        },
+        {
+          "k": 5,
+          "passed": true
+        },
+        {
+          "k": 6,
+          "passed": false
+        },
+        {
+          "k": 7,
+          "passed": true
+        },
+        {
+          "k": 8,
+          "passed": true
+        },
+        {
+          "k": 9,
+          "passed": true
+        },
+        {
+          "k": 10,
+          "passed": true
+        },
+        {
+          "k": 11,
+          "passed": true
+        },
+        {
+          "k": 12,
+          "passed": true
+        },
+        {
+          "k": 13,
+          "passed": true
+        },
+        {
+          "k": 14,
+          "passed": true
+        },
+        {
+          "k": 15,
+          "passed": true
+        }
+      ]
+    },
+    "mbpp-clj-057": {
+      "source": ":multipl-e/mbpp-clj",
+      "first_pass": true,
+      "any_pass": true,
+      "pass_count": 16,
+      "total_samples": 16,
+      "samples": [
+        {
+          "k": 0,
+          "passed": true
+        },
+        {
+          "k": 1,
+          "passed": true
+        },
+        {
+          "k": 2,
+          "passed": true
+        },
+        {
+          "k": 3,
+          "passed": true
+        },
+        {
+          "k": 4,
+          "passed": true
+        },
+        {
+          "k": 5,
+          "passed": true
+        },
+        {
+          "k": 6,
+          "passed": true
+        },
+        {
+          "k": 7,
+          "passed": true
+        },
+        {
+          "k": 8,
+          "passed": true
+        },
+        {
+          "k": 9,
+          "passed": true
+        },
+        {
+          "k": 10,
+          "passed": true
+        },
+        {
+          "k": 11,
+          "passed": true
+        },
+        {
+          "k": 12,
+          "passed": true
+        },
+        {
+          "k": 13,
+          "passed": true
+        },
+        {
+          "k": 14,
+          "passed": true
+        },
+        {
+          "k": 15,
+          "passed": true
+        }
+      ]
+    },
+    "mbpp-clj-060": {
+      "source": ":multipl-e/mbpp-clj",
+      "first_pass": true,
+      "any_pass": true,
+      "pass_count": 15,
+      "total_samples": 16,
+      "samples": [
+        {
+          "k": 0,
+          "passed": true
+        },
+        {
+          "k": 1,
+          "passed": true
+        },
+        {
+          "k": 2,
+          "passed": true
+        },
+        {
+          "k": 3,
+          "passed": true
+        },
+        {
+          "k": 4,
+          "passed": true
+        },
+        {
+          "k": 5,
+          "passed": true
+        },
+        {
+          "k": 6,
+          "passed": true
+        },
+        {
+          "k": 7,
+          "passed": true
+        },
+        {
+          "k": 8,
+          "passed": true
+        },
+        {
+          "k": 9,
+          "passed": true
+        },
+        {
+          "k": 10,
+          "passed": true
+        },
+        {
+          "k": 11,
+          "passed": true
+        },
+        {
+          "k": 12,
+          "passed": true
+        },
+        {
+          "k": 13,
+          "passed": true
+        },
+        {
+          "k": 14,
+          "passed": false
+        },
+        {
+          "k": 15,
+          "passed": true
+        }
+      ]
+    },
+    "mbpp-clj-069": {
+      "source": ":multipl-e/mbpp-clj",
+      "first_pass": false,
+      "any_pass": true,
+      "pass_count": 5,
+      "total_samples": 16,
+      "samples": [
+        {
+          "k": 0,
+          "passed": false
+        },
+        {
+          "k": 1,
+          "passed": true
+        },
+        {
+          "k": 2,
+          "passed": false
+        },
+        {
+          "k": 3,
+          "passed": false
+        },
+        {
+          "k": 4,
+          "passed": false
+        },
+        {
+          "k": 5,
+          "passed": false
+        },
+        {
+          "k": 6,
+          "passed": true
+        },
+        {
+          "k": 7,
+          "passed": true
+        },
+        {
+          "k": 8,
+          "passed": false
+        },
+        {
+          "k": 9,
+          "passed": false
+        },
+        {
+          "k": 10,
+          "passed": false
+        },
+        {
+          "k": 11,
+          "passed": false
+        },
+        {
+          "k": 12,
+          "passed": false
+        },
+        {
+          "k": 13,
+          "passed": true
+        },
+        {
+          "k": 14,
+          "passed": false
+        },
+        {
+          "k": 15,
+          "passed": true
+        }
+      ]
+    },
+    "mbpp-clj-074": {
+      "source": ":multipl-e/mbpp-clj",
+      "first_pass": true,
+      "any_pass": true,
+      "pass_count": 16,
+      "total_samples": 16,
+      "samples": [
+        {
+          "k": 0,
+          "passed": true
+        },
+        {
+          "k": 1,
+          "passed": true
+        },
+        {
+          "k": 2,
+          "passed": true
+        },
+        {
+          "k": 3,
+          "passed": true
+        },
+        {
+          "k": 4,
+          "passed": true
+        },
+        {
+          "k": 5,
+          "passed": true
+        },
+        {
+          "k": 6,
+          "passed": true
+        },
+        {
+          "k": 7,
+          "passed": true
+        },
+        {
+          "k": 8,
+          "passed": true
+        },
+        {
+          "k": 9,
+          "passed": true
+        },
+        {
+          "k": 10,
+          "passed": true
+        },
+        {
+          "k": 11,
+          "passed": true
+        },
+        {
+          "k": 12,
+          "passed": true
+        },
+        {
+          "k": 13,
+          "passed": true
+        },
+        {
+          "k": 14,
+          "passed": true
+        },
+        {
+          "k": 15,
+          "passed": true
+        }
+      ]
+    },
+    "mbpp-clj-075": {
+      "source": ":multipl-e/mbpp-clj",
+      "first_pass": true,
+      "any_pass": true,
+      "pass_count": 9,
+      "total_samples": 16,
+      "samples": [
+        {
+          "k": 0,
+          "passed": true
+        },
+        {
+          "k": 1,
+          "passed": true
+        },
+        {
+          "k": 2,
+          "passed": true
+        },
+        {
+          "k": 3,
+          "passed": false
+        },
+        {
+          "k": 4,
+          "passed": true
+        },
+        {
+          "k": 5,
+          "passed": true
+        },
+        {
+          "k": 6,
+          "passed": false
+        },
+        {
+          "k": 7,
+          "passed": false
+        },
+        {
+          "k": 8,
+          "passed": false
+        },
+        {
+          "k": 9,
+          "passed": true
+        },
+        {
+          "k": 10,
+          "passed": false
+        },
+        {
+          "k": 11,
+          "passed": true
+        },
+        {
+          "k": 12,
+          "passed": false
+        },
+        {
+          "k": 13,
+          "passed": true
+        },
+        {
+          "k": 14,
+          "passed": true
+        },
+        {
+          "k": 15,
+          "passed": false
+        }
+      ]
+    },
+    "mbpp-clj-076": {
+      "source": ":multipl-e/mbpp-clj",
+      "first_pass": false,
+      "any_pass": true,
+      "pass_count": 1,
+      "total_samples": 16,
+      "samples": [
+        {
+          "k": 0,
+          "passed": false
+        },
+        {
+          "k": 1,
+          "passed": false
+        },
+        {
+          "k": 2,
+          "passed": false
+        },
+        {
+          "k": 3,
+          "passed": false
+        },
+        {
+          "k": 4,
+          "passed": false
+        },
+        {
+          "k": 5,
+          "passed": false
+        },
+        {
+          "k": 6,
+          "passed": false
+        },
+        {
+          "k": 7,
+          "passed": false
+        },
+        {
+          "k": 8,
+          "passed": false
+        },
+        {
+          "k": 9,
+          "passed": true
+        },
+        {
+          "k": 10,
+          "passed": false
+        },
+        {
+          "k": 11,
+          "passed": false
+        },
+        {
+          "k": 12,
+          "passed": false
+        },
+        {
+          "k": 13,
+          "passed": false
+        },
+        {
+          "k": 14,
+          "passed": false
+        },
+        {
+          "k": 15,
+          "passed": false
+        }
+      ]
+    },
+    "mbpp-clj-082": {
+      "source": ":multipl-e/mbpp-clj",
+      "first_pass": false,
+      "any_pass": true,
+      "pass_count": 3,
+      "total_samples": 16,
+      "samples": [
+        {
+          "k": 0,
+          "passed": false
+        },
+        {
+          "k": 1,
+          "passed": true
+        },
+        {
+          "k": 2,
+          "passed": true
+        },
+        {
+          "k": 3,
+          "passed": false
+        },
+        {
+          "k": 4,
+          "passed": false
+        },
+        {
+          "k": 5,
+          "passed": false
+        },
+        {
+          "k": 6,
+          "passed": false
+        },
+        {
+          "k": 7,
+          "passed": false
+        },
+        {
+          "k": 8,
+          "passed": false
+        },
+        {
+          "k": 9,
+          "passed": false
+        },
+        {
+          "k": 10,
+          "passed": true
+        },
+        {
+          "k": 11,
+          "passed": false
+        },
+        {
+          "k": 12,
+          "passed": false
+        },
+        {
+          "k": 13,
+          "passed": false
+        },
+        {
+          "k": 14,
+          "passed": false
+        },
+        {
+          "k": 15,
+          "passed": false
+        }
+      ]
+    },
+    "mbpp-clj-084": {
+      "source": ":multipl-e/mbpp-clj",
+      "first_pass": false,
+      "any_pass": true,
+      "pass_count": 8,
+      "total_samples": 16,
+      "samples": [
+        {
+          "k": 0,
+          "passed": false
+        },
+        {
+          "k": 1,
+          "passed": false
+        },
+        {
+          "k": 2,
+          "passed": true
+        },
+        {
+          "k": 3,
+          "passed": true
+        },
+        {
+          "k": 4,
+          "passed": false
+        },
+        {
+          "k": 5,
+          "passed": false
+        },
+        {
+          "k": 6,
+          "passed": true
+        },
+        {
+          "k": 7,
+          "passed": true
+        },
+        {
+          "k": 8,
+          "passed": false
+        },
+        {
+          "k": 9,
+          "passed": true
+        },
+        {
+          "k": 10,
+          "passed": false
+        },
+        {
+          "k": 11,
+          "passed": true
+        },
+        {
+          "k": 12,
+          "passed": true
+        },
+        {
+          "k": 13,
+          "passed": false
+        },
+        {
+          "k": 14,
+          "passed": true
+        },
+        {
+          "k": 15,
+          "passed": false
+        }
+      ]
+    },
+    "mbpp-clj-087": {
+      "source": ":multipl-e/mbpp-clj",
+      "first_pass": true,
+      "any_pass": true,
+      "pass_count": 5,
+      "total_samples": 16,
+      "samples": [
+        {
+          "k": 0,
+          "passed": true
+        },
+        {
+          "k": 1,
+          "passed": false
+        },
+        {
+          "k": 2,
+          "passed": true
+        },
+        {
+          "k": 3,
+          "passed": true
+        },
+        {
+          "k": 4,
+          "passed": false
+        },
+        {
+          "k": 5,
+          "passed": false
+        },
+        {
+          "k": 6,
+          "passed": false
+        },
+        {
+          "k": 7,
+          "passed": false
+        },
+        {
+          "k": 8,
+          "passed": false
+        },
+        {
+          "k": 9,
+          "passed": false
+        },
+        {
+          "k": 10,
+          "passed": false
+        },
+        {
+          "k": 11,
+          "passed": false
+        },
+        {
+          "k": 12,
+          "passed": true
+        },
+        {
+          "k": 13,
+          "passed": false
+        },
+        {
+          "k": 14,
+          "passed": true
+        },
+        {
+          "k": 15,
+          "passed": false
+        }
+      ]
+    },
+    "mbpp-clj-091": {
+      "source": ":multipl-e/mbpp-clj",
+      "first_pass": true,
+      "any_pass": true,
+      "pass_count": 8,
+      "total_samples": 16,
+      "samples": [
+        {
+          "k": 0,
+          "passed": true
+        },
+        {
+          "k": 1,
+          "passed": false
+        },
+        {
+          "k": 2,
+          "passed": false
+        },
+        {
+          "k": 3,
+          "passed": true
+        },
+        {
+          "k": 4,
+          "passed": false
+        },
+        {
+          "k": 5,
+          "passed": false
+        },
+        {
+          "k": 6,
+          "passed": false
+        },
+        {
+          "k": 7,
+          "passed": false
+        },
+        {
+          "k": 8,
+          "passed": true
+        },
+        {
+          "k": 9,
+          "passed": true
+        },
+        {
+          "k": 10,
+          "passed": true
+        },
+        {
+          "k": 11,
+          "passed": true
+        },
+        {
+          "k": 12,
+          "passed": true
+        },
+        {
+          "k": 13,
+          "passed": false
+        },
+        {
+          "k": 14,
+          "passed": false
+        },
+        {
+          "k": 15,
+          "passed": true
+        }
+      ]
+    },
+    "mbpp-clj-093": {
+      "source": ":multipl-e/mbpp-clj",
+      "first_pass": true,
+      "any_pass": true,
+      "pass_count": 5,
+      "total_samples": 16,
+      "samples": [
+        {
+          "k": 0,
+          "passed": true
+        },
+        {
+          "k": 1,
+          "passed": false
+        },
+        {
+          "k": 2,
+          "passed": false
+        },
+        {
+          "k": 3,
+          "passed": false
+        },
+        {
+          "k": 4,
+          "passed": false
+        },
+        {
+          "k": 5,
+          "passed": false
+        },
+        {
+          "k": 6,
+          "passed": false
+        },
+        {
+          "k": 7,
+          "passed": true
+        },
+        {
+          "k": 8,
+          "passed": false
+        },
+        {
+          "k": 9,
+          "passed": false
+        },
+        {
+          "k": 10,
+          "passed": false
+        },
+        {
+          "k": 11,
+          "passed": true
+        },
+        {
+          "k": 12,
+          "passed": true
+        },
+        {
+          "k": 13,
+          "passed": true
+        },
+        {
+          "k": 14,
+          "passed": false
+        },
+        {
+          "k": 15,
+          "passed": false
+        }
+      ]
+    },
+    "mbpp-clj-097": {
+      "source": ":multipl-e/mbpp-clj",
+      "first_pass": false,
+      "any_pass": true,
+      "pass_count": 2,
+      "total_samples": 16,
+      "samples": [
+        {
+          "k": 0,
+          "passed": false
+        },
+        {
+          "k": 1,
+          "passed": false
+        },
+        {
+          "k": 2,
+          "passed": false
+        },
+        {
+          "k": 3,
+          "passed": false
+        },
+        {
+          "k": 4,
+          "passed": false
+        },
+        {
+          "k": 5,
+          "passed": false
+        },
+        {
+          "k": 6,
+          "passed": false
+        },
+        {
+          "k": 7,
+          "passed": false
+        },
+        {
+          "k": 8,
+          "passed": true
+        },
+        {
+          "k": 9,
+          "passed": false
+        },
+        {
+          "k": 10,
+          "passed": true
+        },
+        {
+          "k": 11,
+          "passed": false
+        },
+        {
+          "k": 12,
+          "passed": false
+        },
+        {
+          "k": 13,
+          "passed": false
+        },
+        {
+          "k": 14,
+          "passed": false
+        },
+        {
+          "k": 15,
+          "passed": false
+        }
+      ]
+    },
+    "mbpp-clj-117": {
+      "source": ":multipl-e/mbpp-clj",
+      "first_pass": false,
+      "any_pass": false,
+      "pass_count": 0,
+      "total_samples": 16,
+      "samples": [
+        {
+          "k": 0,
+          "passed": false
+        },
+        {
+          "k": 1,
+          "passed": false
+        },
+        {
+          "k": 2,
+          "passed": false
+        },
+        {
+          "k": 3,
+          "passed": false
+        },
+        {
+          "k": 4,
+          "passed": false
+        },
+        {
+          "k": 5,
+          "passed": false
+        },
+        {
+          "k": 6,
+          "passed": false
+        },
+        {
+          "k": 7,
+          "passed": false
+        },
+        {
+          "k": 8,
+          "passed": false
+        },
+        {
+          "k": 9,
+          "passed": false
+        },
+        {
+          "k": 10,
+          "passed": false
+        },
+        {
+          "k": 11,
+          "passed": false
+        },
+        {
+          "k": 12,
+          "passed": false
+        },
+        {
+          "k": 13,
+          "passed": false
+        },
+        {
+          "k": 14,
+          "passed": false
+        },
+        {
+          "k": 15,
+          "passed": false
+        }
+      ]
+    },
+    "mbpp-clj-119": {
+      "source": ":multipl-e/mbpp-clj",
+      "first_pass": true,
+      "any_pass": true,
+      "pass_count": 16,
+      "total_samples": 16,
+      "samples": [
+        {
+          "k": 0,
+          "passed": true
+        },
+        {
+          "k": 1,
+          "passed": true
+        },
+        {
+          "k": 2,
+          "passed": true
+        },
+        {
+          "k": 3,
+          "passed": true
+        },
+        {
+          "k": 4,
+          "passed": true
+        },
+        {
+          "k": 5,
+          "passed": true
+        },
+        {
+          "k": 6,
+          "passed": true
+        },
+        {
+          "k": 7,
+          "passed": true
+        },
+        {
+          "k": 8,
+          "passed": true
+        },
+        {
+          "k": 9,
+          "passed": true
+        },
+        {
+          "k": 10,
+          "passed": true
+        },
+        {
+          "k": 11,
+          "passed": true
+        },
+        {
+          "k": 12,
+          "passed": true
+        },
+        {
+          "k": 13,
+          "passed": true
+        },
+        {
+          "k": 14,
+          "passed": true
+        },
+        {
+          "k": 15,
+          "passed": true
+        }
+      ]
+    },
+    "mbpp-clj-120": {
+      "source": ":multipl-e/mbpp-clj",
+      "first_pass": true,
+      "any_pass": true,
+      "pass_count": 15,
+      "total_samples": 16,
+      "samples": [
+        {
+          "k": 0,
+          "passed": true
+        },
+        {
+          "k": 1,
+          "passed": true
+        },
+        {
+          "k": 2,
+          "passed": true
+        },
+        {
+          "k": 3,
+          "passed": true
+        },
+        {
+          "k": 4,
+          "passed": true
+        },
+        {
+          "k": 5,
+          "passed": true
+        },
+        {
+          "k": 6,
+          "passed": false
+        },
+        {
+          "k": 7,
+          "passed": true
+        },
+        {
+          "k": 8,
+          "passed": true
+        },
+        {
+          "k": 9,
+          "passed": true
+        },
+        {
+          "k": 10,
+          "passed": true
+        },
+        {
+          "k": 11,
+          "passed": true
+        },
+        {
+          "k": 12,
+          "passed": true
+        },
+        {
+          "k": 13,
+          "passed": true
+        },
+        {
+          "k": 14,
+          "passed": true
+        },
+        {
+          "k": 15,
+          "passed": true
+        }
+      ]
+    },
+    "mbpp-clj-132": {
+      "source": ":multipl-e/mbpp-clj",
+      "first_pass": true,
+      "any_pass": true,
+      "pass_count": 16,
+      "total_samples": 16,
+      "samples": [
+        {
+          "k": 0,
+          "passed": true
+        },
+        {
+          "k": 1,
+          "passed": true
+        },
+        {
+          "k": 2,
+          "passed": true
+        },
+        {
+          "k": 3,
+          "passed": true
+        },
+        {
+          "k": 4,
+          "passed": true
+        },
+        {
+          "k": 5,
+          "passed": true
+        },
+        {
+          "k": 6,
+          "passed": true
+        },
+        {
+          "k": 7,
+          "passed": true
+        },
+        {
+          "k": 8,
+          "passed": true
+        },
+        {
+          "k": 9,
+          "passed": true
+        },
+        {
+          "k": 10,
+          "passed": true
+        },
+        {
+          "k": 11,
+          "passed": true
+        },
+        {
+          "k": 12,
+          "passed": true
+        },
+        {
+          "k": 13,
+          "passed": true
+        },
+        {
+          "k": 14,
+          "passed": true
+        },
+        {
+          "k": 15,
+          "passed": true
+        }
+      ]
+    },
+    "mbpp-clj-133": {
+      "source": ":multipl-e/mbpp-clj",
+      "first_pass": false,
+      "any_pass": true,
+      "pass_count": 2,
+      "total_samples": 16,
+      "samples": [
+        {
+          "k": 0,
+          "passed": false
+        },
+        {
+          "k": 1,
+          "passed": false
+        },
+        {
+          "k": 2,
+          "passed": false
+        },
+        {
+          "k": 3,
+          "passed": false
+        },
+        {
+          "k": 4,
+          "passed": true
+        },
+        {
+          "k": 5,
+          "passed": false
+        },
+        {
+          "k": 6,
+          "passed": false
+        },
+        {
+          "k": 7,
+          "passed": false
+        },
+        {
+          "k": 8,
+          "passed": false
+        },
+        {
+          "k": 9,
+          "passed": false
+        },
+        {
+          "k": 10,
+          "passed": false
+        },
+        {
+          "k": 11,
+          "passed": false
+        },
+        {
+          "k": 12,
+          "passed": false
+        },
+        {
+          "k": 13,
+          "passed": false
+        },
+        {
+          "k": 14,
+          "passed": true
+        },
+        {
+          "k": 15,
+          "passed": false
+        }
+      ]
+    },
+    "mbpp-clj-137": {
+      "source": ":multipl-e/mbpp-clj",
+      "first_pass": true,
+      "any_pass": true,
+      "pass_count": 16,
+      "total_samples": 16,
+      "samples": [
+        {
+          "k": 0,
+          "passed": true
+        },
+        {
+          "k": 1,
+          "passed": true
+        },
+        {
+          "k": 2,
+          "passed": true
+        },
+        {
+          "k": 3,
+          "passed": true
+        },
+        {
+          "k": 4,
+          "passed": true
+        },
+        {
+          "k": 5,
+          "passed": true
+        },
+        {
+          "k": 6,
+          "passed": true
+        },
+        {
+          "k": 7,
+          "passed": true
+        },
+        {
+          "k": 8,
+          "passed": true
+        },
+        {
+          "k": 9,
+          "passed": true
+        },
+        {
+          "k": 10,
+          "passed": true
+        },
+        {
+          "k": 11,
+          "passed": true
+        },
+        {
+          "k": 12,
+          "passed": true
+        },
+        {
+          "k": 13,
+          "passed": true
+        },
+        {
+          "k": 14,
+          "passed": true
+        },
+        {
+          "k": 15,
+          "passed": true
+        }
+      ]
+    },
+    "mbpp-clj-144": {
+      "source": ":multipl-e/mbpp-clj",
+      "first_pass": false,
+      "any_pass": false,
+      "pass_count": 0,
+      "total_samples": 16,
+      "samples": [
+        {
+          "k": 0,
+          "passed": false
+        },
+        {
+          "k": 1,
+          "passed": false
+        },
+        {
+          "k": 2,
+          "passed": false
+        },
+        {
+          "k": 3,
+          "passed": false
+        },
+        {
+          "k": 4,
+          "passed": false
+        },
+        {
+          "k": 5,
+          "passed": false
+        },
+        {
+          "k": 6,
+          "passed": false
+        },
+        {
+          "k": 7,
+          "passed": false
+        },
+        {
+          "k": 8,
+          "passed": false
+        },
+        {
+          "k": 9,
+          "passed": false
+        },
+        {
+          "k": 10,
+          "passed": false
+        },
+        {
+          "k": 11,
+          "passed": false
+        },
+        {
+          "k": 12,
+          "passed": false
+        },
+        {
+          "k": 13,
+          "passed": false
+        },
+        {
+          "k": 14,
+          "passed": false
+        },
+        {
+          "k": 15,
+          "passed": false
+        }
+      ]
+    },
+    "mbpp-clj-148": {
+      "source": ":multipl-e/mbpp-clj",
+      "first_pass": false,
+      "any_pass": false,
+      "pass_count": 0,
+      "total_samples": 16,
+      "samples": [
+        {
+          "k": 0,
+          "passed": false
+        },
+        {
+          "k": 1,
+          "passed": false
+        },
+        {
+          "k": 2,
+          "passed": false
+        },
+        {
+          "k": 3,
+          "passed": false
+        },
+        {
+          "k": 4,
+          "passed": false
+        },
+        {
+          "k": 5,
+          "passed": false
+        },
+        {
+          "k": 6,
+          "passed": false
+        },
+        {
+          "k": 7,
+          "passed": false
+        },
+        {
+          "k": 8,
+          "passed": false
+        },
+        {
+          "k": 9,
+          "passed": false
+        },
+        {
+          "k": 10,
+          "passed": false
+        },
+        {
+          "k": 11,
+          "passed": false
+        },
+        {
+          "k": 12,
+          "passed": false
+        },
+        {
+          "k": 13,
+          "passed": false
+        },
+        {
+          "k": 14,
+          "passed": false
+        },
+        {
+          "k": 15,
+          "passed": false
+        }
+      ]
+    },
+    "mbpp-clj-154": {
+      "source": ":multipl-e/mbpp-clj",
+      "first_pass": false,
+      "any_pass": false,
+      "pass_count": 0,
+      "total_samples": 16,
+      "samples": [
+        {
+          "k": 0,
+          "passed": false
+        },
+        {
+          "k": 1,
+          "passed": false
+        },
+        {
+          "k": 2,
+          "passed": false
+        },
+        {
+          "k": 3,
+          "passed": false
+        },
+        {
+          "k": 4,
+          "passed": false
+        },
+        {
+          "k": 5,
+          "passed": false
+        },
+        {
+          "k": 6,
+          "passed": false
+        },
+        {
+          "k": 7,
+          "passed": false
+        },
+        {
+          "k": 8,
+          "passed": false
+        },
+        {
+          "k": 9,
+          "passed": false
+        },
+        {
+          "k": 10,
+          "passed": false
+        },
+        {
+          "k": 11,
+          "passed": false
+        },
+        {
+          "k": 12,
+          "passed": false
+        },
+        {
+          "k": 13,
+          "passed": false
+        },
+        {
+          "k": 14,
+          "passed": false
+        },
+        {
+          "k": 15,
+          "passed": false
+        }
+      ]
+    },
+    "mbpp-clj-156": {
+      "source": ":multipl-e/mbpp-clj",
+      "first_pass": true,
+      "any_pass": true,
+      "pass_count": 16,
+      "total_samples": 16,
+      "samples": [
+        {
+          "k": 0,
+          "passed": true
+        },
+        {
+          "k": 1,
+          "passed": true
+        },
+        {
+          "k": 2,
+          "passed": true
+        },
+        {
+          "k": 3,
+          "passed": true
+        },
+        {
+          "k": 4,
+          "passed": true
+        },
+        {
+          "k": 5,
+          "passed": true
+        },
+        {
+          "k": 6,
+          "passed": true
+        },
+        {
+          "k": 7,
+          "passed": true
+        },
+        {
+          "k": 8,
+          "passed": true
+        },
+        {
+          "k": 9,
+          "passed": true
+        },
+        {
+          "k": 10,
+          "passed": true
+        },
+        {
+          "k": 11,
+          "passed": true
+        },
+        {
+          "k": 12,
+          "passed": true
+        },
+        {
+          "k": 13,
+          "passed": true
+        },
+        {
+          "k": 14,
+          "passed": true
+        },
+        {
+          "k": 15,
+          "passed": true
+        }
+      ]
+    },
+    "mbpp-clj-162": {
+      "source": ":multipl-e/mbpp-clj",
+      "first_pass": false,
+      "any_pass": false,
+      "pass_count": 0,
+      "total_samples": 16,
+      "samples": [
+        {
+          "k": 0,
+          "passed": false
+        },
+        {
+          "k": 1,
+          "passed": false
+        },
+        {
+          "k": 2,
+          "passed": false
+        },
+        {
+          "k": 3,
+          "passed": false
+        },
+        {
+          "k": 4,
+          "passed": false
+        },
+        {
+          "k": 5,
+          "passed": false
+        },
+        {
+          "k": 6,
+          "passed": false
+        },
+        {
+          "k": 7,
+          "passed": false
+        },
+        {
+          "k": 8,
+          "passed": false
+        },
+        {
+          "k": 9,
+          "passed": false
+        },
+        {
+          "k": 10,
+          "passed": false
+        },
+        {
+          "k": 11,
+          "passed": false
+        },
+        {
+          "k": 12,
+          "passed": false
+        },
+        {
+          "k": 13,
+          "passed": false
+        },
+        {
+          "k": 14,
+          "passed": false
+        },
+        {
+          "k": 15,
+          "passed": false
+        }
+      ]
+    },
+    "mbpp-clj-163": {
+      "source": ":multipl-e/mbpp-clj",
+      "first_pass": false,
+      "any_pass": false,
+      "pass_count": 0,
+      "total_samples": 16,
+      "samples": [
+        {
+          "k": 0,
+          "passed": false
+        },
+        {
+          "k": 1,
+          "passed": false
+        },
+        {
+          "k": 2,
+          "passed": false
+        },
+        {
+          "k": 3,
+          "passed": false
+        },
+        {
+          "k": 4,
+          "passed": false
+        },
+        {
+          "k": 5,
+          "passed": false
+        },
+        {
+          "k": 6,
+          "passed": false
+        },
+        {
+          "k": 7,
+          "passed": false
+        },
+        {
+          "k": 8,
+          "passed": false
+        },
+        {
+          "k": 9,
+          "passed": false
+        },
+        {
+          "k": 10,
+          "passed": false
+        },
+        {
+          "k": 11,
+          "passed": false
+        },
+        {
+          "k": 12,
+          "passed": false
+        },
+        {
+          "k": 13,
+          "passed": false
+        },
+        {
+          "k": 14,
+          "passed": false
+        },
+        {
+          "k": 15,
+          "passed": false
+        }
+      ]
+    },
+    "mbpp-clj-176": {
+      "source": ":multipl-e/mbpp-clj",
+      "first_pass": false,
+      "any_pass": true,
+      "pass_count": 15,
+      "total_samples": 16,
+      "samples": [
+        {
+          "k": 0,
+          "passed": false
+        },
+        {
+          "k": 1,
+          "passed": true
+        },
+        {
+          "k": 2,
+          "passed": true
+        },
+        {
+          "k": 3,
+          "passed": true
+        },
+        {
+          "k": 4,
+          "passed": true
+        },
+        {
+          "k": 5,
+          "passed": true
+        },
+        {
+          "k": 6,
+          "passed": true
+        },
+        {
+          "k": 7,
+          "passed": true
+        },
+        {
+          "k": 8,
+          "passed": true
+        },
+        {
+          "k": 9,
+          "passed": true
+        },
+        {
+          "k": 10,
+          "passed": true
+        },
+        {
+          "k": 11,
+          "passed": true
+        },
+        {
+          "k": 12,
+          "passed": true
+        },
+        {
+          "k": 13,
+          "passed": true
+        },
+        {
+          "k": 14,
+          "passed": true
+        },
+        {
+          "k": 15,
+          "passed": true
+        }
+      ]
+    },
+    "mbpp-clj-179": {
+      "source": ":multipl-e/mbpp-clj",
+      "first_pass": false,
+      "any_pass": false,
+      "pass_count": 0,
+      "total_samples": 16,
+      "samples": [
+        {
+          "k": 0,
+          "passed": false
+        },
+        {
+          "k": 1,
+          "passed": false
+        },
+        {
+          "k": 2,
+          "passed": false
+        },
+        {
+          "k": 3,
+          "passed": false
+        },
+        {
+          "k": 4,
+          "passed": false
+        },
+        {
+          "k": 5,
+          "passed": false
+        },
+        {
+          "k": 6,
+          "passed": false
+        },
+        {
+          "k": 7,
+          "passed": false
+        },
+        {
+          "k": 8,
+          "passed": false
+        },
+        {
+          "k": 9,
+          "passed": false
+        },
+        {
+          "k": 10,
+          "passed": false
+        },
+        {
+          "k": 11,
+          "passed": false
+        },
+        {
+          "k": 12,
+          "passed": false
+        },
+        {
+          "k": 13,
+          "passed": false
+        },
+        {
+          "k": 14,
+          "passed": false
+        },
+        {
+          "k": 15,
+          "passed": false
+        }
+      ]
+    },
+    "mbpp-clj-180": {
+      "source": ":multipl-e/mbpp-clj",
+      "first_pass": true,
+      "any_pass": true,
+      "pass_count": 16,
+      "total_samples": 16,
+      "samples": [
+        {
+          "k": 0,
+          "passed": true
+        },
+        {
+          "k": 1,
+          "passed": true
+        },
+        {
+          "k": 2,
+          "passed": true
+        },
+        {
+          "k": 3,
+          "passed": true
+        },
+        {
+          "k": 4,
+          "passed": true
+        },
+        {
+          "k": 5,
+          "passed": true
+        },
+        {
+          "k": 6,
+          "passed": true
+        },
+        {
+          "k": 7,
+          "passed": true
+        },
+        {
+          "k": 8,
+          "passed": true
+        },
+        {
+          "k": 9,
+          "passed": true
+        },
+        {
+          "k": 10,
+          "passed": true
+        },
+        {
+          "k": 11,
+          "passed": true
+        },
+        {
+          "k": 12,
+          "passed": true
+        },
+        {
+          "k": 13,
+          "passed": true
+        },
+        {
+          "k": 14,
+          "passed": true
+        },
+        {
+          "k": 15,
+          "passed": true
+        }
+      ]
+    },
+    "mbpp-clj-181": {
+      "source": ":multipl-e/mbpp-clj",
+      "first_pass": false,
+      "any_pass": false,
+      "pass_count": 0,
+      "total_samples": 16,
+      "samples": [
+        {
+          "k": 0,
+          "passed": false
+        },
+        {
+          "k": 1,
+          "passed": false
+        },
+        {
+          "k": 2,
+          "passed": false
+        },
+        {
+          "k": 3,
+          "passed": false
+        },
+        {
+          "k": 4,
+          "passed": false
+        },
+        {
+          "k": 5,
+          "passed": false
+        },
+        {
+          "k": 6,
+          "passed": false
+        },
+        {
+          "k": 7,
+          "passed": false
+        },
+        {
+          "k": 8,
+          "passed": false
+        },
+        {
+          "k": 9,
+          "passed": false
+        },
+        {
+          "k": 10,
+          "passed": false
+        },
+        {
+          "k": 11,
+          "passed": false
+        },
+        {
+          "k": 12,
+          "passed": false
+        },
+        {
+          "k": 13,
+          "passed": false
+        },
+        {
+          "k": 14,
+          "passed": false
+        },
+        {
+          "k": 15,
+          "passed": false
+        }
+      ]
+    },
+    "mbpp-clj-185": {
+      "source": ":multipl-e/mbpp-clj",
+      "first_pass": true,
+      "any_pass": true,
+      "pass_count": 16,
+      "total_samples": 16,
+      "samples": [
+        {
+          "k": 0,
+          "passed": true
+        },
+        {
+          "k": 1,
+          "passed": true
+        },
+        {
+          "k": 2,
+          "passed": true
+        },
+        {
+          "k": 3,
+          "passed": true
+        },
+        {
+          "k": 4,
+          "passed": true
+        },
+        {
+          "k": 5,
+          "passed": true
+        },
+        {
+          "k": 6,
+          "passed": true
+        },
+        {
+          "k": 7,
+          "passed": true
+        },
+        {
+          "k": 8,
+          "passed": true
+        },
+        {
+          "k": 9,
+          "passed": true
+        },
+        {
+          "k": 10,
+          "passed": true
+        },
+        {
+          "k": 11,
+          "passed": true
+        },
+        {
+          "k": 12,
+          "passed": true
+        },
+        {
+          "k": 13,
+          "passed": true
+        },
+        {
+          "k": 14,
+          "passed": true
+        },
+        {
+          "k": 15,
+          "passed": true
+        }
+      ]
+    },
+    "mbpp-clj-191": {
+      "source": ":multipl-e/mbpp-clj",
+      "first_pass": true,
+      "any_pass": true,
+      "pass_count": 10,
+      "total_samples": 16,
+      "samples": [
+        {
+          "k": 0,
+          "passed": true
+        },
+        {
+          "k": 1,
+          "passed": true
+        },
+        {
+          "k": 2,
+          "passed": false
+        },
+        {
+          "k": 3,
+          "passed": true
+        },
+        {
+          "k": 4,
+          "passed": false
+        },
+        {
+          "k": 5,
+          "passed": false
+        },
+        {
+          "k": 6,
+          "passed": false
+        },
+        {
+          "k": 7,
+          "passed": true
+        },
+        {
+          "k": 8,
+          "passed": true
+        },
+        {
+          "k": 9,
+          "passed": false
+        },
+        {
+          "k": 10,
+          "passed": true
+        },
+        {
+          "k": 11,
+          "passed": true
+        },
+        {
+          "k": 12,
+          "passed": true
+        },
+        {
+          "k": 13,
+          "passed": true
+        },
+        {
+          "k": 14,
+          "passed": false
+        },
+        {
+          "k": 15,
+          "passed": true
+        }
+      ]
+    },
+    "mbpp-clj-196": {
+      "source": ":multipl-e/mbpp-clj",
+      "first_pass": false,
+      "any_pass": false,
+      "pass_count": 0,
+      "total_samples": 16,
+      "samples": [
+        {
+          "k": 0,
+          "passed": false
+        },
+        {
+          "k": 1,
+          "passed": false
+        },
+        {
+          "k": 2,
+          "passed": false
+        },
+        {
+          "k": 3,
+          "passed": false
+        },
+        {
+          "k": 4,
+          "passed": false
+        },
+        {
+          "k": 5,
+          "passed": false
+        },
+        {
+          "k": 6,
+          "passed": false
+        },
+        {
+          "k": 7,
+          "passed": false
+        },
+        {
+          "k": 8,
+          "passed": false
+        },
+        {
+          "k": 9,
+          "passed": false
+        },
+        {
+          "k": 10,
+          "passed": false
+        },
+        {
+          "k": 11,
+          "passed": false
+        },
+        {
+          "k": 12,
+          "passed": false
+        },
+        {
+          "k": 13,
+          "passed": false
+        },
+        {
+          "k": 14,
+          "passed": false
+        },
+        {
+          "k": 15,
+          "passed": false
+        }
+      ]
+    },
+    "mbpp-clj-197": {
+      "source": ":multipl-e/mbpp-clj",
+      "first_pass": false,
+      "any_pass": false,
+      "pass_count": 0,
+      "total_samples": 16,
+      "samples": [
+        {
+          "k": 0,
+          "passed": false
+        },
+        {
+          "k": 1,
+          "passed": false
+        },
+        {
+          "k": 2,
+          "passed": false
+        },
+        {
+          "k": 3,
+          "passed": false
+        },
+        {
+          "k": 4,
+          "passed": false
+        },
+        {
+          "k": 5,
+          "passed": false
+        },
+        {
+          "k": 6,
+          "passed": false
+        },
+        {
+          "k": 7,
+          "passed": false
+        },
+        {
+          "k": 8,
+          "passed": false
+        },
+        {
+          "k": 9,
+          "passed": false
+        },
+        {
+          "k": 10,
+          "passed": false
+        },
+        {
+          "k": 11,
+          "passed": false
+        },
+        {
+          "k": 12,
+          "passed": false
+        },
+        {
+          "k": 13,
+          "passed": false
+        },
+        {
+          "k": 14,
+          "passed": false
+        },
+        {
+          "k": 15,
+          "passed": false
+        }
+      ]
+    },
+    "mbpp-clj-201": {
+      "source": ":multipl-e/mbpp-clj",
+      "first_pass": true,
+      "any_pass": true,
+      "pass_count": 14,
+      "total_samples": 16,
+      "samples": [
+        {
+          "k": 0,
+          "passed": true
+        },
+        {
+          "k": 1,
+          "passed": true
+        },
+        {
+          "k": 2,
+          "passed": true
+        },
+        {
+          "k": 3,
+          "passed": true
+        },
+        {
+          "k": 4,
+          "passed": true
+        },
+        {
+          "k": 5,
+          "passed": true
+        },
+        {
+          "k": 6,
+          "passed": true
+        },
+        {
+          "k": 7,
+          "passed": true
+        },
+        {
+          "k": 8,
+          "passed": true
+        },
+        {
+          "k": 9,
+          "passed": true
+        },
+        {
+          "k": 10,
+          "passed": false
+        },
+        {
+          "k": 11,
+          "passed": true
+        },
+        {
+          "k": 12,
+          "passed": true
+        },
+        {
+          "k": 13,
+          "passed": true
+        },
+        {
+          "k": 14,
+          "passed": true
+        },
+        {
+          "k": 15,
+          "passed": false
+        }
+      ]
+    },
+    "mbpp-clj-204": {
+      "source": ":multipl-e/mbpp-clj",
+      "first_pass": false,
+      "any_pass": false,
+      "pass_count": 0,
+      "total_samples": 16,
+      "samples": [
+        {
+          "k": 0,
+          "passed": false
+        },
+        {
+          "k": 1,
+          "passed": false
+        },
+        {
+          "k": 2,
+          "passed": false
+        },
+        {
+          "k": 3,
+          "passed": false
+        },
+        {
+          "k": 4,
+          "passed": false
+        },
+        {
+          "k": 5,
+          "passed": false
+        },
+        {
+          "k": 6,
+          "passed": false
+        },
+        {
+          "k": 7,
+          "passed": false
+        },
+        {
+          "k": 8,
+          "passed": false
+        },
+        {
+          "k": 9,
+          "passed": false
+        },
+        {
+          "k": 10,
+          "passed": false
+        },
+        {
+          "k": 11,
+          "passed": false
+        },
+        {
+          "k": 12,
+          "passed": false
+        },
+        {
+          "k": 13,
+          "passed": false
+        },
+        {
+          "k": 14,
+          "passed": false
+        },
+        {
+          "k": 15,
+          "passed": false
+        }
+      ]
+    },
+    "mbpp-clj-214": {
+      "source": ":multipl-e/mbpp-clj",
+      "first_pass": false,
+      "any_pass": false,
+      "pass_count": 0,
+      "total_samples": 16,
+      "samples": [
+        {
+          "k": 0,
+          "passed": false
+        },
+        {
+          "k": 1,
+          "passed": false
+        },
+        {
+          "k": 2,
+          "passed": false
+        },
+        {
+          "k": 3,
+          "passed": false
+        },
+        {
+          "k": 4,
+          "passed": false
+        },
+        {
+          "k": 5,
+          "passed": false
+        },
+        {
+          "k": 6,
+          "passed": false
+        },
+        {
+          "k": 7,
+          "passed": false
+        },
+        {
+          "k": 8,
+          "passed": false
+        },
+        {
+          "k": 9,
+          "passed": false
+        },
+        {
+          "k": 10,
+          "passed": false
+        },
+        {
+          "k": 11,
+          "passed": false
+        },
+        {
+          "k": 12,
+          "passed": false
+        },
+        {
+          "k": 13,
+          "passed": false
+        },
+        {
+          "k": 14,
+          "passed": false
+        },
+        {
+          "k": 15,
+          "passed": false
+        }
+      ]
+    },
+    "mbpp-clj-216": {
+      "source": ":multipl-e/mbpp-clj",
+      "first_pass": true,
+      "any_pass": true,
+      "pass_count": 16,
+      "total_samples": 16,
+      "samples": [
+        {
+          "k": 0,
+          "passed": true
+        },
+        {
+          "k": 1,
+          "passed": true
+        },
+        {
+          "k": 2,
+          "passed": true
+        },
+        {
+          "k": 3,
+          "passed": true
+        },
+        {
+          "k": 4,
+          "passed": true
+        },
+        {
+          "k": 5,
+          "passed": true
+        },
+        {
+          "k": 6,
+          "passed": true
+        },
+        {
+          "k": 7,
+          "passed": true
+        },
+        {
+          "k": 8,
+          "passed": true
+        },
+        {
+          "k": 9,
+          "passed": true
+        },
+        {
+          "k": 10,
+          "passed": true
+        },
+        {
+          "k": 11,
+          "passed": true
+        },
+        {
+          "k": 12,
+          "passed": true
+        },
+        {
+          "k": 13,
+          "passed": true
+        },
+        {
+          "k": 14,
+          "passed": true
+        },
+        {
+          "k": 15,
+          "passed": true
+        }
+      ]
+    },
+    "mbpp-clj-220": {
+      "source": ":multipl-e/mbpp-clj",
+      "first_pass": true,
+      "any_pass": true,
+      "pass_count": 16,
+      "total_samples": 16,
+      "samples": [
+        {
+          "k": 0,
+          "passed": true
+        },
+        {
+          "k": 1,
+          "passed": true
+        },
+        {
+          "k": 2,
+          "passed": true
+        },
+        {
+          "k": 3,
+          "passed": true
+        },
+        {
+          "k": 4,
+          "passed": true
+        },
+        {
+          "k": 5,
+          "passed": true
+        },
+        {
+          "k": 6,
+          "passed": true
+        },
+        {
+          "k": 7,
+          "passed": true
+        },
+        {
+          "k": 8,
+          "passed": true
+        },
+        {
+          "k": 9,
+          "passed": true
+        },
+        {
+          "k": 10,
+          "passed": true
+        },
+        {
+          "k": 11,
+          "passed": true
+        },
+        {
+          "k": 12,
+          "passed": true
+        },
+        {
+          "k": 13,
+          "passed": true
+        },
+        {
+          "k": 14,
+          "passed": true
+        },
+        {
+          "k": 15,
+          "passed": true
+        }
+      ]
+    },
+    "mbpp-clj-226": {
+      "source": ":multipl-e/mbpp-clj",
+      "first_pass": false,
+      "any_pass": false,
+      "pass_count": 0,
+      "total_samples": 16,
+      "samples": [
+        {
+          "k": 0,
+          "passed": false
+        },
+        {
+          "k": 1,
+          "passed": false
+        },
+        {
+          "k": 2,
+          "passed": false
+        },
+        {
+          "k": 3,
+          "passed": false
+        },
+        {
+          "k": 4,
+          "passed": false
+        },
+        {
+          "k": 5,
+          "passed": false
+        },
+        {
+          "k": 6,
+          "passed": false
+        },
+        {
+          "k": 7,
+          "passed": false
+        },
+        {
+          "k": 8,
+          "passed": false
+        },
+        {
+          "k": 9,
+          "passed": false
+        },
+        {
+          "k": 10,
+          "passed": false
+        },
+        {
+          "k": 11,
+          "passed": false
+        },
+        {
+          "k": 12,
+          "passed": false
+        },
+        {
+          "k": 13,
+          "passed": false
+        },
+        {
+          "k": 14,
+          "passed": false
+        },
+        {
+          "k": 15,
+          "passed": false
+        }
+      ]
+    },
+    "mbpp-clj-245": {
+      "source": ":multipl-e/mbpp-clj",
+      "first_pass": true,
+      "any_pass": true,
+      "pass_count": 15,
+      "total_samples": 16,
+      "samples": [
+        {
+          "k": 0,
+          "passed": true
+        },
+        {
+          "k": 1,
+          "passed": false
+        },
+        {
+          "k": 2,
+          "passed": true
+        },
+        {
+          "k": 3,
+          "passed": true
+        },
+        {
+          "k": 4,
+          "passed": true
+        },
+        {
+          "k": 5,
+          "passed": true
+        },
+        {
+          "k": 6,
+          "passed": true
+        },
+        {
+          "k": 7,
+          "passed": true
+        },
+        {
+          "k": 8,
+          "passed": true
+        },
+        {
+          "k": 9,
+          "passed": true
+        },
+        {
+          "k": 10,
+          "passed": true
+        },
+        {
+          "k": 11,
+          "passed": true
+        },
+        {
+          "k": 12,
+          "passed": true
+        },
+        {
+          "k": 13,
+          "passed": true
+        },
+        {
+          "k": 14,
+          "passed": true
+        },
+        {
+          "k": 15,
+          "passed": true
+        }
+      ]
+    },
+    "mbpp-clj-248": {
+      "source": ":multipl-e/mbpp-clj",
+      "first_pass": true,
+      "any_pass": true,
+      "pass_count": 16,
+      "total_samples": 16,
+      "samples": [
+        {
+          "k": 0,
+          "passed": true
+        },
+        {
+          "k": 1,
+          "passed": true
+        },
+        {
+          "k": 2,
+          "passed": true
+        },
+        {
+          "k": 3,
+          "passed": true
+        },
+        {
+          "k": 4,
+          "passed": true
+        },
+        {
+          "k": 5,
+          "passed": true
+        },
+        {
+          "k": 6,
+          "passed": true
+        },
+        {
+          "k": 7,
+          "passed": true
+        },
+        {
+          "k": 8,
+          "passed": true
+        },
+        {
+          "k": 9,
+          "passed": true
+        },
+        {
+          "k": 10,
+          "passed": true
+        },
+        {
+          "k": 11,
+          "passed": true
+        },
+        {
+          "k": 12,
+          "passed": true
+        },
+        {
+          "k": 13,
+          "passed": true
+        },
+        {
+          "k": 14,
+          "passed": true
+        },
+        {
+          "k": 15,
+          "passed": true
+        }
+      ]
+    },
+    "mbpp-clj-252": {
+      "source": ":multipl-e/mbpp-clj",
+      "first_pass": true,
+      "any_pass": true,
+      "pass_count": 16,
+      "total_samples": 16,
+      "samples": [
+        {
+          "k": 0,
+          "passed": true
+        },
+        {
+          "k": 1,
+          "passed": true
+        },
+        {
+          "k": 2,
+          "passed": true
+        },
+        {
+          "k": 3,
+          "passed": true
+        },
+        {
+          "k": 4,
+          "passed": true
+        },
+        {
+          "k": 5,
+          "passed": true
+        },
+        {
+          "k": 6,
+          "passed": true
+        },
+        {
+          "k": 7,
+          "passed": true
+        },
+        {
+          "k": 8,
+          "passed": true
+        },
+        {
+          "k": 9,
+          "passed": true
+        },
+        {
+          "k": 10,
+          "passed": true
+        },
+        {
+          "k": 11,
+          "passed": true
+        },
+        {
+          "k": 12,
+          "passed": true
+        },
+        {
+          "k": 13,
+          "passed": true
+        },
+        {
+          "k": 14,
+          "passed": true
+        },
+        {
+          "k": 15,
+          "passed": true
+        }
+      ]
+    },
+    "mbpp-clj-258": {
+      "source": ":multipl-e/mbpp-clj",
+      "first_pass": false,
+      "any_pass": false,
+      "pass_count": 0,
+      "total_samples": 16,
+      "samples": [
+        {
+          "k": 0,
+          "passed": false
+        },
+        {
+          "k": 1,
+          "passed": false
+        },
+        {
+          "k": 2,
+          "passed": false
+        },
+        {
+          "k": 3,
+          "passed": false
+        },
+        {
+          "k": 4,
+          "passed": false
+        },
+        {
+          "k": 5,
+          "passed": false
+        },
+        {
+          "k": 6,
+          "passed": false
+        },
+        {
+          "k": 7,
+          "passed": false
+        },
+        {
+          "k": 8,
+          "passed": false
+        },
+        {
+          "k": 9,
+          "passed": false
+        },
+        {
+          "k": 10,
+          "passed": false
+        },
+        {
+          "k": 11,
+          "passed": false
+        },
+        {
+          "k": 12,
+          "passed": false
+        },
+        {
+          "k": 13,
+          "passed": false
+        },
+        {
+          "k": 14,
+          "passed": false
+        },
+        {
+          "k": 15,
+          "passed": false
+        }
+      ]
+    },
+    "mbpp-clj-259": {
+      "source": ":multipl-e/mbpp-clj",
+      "first_pass": true,
+      "any_pass": true,
+      "pass_count": 5,
+      "total_samples": 16,
+      "samples": [
+        {
+          "k": 0,
+          "passed": true
+        },
+        {
+          "k": 1,
+          "passed": true
+        },
+        {
+          "k": 2,
+          "passed": false
+        },
+        {
+          "k": 3,
+          "passed": false
+        },
+        {
+          "k": 4,
+          "passed": false
+        },
+        {
+          "k": 5,
+          "passed": false
+        },
+        {
+          "k": 6,
+          "passed": false
+        },
+        {
+          "k": 7,
+          "passed": true
+        },
+        {
+          "k": 8,
+          "passed": false
+        },
+        {
+          "k": 9,
+          "passed": false
+        },
+        {
+          "k": 10,
+          "passed": false
+        },
+        {
+          "k": 11,
+          "passed": true
+        },
+        {
+          "k": 12,
+          "passed": false
+        },
+        {
+          "k": 13,
+          "passed": false
+        },
+        {
+          "k": 14,
+          "passed": false
+        },
+        {
+          "k": 15,
+          "passed": true
+        }
+      ]
+    },
+    "mbpp-clj-266": {
+      "source": ":multipl-e/mbpp-clj",
+      "first_pass": false,
+      "any_pass": false,
+      "pass_count": 0,
+      "total_samples": 16,
+      "samples": [
+        {
+          "k": 0,
+          "passed": false
+        },
+        {
+          "k": 1,
+          "passed": false
+        },
+        {
+          "k": 2,
+          "passed": false
+        },
+        {
+          "k": 3,
+          "passed": false
+        },
+        {
+          "k": 4,
+          "passed": false
+        },
+        {
+          "k": 5,
+          "passed": false
+        },
+        {
+          "k": 6,
+          "passed": false
+        },
+        {
+          "k": 7,
+          "passed": false
+        },
+        {
+          "k": 8,
+          "passed": false
+        },
+        {
+          "k": 9,
+          "passed": false
+        },
+        {
+          "k": 10,
+          "passed": false
+        },
+        {
+          "k": 11,
+          "passed": false
+        },
+        {
+          "k": 12,
+          "passed": false
+        },
+        {
+          "k": 13,
+          "passed": false
+        },
+        {
+          "k": 14,
+          "passed": false
+        },
+        {
+          "k": 15,
+          "passed": false
+        }
+      ]
+    },
+    "mbpp-clj-267": {
+      "source": ":multipl-e/mbpp-clj",
+      "first_pass": false,
+      "any_pass": false,
+      "pass_count": 0,
+      "total_samples": 16,
+      "samples": [
+        {
+          "k": 0,
+          "passed": false
+        },
+        {
+          "k": 1,
+          "passed": false
+        },
+        {
+          "k": 2,
+          "passed": false
+        },
+        {
+          "k": 3,
+          "passed": false
+        },
+        {
+          "k": 4,
+          "passed": false
+        },
+        {
+          "k": 5,
+          "passed": false
+        },
+        {
+          "k": 6,
+          "passed": false
+        },
+        {
+          "k": 7,
+          "passed": false
+        },
+        {
+          "k": 8,
+          "passed": false
+        },
+        {
+          "k": 9,
+          "passed": false
+        },
+        {
+          "k": 10,
+          "passed": false
+        },
+        {
+          "k": 11,
+          "passed": false
+        },
+        {
+          "k": 12,
+          "passed": false
+        },
+        {
+          "k": 13,
+          "passed": false
+        },
+        {
+          "k": 14,
+          "passed": false
+        },
+        {
+          "k": 15,
+          "passed": false
+        }
+      ]
+    },
+    "mbpp-clj-268": {
+      "source": ":multipl-e/mbpp-clj",
+      "first_pass": false,
+      "any_pass": true,
+      "pass_count": 9,
+      "total_samples": 16,
+      "samples": [
+        {
+          "k": 0,
+          "passed": false
+        },
+        {
+          "k": 1,
+          "passed": true
+        },
+        {
+          "k": 2,
+          "passed": false
+        },
+        {
+          "k": 3,
+          "passed": true
+        },
+        {
+          "k": 4,
+          "passed": true
+        },
+        {
+          "k": 5,
+          "passed": false
+        },
+        {
+          "k": 6,
+          "passed": false
+        },
+        {
+          "k": 7,
+          "passed": true
+        },
+        {
+          "k": 8,
+          "passed": false
+        },
+        {
+          "k": 9,
+          "passed": false
+        },
+        {
+          "k": 10,
+          "passed": true
+        },
+        {
+          "k": 11,
+          "passed": true
+        },
+        {
+          "k": 12,
+          "passed": false
+        },
+        {
+          "k": 13,
+          "passed": true
+        },
+        {
+          "k": 14,
+          "passed": true
+        },
+        {
+          "k": 15,
+          "passed": true
+        }
+      ]
+    },
+    "mbpp-clj-269": {
+      "source": ":multipl-e/mbpp-clj",
+      "first_pass": true,
+      "any_pass": true,
+      "pass_count": 16,
+      "total_samples": 16,
+      "samples": [
+        {
+          "k": 0,
+          "passed": true
+        },
+        {
+          "k": 1,
+          "passed": true
+        },
+        {
+          "k": 2,
+          "passed": true
+        },
+        {
+          "k": 3,
+          "passed": true
+        },
+        {
+          "k": 4,
+          "passed": true
+        },
+        {
+          "k": 5,
+          "passed": true
+        },
+        {
+          "k": 6,
+          "passed": true
+        },
+        {
+          "k": 7,
+          "passed": true
+        },
+        {
+          "k": 8,
+          "passed": true
+        },
+        {
+          "k": 9,
+          "passed": true
+        },
+        {
+          "k": 10,
+          "passed": true
+        },
+        {
+          "k": 11,
+          "passed": true
+        },
+        {
+          "k": 12,
+          "passed": true
+        },
+        {
+          "k": 13,
+          "passed": true
+        },
+        {
+          "k": 14,
+          "passed": true
+        },
+        {
+          "k": 15,
+          "passed": true
+        }
+      ]
+    },
+    "mbpp-clj-279": {
+      "source": ":multipl-e/mbpp-clj",
+      "first_pass": false,
+      "any_pass": false,
+      "pass_count": 0,
+      "total_samples": 16,
+      "samples": [
+        {
+          "k": 0,
+          "passed": false
+        },
+        {
+          "k": 1,
+          "passed": false
+        },
+        {
+          "k": 2,
+          "passed": false
+        },
+        {
+          "k": 3,
+          "passed": false
+        },
+        {
+          "k": 4,
+          "passed": false
+        },
+        {
+          "k": 5,
+          "passed": false
+        },
+        {
+          "k": 6,
+          "passed": false
+        },
+        {
+          "k": 7,
+          "passed": false
+        },
+        {
+          "k": 8,
+          "passed": false
+        },
+        {
+          "k": 9,
+          "passed": false
+        },
+        {
+          "k": 10,
+          "passed": false
+        },
+        {
+          "k": 11,
+          "passed": false
+        },
+        {
+          "k": 12,
+          "passed": false
+        },
+        {
+          "k": 13,
+          "passed": false
+        },
+        {
+          "k": 14,
+          "passed": false
+        },
+        {
+          "k": 15,
+          "passed": false
+        }
+      ]
+    },
+    "mbpp-clj-283": {
+      "source": ":multipl-e/mbpp-clj",
+      "first_pass": true,
+      "any_pass": true,
+      "pass_count": 8,
+      "total_samples": 16,
+      "samples": [
+        {
+          "k": 0,
+          "passed": true
+        },
+        {
+          "k": 1,
+          "passed": false
+        },
+        {
+          "k": 2,
+          "passed": false
+        },
+        {
+          "k": 3,
+          "passed": true
+        },
+        {
+          "k": 4,
+          "passed": false
+        },
+        {
+          "k": 5,
+          "passed": true
+        },
+        {
+          "k": 6,
+          "passed": true
+        },
+        {
+          "k": 7,
+          "passed": true
+        },
+        {
+          "k": 8,
+          "passed": true
+        },
+        {
+          "k": 9,
+          "passed": false
+        },
+        {
+          "k": 10,
+          "passed": true
+        },
+        {
+          "k": 11,
+          "passed": false
+        },
+        {
+          "k": 12,
+          "passed": false
+        },
+        {
+          "k": 13,
+          "passed": false
+        },
+        {
+          "k": 14,
+          "passed": false
+        },
+        {
+          "k": 15,
+          "passed": true
+        }
+      ]
+    },
+    "mbpp-clj-286": {
+      "source": ":multipl-e/mbpp-clj",
+      "first_pass": false,
+      "any_pass": true,
+      "pass_count": 1,
+      "total_samples": 16,
+      "samples": [
+        {
+          "k": 0,
+          "passed": false
+        },
+        {
+          "k": 1,
+          "passed": false
+        },
+        {
+          "k": 2,
+          "passed": false
+        },
+        {
+          "k": 3,
+          "passed": false
+        },
+        {
+          "k": 4,
+          "passed": false
+        },
+        {
+          "k": 5,
+          "passed": false
+        },
+        {
+          "k": 6,
+          "passed": false
+        },
+        {
+          "k": 7,
+          "passed": false
+        },
+        {
+          "k": 8,
+          "passed": false
+        },
+        {
+          "k": 9,
+          "passed": false
+        },
+        {
+          "k": 10,
+          "passed": false
+        },
+        {
+          "k": 11,
+          "passed": false
+        },
+        {
+          "k": 12,
+          "passed": true
+        },
+        {
+          "k": 13,
+          "passed": false
+        },
+        {
+          "k": 14,
+          "passed": false
+        },
+        {
+          "k": 15,
+          "passed": false
+        }
+      ]
+    },
+    "mbpp-clj-287": {
+      "source": ":multipl-e/mbpp-clj",
+      "first_pass": false,
+      "any_pass": false,
+      "pass_count": 0,
+      "total_samples": 16,
+      "samples": [
+        {
+          "k": 0,
+          "passed": false
+        },
+        {
+          "k": 1,
+          "passed": false
+        },
+        {
+          "k": 2,
+          "passed": false
+        },
+        {
+          "k": 3,
+          "passed": false
+        },
+        {
+          "k": 4,
+          "passed": false
+        },
+        {
+          "k": 5,
+          "passed": false
+        },
+        {
+          "k": 6,
+          "passed": false
+        },
+        {
+          "k": 7,
+          "passed": false
+        },
+        {
+          "k": 8,
+          "passed": false
+        },
+        {
+          "k": 9,
+          "passed": false
+        },
+        {
+          "k": 10,
+          "passed": false
+        },
+        {
+          "k": 11,
+          "passed": false
+        },
+        {
+          "k": 12,
+          "passed": false
+        },
+        {
+          "k": 13,
+          "passed": false
+        },
+        {
+          "k": 14,
+          "passed": false
+        },
+        {
+          "k": 15,
+          "passed": false
+        }
+      ]
+    },
+    "mbpp-clj-295": {
+      "source": ":multipl-e/mbpp-clj",
+      "first_pass": false,
+      "any_pass": false,
+      "pass_count": 0,
+      "total_samples": 16,
+      "samples": [
+        {
+          "k": 0,
+          "passed": false
+        },
+        {
+          "k": 1,
+          "passed": false
+        },
+        {
+          "k": 2,
+          "passed": false
+        },
+        {
+          "k": 3,
+          "passed": false
+        },
+        {
+          "k": 4,
+          "passed": false
+        },
+        {
+          "k": 5,
+          "passed": false
+        },
+        {
+          "k": 6,
+          "passed": false
+        },
+        {
+          "k": 7,
+          "passed": false
+        },
+        {
+          "k": 8,
+          "passed": false
+        },
+        {
+          "k": 9,
+          "passed": false
+        },
+        {
+          "k": 10,
+          "passed": false
+        },
+        {
+          "k": 11,
+          "passed": false
+        },
+        {
+          "k": 12,
+          "passed": false
+        },
+        {
+          "k": 13,
+          "passed": false
+        },
+        {
+          "k": 14,
+          "passed": false
+        },
+        {
+          "k": 15,
+          "passed": false
+        }
+      ]
+    },
+    "mbpp-clj-297": {
+      "source": ":multipl-e/mbpp-clj",
+      "first_pass": false,
+      "any_pass": false,
+      "pass_count": 0,
+      "total_samples": 16,
+      "samples": [
+        {
+          "k": 0,
+          "passed": false
+        },
+        {
+          "k": 1,
+          "passed": false
+        },
+        {
+          "k": 2,
+          "passed": false
+        },
+        {
+          "k": 3,
+          "passed": false
+        },
+        {
+          "k": 4,
+          "passed": false
+        },
+        {
+          "k": 5,
+          "passed": false
+        },
+        {
+          "k": 6,
+          "passed": false
+        },
+        {
+          "k": 7,
+          "passed": false
+        },
+        {
+          "k": 8,
+          "passed": false
+        },
+        {
+          "k": 9,
+          "passed": false
+        },
+        {
+          "k": 10,
+          "passed": false
+        },
+        {
+          "k": 11,
+          "passed": false
+        },
+        {
+          "k": 12,
+          "passed": false
+        },
+        {
+          "k": 13,
+          "passed": false
+        },
+        {
+          "k": 14,
+          "passed": false
+        },
+        {
+          "k": 15,
+          "passed": false
+        }
+      ]
+    },
+    "mbpp-clj-299": {
+      "source": ":multipl-e/mbpp-clj",
+      "first_pass": true,
+      "any_pass": true,
+      "pass_count": 16,
+      "total_samples": 16,
+      "samples": [
+        {
+          "k": 0,
+          "passed": true
+        },
+        {
+          "k": 1,
+          "passed": true
+        },
+        {
+          "k": 2,
+          "passed": true
+        },
+        {
+          "k": 3,
+          "passed": true
+        },
+        {
+          "k": 4,
+          "passed": true
+        },
+        {
+          "k": 5,
+          "passed": true
+        },
+        {
+          "k": 6,
+          "passed": true
+        },
+        {
+          "k": 7,
+          "passed": true
+        },
+        {
+          "k": 8,
+          "passed": true
+        },
+        {
+          "k": 9,
+          "passed": true
+        },
+        {
+          "k": 10,
+          "passed": true
+        },
+        {
+          "k": 11,
+          "passed": true
+        },
+        {
+          "k": 12,
+          "passed": true
+        },
+        {
+          "k": 13,
+          "passed": true
+        },
+        {
+          "k": 14,
+          "passed": true
+        },
+        {
+          "k": 15,
+          "passed": true
+        }
+      ]
+    },
+    "mbpp-clj-303": {
+      "source": ":multipl-e/mbpp-clj",
+      "first_pass": true,
+      "any_pass": true,
+      "pass_count": 12,
+      "total_samples": 16,
+      "samples": [
+        {
+          "k": 0,
+          "passed": true
+        },
+        {
+          "k": 1,
+          "passed": false
+        },
+        {
+          "k": 2,
+          "passed": false
+        },
+        {
+          "k": 3,
+          "passed": true
+        },
+        {
+          "k": 4,
+          "passed": false
+        },
+        {
+          "k": 5,
+          "passed": true
+        },
+        {
+          "k": 6,
+          "passed": true
+        },
+        {
+          "k": 7,
+          "passed": true
+        },
+        {
+          "k": 8,
+          "passed": true
+        },
+        {
+          "k": 9,
+          "passed": true
+        },
+        {
+          "k": 10,
+          "passed": true
+        },
+        {
+          "k": 11,
+          "passed": true
+        },
+        {
+          "k": 12,
+          "passed": true
+        },
+        {
+          "k": 13,
+          "passed": true
+        },
+        {
+          "k": 14,
+          "passed": true
+        },
+        {
+          "k": 15,
+          "passed": false
+        }
+      ]
+    },
+    "mbpp-clj-306": {
+      "source": ":multipl-e/mbpp-clj",
+      "first_pass": true,
+      "any_pass": true,
+      "pass_count": 11,
+      "total_samples": 16,
+      "samples": [
+        {
+          "k": 0,
+          "passed": true
+        },
+        {
+          "k": 1,
+          "passed": true
+        },
+        {
+          "k": 2,
+          "passed": false
+        },
+        {
+          "k": 3,
+          "passed": false
+        },
+        {
+          "k": 4,
+          "passed": false
+        },
+        {
+          "k": 5,
+          "passed": true
+        },
+        {
+          "k": 6,
+          "passed": true
+        },
+        {
+          "k": 7,
+          "passed": true
+        },
+        {
+          "k": 8,
+          "passed": true
+        },
+        {
+          "k": 9,
+          "passed": false
+        },
+        {
+          "k": 10,
+          "passed": true
+        },
+        {
+          "k": 11,
+          "passed": false
+        },
+        {
+          "k": 12,
+          "passed": true
+        },
+        {
+          "k": 13,
+          "passed": true
+        },
+        {
+          "k": 14,
+          "passed": true
+        },
+        {
+          "k": 15,
+          "passed": true
+        }
+      ]
+    },
+    "mbpp-clj-308": {
+      "source": ":multipl-e/mbpp-clj",
+      "first_pass": false,
+      "any_pass": true,
+      "pass_count": 8,
+      "total_samples": 16,
+      "samples": [
+        {
+          "k": 0,
+          "passed": false
+        },
+        {
+          "k": 1,
+          "passed": true
+        },
+        {
+          "k": 2,
+          "passed": true
+        },
+        {
+          "k": 3,
+          "passed": true
+        },
+        {
+          "k": 4,
+          "passed": false
+        },
+        {
+          "k": 5,
+          "passed": true
+        },
+        {
+          "k": 6,
+          "passed": true
+        },
+        {
+          "k": 7,
+          "passed": false
+        },
+        {
+          "k": 8,
+          "passed": false
+        },
+        {
+          "k": 9,
+          "passed": true
+        },
+        {
+          "k": 10,
+          "passed": true
+        },
+        {
+          "k": 11,
+          "passed": false
+        },
+        {
+          "k": 12,
+          "passed": true
+        },
+        {
+          "k": 13,
+          "passed": false
+        },
+        {
+          "k": 14,
+          "passed": false
+        },
+        {
+          "k": 15,
+          "passed": false
+        }
+      ]
+    },
+    "mbpp-clj-313": {
+      "source": ":multipl-e/mbpp-clj",
+      "first_pass": false,
+      "any_pass": false,
+      "pass_count": 0,
+      "total_samples": 16,
+      "samples": [
+        {
+          "k": 0,
+          "passed": false
+        },
+        {
+          "k": 1,
+          "passed": false
+        },
+        {
+          "k": 2,
+          "passed": false
+        },
+        {
+          "k": 3,
+          "passed": false
+        },
+        {
+          "k": 4,
+          "passed": false
+        },
+        {
+          "k": 5,
+          "passed": false
+        },
+        {
+          "k": 6,
+          "passed": false
+        },
+        {
+          "k": 7,
+          "passed": false
+        },
+        {
+          "k": 8,
+          "passed": false
+        },
+        {
+          "k": 9,
+          "passed": false
+        },
+        {
+          "k": 10,
+          "passed": false
+        },
+        {
+          "k": 11,
+          "passed": false
+        },
+        {
+          "k": 12,
+          "passed": false
+        },
+        {
+          "k": 13,
+          "passed": false
+        },
+        {
+          "k": 14,
+          "passed": false
+        },
+        {
+          "k": 15,
+          "passed": false
+        }
+      ]
+    },
+    "mbpp-clj-316": {
+      "source": ":multipl-e/mbpp-clj",
+      "first_pass": false,
+      "any_pass": true,
+      "pass_count": 10,
+      "total_samples": 16,
+      "samples": [
+        {
+          "k": 0,
+          "passed": false
+        },
+        {
+          "k": 1,
+          "passed": true
+        },
+        {
+          "k": 2,
+          "passed": true
+        },
+        {
+          "k": 3,
+          "passed": true
+        },
+        {
+          "k": 4,
+          "passed": false
+        },
+        {
+          "k": 5,
+          "passed": false
+        },
+        {
+          "k": 6,
+          "passed": true
+        },
+        {
+          "k": 7,
+          "passed": false
+        },
+        {
+          "k": 8,
+          "passed": true
+        },
+        {
+          "k": 9,
+          "passed": false
+        },
+        {
+          "k": 10,
+          "passed": true
+        },
+        {
+          "k": 11,
+          "passed": true
+        },
+        {
+          "k": 12,
+          "passed": false
+        },
+        {
+          "k": 13,
+          "passed": true
+        },
+        {
+          "k": 14,
+          "passed": true
+        },
+        {
+          "k": 15,
+          "passed": true
+        }
+      ]
+    },
+    "mbpp-clj-326": {
+      "source": ":multipl-e/mbpp-clj",
+      "first_pass": true,
+      "any_pass": true,
+      "pass_count": 16,
+      "total_samples": 16,
+      "samples": [
+        {
+          "k": 0,
+          "passed": true
+        },
+        {
+          "k": 1,
+          "passed": true
+        },
+        {
+          "k": 2,
+          "passed": true
+        },
+        {
+          "k": 3,
+          "passed": true
+        },
+        {
+          "k": 4,
+          "passed": true
+        },
+        {
+          "k": 5,
+          "passed": true
+        },
+        {
+          "k": 6,
+          "passed": true
+        },
+        {
+          "k": 7,
+          "passed": true
+        },
+        {
+          "k": 8,
+          "passed": true
+        },
+        {
+          "k": 9,
+          "passed": true
+        },
+        {
+          "k": 10,
+          "passed": true
+        },
+        {
+          "k": 11,
+          "passed": true
+        },
+        {
+          "k": 12,
+          "passed": true
+        },
+        {
+          "k": 13,
+          "passed": true
+        },
+        {
+          "k": 14,
+          "passed": true
+        },
+        {
+          "k": 15,
+          "passed": true
+        }
+      ]
+    },
+    "mbpp-clj-330": {
+      "source": ":multipl-e/mbpp-clj",
+      "first_pass": false,
+      "any_pass": false,
+      "pass_count": 0,
+      "total_samples": 16,
+      "samples": [
+        {
+          "k": 0,
+          "passed": false
+        },
+        {
+          "k": 1,
+          "passed": false
+        },
+        {
+          "k": 2,
+          "passed": false
+        },
+        {
+          "k": 3,
+          "passed": false
+        },
+        {
+          "k": 4,
+          "passed": false
+        },
+        {
+          "k": 5,
+          "passed": false
+        },
+        {
+          "k": 6,
+          "passed": false
+        },
+        {
+          "k": 7,
+          "passed": false
+        },
+        {
+          "k": 8,
+          "passed": false
+        },
+        {
+          "k": 9,
+          "passed": false
+        },
+        {
+          "k": 10,
+          "passed": false
+        },
+        {
+          "k": 11,
+          "passed": false
+        },
+        {
+          "k": 12,
+          "passed": false
+        },
+        {
+          "k": 13,
+          "passed": false
+        },
+        {
+          "k": 14,
+          "passed": false
+        },
+        {
+          "k": 15,
+          "passed": false
+        }
+      ]
+    },
+    "mbpp-clj-336": {
+      "source": ":multipl-e/mbpp-clj",
+      "first_pass": true,
+      "any_pass": true,
+      "pass_count": 16,
+      "total_samples": 16,
+      "samples": [
+        {
+          "k": 0,
+          "passed": true
+        },
+        {
+          "k": 1,
+          "passed": true
+        },
+        {
+          "k": 2,
+          "passed": true
+        },
+        {
+          "k": 3,
+          "passed": true
+        },
+        {
+          "k": 4,
+          "passed": true
+        },
+        {
+          "k": 5,
+          "passed": true
+        },
+        {
+          "k": 6,
+          "passed": true
+        },
+        {
+          "k": 7,
+          "passed": true
+        },
+        {
+          "k": 8,
+          "passed": true
+        },
+        {
+          "k": 9,
+          "passed": true
+        },
+        {
+          "k": 10,
+          "passed": true
+        },
+        {
+          "k": 11,
+          "passed": true
+        },
+        {
+          "k": 12,
+          "passed": true
+        },
+        {
+          "k": 13,
+          "passed": true
+        },
+        {
+          "k": 14,
+          "passed": true
+        },
+        {
+          "k": 15,
+          "passed": true
+        }
+      ]
+    },
+    "mbpp-clj-342": {
+      "source": ":multipl-e/mbpp-clj",
+      "first_pass": false,
+      "any_pass": false,
+      "pass_count": 0,
+      "total_samples": 16,
+      "samples": [
+        {
+          "k": 0,
+          "passed": false
+        },
+        {
+          "k": 1,
+          "passed": false
+        },
+        {
+          "k": 2,
+          "passed": false
+        },
+        {
+          "k": 3,
+          "passed": false
+        },
+        {
+          "k": 4,
+          "passed": false
+        },
+        {
+          "k": 5,
+          "passed": false
+        },
+        {
+          "k": 6,
+          "passed": false
+        },
+        {
+          "k": 7,
+          "passed": false
+        },
+        {
+          "k": 8,
+          "passed": false
+        },
+        {
+          "k": 9,
+          "passed": false
+        },
+        {
+          "k": 10,
+          "passed": false
+        },
+        {
+          "k": 11,
+          "passed": false
+        },
+        {
+          "k": 12,
+          "passed": false
+        },
+        {
+          "k": 13,
+          "passed": false
+        },
+        {
+          "k": 14,
+          "passed": false
+        },
+        {
+          "k": 15,
+          "passed": false
+        }
+      ]
+    },
+    "mbpp-clj-346": {
+      "source": ":multipl-e/mbpp-clj",
+      "first_pass": true,
+      "any_pass": true,
+      "pass_count": 9,
+      "total_samples": 16,
+      "samples": [
+        {
+          "k": 0,
+          "passed": true
+        },
+        {
+          "k": 1,
+          "passed": false
+        },
+        {
+          "k": 2,
+          "passed": false
+        },
+        {
+          "k": 3,
+          "passed": false
+        },
+        {
+          "k": 4,
+          "passed": true
+        },
+        {
+          "k": 5,
+          "passed": true
+        },
+        {
+          "k": 6,
+          "passed": true
+        },
+        {
+          "k": 7,
+          "passed": true
+        },
+        {
+          "k": 8,
+          "passed": false
+        },
+        {
+          "k": 9,
+          "passed": false
+        },
+        {
+          "k": 10,
+          "passed": true
+        },
+        {
+          "k": 11,
+          "passed": true
+        },
+        {
+          "k": 12,
+          "passed": false
+        },
+        {
+          "k": 13,
+          "passed": true
+        },
+        {
+          "k": 14,
+          "passed": true
+        },
+        {
+          "k": 15,
+          "passed": false
+        }
+      ]
+    },
+    "mbpp-clj-350": {
+      "source": ":multipl-e/mbpp-clj",
+      "first_pass": true,
+      "any_pass": true,
+      "pass_count": 15,
+      "total_samples": 16,
+      "samples": [
+        {
+          "k": 0,
+          "passed": true
+        },
+        {
+          "k": 1,
+          "passed": true
+        },
+        {
+          "k": 2,
+          "passed": true
+        },
+        {
+          "k": 3,
+          "passed": false
+        },
+        {
+          "k": 4,
+          "passed": true
+        },
+        {
+          "k": 5,
+          "passed": true
+        },
+        {
+          "k": 6,
+          "passed": true
+        },
+        {
+          "k": 7,
+          "passed": true
+        },
+        {
+          "k": 8,
+          "passed": true
+        },
+        {
+          "k": 9,
+          "passed": true
+        },
+        {
+          "k": 10,
+          "passed": true
+        },
+        {
+          "k": 11,
+          "passed": true
+        },
+        {
+          "k": 12,
+          "passed": true
+        },
+        {
+          "k": 13,
+          "passed": true
+        },
+        {
+          "k": 14,
+          "passed": true
+        },
+        {
+          "k": 15,
+          "passed": true
+        }
+      ]
+    },
+    "mbpp-clj-361": {
+      "source": ":multipl-e/mbpp-clj",
+      "first_pass": false,
+      "any_pass": false,
+      "pass_count": 0,
+      "total_samples": 16,
+      "samples": [
+        {
+          "k": 0,
+          "passed": false
+        },
+        {
+          "k": 1,
+          "passed": false
+        },
+        {
+          "k": 2,
+          "passed": false
+        },
+        {
+          "k": 3,
+          "passed": false
+        },
+        {
+          "k": 4,
+          "passed": false
+        },
+        {
+          "k": 5,
+          "passed": false
+        },
+        {
+          "k": 6,
+          "passed": false
+        },
+        {
+          "k": 7,
+          "passed": false
+        },
+        {
+          "k": 8,
+          "passed": false
+        },
+        {
+          "k": 9,
+          "passed": false
+        },
+        {
+          "k": 10,
+          "passed": false
+        },
+        {
+          "k": 11,
+          "passed": false
+        },
+        {
+          "k": 12,
+          "passed": false
+        },
+        {
+          "k": 13,
+          "passed": false
+        },
+        {
+          "k": 14,
+          "passed": false
+        },
+        {
+          "k": 15,
+          "passed": false
+        }
+      ]
+    },
+    "mbpp-clj-363": {
+      "source": ":multipl-e/mbpp-clj",
+      "first_pass": false,
+      "any_pass": false,
+      "pass_count": 0,
+      "total_samples": 16,
+      "samples": [
+        {
+          "k": 0,
+          "passed": false
+        },
+        {
+          "k": 1,
+          "passed": false
+        },
+        {
+          "k": 2,
+          "passed": false
+        },
+        {
+          "k": 3,
+          "passed": false
+        },
+        {
+          "k": 4,
+          "passed": false
+        },
+        {
+          "k": 5,
+          "passed": false
+        },
+        {
+          "k": 6,
+          "passed": false
+        },
+        {
+          "k": 7,
+          "passed": false
+        },
+        {
+          "k": 8,
+          "passed": false
+        },
+        {
+          "k": 9,
+          "passed": false
+        },
+        {
+          "k": 10,
+          "passed": false
+        },
+        {
+          "k": 11,
+          "passed": false
+        },
+        {
+          "k": 12,
+          "passed": false
+        },
+        {
+          "k": 13,
+          "passed": false
+        },
+        {
+          "k": 14,
+          "passed": false
+        },
+        {
+          "k": 15,
+          "passed": false
+        }
+      ]
+    },
+    "mbpp-clj-366": {
+      "source": ":multipl-e/mbpp-clj",
+      "first_pass": true,
+      "any_pass": true,
+      "pass_count": 16,
+      "total_samples": 16,
+      "samples": [
+        {
+          "k": 0,
+          "passed": true
+        },
+        {
+          "k": 1,
+          "passed": true
+        },
+        {
+          "k": 2,
+          "passed": true
+        },
+        {
+          "k": 3,
+          "passed": true
+        },
+        {
+          "k": 4,
+          "passed": true
+        },
+        {
+          "k": 5,
+          "passed": true
+        },
+        {
+          "k": 6,
+          "passed": true
+        },
+        {
+          "k": 7,
+          "passed": true
+        },
+        {
+          "k": 8,
+          "passed": true
+        },
+        {
+          "k": 9,
+          "passed": true
+        },
+        {
+          "k": 10,
+          "passed": true
+        },
+        {
+          "k": 11,
+          "passed": true
+        },
+        {
+          "k": 12,
+          "passed": true
+        },
+        {
+          "k": 13,
+          "passed": true
+        },
+        {
+          "k": 14,
+          "passed": true
+        },
+        {
+          "k": 15,
+          "passed": true
+        }
+      ]
+    },
+    "mbpp-clj-368": {
+      "source": ":multipl-e/mbpp-clj",
+      "first_pass": false,
+      "any_pass": false,
+      "pass_count": 0,
+      "total_samples": 16,
+      "samples": [
+        {
+          "k": 0,
+          "passed": false
+        },
+        {
+          "k": 1,
+          "passed": false
+        },
+        {
+          "k": 2,
+          "passed": false
+        },
+        {
+          "k": 3,
+          "passed": false
+        },
+        {
+          "k": 4,
+          "passed": false
+        },
+        {
+          "k": 5,
+          "passed": false
+        },
+        {
+          "k": 6,
+          "passed": false
+        },
+        {
+          "k": 7,
+          "passed": false
+        },
+        {
+          "k": 8,
+          "passed": false
+        },
+        {
+          "k": 9,
+          "passed": false
+        },
+        {
+          "k": 10,
+          "passed": false
+        },
+        {
+          "k": 11,
+          "passed": false
+        },
+        {
+          "k": 12,
+          "passed": false
+        },
+        {
+          "k": 13,
+          "passed": false
+        },
+        {
+          "k": 14,
+          "passed": false
+        },
+        {
+          "k": 15,
+          "passed": false
+        }
+      ]
+    },
+    "mbpp-clj-371": {
+      "source": ":multipl-e/mbpp-clj",
+      "first_pass": true,
+      "any_pass": true,
+      "pass_count": 12,
+      "total_samples": 16,
+      "samples": [
+        {
+          "k": 0,
+          "passed": true
+        },
+        {
+          "k": 1,
+          "passed": true
+        },
+        {
+          "k": 2,
+          "passed": true
+        },
+        {
+          "k": 3,
+          "passed": false
+        },
+        {
+          "k": 4,
+          "passed": false
+        },
+        {
+          "k": 5,
+          "passed": true
+        },
+        {
+          "k": 6,
+          "passed": false
+        },
+        {
+          "k": 7,
+          "passed": true
+        },
+        {
+          "k": 8,
+          "passed": false
+        },
+        {
+          "k": 9,
+          "passed": true
+        },
+        {
+          "k": 10,
+          "passed": true
+        },
+        {
+          "k": 11,
+          "passed": true
+        },
+        {
+          "k": 12,
+          "passed": true
+        },
+        {
+          "k": 13,
+          "passed": true
+        },
+        {
+          "k": 14,
+          "passed": true
+        },
+        {
+          "k": 15,
+          "passed": true
+        }
+      ]
+    },
+    "mbpp-clj-375": {
+      "source": ":multipl-e/mbpp-clj",
+      "first_pass": false,
+      "any_pass": false,
+      "pass_count": 0,
+      "total_samples": 16,
+      "samples": [
+        {
+          "k": 0,
+          "passed": false
+        },
+        {
+          "k": 1,
+          "passed": false
+        },
+        {
+          "k": 2,
+          "passed": false
+        },
+        {
+          "k": 3,
+          "passed": false
+        },
+        {
+          "k": 4,
+          "passed": false
+        },
+        {
+          "k": 5,
+          "passed": false
+        },
+        {
+          "k": 6,
+          "passed": false
+        },
+        {
+          "k": 7,
+          "passed": false
+        },
+        {
+          "k": 8,
+          "passed": false
+        },
+        {
+          "k": 9,
+          "passed": false
+        },
+        {
+          "k": 10,
+          "passed": false
+        },
+        {
+          "k": 11,
+          "passed": false
+        },
+        {
+          "k": 12,
+          "passed": false
+        },
+        {
+          "k": 13,
+          "passed": false
+        },
+        {
+          "k": 14,
+          "passed": false
+        },
+        {
+          "k": 15,
+          "passed": false
+        }
+      ]
+    },
+    "mbpp-clj-376": {
+      "source": ":multipl-e/mbpp-clj",
+      "first_pass": true,
+      "any_pass": true,
+      "pass_count": 14,
+      "total_samples": 16,
+      "samples": [
+        {
+          "k": 0,
+          "passed": true
+        },
+        {
+          "k": 1,
+          "passed": true
+        },
+        {
+          "k": 2,
+          "passed": true
+        },
+        {
+          "k": 3,
+          "passed": false
+        },
+        {
+          "k": 4,
+          "passed": true
+        },
+        {
+          "k": 5,
+          "passed": true
+        },
+        {
+          "k": 6,
+          "passed": true
+        },
+        {
+          "k": 7,
+          "passed": true
+        },
+        {
+          "k": 8,
+          "passed": true
+        },
+        {
+          "k": 9,
+          "passed": false
+        },
+        {
+          "k": 10,
+          "passed": true
+        },
+        {
+          "k": 11,
+          "passed": true
+        },
+        {
+          "k": 12,
+          "passed": true
+        },
+        {
+          "k": 13,
+          "passed": true
+        },
+        {
+          "k": 14,
+          "passed": true
+        },
+        {
+          "k": 15,
+          "passed": true
+        }
+      ]
+    },
+    "mbpp-clj-384": {
+      "source": ":multipl-e/mbpp-clj",
+      "first_pass": true,
+      "any_pass": true,
+      "pass_count": 16,
+      "total_samples": 16,
+      "samples": [
+        {
+          "k": 0,
+          "passed": true
+        },
+        {
+          "k": 1,
+          "passed": true
+        },
+        {
+          "k": 2,
+          "passed": true
+        },
+        {
+          "k": 3,
+          "passed": true
+        },
+        {
+          "k": 4,
+          "passed": true
+        },
+        {
+          "k": 5,
+          "passed": true
+        },
+        {
+          "k": 6,
+          "passed": true
+        },
+        {
+          "k": 7,
+          "passed": true
+        },
+        {
+          "k": 8,
+          "passed": true
+        },
+        {
+          "k": 9,
+          "passed": true
+        },
+        {
+          "k": 10,
+          "passed": true
+        },
+        {
+          "k": 11,
+          "passed": true
+        },
+        {
+          "k": 12,
+          "passed": true
+        },
+        {
+          "k": 13,
+          "passed": true
+        },
+        {
+          "k": 14,
+          "passed": true
+        },
+        {
+          "k": 15,
+          "passed": true
+        }
+      ]
+    },
+    "mbpp-clj-395": {
+      "source": ":multipl-e/mbpp-clj",
       "first_pass": true,
       "any_pass": true,
       "pass_count": 16,

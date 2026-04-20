@@ -16,7 +16,7 @@ All models on 111 held-out MultiPL-E Clojure tasks. Frontier baselines: single p
 | **SFT Qwen3-30B** | Trained (30B MoE) | **52.3%** | **64.9%** | **75.7%** | **83.8%** | — |
 | Qwen3.5-plus | Frontier API | ~55% | — | — | — | — |
 | Opus 4.7 | Frontier API | 45.0% | — | — | — | 48.0% |
-| **RLVR v1 Qwen3-8B** | Trained (8B dense) | **48.6%** | — | — | — | — |
+| **RLVR v1 Qwen3-8B** | Trained (8B dense) | **48.6%** | 54.1% | 61.3% | 64.0% | — |
 | **RLVR v0 Qwen3-8B** | Trained (8B dense) | **42.3%** | 55.9% | 67.6% | 72.1% | — |
 | **SFT Qwen3-8B** | Trained (8B dense) | **37.8%** | 47.7% | 64.9% | 72.1% | — |
 | Qwen3-8B base | No training | ~0% | — | — | — | — |
@@ -24,8 +24,9 @@ All models on 111 held-out MultiPL-E Clojure tasks. Frontier baselines: single p
 Key comparisons:
 - **30B SFT best-of-2 (64.9%) matches GPT-5.4 pass@1 (64.0%)** — same quality with 3B active params
 - **30B SFT best-of-8 (75.7%) beats GPT-5.4 by +11.7pp** — verifier loop amplifies small model
-- **30B RLVR best-of-16 (79.3%) < 30B SFT best-of-16 (83.8%)** — RLVR lowered the ceiling on 30B
-- **8B RLVR v0 best-of-8 (67.6%) beats GPT-5.4 pass@1 (64.0%)** — 8B model with verifier beats frontier
+- **RLVR consistently lowers the ceiling**: v0 8B (72.1% → not tested with shaped), v1 8B (64.0% vs SFT's 72.1%), 30B (79.3% vs 83.8%)
+- **RLVR v1 8B best-of-16 (64.0%) matches GPT-5.4 pass@1 exactly** — but only at K=16
+- **8B RLVR v0 best-of-8 (67.6%) beats GPT-5.4 pass@1 (64.0%)** — v0 with binary rewards preserved diversity
 - **RLVR v1 8B (48.6%) > Opus 4.7 (45.0%)** — 8B model beats Opus at pass@1
 
 ## Evaluator Bug Fix

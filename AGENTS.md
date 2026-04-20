@@ -96,10 +96,12 @@ RLVR → GRPO with verifier rewards (Clojure subprocess eval):
 Best-of-K → `scripts/best_of_k.py` — generate K samples per task, pick first passing one:
 - **30B SFT**: best-of-16 ceiling 83.8% (93/111), pass@1 52.3%, best-of-8 75.7%
 - **30B RLVR**: best-of-16 ceiling 79.3% (88/111), pass@1 55.0%, best-of-8 75.7%
-- **8B RLVR**: best-of-16 ceiling 72.1% (80/111), earlier pass@1 42.3% (`v1` reevaluation of original run), current shaped-reward pass@1 48.6%, best-of-8 67.6%
+- **8B RLVR v1**: best-of-16 ceiling 64.0% (71/111), pass@1 48.6%, best-of-8 61.3%
+- **8B RLVR v0**: best-of-16 ceiling 72.1% (80/111), pass@1 42.3%, best-of-8 67.6%
 - **8B SFT**: best-of-16 ceiling 72.1% (80/111), pass@1 37.8%, best-of-8 64.9%
-- 30B SFT raised ceiling by +11.7pp with same SFT data; RLVR lowered it by 4.5pp
-- Results: `research/best-of-k-30b-results.json`, `research/best-of-k-rlvr-30b-results.json`, `research/best-of-k-results.json`, `research/best-of-k-sft-results.json`
+- Shaped-reward RLVR (v1) consistently lowers the ceiling vs SFT: 8B 64.0% vs 72.1%, 30B 79.3% vs 83.8%
+- Binary-reward RLVR (v0) preserved the 8B ceiling at 72.1%
+- Results: `research/best-of-k-30b-results.json`, `research/best-of-k-rlvr-30b-results.json`, `research/best-of-k-rlvr-v1-8b-results.json`, `research/best-of-k-results.json`, `research/best-of-k-sft-results.json`
 
 ## Key docs (progressive disclosure)
 
