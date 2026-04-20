@@ -1,0 +1,8 @@
+{
+  "checkpoints": {
+    "rlvr-8b": "tinker://cf3778fc-5553-5e8d-be25-84859b2de080:train:0/weights/checkpoint-iter-10",
+    "sft-8b": "tinker://b5c7e66e-618a-5f71-919e-da1db6844679:train:0/weights/checkpoint-step-600"
+  },
+  "default_checkpoint": "rlvr-8b",
+  "base_tokenizer": "Qwen/Qwen3-8B-Base"
+}
