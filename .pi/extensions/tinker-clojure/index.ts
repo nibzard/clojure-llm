@@ -2,14 +2,14 @@
  * Tinker Clojure Code Generation Extension
  *
  * Routes Clojure code generation to Tinker-hosted specialized models
- * (Qwen3-8B SFT+RLVR) via a persistent Python sidecar. The main model
- * (any provider) handles everything else — this extension only provides
- * the generate_clojure tool for when the main model decides to delegate.
+ * (Qwen3-8B/30B SFT+RLVR) via a persistent Python sidecar. The sidecar
+ * runs an internal verification loop (syntax → kondo → tests) so the
+ * host model never needs to orchestrate verification itself.
  *
  * Usage:
  *   Place in .pi/extensions/tinker-clojure/ — auto-discovered by pi.
  *   User: "Write a Clojure function that checks if a list has close elements"
- *   → Main model calls generate_clojure → sidecar → Tinker → result
+ *   → Main model calls generate_clojure → sidecar → Tinker → verified result
  */
 
 import { ChildProcess, spawn } from "node:child_process";
@@ -26,6 +26,14 @@ interface CheckpointConfig {
 	checkpoints: Record<string, string>;
 	default_checkpoint: string;
 	base_tokenizer: string;
+	use_chat_template?: boolean;
+	verifier?: {
+		default_num_samples?: number;
+		test_timeout_sec?: number;
+		temp_increase_per_retry?: number;
+		max_temp?: number;
+		kondo_feedback_max_chars?: number;
+	};
 }
 
 const EXT_DIR = dirname(new URL(import.meta.url).pathname);
@@ -167,6 +175,7 @@ async function ensureInitialized(checkpoint: string): Promise<void> {
 	await sendToSidecar("init", {
 		checkpoint: resolvedCheckpoint,
 		base_tokenizer: config.base_tokenizer,
+		use_chat_template: config.use_chat_template ?? false,
 	});
 
 	sidecarReady = true;
@@ -177,21 +186,21 @@ async function ensureInitialized(checkpoint: string): Promise<void> {
 // ---------------------------------------------------------------------------
 
 const TOOL_PARAMS = Type.Object({
-	prompt: Type.String({ description: "Clojure function signature or description (e.g., '(defn has-close-elements [lst] ...)')" }),
+	prompt: Type.String({ description: "Single incomplete (defn ...) form. The model extends it to a complete function. Example: '(defn has-close-elements [lst]'" }),
 	checkpoint: Type.Optional(
-		Type.String({ description: "Checkpoint alias (rlvr-8b, sft-8b) or full tinker:// path. Default: rlvr-8b or TINKER_CLOJURE_CHECKPOINT env var.", default: "rlvr-8b" }),
+		Type.String({ description: "Checkpoint alias (rlvr-30b, rlvr-8b, sft-8b) or full tinker:// path. Default: rlvr-30b or TINKER_CLOJURE_CHECKPOINT env var.", default: "rlvr-30b" }),
 	),
 	num_samples: Type.Optional(
-		Type.Number({ description: "Samples to generate (1 for speed, 4-8 for quality with verification)", default: 1 }),
+		Type.Number({ description: "Samples to generate with internal verification loop (default: 4). The tool tries each sample through syntax → kondo → tests.", default: 4 }),
 	),
 	temperature: Type.Optional(
-		Type.Number({ description: "Sampling temperature (0.2 for deterministic, 0.7 for diverse)", default: 0.7 }),
+		Type.Number({ description: "Base sampling temperature (increases by 0.1 per retry, capped at 1.0)", default: 0.7 }),
 	),
 	max_tokens: Type.Optional(
 		Type.Number({ description: "Max tokens per sample", default: 512 }),
 	),
 	test_path: Type.Optional(
-		Type.String({ description: "Path to test .clj file for best-of-K verification. If provided, generates num_samples and returns first passing one." }),
+		Type.String({ description: "Path to test .clj file for full test verification. If omitted, verification stops at kondo lint." }),
 	),
 });
 
@@ -215,22 +224,26 @@ export default function tinkerClojure(pi: ExtensionAPI) {
 	// Register the generate_clojure tool
 	pi.registerTool({
 		name: "generate_clojure",
-		label: "Generate Clojure code",
+		label: "Generate verified Clojure code",
 		description:
-			"Generate Clojure code using a Tinker-hosted specialized model (Qwen3-8B trained with SFT+RLVR). " +
-			"The model is fine-tuned for Clojure code generation and produces better results than general-purpose models. " +
-			"Supports best-of-K sampling with optional test verification.",
+			"Generate Clojure code using a Tinker-hosted specialized model (Qwen3-8B/30B trained with SFT+RLVR). " +
+			"Provide a single incomplete (defn ...) form — the model completes it. " +
+			"The tool runs an internal verification loop: each sample is checked through syntax validation, " +
+			"clj-kondo linting, and (if test_path provided) clojure.test execution. " +
+			"Returns the first fully-verified sample, or the best partial candidate after all attempts. " +
+			"No external verification tools are needed.",
 		promptGuidelines: [
-			"When the user asks for Clojure code generation, use generate_clojure instead of writing Clojure yourself.",
-			"Pass a Clojure function signature as the prompt (e.g., '(defn function-name [args] ...)').",
-			"Use num_samples=4-8 for complex functions — the tool generates multiple candidates and verifies them.",
-			"If a test file exists for the task, pass its path via test_path for verification.",
-			"The model is specialized for Clojure and will produce better results than general-purpose models.",
+			"Pass exactly ONE incomplete `(defn ...)` form — no namespace, no imports, no helper functions.",
+			"The model is single-defn trained: it extends one incomplete defn into a complete one.",
+			"Format: `(defn function-name [args]` — the model fills in the body and closes the parens.",
+			"The tool internally verifies each sample through syntax → kondo → tests. You do NOT need separate verification tools.",
+			"If a test file exists for the task, pass its path via test_path for full test verification.",
+			"Default num_samples=4 means the tool generates up to 4 candidates, picking the first one that passes all checks.",
 		],
 		parameters: TOOL_PARAMS,
 
 		async execute(_toolCallId, params: ToolParams, signal, onUpdate, _ctx) {
-			const checkpoint = params.checkpoint || process.env.TINKER_CLOJURE_CHECKPOINT || "rlvr-8b";
+			const checkpoint = params.checkpoint || process.env.TINKER_CLOJURE_CHECKPOINT || "rlvr-30b";
 
 			onUpdate?.({
 				content: [{ type: "text", text: `Initializing Tinker sidecar (${checkpoint})...` }],
@@ -238,41 +251,31 @@ export default function tinkerClojure(pi: ExtensionAPI) {
 
 			await ensureInitialized(checkpoint);
 
-			const baseParams: Record<string, unknown> = {
+			const config = loadConfig();
+			const verifier = config.verifier || {};
+
+			const numSamples = params.num_samples ?? verifier.default_num_samples ?? 4;
+
+			onUpdate?.({
+				content: [
+					{
+						type: "text",
+						text: `Generating up to ${numSamples} verified samples from ${checkpoint}...`,
+					},
+				],
+			});
+
+			const result = (await sendToSidecar("generate_clojure", {
 				prompt: params.prompt,
-				num_samples: params.num_samples ?? 1,
+				num_samples: numSamples,
 				temperature: params.temperature ?? 0.7,
 				max_tokens: params.max_tokens ?? 512,
-			};
-
-			let result: Record<string, unknown>;
-
-			if (params.test_path) {
-				onUpdate?.({
-					content: [
-						{
-							type: "text",
-							text: `Generating ${baseParams.num_samples} samples with test verification...`,
-						},
-					],
-				});
-
-				result = (await sendToSidecar("generate_with_verify", {
-					...baseParams,
-					test_path: params.test_path,
-				})) as Record<string, unknown>;
-			} else {
-				onUpdate?.({
-					content: [
-						{
-							type: "text",
-							text: `Generating ${baseParams.num_samples} sample(s) from ${checkpoint}...`,
-						},
-					],
-				});
-
-				result = (await sendToSidecar("generate", baseParams)) as Record<string, unknown>;
-			}
+				test_path: params.test_path || null,
+				temp_increase_per_retry: verifier.temp_increase_per_retry ?? 0.1,
+				max_temp: verifier.max_temp ?? 1.0,
+				test_timeout_sec: verifier.test_timeout_sec ?? 10,
+				kondo_feedback_max_chars: verifier.kondo_feedback_max_chars ?? 200,
+			})) as Record<string, unknown>;
 
 			// Handle abort
 			if (signal?.aborted) {
@@ -280,50 +283,44 @@ export default function tinkerClojure(pi: ExtensionAPI) {
 			}
 
 			// Format response
-			if (params.test_path) {
-				const bestSample = result.best_sample as string | null;
-				const verified = result.verified as boolean;
-				const bestK = result.best_k as number;
-				const total = result.total as number;
+			const code = (result.code as string) || ";; Generation failed";
+			const verified = result.verified as boolean;
+			const attempts = result.attempts as number;
+			const maxAttempts = result.max_attempts as number;
+			const checks = result.checks as Record<string, boolean | null>;
+			const rawLength = result.raw_length as number | null;
+			const extractedLength = result.extracted_length as number | null;
+			const wasTruncated = result.was_truncated as boolean;
 
-				const summaryParts = [
-					verified
-						? `Verified sample (k=${bestK}/${total} passed tests)`
-						: `No sample passed tests out of ${total} (returning best candidate)`,
-				];
+			// Build summary of which checks passed
+			const passedChecks = Object.entries(checks)
+				.filter(([, v]) => v === true)
+				.map(([k]) => k);
+			let summary = verified
+				? `Verified code (attempt ${attempts}/${maxAttempts}, passed: ${passedChecks.join(", ")})`
+				: `Best candidate after ${attempts}/${maxAttempts} attempts (passed: ${passedChecks.join(", ") || "none"})`;
 
-				return {
-					content: [
-						{ type: "text", text: summaryParts.join(" ") },
-						{ type: "text", text: bestSample || ";; Generation failed" },
-					],
-					details: {
-						checkpoint,
-						verified,
-						best_k: bestK,
-						total,
-					},
-				};
-			} else {
-				const samples = result.samples as string[];
-				const numGenerated = result.num_generated as number;
-
-				const sampleText =
-					numGenerated === 1
-						? samples[0] || ";; Generation failed"
-						: samples.map((s, i) => `;; --- Sample ${i + 1} ---\n${s}`).join("\n\n");
-
-				return {
-					content: [
-						{ type: "text", text: `Generated ${numGenerated} sample(s) from ${checkpoint}` },
-						{ type: "text", text: sampleText },
-					],
-					details: {
-						checkpoint,
-						num_generated: numGenerated,
-					},
-				};
+			if (wasTruncated) {
+				summary += ` [truncated: ${extractedLength}/${rawLength} chars]`;
 			}
+
+			return {
+				content: [
+					{ type: "text", text: summary },
+					{ type: "text", text: code },
+				],
+				details: {
+					checkpoint,
+					verified,
+					attempts,
+					max_attempts: maxAttempts,
+					checks,
+					kondo_findings: result.kondo_findings || "",
+					raw_length: rawLength,
+					extracted_length: extractedLength,
+					was_truncated: wasTruncated,
+				},
+			};
 		},
 	});
 }

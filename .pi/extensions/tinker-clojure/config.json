@@ -1,8 +1,17 @@
 {
   "checkpoints": {
     "rlvr-8b": "tinker://cf3778fc-5553-5e8d-be25-84859b2de080:train:0/weights/checkpoint-iter-10",
-    "sft-8b": "tinker://b5c7e66e-618a-5f71-919e-da1db6844679:train:0/weights/checkpoint-step-600"
+    "sft-8b": "tinker://b5c7e66e-618a-5f71-919e-da1db6844679:train:0/weights/checkpoint-step-600",
+    "rlvr-30b": "tinker://rlvr-30b:train:0/weights/checkpoint-iter-10"
   },
-  "default_checkpoint": "rlvr-8b",
-  "base_tokenizer": "Qwen/Qwen3-8B-Base"
+  "default_checkpoint": "rlvr-30b",
+  "base_tokenizer": "Qwen/Qwen3-8B-Base",
+  "use_chat_template": false,
+  "verifier": {
+    "default_num_samples": 4,
+    "test_timeout_sec": 10,
+    "temp_increase_per_retry": 0.1,
+    "max_temp": 1.0,
+    "kondo_feedback_max_chars": 200
+  }
 }
