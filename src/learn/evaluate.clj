@@ -13,11 +13,11 @@
   (:require [clojure.edn :as edn]
             [clojure.java.io :as io]
             [clojure.pprint :as pprint]
-            [clojure.string :as str]
-            [clojure.test :as test])
+            [clojure.string :as str])
   (:import [java.io File PushbackReader]
            [java.lang ProcessBuilder]
-           [java.time Instant]))
+           [java.time Instant]
+           [java.util.concurrent TimeUnit]))
 
 ;; Directory paths
 (def runs-dir "benchmark/runs")
@@ -44,18 +44,41 @@
 
 ;; Shell execution for external tools
 
-(defn sh-output!
-  "Execute a shell command and return stdout as string."
+(defn sh-result!
+  "Execute a shell command and return {:exit int :out string}."
   [& args]
   (try
     (let [pb (ProcessBuilder. (into-array String (map str args)))
           _ (.redirectErrorStream pb true)
           proc (.start pb)
           out (slurp (.getInputStream proc))
-          _ (.waitFor proc)]
-      out)
+          exit (.waitFor proc)]
+      {:exit exit :out out})
     (catch Exception e
-      (str "Error executing command: " (.getMessage e)))))
+      {:exit nil :out (str "Error executing command: " (.getMessage e))})))
+
+(defn sh-result-with-timeout!
+  "Execute a shell command with a hard timeout.
+   Returns {:exit int-or-nil :out string :timed-out? boolean}."
+  [timeout-ms & args]
+  (try
+    (let [pb (ProcessBuilder. (into-array String (map str args)))
+          _ (.redirectErrorStream pb true)
+          proc (.start pb)
+          out-future (future (slurp (.getInputStream proc)))
+          finished? (.waitFor proc timeout-ms TimeUnit/MILLISECONDS)]
+      (if finished?
+        {:exit (.exitValue proc)
+         :out @out-future
+         :timed-out? false}
+        (do
+          (.destroyForcibly proc)
+          (.waitFor proc)
+          {:exit nil
+           :out (str @out-future "\nTimeout after " timeout-ms "ms")
+           :timed-out? true})))
+    (catch Exception e
+      {:exit nil :out (str "Error executing command: " (.getMessage e)) :timed-out? false})))
 
 ;; Syntax checking
 
@@ -82,62 +105,50 @@
    Returns {:ok boolean, :error string-or-nil}"
   [code-file]
   (try
-    (let [output (sh-output! "clj-kondo" "--lint" (str code-file) "--no-summary")]
-      ;; clj-kondo returns 0 if no errors, non-zero if errors found
-      ;; Check if output contains "error" or "warning"
-      (let [has-issues (or (str/includes? output "error:")
-                          (str/includes? output "warning:"))]
-        {:ok (not has-issues)
-         :error (when has-issues output)}))
+    (let [{:keys [exit out]} (sh-result! "clj-kondo" "--lint" (str code-file) "--no-summary")]
+      (cond
+        (nil? exit)
+        {:ok false :error out}
+
+        (zero? exit)
+        {:ok true :error nil}
+
+        :else
+        {:ok false :error out}))
     (catch Exception e
       {:ok false :error (.getMessage e)})))
 
 ;; Test running
 
-(defn load-and-run-tests
-  "Load the candidate code and test file, then run tests.
-   Returns {:ok boolean, :error string-or-nil, :test-count int}"
-  [code-file test-file entrypoint timeout-sec]
-  (try
-    ;; Load candidate code
-    (load-file (str code-file))
+(defn clojure-load-expr [code-file test-file]
+  (str "(do "
+       "(load-file " (pr-str (str code-file)) ") "
+       "(load-file " (pr-str (str test-file)) "))"))
 
-    ;; Load test file (MultiPL-E files call run-test at load time)
-    (load-file (str test-file))
-
-    ;; Try to find test namespace: first by filename, then fall back to 'user'
-    (let [fname-ns (find-ns (symbol (str/replace (last (str/split (str test-file) #"/")) ".clj" "")))
-          test-ns (or fname-ns (find-ns 'user))]
-      (if test-ns
-        (let [results (test/run-tests test-ns)
-              pass? (zero? (+ (:fail results) (:error results)))]
-          {:ok pass?
-           :error (when-not pass?
-                   (str "Tests failed: " (:fail results) " failures, " (:error results) " errors"))
-           :test-count (:test results)})
-        {:ok false :error "Test namespace not found" :test-count 0}))
-    (catch Exception e
-      {:ok false :error (.getMessage e) :test-count 0})
-    (catch Error e
-      {:ok false :error (.getMessage e) :test-count 0})))
-
-(defn run-tests-with-timeout
-  "Run tests with a timeout. If the test hangs (e.g. infinite loop),
-   return a timeout result instead of blocking forever."
+(defn run-tests-isolated
+  "Run candidate + test file in a fresh Clojure subprocess.
+   Returns {:ok boolean, :error string-or-nil, :test-count int, :timed-out? boolean}."
   [code-file test-file entrypoint timeout-ms]
-  (let [f (future
-            (try
-              (load-and-run-tests code-file test-file entrypoint timeout-ms)
-              (catch Exception e
-                {:ok false :error (.getMessage e) :test-count 0})
-              (catch Error e
-                {:ok false :error (.getMessage e) :test-count 0})))
-        result (deref f timeout-ms ::timeout)]
-    (if (= result ::timeout)
-      (do
-        (future-cancel f)
-        {:ok false :error (str "Timeout after " timeout-ms "ms") :test-count 0})
-      result)))
+  (let [{:keys [exit out timed-out?]}
+        (sh-result-with-timeout! timeout-ms "clojure" "-e" (clojure-load-expr code-file test-file))
+        tests-match (re-find #"Ran\s+(\d+)\s+tests?" out)
+        test-count (if tests-match
+                     (Long/parseLong (second tests-match))
+                     0)
+        zero-failures? (boolean (re-find #"0 failures,\s+0 errors" out))
+        pass? (and (not timed-out?) (zero? (or exit 1)) zero-failures?)]
+    (cond
+      timed-out?
+      {:ok false :error (str "Timeout after " timeout-ms "ms") :test-count test-count :timed-out? true}
+
+      pass?
+      {:ok true :error nil :test-count test-count :timed-out? false}
+
+      :else
+      {:ok false
+       :error (str/trim (or out "Tests failed"))
+       :test-count test-count
+       :timed-out? false})))
 
 ;; Task evaluation
 
@@ -149,10 +160,10 @@
       (str/replace fname #"\.clj$" ""))
     (:name prompt-ref)))
 
-(defn candidate-file-for-task [run-id task]
+(defn candidate-file-for-task [candidate-run-id task]
   "Returns the path to the candidate code file for a task."
   (let [multipl-name (name-from-prompt-ref (:prompt-ref task))]
-    (io/file candidates-dir run-id (str multipl-name ".clj"))))
+    (io/file candidates-dir candidate-run-id (str multipl-name ".clj"))))
 
 (defn test-file-for-task [tests-ref]
   "Returns the path to the test file based on tests-ref."
@@ -162,23 +173,43 @@
     ;; For now, assume file-based tests
     (io/file "benchmark/tests" (str (:name tests-ref) "_test.clj"))))
 
+(defn manifest-tasks
+  "Resolve the ordered task list for a run manifest.
+   Throws if any manifest task-id is missing from the task inventory."
+  [manifest]
+  (let [task-ids (:task-ids manifest)
+        tasks (slurp-edn (:tasks-file manifest))
+        tasks-by-id (into {} (map (juxt :id identity) tasks))
+        missing-task-ids (remove #(contains? tasks-by-id %) task-ids)]
+    (when (seq missing-task-ids)
+      (throw (ex-info "Run manifest references unknown task IDs"
+                      {:run-id (:run-id manifest)
+                       :tasks-file (:tasks-file manifest)
+                       :missing-task-ids (vec missing-task-ids)})))
+    (mapv tasks-by-id task-ids)))
+
 (defn evaluate-task
   "Evaluate a single task and return a result map."
   [run manifest task]
   (let [task-id (:id task)
         run-id (:run-id manifest)
-        candidate-file (candidate-file-for-task run-id task)
+        candidate-run-id (or (:candidate-run-id manifest) run-id)
+        candidate-file (candidate-file-for-task candidate-run-id task)
         test-file (test-file-for-task (:tests-ref task))
         timeout-sec (get-in task [:runner :timeout-sec] 10)
         start-time (System/currentTimeMillis)
 
         ;; Check if candidate file exists
         file-exists (.exists candidate-file)
+        test-file-exists (.exists test-file)
 
         ;; Syntax check
-        syntax-result (if file-exists
+        syntax-result (if (and file-exists test-file-exists)
                         (check-syntax candidate-file)
-                        {:ok false :error "Candidate file not found"})
+                        {:ok false
+                         :error (cond
+                                  (not file-exists) "Candidate file not found"
+                                  (not test-file-exists) "Test file not found")})
 
         ;; clj-kondo check (only if syntax is ok)
         kondo-result (if (:ok syntax-result)
@@ -187,18 +218,18 @@
 
         ;; Run tests (only if previous checks pass)
         test-result (if (:ok kondo-result)
-                      (run-tests-with-timeout candidate-file test-file (:entrypoint task)
-                                              (* timeout-sec 1000))
+                      (run-tests-isolated candidate-file test-file (:entrypoint task)
+                                          (* timeout-sec 1000))
                       {:ok false :error "Skipped due to previous failures" :test-count 0})
 
         end-time (System/currentTimeMillis)
         wall-ms (- end-time start-time)
 
         ;; Determine outcome
-        timeout? (and (not (:ok test-result))
-                      (str/includes? (or (:error test-result) "") "Timeout"))
+        timeout? (:timed-out? test-result)
         outcome (cond
                   (not file-exists) :crash
+                  (not test-file-exists) :crash
                   (not (:ok syntax-result)) :invalid-output
                   (not (:ok kondo-result)) :fail
                   timeout? :timeout
@@ -210,9 +241,17 @@
                      (= outcome :pass) nil
                      (= outcome :timeout) :runtime-error
                      (not file-exists) :read-error
+                     (not test-file-exists) :read-error
                      (not (:ok syntax-result)) :read-error
                      (not (:ok kondo-result)) :compile-error
-                     :else :test-failure)]
+                     :else :test-failure)
+        notes (cond
+                (not file-exists) (:error syntax-result)
+                (not test-file-exists) (:error syntax-result)
+                (not (:ok syntax-result)) (:error syntax-result)
+                (not (:ok kondo-result)) (:error kondo-result)
+                (not (:ok test-result)) (:error test-result)
+                :else nil)]
 
     {:task-id task-id
      :outcome outcome
@@ -222,8 +261,7 @@
      :wall-ms wall-ms
      :tokens 0  ; Placeholder - would be filled in by model executor
      :error-kind error-kind
-     :notes (when-not (:ok test-result)
-              (:error test-result))}))
+     :notes notes}))
 
 (defn evaluate-run
   "Evaluate all tasks in a run manifest and write results."
@@ -233,13 +271,7 @@
   ;; Load run manifest
   (let [manifest (slurp-edn run-manifest-path)
         run-id (:run-id manifest)
-        task-ids (:task-ids manifest)
-
-        ;; Load tasks file
-        tasks (slurp-edn (:tasks-file manifest))
-
-        ;; Filter tasks to those in the run
-        tasks-to-run (filter #(contains? (set task-ids) (:id %)) tasks)
+        tasks-to-run (manifest-tasks manifest)
 
         ;; Create results directory
         results-path (io/file results-dir run-id)
@@ -271,9 +303,10 @@
 
   (let [run-manifest (first args)]
     ;; If path is relative, assume it's in runs-dir
-    (let [manifest-path (if (str/starts-with? run-manifest "/")
-                          run-manifest
-                          (io/file runs-dir run-manifest))]
+    (let [manifest-path (cond
+                          (.exists (io/file run-manifest)) run-manifest
+                          (str/starts-with? run-manifest "/") run-manifest
+                          :else (io/file runs-dir run-manifest))]
       (if (.exists (io/file manifest-path))
         (evaluate-run manifest-path)
         (do

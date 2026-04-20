@@ -15,7 +15,7 @@
             [learn.evaluate :as evaluate]
             [learn.aggregate :as aggregate]))
 
-(def benchmark-version :clj-bench/v0)
+(def benchmark-version :clj-bench/v1)
 (def tasks-file "benchmark/tasks-v0.edn")
 (def runs-dir "benchmark/runs")
 
@@ -106,6 +106,7 @@
   (println "  clojure -M:bench list")
   (println "  clojure -M:bench stats")
   (println "  clojure -M:bench plan-run <run-id> <model-id> <policy-kind>")
+  (println "  clojure -M:bench plan-reeval <new-run-id> <existing-run-id>")
   (println "  clojure -M:bench evaluate <run-manifest.edn>")
   (println "  clojure -M:bench aggregate <run-id>...")
   (println "  clojure -M:bench run-baseline"))
@@ -159,9 +160,20 @@
    :policy {:kind policy-kind}
    :tasks-file tasks-file
    :task-ids (mapv :id tasks)
-   :executor {:kind :container
-              :image "clj-bench/eval:dev"
+   :executor {:kind :local-process
+              :isolation :task-subprocess
               :network :none}})
+
+(defn reeval-plan [new-run-id prior-manifest]
+  (-> prior-manifest
+      (assoc :run-id new-run-id)
+      (assoc :benchmark-version benchmark-version)
+      (assoc :created-at (timestamp))
+      (assoc :reeval-of (:run-id prior-manifest))
+      (assoc :candidate-run-id (:run-id prior-manifest))
+      (assoc :executor {:kind :local-process
+                        :isolation :task-subprocess
+                        :network :none})))
 
 (defn cmd-plan-run [[run-id model-id policy-kind]]
   (when (or (str/blank? run-id) (str/blank? model-id) (str/blank? policy-kind))
@@ -173,9 +185,31 @@
     (spit path (with-out-str (pprint/pprint plan)))
     (println "Wrote" path)))
 
+(defn cmd-plan-reeval [[new-run-id existing-run-id]]
+  (when (or (str/blank? new-run-id) (str/blank? existing-run-id))
+    (print-usage)
+    (System/exit 1))
+  (ensure-dir! runs-dir)
+  (let [prior-path (format "%s/%s.edn" runs-dir existing-run-id)
+        prior-file (java.io.File. prior-path)]
+    (when-not (.exists prior-file)
+      (println "Error: existing run manifest not found:" prior-path)
+      (System/exit 1))
+    (let [prior-manifest (slurp-edn prior-path)
+          plan (reeval-plan new-run-id prior-manifest)
+          path (format "%s/%s.edn" runs-dir new-run-id)]
+      (spit path (with-out-str (pprint/pprint plan)))
+      (println "Wrote" path)
+      (println "Reevaluating candidates from run:" existing-run-id))))
+
 (defn cmd-evaluate [run-manifest]
   "Delegate to learn.evaluate/evaluate-run."
-  (evaluate/evaluate-run run-manifest))
+  (let [manifest-path (cond
+                        (nil? run-manifest) nil
+                        (.exists (java.io.File. run-manifest)) run-manifest
+                        (str/starts-with? run-manifest "/") run-manifest
+                        :else (format "%s/%s" runs-dir run-manifest))]
+    (evaluate/evaluate-run manifest-path)))
 
 (defn cmd-aggregate [more]
   "Delegate to learn.aggregate/compare-runs."
@@ -225,6 +259,7 @@
       "list" (cmd-list)
       "stats" (cmd-stats)
       "plan-run" (cmd-plan-run more)
+      "plan-reeval" (cmd-plan-reeval more)
       "evaluate" (cmd-evaluate (first more))
       "aggregate" (cmd-aggregate more)
       "run-baseline" (cmd-run-baseline)

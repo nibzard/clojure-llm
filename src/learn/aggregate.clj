@@ -82,25 +82,33 @@
        (count results))))
 
 (defn compute-pass-at-k
-  "Pass@k from multiple samples per task.
+  "Pass@k from multiple samples per task within a single run.
 
    Assumes results are grouped by task-id with multiple samples.
    For each task, counts as pass if ANY of its k samples passed.
 
-   Returns a double between 0.0 and 1.0."
+   Returns NaN when the run has at most one sample per task, because
+   pass@k is not defined for standard single-sample runs."
   [results k]
   (if (empty? results)
     0.0
     (let [;; Group results by task-id
           by-task (group-by :task-id results)
+          sample-counts (map count (vals by-task))
           ;; For each task, check if any of up to k samples passed
           task-passes (for [[_task-id task-results] by-task
                             :let [samples (take k task-results)
                                   passed? (some #(= :pass (:outcome %)) samples)]]
                         passed?)
           total-tasks (count by-task)]
-      (if (zero? total-tasks)
+      (cond
+        (zero? total-tasks)
         0.0
+
+        (<= (apply max sample-counts) 1)
+        Double/NaN
+
+        :else
         (/ (count (filter true? task-passes))
            total-tasks)))))
 

@@ -243,10 +243,10 @@ def create_run_manifest(run_id, model, task_ids):
         ' :policy {:kind :fix-loop}\n'
         f' :tasks-file "benchmark/tasks-v0.edn"\n'
         ' :prompting {:template :fix-loop-v1 :temperature 0.3 :top-p 0.95 :samples 1}\n'
-        ' :executor {:kind :container :image "clj-bench/eval:dev" :network :none}\n'
+        ' :executor {:kind :local-process :isolation :task-subprocess :network :none}\n'
         f' :created-at "{time.strftime("%Y-%m-%dT%H:%M:%S.000000Z")}"\n'
         f' :run-id "{run_id}"\n'
-        ' :benchmark-version :clj-bench/v0\n'
+        ' :benchmark-version :clj-bench/v1\n'
         f' :model {{:provider :manual :id "{model}"}}}}\n'
     )
     manifest_path = ROOT / "benchmark" / "runs" / f"{run_id}.edn"

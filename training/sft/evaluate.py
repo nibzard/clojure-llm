@@ -1,38 +1,49 @@
 #!/usr/bin/env python3
-"""
-Evaluation Script for SFT Model.
-
-This script evaluates a fine-tuned model against the benchmark tasks
-and compares results with the base model.
-
-Usage:
-    python training/sft/evaluate.py --checkpoint checkpoints/sft/final
-    python training/sft/evaluate.py --base --compare checkpoints/sft/final
-"""
+"""Evaluate a base or fine-tuned model against the benchmark pipeline."""
 
 import argparse
 import json
 import os
+import time
+import uuid
 from pathlib import Path
 from typing import Any, Dict, List
 
-import tinker
 from tinker import ServiceClient
+from transformers import AutoTokenizer
 import yaml
 
 
+ROOT = Path(__file__).resolve().parents[2]
+DEFAULT_TOKENIZER = "Qwen/Qwen3-8B-Base"
+
+
 def load_benchmark_tasks(tasks_path: str) -> List[Dict[str, Any]]:
-    """Load benchmark tasks from EDN or JSON file."""
-    # For now, assume JSON format for simplicity
-    # In production, would handle EDN properly
-    with open(tasks_path) as f:
-        if tasks_path.endswith(".json"):
+    """Load benchmark tasks from JSON or EDN."""
+    if tasks_path.endswith(".json"):
+        with open(tasks_path) as f:
             return json.load(f)
-        elif tasks_path.endswith(".edn"):
-            # Would need proper EDN parser
-            # For placeholder, return empty
-            return []
-    return []
+
+    if tasks_path.endswith(".edn"):
+        from edn_format import Keyword, loads
+
+        with open(tasks_path) as f:
+            raw_tasks = loads(f.read())
+
+        tasks = []
+        for task in raw_tasks:
+            tasks.append(
+                {
+                    "id": str(task[Keyword("id")]),
+                    "source": str(task[Keyword("source")]),
+                    "prompt_path": str(task[Keyword("prompt-ref")][Keyword("path")]),
+                    "tests_path": str(task[Keyword("tests-ref")][Keyword("path")]),
+                    "entrypoint": str(task[Keyword("entrypoint")]),
+                }
+            )
+        return tasks
+
+    raise ValueError(f"Unsupported task file format: {tasks_path}")
 
 
 def load_config(config_path: str) -> Dict:
@@ -41,34 +52,107 @@ def load_config(config_path: str) -> Dict:
         return yaml.safe_load(f)
 
 
-def generate_solution(client, task: Dict, max_tokens: int = 512) -> str:
-    """
-    Generate a solution for a benchmark task.
+def _make_run_id(label: str) -> str:
+    slug = "".join(ch if ch.isalnum() or ch in "-_" else "-" for ch in label.lower()).strip("-")
+    return f"{time.strftime('%Y-%m-%d')}-sft-eval-{slug}-{uuid.uuid4().hex[:8]}"
 
-    Args:
-        client: Tinker sampling client
-        task: Task dict with prompt information
-        max_tokens: Maximum tokens to generate
 
-    Returns:
-        Generated solution code
-    """
-    # Extract prompt from task
-    # Task format varies by source
-    prompt = task.get("prompt", "")
-    if not prompt and "prompt_ref" in task:
-        # Would load from referenced file
-        prompt = "// Task placeholder"
+def _load_sampler(checkpoint_or_model: str):
+    client = ServiceClient()
+    if checkpoint_or_model.startswith("tinker://"):
+        tc = client.create_training_client_from_state(checkpoint_or_model)
+        save_result = tc.save_weights_for_sampler(f"sft-eval-{uuid.uuid4().hex[:8]}").result()
+        sampler_path = save_result.path
+    else:
+        sampler_path = checkpoint_or_model
+    sc = client.create_sampling_client(model_path=sampler_path)
+    return client, sc
 
-    # Generate using Tinker sampling
-    response = client.sample(
-        prompt,
-        max_tokens=max_tokens,
-        temperature=0.2,  # Low temperature for code generation
-        top_p=0.95,
+
+def _extract_code(prompt_text: str, generated_text: str) -> str:
+    combined = prompt_text + generated_text
+    last_defn = combined.rfind("(defn")
+    if last_defn >= 0:
+        candidate = combined[last_defn:]
+        depth = 0
+        for i, ch in enumerate(candidate):
+            if ch == "(":
+                depth += 1
+            elif ch == ")":
+                depth -= 1
+                if depth == 0:
+                    return candidate[: i + 1]
+        return candidate
+    return combined
+
+
+def generate_solution(sc, tokenizer, task: Dict[str, Any], max_tokens: int = 512) -> str:
+    """Generate a solution for one benchmark task via Tinker sampling."""
+    from tinker import ModelInput, SamplingParams
+
+    prompt_path = ROOT / task["prompt_path"]
+    prompt_text = prompt_path.read_text().strip()
+    params = SamplingParams(max_tokens=max_tokens, temperature=0.2, top_p=0.95)
+
+    tokens = tokenizer.encode(prompt_text, add_special_tokens=True)
+    model_input = ModelInput.from_ints(tokens)
+    response = sc.sample(model_input, 1, params).result()
+    generated_tokens = response.sequences[0].tokens
+    generated_text = tokenizer.decode(generated_tokens)
+    return _extract_code(prompt_text, generated_text)
+
+
+def _create_run_manifest(task_ids: List[str], run_id: str, model_label: str) -> Path:
+    manifest = (
+        "{:task-ids ["
+        + " ".join(f'"{task_id}"' for task_id in task_ids)
+        + "]\n"
+        + ' :policy {:kind :direct}\n'
+        + ' :tasks-file "benchmark/tasks-v0.edn"\n'
+        + ' :prompting {:template :sft-eval :temperature 0.2 :top-p 0.95 :samples 1}\n'
+        + ' :executor {:kind :local-process :isolation :task-subprocess :network :none}\n'
+        + f' :created-at "{time.strftime("%Y-%m-%dT%H:%M:%S.000000Z")}"\n'
+        + f' :run-id "{run_id}"\n'
+        + ' :benchmark-version :clj-bench/v1\n'
+        + f' :model {{:provider :tinker :id "{model_label}"}}}}\n'
     )
+    manifest_path = ROOT / "benchmark" / "runs" / f"{run_id}.edn"
+    manifest_path.parent.mkdir(parents=True, exist_ok=True)
+    manifest_path.write_text(manifest)
+    return manifest_path
 
-    return response.text
+
+def _run_benchmark_eval(manifest_path: Path) -> None:
+    import subprocess
+
+    result = subprocess.run(
+        ["clojure", "-M:bench", "evaluate", str(manifest_path)],
+        cwd=ROOT,
+        capture_output=True,
+        text=True,
+        timeout=600,
+    )
+    if result.returncode != 0:
+        raise RuntimeError(result.stderr[-500:] or result.stdout[-500:] or "benchmark evaluation failed")
+
+
+def _load_eval_results(run_id: str) -> Dict[str, Dict[str, Any]]:
+    from edn_format import Keyword, loads
+
+    results_dir = ROOT / "benchmark" / "results" / run_id
+    results: Dict[str, Dict[str, Any]] = {}
+    for edn_file in sorted(results_dir.glob("*.edn")):
+        with open(edn_file) as f:
+            parsed = loads(f.read())
+        task_id = str(parsed[Keyword("task-id")])
+        results[task_id] = {
+            "outcome": str(parsed[Keyword("outcome")]),
+            "syntax_ok": bool(parsed[Keyword("syntax-ok")]),
+            "kondo_ok": bool(parsed[Keyword("kondo-ok")]),
+            "tests_ok": bool(parsed[Keyword("tests-ok")]),
+            "wall_ms": int(parsed[Keyword("wall-ms")]),
+        }
+    return results
 
 
 def evaluate_on_benchmark(
@@ -89,19 +173,18 @@ def evaluate_on_benchmark(
     Returns:
         Evaluation results dict
     """
-    print(f"Loading checkpoint from: {checkpoint_path}")
-
-    # Load sampling client from checkpoint
-    # In Tinker, this would create a client that can sample from trained weights
-    # client = SamplingClient.from_checkpoint(checkpoint_path)
-    client = None  # Placeholder
-
-    # Load benchmark tasks
+    print(f"Loading model/checkpoint from: {checkpoint_path}")
     tasks = load_benchmark_tasks(tasks_path)
     if num_samples:
         tasks = tasks[:num_samples]
 
     print(f"Evaluating on {len(tasks)} tasks...")
+
+    _, sc = _load_sampler(checkpoint_path)
+    tokenizer = AutoTokenizer.from_pretrained(DEFAULT_TOKENIZER, trust_remote_code=True)
+    run_id = _make_run_id(Path(checkpoint_path).name or "model")
+    cand_dir = ROOT / "benchmark" / "candidates" / run_id
+    cand_dir.mkdir(parents=True, exist_ok=True)
 
     results = []
     pass_count = 0
@@ -111,38 +194,42 @@ def evaluate_on_benchmark(
         print(f"[{i+1}/{len(tasks)}] Generating solution for {task_id}...")
 
         try:
-            # Generate solution
-            solution = generate_solution(client, task)
-
-            # Run tests (would use the benchmark runner)
-            # For placeholder, just store the generation
-            passed = False  # Would run actual tests
-
-            result = {
-                "task_id": task_id,
-                "solution": solution,
-                "passed": passed,
-                "source": task.get("source", "unknown"),
-            }
-            results.append(result)
-
-            if passed:
-                pass_count += 1
-
+            solution = generate_solution(sc, tokenizer, task)
+            stem = Path(task["prompt_path"]).stem
+            (cand_dir / f"{stem}.clj").write_text(solution)
         except Exception as e:
             print(f"  Error: {e}")
-            results.append({
-                "task_id": task_id,
-                "solution": None,
-                "passed": False,
-                "error": str(e),
-            })
+            stem = Path(task["prompt_path"]).stem
+            (cand_dir / f"{stem}.clj").write_text(f";; Generation failed: {e}")
+
+    manifest_path = _create_run_manifest([task["id"] for task in tasks], run_id, checkpoint_path)
+    _run_benchmark_eval(manifest_path)
+    eval_results = _load_eval_results(run_id)
+
+    for task in tasks:
+        task_id = task["id"]
+        eval_result = eval_results.get(task_id, {})
+        passed = eval_result.get("outcome") == ":pass"
+        result = {
+            "task_id": task_id,
+            "passed": passed,
+            "source": task.get("source", "unknown"),
+            "outcome": eval_result.get("outcome", ":missing"),
+            "syntax_ok": eval_result.get("syntax_ok", False),
+            "kondo_ok": eval_result.get("kondo_ok", False),
+            "tests_ok": eval_result.get("tests_ok", False),
+            "wall_ms": eval_result.get("wall_ms"),
+        }
+        results.append(result)
+        if passed:
+            pass_count += 1
 
     # Calculate metrics
     pass_rate = pass_count / len(tasks) if tasks else 0.0
 
     summary = {
         "checkpoint": checkpoint_path,
+        "run_id": run_id,
         "num_tasks": len(tasks),
         "pass_count": pass_count,
         "pass_rate": pass_rate,
@@ -150,12 +237,15 @@ def evaluate_on_benchmark(
     }
 
     # Save results
-    os.makedirs(os.path.dirname(output_path), exist_ok=True)
+    output_dir = os.path.dirname(output_path)
+    if output_dir:
+        os.makedirs(output_dir, exist_ok=True)
     with open(output_path, "w") as f:
         json.dump(summary, f, indent=2)
 
     print(f"\nEvaluation complete!")
     print(f"  Pass rate: {pass_rate:.2%} ({pass_count}/{len(tasks)})")
+    print(f"  Benchmark run ID: {run_id}")
     print(f"  Results saved to: {output_path}")
 
     return summary
