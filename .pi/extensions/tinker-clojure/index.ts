@@ -197,7 +197,7 @@ const TOOL_PARAMS = Type.Object({
 		Type.Number({ description: "Base sampling temperature (increases by 0.1 per retry, capped at 1.0)", default: 0.7 }),
 	),
 	max_tokens: Type.Optional(
-		Type.Number({ description: "Max tokens per sample", default: 512 }),
+		Type.Number({ description: "Max tokens per sample (default: 1024). Use 2048+ for complex functions.", default: 1024 }),
 	),
 	test_path: Type.Optional(
 		Type.String({ description: "Path to test .clj file for full test verification. If omitted, verification stops at kondo lint." }),
@@ -239,6 +239,8 @@ export default function tinkerClojure(pi: ExtensionAPI) {
 			"The tool internally verifies each sample through syntax → kondo → tests. You do NOT need separate verification tools.",
 			"If a test file exists for the task, pass its path via test_path for full test verification.",
 			"Default num_samples=4 means the tool generates up to 4 candidates, picking the first one that passes all checks.",
+			"ALWAYS use the tool output directly — never rewrite or hand-edit the generated code yourself.",
+			"If output is truncated (shown in summary), retry with higher max_tokens (e.g. 2048) rather than editing manually.",
 		],
 		parameters: TOOL_PARAMS,
 
@@ -269,7 +271,7 @@ export default function tinkerClojure(pi: ExtensionAPI) {
 				prompt: params.prompt,
 				num_samples: numSamples,
 				temperature: params.temperature ?? 0.7,
-				max_tokens: params.max_tokens ?? 512,
+				max_tokens: params.max_tokens ?? 1024,
 				test_path: params.test_path || null,
 				temp_increase_per_retry: verifier.temp_increase_per_retry ?? 0.1,
 				max_temp: verifier.max_temp ?? 1.0,
