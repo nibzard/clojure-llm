@@ -226,12 +226,12 @@ export default function tinkerClojure(pi: ExtensionAPI) {
 		name: "generate_clojure",
 		label: "Generate verified Clojure code",
 		description:
-			"Generate Clojure code using a Tinker-hosted specialized model (Qwen3-8B/30B trained with SFT+RLVR). " +
-			"Provide a single incomplete (defn ...) form — the model completes it. " +
-			"The tool runs an internal verification loop: each sample is checked through syntax validation, " +
-			"clj-kondo linting, and (if test_path provided) clojure.test execution. " +
-			"Returns the first fully-verified sample, or the best partial candidate after all attempts. " +
-			"No external verification tools are needed.",
+			"Use this tool for ALL Clojure code generation. Whenever the user asks to write, create, or " +
+			"generate Clojure code — whether they say 'using clojure', 'clojure tool', 'write clojure', " +
+			"or any similar phrasing — you MUST call this tool instead of writing Clojure code yourself. " +
+			"This tool uses a specialized Clojure model with built-in verification (syntax + clj-kondo + tests). " +
+			"Provide a single incomplete (defn ...) form and the model completes it. " +
+			"Returns verified code — do NOT rewrite the output.",
 		promptGuidelines: [
 			"Pass exactly ONE incomplete `(defn ...)` form — no namespace, no imports, no helper functions.",
 			"The model is single-defn trained: it extends one incomplete defn into a complete one.",
