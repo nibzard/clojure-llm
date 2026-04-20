@@ -81,6 +81,53 @@ def _find_balanced_defn(text, start_pos=0):
     return candidate
 
 
+def _find_balanced_defn(text, start_pos=0):
+    """Find balanced defn form starting from start_pos in text.
+
+    Returns (code, is_balanced) tuple:
+      - (code_string, True) if parens balance to depth 0
+      - (code_string, False) if parens never balance (truncated/incomplete)
+      - (None, False) if no (defn found at all
+
+    Skips parens inside string literals and line comments.
+    """
+    defn_pos = text.find("(defn", start_pos)
+    if defn_pos < 0:
+        return None, False
+
+    candidate = text[defn_pos:]
+    depth = 0
+    in_string = False
+    i = 0
+    while i < len(candidate):
+        ch = candidate[i]
+        if in_string:
+            if ch == '\\':
+                i += 2  # skip escaped char
+                continue
+            elif ch == '"':
+                in_string = False
+        else:
+            if ch == ';':
+                # Skip to end of line comment
+                newline = candidate.find('\n', i)
+                if newline < 0:
+                    break
+                i = newline
+            elif ch == '"':
+                in_string = True
+            elif ch == '(':
+                depth += 1
+            elif ch == ')':
+                depth -= 1
+                if depth == 0:
+                    return candidate[:i + 1], True
+        i += 1
+
+    # Unbalanced — return everything from defn_pos but mark as incomplete
+    return candidate, False
+
+
 def extract_code(prompt_text, generated_text):
     """Extract clean Clojure defn from prompt + generated text.
 
@@ -90,24 +137,27 @@ def extract_code(prompt_text, generated_text):
                 in the prompt and extract from combined text starting there.
 
     Returns (code, raw_len, extracted_len, was_truncated).
+    was_truncated is True when the extracted code is shorter than raw output
+    AND the parens did NOT balance (i.e. the model ran out of tokens).
     """
     raw_len = len(generated_text)
 
     # Strategy 1: Search generated text only
-    code = _find_balanced_defn(generated_text)
+    code, balanced = _find_balanced_defn(generated_text)
 
     if code is None:
         # Strategy 2: Find defn start in prompt, then extract from combined
         prompt_defn_pos = prompt_text.find("(defn")
         if prompt_defn_pos >= 0:
             combined = prompt_text + generated_text
-            code = _find_balanced_defn(combined, prompt_defn_pos)
+            code, balanced = _find_balanced_defn(combined, prompt_defn_pos)
         else:
             # No defn anywhere — return raw generated text
             code = generated_text
+            balanced = True  # can't judge balance without a defn
 
     extracted_len = len(code)
-    was_truncated = extracted_len < raw_len
+    was_truncated = (extracted_len < raw_len) and not balanced
 
     return code, raw_len, extracted_len, was_truncated
 
@@ -305,7 +355,7 @@ def handle_generate_clojure(params):
     prompt = params["prompt"]
     num_samples = params.get("num_samples", 4)
     base_temperature = params.get("temperature", 0.7)
-    max_tokens = params.get("max_tokens", 512)
+    max_tokens = params.get("max_tokens", 1024)
     test_path = params.get("test_path")
     temp_increase = params.get("temp_increase_per_retry", 0.1)
     max_temp = params.get("max_temp", 1.0)
