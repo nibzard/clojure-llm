@@ -13,7 +13,7 @@ Precedent: QED-Nano (4B beats 120B on proofs). → `THESIS.md`
 | # | Condition | pass@1 (111 held-out) | pass@1 (full 558) | Status |
 |---|-----------|----------------------|-------------------|--------|
 | B | GPT-5.4 | 64.0% | 65.4% | Done |
-| E | Gemini 3.1 Pro | — | 64.5% | 65 tasks pending |
+| E | Gemini 3.1 Pro | — | 72.8% | Done |
 | B | GPT-5.4-mini | 59.5% | 60.0% | Done |
 | **E** | **RLVR Qwen3-30B** | **55.0%** | **Phase 4b** |
 | **E** | **SFT Qwen3-30B** | **52.3%** | **Phase 4a** |
@@ -103,6 +103,51 @@ Best-of-K → `scripts/best_of_k.py` — generate K samples per task, pick first
 - Binary-reward RLVR (v0) preserved the 8B ceiling at 72.1%
 - Results: `research/best-of-k-30b-results.json`, `research/best-of-k-rlvr-30b-results.json`, `research/best-of-k-rlvr-v1-8b-results.json`, `research/best-of-k-results.json`, `research/best-of-k-sft-results.json`
 
+## Pi agent integration (`.pi/extensions/tinker-clojure/`)
+
+The Pi coding agent (GLM-5, Opus 4.6) uses `generate_clojure` as its ONLY Clojure code tool. The extension routes all Clojure generation through our RLVR model via a Python sidecar (`tinker_bridge.py`) with an internal verification loop.
+
+### Architecture
+
+```
+Host agent (GLM-5/Opus)
+  → generate_clojure tool call
+    → Node extension (index.ts)
+      → Python sidecar (tinker_bridge.py)
+        → Tinker SamplingClient (RLVR 30B checkpoint)
+        → syntax check → kondo lint → tests
+      ← verified code + proof
+    ← response with next-step instructions
+  ← presents result to user
+```
+
+### Tool capabilities
+
+- **Flexible prompt**: incomplete `(defn ...)` form OR natural language + function_name
+- **Auto-doctest**: parses `>>> (call args)\nexpected` examples from the prompt/docstring, generates a temp test, runs it — catches logic bugs without the agent passing test_path (158/558 tasks have `>>>` examples)
+- **Fix mode**: `previous_code` + `error` parameters let the agent retry through the tool instead of editing manually
+- **Context**: previously defined helpers prepended as comments for multi-function decomposition
+- **Verification proof**: response includes raw test output (`Ran 3 tests, 0 failures`) so the agent doesn't re-verify
+- **Response-driven behavior**: when tests fail, response says `VERIFICATION FAILED — call again with previous_code + error` — drives the agent to iterate through the tool
+
+### Session results (agent tool-call reduction)
+
+| Task | Agent calls (old) | Agent calls (new) | Auto-doctest? | Fix mode? |
+|------|:---:|:---:|:---:|:---:|
+| HumanEval_131 (digits) | 9 | **5** | — | — |
+| below_zero (`>>>` examples) | ~9 (estimated) | **1** | Yes | — |
+| validate (no examples) | ~9 (estimated) | **1** | No | — |
+| car_race_collision | ~9 (estimated) | **4** | No | No |
+| do_algebra (test_path) | 37-47 (BF equivalent) | **9** | — | **6x** |
+
+Key finding: response-driven fix mode eliminates manual Clojure writing. The do_algebra task (operator precedence) required 8 generate_clojure calls with 6 fix-mode retries, but **zero** bash/write/edit calls. Previously, equivalent-complexity tasks saw 37-47 workaround calls.
+
+### Checkpoints
+
+- `rlvr-30b` (default): RLVR 30B, pass@1 55.0%
+- `rlvr-8b`: RLVR 8B, pass@1 48.6%
+- `sft-8b`: SFT 8B, pass@1 37.8%
+
 ## Key docs (progressive disclosure)
 
 | Want to… | Read |
@@ -114,6 +159,7 @@ Best-of-K → `scripts/best_of_k.py` — generate K samples per task, pick first
 | See baseline numbers + error analysis | `research/baseline-analysis.md` |
 | See best-of-K results (8B beats GPT-5.4 with verifier) | `research/best-of-k-results.md` |
 | See RLVR training analysis | `research/rlvr-results.md` |
+| See verifier agent loop results | `research/verifier-agent-results.md` |
 | Review the RL/code-RL literature | `research/literature-review.md` |
 | Learn the training platform | `research/tinker-platform.md` |
 | Understand Clojure tooling fit | `research/clojure-ecosystem.md` |
