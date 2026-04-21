@@ -1,0 +1,9 @@
+openai
+anthropic
+transformers
+python-dotenv
+wandb
+numpy
+pyyaml
+edn-format
+tinker  # Tinker training platform SDK -- requires platform access

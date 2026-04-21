@@ -6,9 +6,42 @@ target/
 # Working artifacts
 tmp/
 
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.egg-info/
+.venv/
+dist/
+build/
+
+# WandB (local runs cache)
+wandb/
+
+# Model checkpoints (large files)
+checkpoints/
+
+# Data artifacts
+*.edn.backup
+*.json.backup
+
+# IDE
+.idea/
+.vscode/
+*.iml
+
 # OS
 .DS_Store
+Thumbs.db
+*.swp
+*.swo
+
+# Research artifacts
+tea_debug.log
 
 # Results (untracked like autoresearch)
 results.tsv
+demo/
+
+# Environment
 .env

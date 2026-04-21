@@ -1,0 +1,26 @@
+cff-version: 1.2.0
+message: "If you use this work, please cite it as below."
+title: "clojure-llm: Can an 8B Model Beat Frontier Models at Clojure Code Generation?"
+type: software
+authors:
+  - given-names: nibzard
+repository-code: "https://github.com/nibzard/clojure-llm"
+url: "https://github.com/nibzard/clojure-llm"
+license: Apache-2.0
+version: "1.0.0"
+date-released: "2026-04-21"
+abstract: >
+  Training Qwen3 models with SFT and verifier-in-the-loop RLVR for Clojure
+  code generation. A Qwen3-8B model with a verifier loop (best-of-8: 67.6%)
+  exceeds GPT-5.4 single-pass (64.0%) on 111 held-out MultiPL-E Clojure
+  tasks. Qwen3-30B SFT achieves 52.3% pass@1, beating Opus 4.7 (45.0%)
+  by 7.3 percentage points. Best-of-16 ceiling reaches 83.8% (93/111 tasks).
+keywords:
+  - clojure
+  - code-generation
+  - reinforcement-learning
+  - rlvr
+  - sft
+  - large-language-models
+  - verification
+  - multipl-e
