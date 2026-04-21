@@ -238,21 +238,22 @@ export default function tinkerClojure(pi: ExtensionAPI) {
 		name: "generate_clojure",
 		label: "Generate verified Clojure code",
 		description:
-			"Use this tool for ALL Clojure code generation. Whenever the user asks to write, create, or " +
-			"generate Clojure code — whether they say 'using clojure', 'clojure tool', 'write clojure', " +
-			"or any similar phrasing — you MUST call this tool instead of writing Clojure code yourself. " +
-			"This tool uses a specialized Clojure model with built-in verification (syntax + clj-kondo + tests). " +
-			"Supports three modes: (1) pass an incomplete (defn ...) to complete, (2) pass natural language " +
-			"description + optional function_name, (3) pass previous_code + error to fix broken output. " +
-			"Use `context` to provide previously defined helpers for multi-function problems.",
+			"MANDATORY: This is the ONLY tool you may use to produce Clojure code. " +
+			"You must NEVER write, edit, or modify Clojure code using bash, write, edit, or any other tool. " +
+			"Even if the output has bugs, you must call generate_clojure again to fix it (pass previous_code + error). " +
+			"If you need a helper function, call generate_clojure for it separately and pass the result as context. " +
+			"Built-in verification: syntax → clj-kondo → clojure.test (if test_path provided).",
 		promptGuidelines: [
-			"Use this tool for ALL Clojure code — never write Clojure via bash, write, or edit.",
-			"Pass an incomplete `(defn name [args])` form, OR a natural language description.",
-			"For multi-function problems: generate helpers first, then pass them as `context` for the main function.",
-			"If generated code fails: call this tool AGAIN with `previous_code` + `error` — do NOT fix manually.",
-			"The tool verifies internally (syntax → kondo → tests). Pass `test_path` when a test file exists.",
-			"If output is truncated, retry with higher `max_tokens` rather than editing manually.",
-			"Default: 4 samples, rlvr-30b checkpoint. Increase `num_samples` for harder problems.",
+			"MANDATORY RULE: You must NEVER write Clojure code yourself using bash, write, or edit. " +
+			"Every line of Clojure must come from this tool. No exceptions.",
+			"WHEN CODE HAS BUGS: Call this tool again with previous_code (the broken output) and error " +
+			"(what went wrong). NEVER fix bugs by hand — let the model fix its own code.",
+			"ALWAYS pass test_path when a test file exists. Without it, only syntax+lint are checked — " +
+			"logic bugs will pass silently.",
+			"COMPLEX PROBLEMS: Break into helper functions. Call generate_clojure for each helper first, " +
+			"then call it for the main function and pass the helpers as context.",
+			"Prompt can be an incomplete (defn name [args]) or natural language + function_name.",
+			"If output is truncated, retry with higher max_tokens (e.g. 2048).",
 		],
 		parameters: TOOL_PARAMS,
 
@@ -309,17 +310,58 @@ export default function tinkerClojure(pi: ExtensionAPI) {
 			const rawLength = result.raw_length as number | null;
 			const extractedLength = result.extracted_length as number | null;
 			const wasTruncated = result.was_truncated as boolean;
+			const verificationOutput = (result.verification_output as string) || "";
 
 			// Build summary of which checks passed
 			const passedChecks = Object.entries(checks)
 				.filter(([, v]) => v === true)
 				.map(([k]) => k);
-			let summary = verified
-				? `Verified code (attempt ${attempts}/${maxAttempts}, passed: ${passedChecks.join(", ")})`
-				: `Best candidate after ${attempts}/${maxAttempts} attempts (passed: ${passedChecks.join(", ") || "none"})`;
+
+			// Build verification proof from raw test output
+			let proof = "";
+			if (verificationOutput) {
+				const summaryMatch = verificationOutput.match(/Ran \d+ tests? containing \d+ assertions?.*/);
+				if (summaryMatch) {
+					proof = "\n" + summaryMatch[0];
+				}
+				const relevantLines = verificationOutput.split("\n")
+					.filter((line: string) => line.trim() && !line.includes("WARNING"))
+					.slice(-5);
+				if (!proof && relevantLines.length > 0) {
+					proof = "\n" + relevantLines.join("\n");
+				}
+			}
+
+			let summary: string;
+			const testResult = checks["tests"];
+			const testsProvided = params.test_path && params.test_path.trim() !== "";
+
+			if (verified) {
+				summary = `Verified code (attempt ${attempts}/${maxAttempts}, passed: ${passedChecks.join(", ")})`;
+				if (proof) {
+					summary += proof;
+				}
+			} else if (testsProvided && testResult === false) {
+				summary = `VERIFICATION FAILED (attempt ${attempts}/${maxAttempts}, passed: ${passedChecks.join(", ") || "none"}). ` +
+					`You MUST call generate_clojure again with previous_code set to the code below and error set to the test failure reason. ` +
+					`Do NOT fix the code yourself.`;
+				if (proof) {
+					summary += proof;
+				}
+			} else if (!testsProvided && testResult === null) {
+				summary = `Partial verification (attempt ${attempts}/${maxAttempts}, passed: ${passedChecks.join(", ")}). ` +
+					`Note: only syntax+lint were checked (no test examples found). ` +
+					`If the code has logic bugs, call again with previous_code + error.`;
+			} else {
+				summary = `Best candidate after ${attempts}/${maxAttempts} attempts (passed: ${passedChecks.join(", ") || "none"}). ` +
+					`Call again with previous_code + error to let the model fix it.`;
+				if (proof) {
+					summary += proof;
+				}
+			}
 
 			if (wasTruncated) {
-				summary += ` [truncated: ${extractedLength}/${rawLength} chars]`;
+				summary += ` [truncated: ${extractedLength}/${rawLength} chars — retry with higher max_tokens]`;
 			}
 
 			return {

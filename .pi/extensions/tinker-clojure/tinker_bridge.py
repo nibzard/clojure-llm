@@ -282,7 +282,8 @@ def _generate_one_sample(prompt, temperature, max_tokens):
 # ---------------------------------------------------------------------------
 
 def _format_success(code, attempt, max_attempts, checks, kondo_findings,
-                    raw_length=None, extracted_length=None, was_truncated=False):
+                    raw_length=None, extracted_length=None, was_truncated=False,
+                    verification_output=""):
     """Build response dict for a fully-verified sample."""
     return {
         "code": code,
@@ -294,11 +295,13 @@ def _format_success(code, attempt, max_attempts, checks, kondo_findings,
         "raw_length": raw_length,
         "extracted_length": extracted_length,
         "was_truncated": was_truncated,
+        "verification_output": verification_output,
     }
 
 
 def _format_best_effort(code, attempts, max_attempts, best_score, checks, kondo_findings,
-                        raw_length=None, extracted_length=None, was_truncated=False):
+                        raw_length=None, extracted_length=None, was_truncated=False,
+                        verification_output=""):
     """Build response dict for the best partial candidate after all attempts."""
     return {
         "code": code,
@@ -311,6 +314,7 @@ def _format_best_effort(code, attempts, max_attempts, best_score, checks, kondo_
         "raw_length": raw_length,
         "extracted_length": extracted_length,
         "was_truncated": was_truncated,
+        "verification_output": verification_output,
     }
 
 
@@ -340,6 +344,94 @@ def handle_init(params):
     tokenizer = AutoTokenizer.from_pretrained(base_tokenizer, trust_remote_code=True)
 
     return {"status": "ready", "sampler_path": save_result.path}
+
+
+def _parse_doctest_examples(text):
+    """Parse >>> examples from a docstring or prompt text.
+
+    Returns list of (call_expr, expected_result) tuples.
+    Handles format:
+        >>> (func arg1 arg2)
+        expected
+    """
+    examples = []
+    lines = text.splitlines()
+    i = 0
+    while i < len(lines):
+        line = lines[i].strip()
+        if line.startswith(">>> "):
+            call_expr = line[4:].strip()
+            # Next non-blank line is the expected result
+            i += 1
+            while i < len(lines) and lines[i].strip() == "":
+                i += 1
+            if i < len(lines):
+                expected = lines[i].strip()
+                # Strip trailing docstring artifacts (closing quote, parens)
+                expected = expected.rstrip('")').rstrip()
+                examples.append((call_expr, expected))
+        i += 1
+    return examples
+
+
+def _extract_function_name(code):
+    """Extract function name from a (defn name ...) form."""
+    m = re.match(r'\(defn\s+([^\s\[\("]+)', code.strip())
+    return m.group(1) if m else None
+
+
+def _generate_doctest(code, examples, timeout):
+    """Run doctest examples against generated code. Returns (ok, output).
+
+    Writes a temp file with the function def + assertions, runs via Clojure.
+    """
+    func_name = _extract_function_name(code)
+    if not func_name or not examples:
+        return None, ""
+
+    # Build assertion expressions
+    assertions = []
+    for call_expr, expected in examples:
+        assertions.append(f'(is (= {call_expr} {expected}))')
+
+    test_code = (
+        '(require \'[clojure.test :refer [deftest is]])\n'
+        + code + '\n\n'
+        '(deftest doctest\n  ' + '\n  '.join(assertions) + ')\n\n'
+        '(clojure.test/run-tests)'
+    )
+
+    with tempfile.NamedTemporaryFile(
+        mode="w", suffix=".clj", delete=False, dir="/tmp",
+    ) as f:
+        f.write(test_code)
+        test_path = f.name
+
+    try:
+        result = subprocess.run(
+            ["clojure", "-M", "-e",
+             f'(try (load-file "{test_path}") '
+             f'(catch Throwable e '
+             f'(binding [*out* *err*] (println "ERROR:" (.getMessage e))) '
+             f'(System/exit 1)))'],
+            capture_output=True,
+            text=True,
+            timeout=timeout,
+            cwd=str(ROOT),
+        )
+    except subprocess.TimeoutExpired:
+        return False, f"Timeout after {timeout}s"
+
+    output = result.stdout + result.stderr
+    zero_failures = bool(re.search(r"0 failures,\s+0 errors\.?", output))
+    ok = (
+        result.returncode == 0
+        and zero_failures
+        and "FAIL in" not in output
+        and "ERROR in" not in output
+        and "ERROR:" not in output
+    )
+    return ok, output
 
 
 def _normalize_prompt(prompt, function_name=None):
@@ -405,6 +497,9 @@ def handle_generate_clojure(params):
         context_lines = "\n".join(f";; {line}" for line in context.strip().splitlines())
         prompt = context_lines + "\n\n" + prompt
 
+    # Parse >>> examples from the normalized prompt for auto-testing
+    doctest_examples = _parse_doctest_examples(prompt)
+
     best_code = None
     best_score = -1
     best_checks = {}
@@ -412,6 +507,7 @@ def handle_generate_clojure(params):
     best_raw_length = None
     best_extracted_length = None
     best_was_truncated = False
+    best_verification_output = ""
     kondo_feedback = ""
     last_failed_code = ""
 
@@ -478,7 +574,8 @@ def handle_generate_clojure(params):
             kondo_feedback = ""
             last_failed_code = ""
 
-            # Step 3: Test verification (if test_path provided)
+            # Step 3: Test verification
+            # Priority: explicit test_path > auto-generated doctest
             if test_path:
                 load_ok, tests_ok, timed_out, test_output = _run_load_and_tests(
                     code_path, test_path, test_timeout,
@@ -489,6 +586,7 @@ def handle_generate_clojure(params):
                         {"syntax": True, "kondo": True, "tests": True},
                         kondo_findings,
                         raw_len, extracted_len, was_truncated,
+                        verification_output=test_output,
                     )
                 # Track as best if score improves
                 score = 2  # passed syntax + kondo
@@ -500,14 +598,41 @@ def handle_generate_clojure(params):
                     best_raw_length = raw_len
                     best_extracted_length = extracted_len
                     best_was_truncated = was_truncated
+                    best_verification_output = test_output
+                continue
+            elif doctest_examples:
+                # Auto-test from >>> examples in the docstring
+                doctest_ok, doctest_output = _generate_doctest(
+                    code, doctest_examples, test_timeout,
+                )
+                if doctest_ok:
+                    return _format_success(
+                        code, k, num_samples,
+                        {"syntax": True, "kondo": True, "tests": True},
+                        kondo_findings,
+                        raw_len, extracted_len, was_truncated,
+                        verification_output=doctest_output,
+                    )
+                # Doctest failed — track as best if score improves
+                score = 2  # passed syntax + kondo
+                if score > best_score:
+                    best_code = code
+                    best_score = score
+                    best_checks = {"syntax": True, "kondo": True, "tests": False}
+                    best_kondo_findings = kondo_findings
+                    best_raw_length = raw_len
+                    best_extracted_length = extracted_len
+                    best_was_truncated = was_truncated
+                    best_verification_output = doctest_output
                 continue
             else:
-                # No test_path — kondo-verified is sufficient
+                # No test_path, no doctest examples — kondo-verified only
                 return _format_success(
                     code, k, num_samples,
                     {"syntax": True, "kondo": True, "tests": None},
                     kondo_findings,
                     raw_len, extracted_len, was_truncated,
+                    verification_output="",
                 )
         finally:
             os.unlink(code_path)
@@ -518,6 +643,7 @@ def handle_generate_clojure(params):
             best_code, num_samples, num_samples,
             best_score, best_checks, best_kondo_findings,
             best_raw_length, best_extracted_length, best_was_truncated,
+            verification_output=best_verification_output,
         )
 
     # Should not happen (at least one sample always generated), but handle gracefully
