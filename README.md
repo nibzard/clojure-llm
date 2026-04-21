@@ -16,8 +16,8 @@ verifier loop beats GPT-5.4 single-pass.
 
 | Model | pass@1 | full 558 |
 |-------|--------|----------|
+| Gemini 3.1 Pro | -- | 72.8% |
 | GPT-5.4 | 64.0% | 65.4% |
-| Gemini 3.1 Pro | -- | 64.5%* |
 | GPT-5.4-mini | 59.5% | 60.0% |
 | **Qwen3-30B RLVR** | **55.0%** | -- |
 | **Qwen3-30B SFT** | **52.3%** | -- |
@@ -25,8 +25,6 @@ verifier loop beats GPT-5.4 single-pass.
 | Opus 4.7 | 45.0% | 48.0% |
 | Qwen3-8B RLVR v1 | 48.6% | -- |
 | Qwen3-8B SFT | 37.8% | -- |
-
-*65 tasks pending evaluation.
 
 ### Best-of-K (111 held-out, with verifier)
 

@@ -1,1 +1,19 @@
-;; Generation failed: 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_requests_per_model_per_day, limit: 250, model: gemini-3.1-pro\nPlease retry in 11h58m41.957650398s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_requests_per_model_per_day', 'quotaId': 'GenerateRequestsPerDayPerProjectPerModel', 'quotaDimensions': {'model': 'gemini-3.1-pro', 'location': 'global'}, 'quotaValue': '250'}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '43121s'}]}}
+(defn rgb_to_hsv
+  "Write a function to convert rgb color to hsv color."
+  [r g b]
+  (let [r' (/ r 255.0)
+        g' (/ g 255.0)
+        b' (/ b 255.0)
+        cmax (max r' g' b')
+        cmin (min r' g' b')
+        diff (- cmax cmin)
+        h (cond
+            (zero? diff) 0.0
+            (= cmax r') (mod (* 60.0 (/ (- g' b') diff)) 360.0)
+            (= cmax g') (mod (+ (* 60.0 (/ (- b' r') diff)) 120.0) 360.0)
+            (= cmax b') (mod (+ (* 60.0 (/ (- r' g') diff)) 240.0) 360.0))
+        s (if (zero? cmax)
+            0.0
+            (* (/ diff cmax) 100.0))
+        v (* cmax 100.0)]
+    [h s v]))

@@ -557,13 +557,13 @@
   "mbpp-clj-395"
   "mbpp-clj-396"
   "mbpp-clj-397"],
- :policy {:kind :direct},
+ :policy {:kind :--status},
  :tasks-file "benchmark/tasks-v0.edn",
  :prompting
  {:template :direct-v1, :temperature 0.2, :top-p 0.95, :samples 1},
  :executor
  {:kind :local-process, :isolation :task-subprocess, :network :none},
- :created-at "2026-04-20T12:02:21.228194419Z",
+ :created-at "2026-04-21T10:07:34.455816379Z",
  :run-id "2026-04-19-gemini-31-pro-direct",
  :benchmark-version :clj-bench/v1,
- :model {:provider :manual, :id "gemini-3.1-pro-preview"}}
+ :model {:provider :manual, :id "direct"}}

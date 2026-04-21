@@ -1,10 +1,9 @@
 {:task-id "mbpp-clj-389",
- :error-kind :test-failure,
- :outcome :fail,
+ :error-kind nil,
+ :outcome :pass,
  :syntax-ok true,
- :tests-ok false,
- :notes
- "WARNING: Implicit use of clojure.main with options is deprecated, use -M -e (do (load-file \"benchmark/candidates/2026-04-19-gemini-31-pro-direct/mbpp_801_test_three_equal.clj\") (load-file \"benchmark/tests/multipl-e/mbpp_801_test_three_equal_test.clj\"))\nSyntax error compiling at (benchmark/tests/multipl-e/mbpp_801_test_three_equal_test.clj:3:1).\nUnable to resolve symbol: test_three_equal in this context\n\nFull report at:\n/tmp/clojure-1063350868388309666.edn",
- :wall-ms 1131,
+ :tests-ok true,
+ :notes nil,
+ :wall-ms 1138,
  :kondo-ok true,
  :tokens 0}

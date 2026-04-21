@@ -1,10 +1,9 @@
 {:task-id "mbpp-clj-372",
- :error-kind :test-failure,
- :outcome :fail,
+ :error-kind nil,
+ :outcome :pass,
  :syntax-ok true,
- :tests-ok false,
- :notes
- "WARNING: Implicit use of clojure.main with options is deprecated, use -M -e (do (load-file \"benchmark/candidates/2026-04-19-gemini-31-pro-direct/mbpp_782_odd_length_sum.clj\") (load-file \"benchmark/tests/multipl-e/mbpp_782_odd_length_sum_test.clj\"))\nSyntax error compiling at (benchmark/tests/multipl-e/mbpp_782_odd_length_sum_test.clj:3:1).\nUnable to resolve symbol: odd_length_sum in this context\n\nFull report at:\n/tmp/clojure-15239106878176529673.edn",
- :wall-ms 1065,
+ :tests-ok true,
+ :notes nil,
+ :wall-ms 1088,
  :kondo-ok true,
  :tokens 0}

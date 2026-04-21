@@ -5,7 +5,7 @@
 As of April 20, 2026, the cleaned `v1` evaluation regime shows:
 
 - GPT-5.4: 64.0% on the 111-task held-out split, 65.4% on the full 558-task benchmark
-- Gemini 3.1 Pro: 64.5% on full 558 (65 tasks pending)
+- Gemini 3.1 Pro: 72.8% on full 558 (6 tasks failed generation due to API quota)
 - GPT-5.4-mini: 59.5% on held-out, 60.0% on full benchmark
 - Opus 4.7: 45.0% on held-out, 48.0% on full benchmark
 - **Qwen3-30B RLVR**: 55.0% on held-out

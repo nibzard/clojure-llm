@@ -1,10 +1,10 @@
 {:task-id "mbpp-clj-042",
- :error-kind :test-failure,
+ :error-kind :compile-error,
  :outcome :fail,
  :syntax-ok true,
  :tests-ok false,
  :notes
- "WARNING: Implicit use of clojure.main with options is deprecated, use -M -e (do (load-file \"benchmark/candidates/2026-04-19-gemini-31-pro-direct/mbpp_91_find_substring.clj\") (load-file \"benchmark/tests/multipl-e/mbpp_91_find_substring_test.clj\"))\nSyntax error compiling at (benchmark/tests/multipl-e/mbpp_91_find_substring_test.clj:3:1).\nUnable to resolve symbol: find_substring in this context\n\nFull report at:\n/tmp/clojure-13006714836377617414.edn",
- :wall-ms 1259,
- :kondo-ok true,
+ "benchmark/candidates/2026-04-19-gemini-31-pro-direct/mbpp_91_find_substring.clj:4:20: warning: Unresolved namespace clojure.string. Are you missing a require?\nlinting took 10ms, errors: 0, warnings: 1\n",
+ :wall-ms 17,
+ :kondo-ok false,
  :tokens 0}

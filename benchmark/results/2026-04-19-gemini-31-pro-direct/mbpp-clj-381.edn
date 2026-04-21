@@ -4,7 +4,7 @@
  :syntax-ok true,
  :tests-ok false,
  :notes
- "WARNING: Implicit use of clojure.main with options is deprecated, use -M -e (do (load-file \"benchmark/candidates/2026-04-19-gemini-31-pro-direct/mbpp_792_count_list.clj\") (load-file \"benchmark/tests/multipl-e/mbpp_792_count_list_test.clj\"))\nSyntax error compiling at (benchmark/tests/multipl-e/mbpp_792_count_list_test.clj:3:1).\nUnable to resolve symbol: count_list in this context\n\nFull report at:\n/tmp/clojure-7607432745477648141.edn",
- :wall-ms 1164,
+ "WARNING: Implicit use of clojure.main with options is deprecated, use -M -e (do (load-file \"benchmark/candidates/2026-04-19-gemini-31-pro-direct/mbpp_792_count_list.clj\") (load-file \"benchmark/tests/multipl-e/mbpp_792_count_list_test.clj\"))\n\nTesting user\n\nFAIL in (test-humaneval) (mbpp_792_count_list_test.clj:7)\nexpected: (= (candidate [[1 3] [5 7] [9 11] [13 15 17]]) 4)\n  actual: (not (= 0 4))\n\nFAIL in (test-humaneval) (mbpp_792_count_list_test.clj:8)\nexpected: (= (candidate [[1 2] [2 3] [4 5]]) 3)\n  actual: (not (= 0 3))\n\nFAIL in (test-humaneval) (mbpp_792_count_list_test.clj:9)\nexpected: (= (candidate [[1 0] [2 0]]) 2)\n  actual: (not (= 0 2))\n\nRan 1 tests containing 3 assertions.\n3 failures, 0 errors.\n{:test 1, :pass 0, :fail 3, :error 0, :type :summary}",
+ :wall-ms 1104,
  :kondo-ok true,
  :tokens 0}

@@ -1,10 +1,10 @@
 {:task-id "mbpp-clj-365",
- :error-kind :test-failure,
+ :error-kind :compile-error,
  :outcome :fail,
  :syntax-ok true,
  :tests-ok false,
  :notes
- "WARNING: Implicit use of clojure.main with options is deprecated, use -M -e (do (load-file \"benchmark/candidates/2026-04-19-gemini-31-pro-direct/mbpp_773_occurance_substring.clj\") (load-file \"benchmark/tests/multipl-e/mbpp_773_occurance_substring_test.clj\"))\nSyntax error compiling at (benchmark/tests/multipl-e/mbpp_773_occurance_substring_test.clj:3:1).\nUnable to resolve symbol: occurance_substring in this context\n\nFull report at:\n/tmp/clojure-1596085147118367858.edn",
- :wall-ms 1107,
- :kondo-ok true,
+ "benchmark/candidates/2026-04-19-gemini-31-pro-direct/mbpp_773_occurance_substring.clj:5:23: warning: Unresolved namespace clojure.string. Are you missing a require?\nlinting took 9ms, errors: 0, warnings: 1\n",
+ :wall-ms 15,
+ :kondo-ok false,
  :tokens 0}

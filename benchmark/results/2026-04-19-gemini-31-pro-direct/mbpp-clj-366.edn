@@ -1,10 +1,9 @@
 {:task-id "mbpp-clj-366",
- :error-kind :test-failure,
- :outcome :fail,
+ :error-kind nil,
+ :outcome :pass,
  :syntax-ok true,
- :tests-ok false,
- :notes
- "WARNING: Implicit use of clojure.main with options is deprecated, use -M -e (do (load-file \"benchmark/candidates/2026-04-19-gemini-31-pro-direct/mbpp_775_odd_position.clj\") (load-file \"benchmark/tests/multipl-e/mbpp_775_odd_position_test.clj\"))\nSyntax error compiling at (benchmark/tests/multipl-e/mbpp_775_odd_position_test.clj:3:1).\nUnable to resolve symbol: odd_position in this context\n\nFull report at:\n/tmp/clojure-2827788717504466898.edn",
- :wall-ms 1096,
+ :tests-ok true,
+ :notes nil,
+ :wall-ms 1277,
  :kondo-ok true,
  :tokens 0}

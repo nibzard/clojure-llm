@@ -1,10 +1,9 @@
 {:task-id "mbpp-clj-369",
- :error-kind :test-failure,
- :outcome :fail,
+ :error-kind nil,
+ :outcome :pass,
  :syntax-ok true,
- :tests-ok false,
- :notes
- "WARNING: Implicit use of clojure.main with options is deprecated, use -M -e (do (load-file \"benchmark/candidates/2026-04-19-gemini-31-pro-direct/mbpp_778_pack_consecutive_duplicates.clj\") (load-file \"benchmark/tests/multipl-e/mbpp_778_pack_consecutive_duplicates_test.clj\"))\nSyntax error compiling at (benchmark/tests/multipl-e/mbpp_778_pack_consecutive_duplicates_test.clj:3:1).\nUnable to resolve symbol: pack_consecutive_duplicates in this context\n\nFull report at:\n/tmp/clojure-14865854232332183322.edn",
- :wall-ms 1255,
+ :tests-ok true,
+ :notes nil,
+ :wall-ms 1265,
  :kondo-ok true,
  :tokens 0}

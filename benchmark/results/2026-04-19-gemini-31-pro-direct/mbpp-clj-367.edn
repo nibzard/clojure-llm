@@ -4,7 +4,7 @@
  :syntax-ok true,
  :tests-ok false,
  :notes
- "WARNING: Implicit use of clojure.main with options is deprecated, use -M -e (do (load-file \"benchmark/candidates/2026-04-19-gemini-31-pro-direct/mbpp_776_count_vowels.clj\") (load-file \"benchmark/tests/multipl-e/mbpp_776_count_vowels_test.clj\"))\nSyntax error compiling at (benchmark/tests/multipl-e/mbpp_776_count_vowels_test.clj:3:1).\nUnable to resolve symbol: count_vowels in this context\n\nFull report at:\n/tmp/clojure-1080671406726053479.edn",
- :wall-ms 1100,
+ "WARNING: Implicit use of clojure.main with options is deprecated, use -M -e (do (load-file \"benchmark/candidates/2026-04-19-gemini-31-pro-direct/mbpp_776_count_vowels.clj\") (load-file \"benchmark/tests/multipl-e/mbpp_776_count_vowels_test.clj\"))\n\nTesting user\n\nFAIL in (test-humaneval) (mbpp_776_count_vowels_test.clj:7)\nexpected: (= (candidate \"bestinstareels\") 7)\n  actual: (not (= 1 7))\n\nFAIL in (test-humaneval) (mbpp_776_count_vowels_test.clj:8)\nexpected: (= (candidate \"partofthejourneyistheend\") 12)\n  actual: (not (= 2 12))\n\nFAIL in (test-humaneval) (mbpp_776_count_vowels_test.clj:9)\nexpected: (= (candidate \"amazonprime\") 5)\n  actual: (not (= 3 5))\n\nRan 1 tests containing 3 assertions.\n3 failures, 0 errors.\n{:test 1, :pass 0, :fail 3, :error 0, :type :summary}",
+ :wall-ms 1158,
  :kondo-ok true,
  :tokens 0}

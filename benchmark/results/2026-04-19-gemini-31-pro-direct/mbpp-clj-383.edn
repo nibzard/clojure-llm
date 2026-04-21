@@ -1,10 +1,9 @@
 {:task-id "mbpp-clj-383",
- :error-kind :test-failure,
- :outcome :fail,
+ :error-kind nil,
+ :outcome :pass,
  :syntax-ok true,
- :tests-ok false,
- :notes
- "WARNING: Implicit use of clojure.main with options is deprecated, use -M -e (do (load-file \"benchmark/candidates/2026-04-19-gemini-31-pro-direct/mbpp_794_text_starta_endb.clj\") (load-file \"benchmark/tests/multipl-e/mbpp_794_text_starta_endb_test.clj\"))\nSyntax error compiling at (benchmark/tests/multipl-e/mbpp_794_text_starta_endb_test.clj:3:1).\nUnable to resolve symbol: text_starta_endb in this context\n\nFull report at:\n/tmp/clojure-4003966230749117326.edn",
- :wall-ms 1111,
+ :tests-ok true,
+ :notes nil,
+ :wall-ms 1255,
  :kondo-ok true,
  :tokens 0}

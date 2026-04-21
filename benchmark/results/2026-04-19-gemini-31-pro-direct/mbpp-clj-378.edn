@@ -1,10 +1,9 @@
 {:task-id "mbpp-clj-378",
- :error-kind :test-failure,
- :outcome :fail,
+ :error-kind nil,
+ :outcome :pass,
  :syntax-ok true,
- :tests-ok false,
- :notes
- "WARNING: Implicit use of clojure.main with options is deprecated, use -M -e (do (load-file \"benchmark/candidates/2026-04-19-gemini-31-pro-direct/mbpp_788_new_tuple.clj\") (load-file \"benchmark/tests/multipl-e/mbpp_788_new_tuple_test.clj\"))\nSyntax error compiling at (benchmark/tests/multipl-e/mbpp_788_new_tuple_test.clj:3:1).\nUnable to resolve symbol: new_tuple in this context\n\nFull report at:\n/tmp/clojure-6134820578383308170.edn",
- :wall-ms 1068,
+ :tests-ok true,
+ :notes nil,
+ :wall-ms 1097,
  :kondo-ok true,
  :tokens 0}

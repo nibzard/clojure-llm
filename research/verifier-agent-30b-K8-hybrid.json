@@ -1,0 +1,5863 @@
+{
+  "mode": "verifier_agent",
+  "K": 8,
+  "temperature": 0.7,
+  "temp_increase": 0.05,
+  "max_temp": 1.0,
+  "max_tokens": 8192,
+  "test_timeout": 10,
+  "blind_attempts": 4,
+  "checkpoint": "tinker://6d56c642-fed2-539d-853b-8311cc4939ed:train:0/weights/checkpoint-step-600",
+  "total_tasks": 111,
+  "pass_at_1": 63,
+  "agent_pass": 83,
+  "per_task": {
+    "humaneval-clj-001": {
+      "passed": true,
+      "first_attempt_passed": false,
+      "attempts_until_pass": 2,
+      "attempts": [
+        {
+          "k": 0,
+          "passed": false,
+          "temperature": 0.7,
+          "raw_length": 394,
+          "extracted_length": 381,
+          "was_truncated": false,
+          "syntax_ok": true,
+          "kondo_ok": true,
+          "load_ok": true,
+          "tests_ok": false,
+          "timed_out": false
+        },
+        {
+          "k": 1,
+          "passed": true,
+          "temperature": 0.75,
+          "raw_length": 427,
+          "extracted_length": 414,
+          "was_truncated": false,
+          "syntax_ok": true,
+          "kondo_ok": true,
+          "load_ok": true,
+          "tests_ok": true,
+          "timed_out": false
+        }
+      ]
+    },
+    "humaneval-clj-003": {
+      "passed": true,
+      "first_attempt_passed": true,
+      "attempts_until_pass": 1,
+      "attempts": [
+        {
+          "k": 0,
+          "passed": true,
+          "temperature": 0.7,
+          "raw_length": 354,
+          "extracted_length": 341,
+          "was_truncated": false,
+          "syntax_ok": true,
+          "kondo_ok": true,
+          "load_ok": true,
+          "tests_ok": true,
+          "timed_out": false
+        }
+      ]
+    },
+    "humaneval-clj-012": {
+      "passed": true,
+      "first_attempt_passed": true,
+      "attempts_until_pass": 1,
+      "attempts": [
+        {
+          "k": 0,
+          "passed": true,
+          "temperature": 0.7,
+          "raw_length": 475,
+          "extracted_length": 462,
+          "was_truncated": false,
+          "syntax_ok": true,
+          "kondo_ok": true,
+          "load_ok": true,
+          "tests_ok": true,
+          "timed_out": false
+        }
+      ]
+    },
+    "humaneval-clj-018": {
+      "passed": true,
+      "first_attempt_passed": false,
+      "attempts_until_pass": 5,
+      "attempts": [
+        {
+          "k": 0,
+          "passed": false,
+          "temperature": 0.7,
+          "raw_length": 670,
+          "extracted_length": 657,
+          "was_truncated": false,
+          "syntax_ok": true,
+          "kondo_ok": false,
+          "load_ok": false,
+          "tests_ok": false,
+          "timed_out": false
+        },
+        {
+          "k": 1,
+          "passed": false,
+          "temperature": 0.75,
+          "raw_length": 670,
+          "extracted_length": 657,
+          "was_truncated": false,
+          "syntax_ok": true,
+          "kondo_ok": false,
+          "load_ok": false,
+          "tests_ok": false,
+          "timed_out": false
+        },
+        {
+          "k": 2,
+          "passed": false,
+          "temperature": 0.7999999999999999,
+          "raw_length": 1261,
+          "extracted_length": 624,
+          "was_truncated": false,
+          "syntax_ok": true,
+          "kondo_ok": true,
+          "load_ok": true,
+          "tests_ok": false,
+          "timed_out": false
+        },
+        {
+          "k": 3,
+          "passed": false,
+          "temperature": 0.85,
+          "raw_length": 656,
+          "extracted_length": 643,
+          "was_truncated": false,
+          "syntax_ok": true,
+          "kondo_ok": false,
+          "load_ok": false,
+          "tests_ok": false,
+          "timed_out": false
+        },
+        {
+          "k": 4,
+          "passed": true,
+          "temperature": 0.8999999999999999,
+          "raw_length": 1241,
+          "extracted_length": 614,
+          "was_truncated": false,
+          "syntax_ok": true,
+          "kondo_ok": true,
+          "load_ok": true,
+          "tests_ok": true,
+          "timed_out": false
+        }
+      ]
+    },
+    "humaneval-clj-019": {
+      "passed": true,
+      "first_attempt_passed": true,
+      "attempts_until_pass": 1,
+      "attempts": [
+        {
+          "k": 0,
+          "passed": true,
+          "temperature": 0.7,
+          "raw_length": 489,
+          "extracted_length": 476,
+          "was_truncated": false,
+          "syntax_ok": true,
+          "kondo_ok": true,
+          "load_ok": true,
+          "tests_ok": true,
+          "timed_out": false
+        }
+      ]
+    },
+    "humaneval-clj-020": {
+      "passed": false,
+      "first_attempt_passed": false,
+      "attempts_until_pass": null,
+      "attempts": [
+        {
+          "k": 0,
+          "passed": false,
+          "temperature": 0.7,
+          "raw_length": 812,
+          "extracted_length": 799,
+          "was_truncated": false,
+          "syntax_ok": true,
+          "kondo_ok": false,
+          "load_ok": false,
+          "tests_ok": false,
+          "timed_out": false
+        },
+        {
+          "k": 1,
+          "passed": false,
+          "temperature": 0.75,
+          "raw_length": 1052,
+          "extracted_length": 1039,
+          "was_truncated": false,
+          "syntax_ok": true,
+          "kondo_ok": false,
+          "load_ok": false,
+          "tests_ok": false,
+          "timed_out": false
+        },
+        {
+          "k": 2,
+          "passed": false,
+          "temperature": 0.7999999999999999,
+          "raw_length": 1062,
+          "extracted_length": 1049,
+          "was_truncated": false,
+          "syntax_ok": true,
+          "kondo_ok": false,
+          "load_ok": false,
+          "tests_ok": false,
+          "timed_out": false
+        },
+        {
+          "k": 3,
+          "passed": false,
+          "temperature": 0.85,
+          "raw_length": 752,
+          "extracted_length": 739,
+          "was_truncated": false,
+          "syntax_ok": true,
+          "kondo_ok": false,
+          "load_ok": false,
+          "tests_ok": false,
+          "timed_out": false
+        },
+        {
+          "k": 4,
+          "passed": false,
+          "temperature": 0.8999999999999999,
+          "raw_length": 850,
+          "extracted_length": 837,
+          "was_truncated": false,
+          "syntax_ok": true,
+          "kondo_ok": false,
+          "load_ok": false,
+          "tests_ok": false,
+          "timed_out": false
+        },
+        {
+          "k": 5,
+          "passed": false,
+          "temperature": 0.95,
+          "raw_length": 591,
+          "extracted_length": 578,
+          "was_truncated": false,
+          "syntax_ok": true,
+          "kondo_ok": false,
+          "load_ok": false,
+          "tests_ok": false,
+          "timed_out": false
+        },
+        {
+          "k": 6,
+          "passed": false,
+          "temperature": 1.0,
+          "raw_length": 1056,
+          "extracted_length": 1043,
+          "was_truncated": false,
+          "syntax_ok": true,
+          "kondo_ok": false,
+          "load_ok": false,
+          "tests_ok": false,
+          "timed_out": false
+        },
+        {
+          "k": 7,
+          "passed": false,
+          "temperature": 1.0,
+          "raw_length": 1319,
+          "extracted_length": 653,
+          "was_truncated": false,
+          "syntax_ok": true,
+          "kondo_ok": false,
+          "load_ok": false,
+          "tests_ok": false,
+          "timed_out": false
+        }
+      ],
+      "best_attempt": {
+        "k": 0,
+        "passed": false,
+        "temperature": 0.7,
+        "raw_length": 812,
+        "extracted_length": 799,
+        "was_truncated": false,
+        "syntax_ok": true,
+        "kondo_ok": false,
+        "load_ok": false,
+        "tests_ok": false,
+        "timed_out": false
+      }
+    },
+    "humaneval-clj-031": {
+      "passed": true,
+      "first_attempt_passed": true,
+      "attempts_until_pass": 1,
+      "attempts": [
+        {
+          "k": 0,
+          "passed": true,
+          "temperature": 0.7,
+          "raw_length": 224,
+          "extracted_length": 211,
+          "was_truncated": false,
+          "syntax_ok": true,
+          "kondo_ok": true,
+          "load_ok": true,
+          "tests_ok": true,
+          "timed_out": false
+        }
+      ]
+    },
+    "humaneval-clj-039": {
+      "passed": true,
+      "first_attempt_passed": false,
+      "attempts_until_pass": 2,
+      "attempts": [
+        {
+          "k": 0,
+          "passed": false,
+          "temperature": 0.7,
+          "raw_length": 820,
+          "extracted_length": 807,
+          "was_truncated": false,
+          "syntax_ok": true,
+          "kondo_ok": true,
+          "load_ok": true,
+          "tests_ok": false,
+          "timed_out": false
+        },
+        {
+          "k": 1,
+          "passed": true,
+          "temperature": 0.75,
+          "raw_length": 667,
+          "extracted_length": 654,
+          "was_truncated": false,
+          "syntax_ok": true,
+          "kondo_ok": true,
+          "load_ok": true,
+          "tests_ok": true,
+          "timed_out": false
+        }
+      ]
+    },
+    "humaneval-clj-043": {
+      "passed": true,
+      "first_attempt_passed": false,
+      "attempts_until_pass": 4,
+      "attempts": [
+        {
+          "k": 0,
+          "passed": false,
+          "temperature": 0.7,
+          "raw_length": 800,
+          "extracted_length": 787,
+          "was_truncated": false,
+          "syntax_ok": true,
+          "kondo_ok": false,
+          "load_ok": false,
+          "tests_ok": false,
+          "timed_out": false
+        },
+        {
+          "k": 1,
+          "passed": false,
+          "temperature": 0.75,
+          "raw_length": 437,
+          "extracted_length": 424,
+          "was_truncated": false,
+          "syntax_ok": true,
+          "kondo_ok": true,
+          "load_ok": true,
+          "tests_ok": false,
+          "timed_out": false
+        },
+        {
+          "k": 2,
+          "passed": false,
+          "temperature": 0.7999999999999999,
+          "raw_length": 445,
+          "extracted_length": 432,
+          "was_truncated": false,
+          "syntax_ok": true,
+          "kondo_ok": true,
+          "load_ok": true,
+          "tests_ok": false,
+          "timed_out": false
+        },
+        {
+          "k": 3,
+          "passed": true,
+          "temperature": 0.85,
+          "raw_length": 454,
+          "extracted_length": 441,
+          "was_truncated": false,
+          "syntax_ok": true,
+          "kondo_ok": true,
+          "load_ok": true,
+          "tests_ok": true,
+          "timed_out": false
+        }
+      ]
+    },
+    "humaneval-clj-053": {
+      "passed": true,
+      "first_attempt_passed": true,
+      "attempts_until_pass": 1,
+      "attempts": [
+        {
+          "k": 0,
+          "passed": true,
+          "temperature": 0.7,
+          "raw_length": 243,
+          "extracted_length": 168,
+          "was_truncated": false,
+          "syntax_ok": true,
+          "kondo_ok": true,
+          "load_ok": true,
+          "tests_ok": true,
+          "timed_out": false
+        }
+      ]
+    },
+    "humaneval-clj-062": {
+      "passed": false,
+      "first_attempt_passed": false,
+      "attempts_until_pass": null,
+      "attempts": [
+        {
+          "k": 0,
+          "passed": false,
+          "temperature": 0.7,
+          "raw_length": 780,
+          "extracted_length": 767,
+          "was_truncated": false,
+          "syntax_ok": true,
+          "kondo_ok": true,
+          "load_ok": true,
+          "tests_ok": false,
+          "timed_out": false
+        },
+        {
+          "k": 1,
+          "passed": false,
+          "temperature": 0.75,
+          "raw_length": 534,
+          "extracted_length": 521,
+          "was_truncated": false,
+          "syntax_ok": true,
+          "kondo_ok": true,
+          "load_ok": true,
+          "tests_ok": false,
+          "timed_out": false
+        },
+        {
+          "k": 2,
+          "passed": false,
+          "temperature": 0.7999999999999999,
+          "raw_length": 519,
+          "extracted_length": 506,
+          "was_truncated": false,
+          "syntax_ok": true,
+          "kondo_ok": true,
+          "load_ok": true,
+          "tests_ok": false,
+          "timed_out": false
+        },
+        {
+          "k": 3,
+          "passed": false,
+          "temperature": 0.85,
+          "raw_length": 725,
+          "extracted_length": 712,
+          "was_truncated": false,
+          "syntax_ok": true,
+          "kondo_ok": false,
+          "load_ok": false,
+          "tests_ok": false,
+          "timed_out": false
+        },
+        {
+          "k": 4,
+          "passed": false,
+          "temperature": 0.8999999999999999,
+          "raw_length": 790,
+          "extracted_length": 777,
+          "was_truncated": false,
+          "syntax_ok": true,
+          "kondo_ok": true,
+          "load_ok": true,
+          "tests_ok": false,
+          "timed_out": false
+        },
+        {
+          "k": 5,
+          "passed": false,
+          "temperature": 0.95,
+          "raw_length": 1049,
+          "extracted_length": 518,
+          "was_truncated": false,
+          "syntax_ok": true,
+          "kondo_ok": false,
+          "load_ok": false,
+          "tests_ok": false,
+          "timed_out": false
+        },
+        {
+          "k": 6,
+          "passed": false,
+          "temperature": 1.0,
+          "raw_length": 614,
+          "extracted_length": 601,
+          "was_truncated": false,
+          "syntax_ok": true,
+          "kondo_ok": true,
+          "load_ok": true,
+          "tests_ok": false,
+          "timed_out": false
+        },
+        {
+          "k": 7,
+          "passed": false,
+          "temperature": 1.0,
+          "raw_length": 586,
+          "extracted_length": 573,
+          "was_truncated": false,
+          "syntax_ok": true,
+          "kondo_ok": true,
+          "load_ok": true,
+          "tests_ok": false,
+          "timed_out": false
+        }
+      ],
+      "best_attempt": {
+        "k": 0,
+        "passed": false,
+        "temperature": 0.7,
+        "raw_length": 780,
+        "extracted_length": 767,
+        "was_truncated": false,
+        "syntax_ok": true,
+        "kondo_ok": true,
+        "load_ok": true,
+        "tests_ok": false,
+        "timed_out": false
+      }
+    },
+    "humaneval-clj-067": {
+      "passed": true,
+      "first_attempt_passed": true,
+      "attempts_until_pass": 1,
+      "attempts": [
+        {
+          "k": 0,
+          "passed": true,
+          "temperature": 0.7,
+          "raw_length": 630,
+          "extracted_length": 617,
+          "was_truncated": false,
+          "syntax_ok": true,
+          "kondo_ok": true,
+          "load_ok": true,
+          "tests_ok": true,
+          "timed_out": false
+        }
+      ]
+    },
+    "humaneval-clj-068": {
+      "passed": false,
+      "first_attempt_passed": false,
+      "attempts_until_pass": null,
+      "attempts": [
+        {
+          "k": 0,
+          "passed": false,
+          "temperature": 0.7,
+          "raw_length": 736,
+          "extracted_length": 723,
+          "was_truncated": false,
+          "syntax_ok": true,
+          "kondo_ok": true,
+          "load_ok": true,
+          "tests_ok": false,
+          "timed_out": false
+        },
+        {
+          "k": 1,
+          "passed": false,
+          "temperature": 0.75,
+          "raw_length": 549,
+          "extracted_length": 536,
+          "was_truncated": false,
+          "syntax_ok": true,
+          "kondo_ok": true,
+          "load_ok": true,
+          "tests_ok": false,
+          "timed_out": false
+        },
+        {
+          "k": 2,
+          "passed": false,
+          "temperature": 0.7999999999999999,
+          "raw_length": 826,
+          "extracted_length": 813,
+          "was_truncated": false,
+          "syntax_ok": true,
+          "kondo_ok": true,
+          "load_ok": true,
+          "tests_ok": false,
+          "timed_out": false
+        },
+        {
+          "k": 3,
+          "passed": false,
+          "temperature": 0.85,
+          "raw_length": 543,
+          "extracted_length": 530,
+          "was_truncated": false,
+          "syntax_ok": true,
+          "kondo_ok": true,
+          "load_ok": true,
+          "tests_ok": false,
+          "timed_out": false
+        },
+        {
+          "k": 4,
+          "passed": false,
+          "temperature": 0.8999999999999999,
+          "raw_length": 975,
+          "extracted_length": 962,
+          "was_truncated": false,
+          "syntax_ok": true,
+          "kondo_ok": false,
+          "load_ok": false,
+          "tests_ok": false,
+          "timed_out": false
+        },
+        {
+          "k": 5,
+          "passed": false,
+          "temperature": 0.95,
+          "raw_length": 1133,
+          "extracted_length": 560,
+          "was_truncated": false,
+          "syntax_ok": true,
+          "kondo_ok": true,
+          "load_ok": true,
+          "tests_ok": false,
+          "timed_out": false
+        },
+        {
+          "k": 6,
+          "passed": false,
+          "temperature": 1.0,
+          "raw_length": 665,
+          "extracted_length": 652,
+          "was_truncated": false,
+          "syntax_ok": true,
+          "kondo_ok": true,
+          "load_ok": true,
+          "tests_ok": false,
+          "timed_out": false
+        },
+        {
+          "k": 7,
+          "passed": false,
+          "temperature": 1.0,
+          "raw_length": 564,
+          "extracted_length": 551,
+          "was_truncated": false,
+          "syntax_ok": true,
+          "kondo_ok": true,
+          "load_ok": true,
+          "tests_ok": false,
+          "timed_out": false
+        }
+      ],
+      "best_attempt": {
+        "k": 0,
+        "passed": false,
+        "temperature": 0.7,
+        "raw_length": 736,
+        "extracted_length": 723,
+        "was_truncated": false,
+        "syntax_ok": true,
+        "kondo_ok": true,
+        "load_ok": true,
+        "tests_ok": false,
+        "timed_out": false
+      }
+    },
+    "humaneval-clj-073": {
+      "passed": false,
+      "first_attempt_passed": false,
+      "attempts_until_pass": null,
+      "attempts": [
+        {
+          "k": 0,
+          "passed": false,
+          "temperature": 0.7,
+          "raw_length": 791,
+          "extracted_length": 778,
+          "was_truncated": false,
+          "syntax_ok": true,
+          "kondo_ok": true,
+          "load_ok": true,
+          "tests_ok": false,
+          "timed_out": false
+        },
+        {
+          "k": 1,
+          "passed": false,
+          "temperature": 0.75,
+          "raw_length": 869,
+          "extracted_length": 856,
+          "was_truncated": false,
+          "syntax_ok": true,
+          "kondo_ok": true,
+          "load_ok": true,
+          "tests_ok": false,
+          "timed_out": false
+        },
+        {
+          "k": 2,
+          "passed": false,
+          "temperature": 0.7999999999999999,
+          "raw_length": 860,
+          "extracted_length": 847,
+          "was_truncated": false,
+          "syntax_ok": true,
+          "kondo_ok": true,
+          "load_ok": true,
+          "tests_ok": false,
+          "timed_out": false
+        },
+        {
+          "k": 3,
+          "passed": false,
+          "temperature": 0.85,
+          "raw_length": 1292,
+          "extracted_length": 1279,
+          "was_truncated": false,
+          "syntax_ok": true,
+          "kondo_ok": true,
+          "load_ok": true,
+          "tests_ok": false,
+          "timed_out": false
+        },
+        {
+          "k": 4,
+          "passed": false,
+          "temperature": 0.8999999999999999,
+          "raw_length": 816,
+          "extracted_length": 803,
+          "was_truncated": false,
+          "syntax_ok": true,
+          "kondo_ok": true,
+          "load_ok": true,
+          "tests_ok": false,
+          "timed_out": false
+        },
+        {
+          "k": 5,
+          "passed": false,
+          "temperature": 0.95,
+          "raw_length": 866,
+          "extracted_length": 853,
+          "was_truncated": false,
+          "syntax_ok": true,
+          "kondo_ok": true,
+          "load_ok": true,
+          "tests_ok": false,
+          "timed_out": false
+        },
+        {
+          "k": 6,
+          "passed": false,
+          "temperature": 1.0,
+          "raw_length": 2125,
+          "extracted_length": 1056,
+          "was_truncated": false,
+          "syntax_ok": true,
+          "kondo_ok": false,
+          "load_ok": false,
+          "tests_ok": false,
+          "timed_out": false
+        },
+        {
+          "k": 7,
+          "passed": false,
+          "temperature": 1.0,
+          "raw_length": 1024,
+          "extracted_length": 1011,
+          "was_truncated": false,
+          "syntax_ok": true,
+          "kondo_ok": true,
+          "load_ok": true,
+          "tests_ok": false,
+          "timed_out": false
+        }
+      ],
+      "best_attempt": {
+        "k": 0,
+        "passed": false,
+        "temperature": 0.7,
+        "raw_length": 791,
+        "extracted_length": 778,
+        "was_truncated": false,
+        "syntax_ok": true,
+        "kondo_ok": true,
+        "load_ok": true,
+        "tests_ok": false,
+        "timed_out": false
+      }
+    },
+    "humaneval-clj-077": {
+      "passed": true,
+      "first_attempt_passed": true,
+      "attempts_until_pass": 1,
+      "attempts": [
+        {
+          "k": 0,
+          "passed": true,
+          "temperature": 0.7,
+          "raw_length": 625,
+          "extracted_length": 612,
+          "was_truncated": false,
+          "syntax_ok": true,
+          "kondo_ok": true,
+          "load_ok": true,
+          "tests_ok": true,
+          "timed_out": false
+        }
+      ]
+    },
+    "humaneval-clj-086": {
+      "passed": true,
+      "first_attempt_passed": true,
+      "attempts_until_pass": 1,
+      "attempts": [
+        {
+          "k": 0,
+          "passed": true,
+          "temperature": 0.7,
+          "raw_length": 851,
+          "extracted_length": 838,
+          "was_truncated": false,
+          "syntax_ok": true,
+          "kondo_ok": true,
+          "load_ok": true,
+          "tests_ok": true,
+          "timed_out": false
+        }
+      ]
+    },
+    "humaneval-clj-090": {
+      "passed": true,
+      "first_attempt_passed": true,
+      "attempts_until_pass": 1,
+      "attempts": [
+        {
+          "k": 0,
+          "passed": true,
+          "temperature": 0.7,
+          "raw_length": 494,
+          "extracted_length": 481,
+          "was_truncated": false,
+          "syntax_ok": true,
+          "kondo_ok": true,
+          "load_ok": true,
+          "tests_ok": true,
+          "timed_out": false
+        }
+      ]
+    },
+    "humaneval-clj-095": {
+      "passed": true,
+      "first_attempt_passed": true,
+      "attempts_until_pass": 1,
+      "attempts": [
+        {
+          "k": 0,
+          "passed": true,
+          "temperature": 0.7,
+          "raw_length": 380,
+          "extracted_length": 367,
+          "was_truncated": false,
+          "syntax_ok": true,
+          "kondo_ok": true,
+          "load_ok": true,
+          "tests_ok": true,
+          "timed_out": false
+        }
+      ]
+    },
+    "humaneval-clj-097": {
+      "passed": true,
+      "first_attempt_passed": true,
+      "attempts_until_pass": 1,
+      "attempts": [
+        {
+          "k": 0,
+          "passed": true,
+          "temperature": 0.7,
+          "raw_length": 820,
+          "extracted_length": 807,
+          "was_truncated": false,
+          "syntax_ok": true,
+          "kondo_ok": true,
+          "load_ok": true,
+          "tests_ok": true,
+          "timed_out": false
+        }
+      ]
+    },
+    "humaneval-clj-105": {
+      "passed": true,
+      "first_attempt_passed": true,
+      "attempts_until_pass": 1,
+      "attempts": [
+        {
+          "k": 0,
+          "passed": true,
+          "temperature": 0.7,
+          "raw_length": 1039,
+          "extracted_length": 1026,
+          "was_truncated": false,
+          "syntax_ok": true,
+          "kondo_ok": true,
+          "load_ok": true,
+          "tests_ok": true,
+          "timed_out": false
+        }
+      ]
+    },
+    "humaneval-clj-121": {
+      "passed": true,
+      "first_attempt_passed": false,
+      "attempts_until_pass": 3,
+      "attempts": [
+        {
+          "k": 0,
+          "passed": false,
+          "temperature": 0.7,
+          "raw_length": 1213,
+          "extracted_length": 1200,
+          "was_truncated": false,
+          "syntax_ok": true,
+          "kondo_ok": true,
+          "load_ok": true,
+          "tests_ok": false,
+          "timed_out": false
+        },
+        {
+          "k": 1,
+          "passed": false,
+          "temperature": 0.75,
+          "raw_length": 1008,
+          "extracted_length": 995,
+          "was_truncated": false,
+          "syntax_ok": true,
+          "kondo_ok": true,
+          "load_ok": true,
+          "tests_ok": false,
+          "timed_out": false
+        },
+        {
+          "k": 2,
+          "passed": true,
+          "temperature": 0.7999999999999999,
+          "raw_length": 2035,
+          "extracted_length": 1011,
+          "was_truncated": false,
+          "syntax_ok": true,
+          "kondo_ok": true,
+          "load_ok": true,
+          "tests_ok": true,
+          "timed_out": false
+        }
+      ]
+    },
+    "humaneval-clj-123": {
+      "passed": false,
+      "first_attempt_passed": false,
+      "attempts_until_pass": null,
+      "attempts": [
+        {
+          "k": 0,
+          "passed": false,
+          "temperature": 0.7,
+          "raw_length": 694,
+          "extracted_length": 681,
+          "was_truncated": false,
+          "syntax_ok": true,
+          "kondo_ok": false,
+          "load_ok": false,
+          "tests_ok": false,
+          "timed_out": false
+        },
+        {
+          "k": 1,
+          "passed": false,
+          "temperature": 0.75,
+          "raw_length": 599,
+          "extracted_length": 586,
+          "was_truncated": false,
+          "syntax_ok": true,
+          "kondo_ok": true,
+          "load_ok": true,
+          "tests_ok": false,
+          "timed_out": false
+        },
+        {
+          "k": 2,
+          "passed": false,
+          "temperature": 0.7999999999999999,
+          "raw_length": 654,
+          "extracted_length": 641,
+          "was_truncated": false,
+          "syntax_ok": true,
+          "kondo_ok": false,
+          "load_ok": false,
+          "tests_ok": false,
+          "timed_out": false
+        },
+        {
+          "k": 3,
+          "passed": false,
+          "temperature": 0.85,
+          "raw_length": 1199,
+          "extracted_length": 593,
+          "was_truncated": false,
+          "syntax_ok": true,
+          "kondo_ok": false,
+          "load_ok": false,
+          "tests_ok": false,
+          "timed_out": false
+        },
+        {
+          "k": 4,
+          "passed": false,
+          "temperature": 0.8999999999999999,
+          "raw_length": 732,
+          "extracted_length": 719,
+          "was_truncated": false,
+          "syntax_ok": true,
+          "kondo_ok": false,
+          "load_ok": false,
+          "tests_ok": false,
+          "timed_out": false
+        },
+        {
+          "k": 5,
+          "passed": false,
+          "temperature": 0.95,
+          "raw_length": 799,
+          "extracted_length": 786,
+          "was_truncated": false,
+          "syntax_ok": true,
+          "kondo_ok": false,
+          "load_ok": false,
+          "tests_ok": false,
+          "timed_out": false
+        },
+        {
+          "k": 6,
+          "passed": false,
+          "temperature": 1.0,
+          "raw_length": 1213,
+          "extracted_length": 600,
+          "was_truncated": false,
+          "syntax_ok": true,
+          "kondo_ok": false,
+          "load_ok": false,
+          "tests_ok": false,
+          "timed_out": false
+        },
+        {
+          "k": 7,
+          "passed": false,
+          "temperature": 1.0,
+          "raw_length": 891,
+          "extracted_length": 878,
+          "was_truncated": false,
+          "syntax_ok": true,
+          "kondo_ok": false,
+          "load_ok": false,
+          "tests_ok": false,
+          "timed_out": false
+        }
+      ],
+      "best_attempt": {
+        "k": 1,
+        "passed": false,
+        "temperature": 0.75,
+        "raw_length": 599,
+        "extracted_length": 586,
+        "was_truncated": false,
+        "syntax_ok": true,
+        "kondo_ok": true,
+        "load_ok": true,
+        "tests_ok": false,
+        "timed_out": false
+      }
+    },
+    "humaneval-clj-124": {
+      "passed": true,
+      "first_attempt_passed": false,
+      "attempts_until_pass": 5,
+      "attempts": [
+        {
+          "k": 0,
+          "passed": false,
+          "temperature": 0.7,
+          "raw_length": 662,
+          "extracted_length": 649,
+          "was_truncated": false,
+          "syntax_ok": true,
+          "kondo_ok": true,
+          "load_ok": true,
+          "tests_ok": false,
+          "timed_out": false
+        },
+        {
+          "k": 1,
+          "passed": false,
+          "temperature": 0.75,
+          "raw_length": 715,
+          "extracted_length": 702,
+          "was_truncated": false,
+          "syntax_ok": true,
+          "kondo_ok": true,
+          "load_ok": true,
+          "tests_ok": false,
+          "timed_out": false
+        },
+        {
+          "k": 2,
+          "passed": false,
+          "temperature": 0.7999999999999999,
+          "raw_length": 723,
+          "extracted_length": 710,
+          "was_truncated": false,
+          "syntax_ok": true,
+          "kondo_ok": true,
+          "load_ok": true,
+          "tests_ok": false,
+          "timed_out": false
+        },
+        {
+          "k": 3,
+          "passed": false,
+          "temperature": 0.85,
+          "raw_length": 701,
+          "extracted_length": 688,
+          "was_truncated": false,
+          "syntax_ok": true,
+          "kondo_ok": true,
+          "load_ok": true,
+          "tests_ok": false,
+          "timed_out": false
+        },
+        {
+          "k": 4,
+          "passed": true,
+          "temperature": 0.8999999999999999,
+          "raw_length": 748,
+          "extracted_length": 735,
+          "was_truncated": false,
+          "syntax_ok": true,
+          "kondo_ok": true,
+          "load_ok": true,
+          "tests_ok": true,
+          "timed_out": false
+        }
+      ]
+    },
+    "humaneval-clj-132": {
+      "passed": false,
+      "first_attempt_passed": false,
+      "attempts_until_pass": null,
+      "attempts": [
+        {
+          "k": 0,
+          "passed": false,
+          "temperature": 0.7,
+          "raw_length": 745,
+          "extracted_length": 732,
+          "was_truncated": false,
+          "syntax_ok": true,
+          "kondo_ok": true,
+          "load_ok": true,
+          "tests_ok": false,
+          "timed_out": false
+        },
+        {
+          "k": 1,
+          "passed": false,
+          "temperature": 0.75,
+          "raw_length": 737,
+          "extracted_length": 724,
+          "was_truncated": false,
+          "syntax_ok": true,
+          "kondo_ok": false,
+          "load_ok": false,
+          "tests_ok": false,
+          "timed_out": false
+        },
+        {
+          "k": 2,
+          "passed": false,
+          "temperature": 0.7999999999999999,
+          "raw_length": 860,
+          "extracted_length": 847,
+          "was_truncated": false,
+          "syntax_ok": true,
+          "kondo_ok": true,
+          "load_ok": true,
+          "tests_ok": false,
+          "timed_out": false
+        },
+        {
+          "k": 3,
+          "passed": false,
+          "temperature": 0.85,
+          "raw_length": 765,
+          "extracted_length": 752,
+          "was_truncated": false,
+          "syntax_ok": true,
+          "kondo_ok": true,
+          "load_ok": true,
+          "tests_ok": false,
+          "timed_out": false
+        },
+        {
+          "k": 4,
+          "passed": false,
+          "temperature": 0.8999999999999999,
+          "raw_length": 805,
+          "extracted_length": 792,
+          "was_truncated": false,
+          "syntax_ok": true,
+          "kondo_ok": true,
+          "load_ok": true,
+          "tests_ok": false,
+          "timed_out": false
+        },
+        {
+          "k": 5,
+          "passed": false,
+          "temperature": 0.95,
+          "raw_length": 743,
+          "extracted_length": 730,
+          "was_truncated": false,
+          "syntax_ok": true,
+          "kondo_ok": true,
+          "load_ok": true,
+          "tests_ok": false,
+          "timed_out": false
+        },
+        {
+          "k": 6,
+          "passed": false,
+          "temperature": 1.0,
+          "raw_length": 919,
+          "extracted_length": 906,
+          "was_truncated": false,
+          "syntax_ok": true,
+          "kondo_ok": true,
+          "load_ok": true,
+          "tests_ok": false,
+          "timed_out": false
+        },
+        {
+          "k": 7,
+          "passed": false,
+          "temperature": 1.0,
+          "raw_length": 1044,
+          "extracted_length": 279,
+          "was_truncated": false,
+          "syntax_ok": true,
+          "kondo_ok": true,
+          "load_ok": true,
+          "tests_ok": false,
+          "timed_out": false
+        }
+      ],
+      "best_attempt": {
+        "k": 0,
+        "passed": false,
+        "temperature": 0.7,
+        "raw_length": 745,
+        "extracted_length": 732,
+        "was_truncated": false,
+        "syntax_ok": true,
+        "kondo_ok": true,
+        "load_ok": true,
+        "tests_ok": false,
+        "timed_out": false
+      }
+    },
+    "humaneval-clj-134": {
+      "passed": true,
+      "first_attempt_passed": true,
+      "attempts_until_pass": 1,
+      "attempts": [
+        {
+          "k": 0,
+          "passed": true,
+          "temperature": 0.7,
+          "raw_length": 1145,
+          "extracted_length": 565,
+          "was_truncated": false,
+          "syntax_ok": true,
+          "kondo_ok": true,
+          "load_ok": true,
+          "tests_ok": true,
+          "timed_out": false
+        }
+      ]
+    },
+    "humaneval-clj-137": {
+      "passed": true,
+      "first_attempt_passed": true,
+      "attempts_until_pass": 1,
+      "attempts": [
+        {
+          "k": 0,
+          "passed": true,
+          "temperature": 0.7,
+          "raw_length": 437,
+          "extracted_length": 424,
+          "was_truncated": false,
+          "syntax_ok": true,
+          "kondo_ok": true,
+          "load_ok": true,
+          "tests_ok": true,
+          "timed_out": false
+        }
+      ]
+    },
+    "humaneval-clj-141": {
+      "passed": false,
+      "first_attempt_passed": false,
+      "attempts_until_pass": null,
+      "attempts": [
+        {
+          "k": 0,
+          "passed": false,
+          "temperature": 0.7,
+          "raw_length": 916,
+          "extracted_length": 903,
+          "was_truncated": false,
+          "syntax_ok": true,
+          "kondo_ok": false,
+          "load_ok": false,
+          "tests_ok": false,
+          "timed_out": false
+        },
+        {
+          "k": 1,
+          "passed": false,
+          "temperature": 0.75,
+          "raw_length": 937,
+          "extracted_length": 924,
+          "was_truncated": false,
+          "syntax_ok": true,
+          "kondo_ok": false,
+          "load_ok": false,
+          "tests_ok": false,
+          "timed_out": false
+        },
+        {
+          "k": 2,
+          "passed": false,
+          "temperature": 0.7999999999999999,
+          "raw_length": 1016,
+          "extracted_length": 1003,
+          "was_truncated": false,
+          "syntax_ok": true,
+          "kondo_ok": false,
+          "load_ok": false,
+          "tests_ok": false,
+          "timed_out": false
+        },
+        {
+          "k": 3,
+          "passed": false,
+          "temperature": 0.85,
+          "raw_length": 1061,
+          "extracted_length": 1048,
+          "was_truncated": false,
+          "syntax_ok": true,
+          "kondo_ok": false,
+          "load_ok": false,
+          "tests_ok": false,
+          "timed_out": false
+        },
+        {
+          "k": 4,
+          "passed": false,
+          "temperature": 0.8999999999999999,
+          "raw_length": 894,
+          "extracted_length": 881,
+          "was_truncated": false,
+          "syntax_ok": true,
+          "kondo_ok": false,
+          "load_ok": false,
+          "tests_ok": false,
+          "timed_out": false
+        },
+        {
+          "k": 5,
+          "passed": false,
+          "temperature": 0.95,
+          "raw_length": 435,
+          "extracted_length": 422,
+          "was_truncated": false,
+          "syntax_ok": true,
+          "kondo_ok": false,
+          "load_ok": false,
+          "tests_ok": false,
+          "timed_out": false
+        },
+        {
+          "k": 6,
+          "passed": false,
+          "temperature": 1.0,
+          "raw_length": 1296,
+          "extracted_length": 369,
+          "was_truncated": false,
+          "syntax_ok": true,
+          "kondo_ok": false,
+          "load_ok": false,
+          "tests_ok": false,
+          "timed_out": false
+        },
+        {
+          "k": 7,
+          "passed": false,
+          "temperature": 1.0,
+          "raw_length": 1048,
+          "extracted_length": 1035,
+          "was_truncated": false,
+          "syntax_ok": true,
+          "kondo_ok": false,
+          "load_ok": false,
+          "tests_ok": false,
+          "timed_out": false
+        }
+      ],
+      "best_attempt": {
+        "k": 0,
+        "passed": false,
+        "temperature": 0.7,
+        "raw_length": 916,
+        "extracted_length": 903,
+        "was_truncated": false,
+        "syntax_ok": true,
+        "kondo_ok": false,
+        "load_ok": false,
+        "tests_ok": false,
+        "timed_out": false
+      }
+    },
+    "humaneval-clj-143": {
+      "passed": false,
+      "first_attempt_passed": false,
+      "attempts_until_pass": null,
+      "attempts": [
+        {
+          "k": 0,
+          "passed": false,
+          "temperature": 0.7,
+          "raw_length": 617,
+          "extracted_length": 604,
+          "was_truncated": false,
+          "syntax_ok": true,
+          "kondo_ok": true,
+          "load_ok": true,
+          "tests_ok": false,
+          "timed_out": false
+        },
+        {
+          "k": 1,
+          "passed": false,
+          "temperature": 0.75,
+          "raw_length": 608,
+          "extracted_length": 595,
+          "was_truncated": false,
+          "syntax_ok": true,
+          "kondo_ok": true,
+          "load_ok": true,
+          "tests_ok": false,
+          "timed_out": false
+        },
+        {
+          "k": 2,
+          "passed": false,
+          "temperature": 0.7999999999999999,
+          "raw_length": 501,
+          "extracted_length": 488,
+          "was_truncated": false,
+          "syntax_ok": true,
+          "kondo_ok": true,
+          "load_ok": true,
+          "tests_ok": false,
+          "timed_out": false
+        },
+        {
+          "k": 3,
+          "passed": false,
+          "temperature": 0.85,
+          "raw_length": 624,
+          "extracted_length": 611,
+          "was_truncated": false,
+          "syntax_ok": true,
+          "kondo_ok": false,
+          "load_ok": false,
+          "tests_ok": false,
+          "timed_out": false
+        },
+        {
+          "k": 4,
+          "passed": false,
+          "temperature": 0.8999999999999999,
+          "raw_length": 624,
+          "extracted_length": 611,
+          "was_truncated": false,
+          "syntax_ok": true,
+          "kondo_ok": false,
+          "load_ok": false,
+          "tests_ok": false,
+          "timed_out": false
+        },
+        {
+          "k": 5,
+          "passed": false,
+          "temperature": 0.95,
+          "raw_length": 685,
+          "extracted_length": 672,
+          "was_truncated": false,
+          "syntax_ok": true,
+          "kondo_ok": false,
+          "load_ok": false,
+          "tests_ok": false,
+          "timed_out": false
+        },
+        {
+          "k": 6,
+          "passed": false,
+          "temperature": 1.0,
+          "raw_length": 1061,
+          "extracted_length": 1061,
+          "was_truncated": false,
+          "syntax_ok": false,
+          "kondo_ok": false,
+          "load_ok": false,
+          "tests_ok": false,
+          "timed_out": false
+        },
+        {
+          "k": 7,
+          "passed": false,
+          "temperature": 1.0,
+          "raw_length": 1033,
+          "extracted_length": 510,
+          "was_truncated": false,
+          "syntax_ok": true,
+          "kondo_ok": true,
+          "load_ok": true,
+          "tests_ok": false,
+          "timed_out": false
+        }
+      ],
+      "best_attempt": {
+        "k": 0,
+        "passed": false,
+        "temperature": 0.7,
+        "raw_length": 617,
+        "extracted_length": 604,
+        "was_truncated": false,
+        "syntax_ok": true,
+        "kondo_ok": true,
+        "load_ok": true,
+        "tests_ok": false,
+        "timed_out": false
+      }
+    },
+    "humaneval-clj-144": {
+      "passed": true,
+      "first_attempt_passed": true,
+      "attempts_until_pass": 1,
+      "attempts": [
+        {
+          "k": 0,
+          "passed": true,
+          "temperature": 0.7,
+          "raw_length": 833,
+          "extracted_length": 820,
+          "was_truncated": false,
+          "syntax_ok": true,
+          "kondo_ok": true,
+          "load_ok": true,
+          "tests_ok": true,
+          "timed_out": false
+        }
+      ]
+    },
+    "humaneval-clj-153": {
+      "passed": true,
+      "first_attempt_passed": true,
+      "attempts_until_pass": 1,
+      "attempts": [
+        {
+          "k": 0,
+          "passed": true,
+          "temperature": 0.7,
+          "raw_length": 405,
+          "extracted_length": 392,
+          "was_truncated": false,
+          "syntax_ok": true,
+          "kondo_ok": true,
+          "load_ok": true,
+          "tests_ok": true,
+          "timed_out": false
+        }
+      ]
+    },
+    "humaneval-clj-157": {
+      "passed": true,
+      "first_attempt_passed": true,
+      "attempts_until_pass": 1,
+      "attempts": [
+        {
+          "k": 0,
+          "passed": true,
+          "temperature": 0.7,
+          "raw_length": 1028,
+          "extracted_length": 1015,
+          "was_truncated": false,
+          "syntax_ok": true,
+          "kondo_ok": true,
+          "load_ok": true,
+          "tests_ok": true,
+          "timed_out": false
+        }
+      ]
+    },
+    "humaneval-clj-158": {
+      "passed": false,
+      "first_attempt_passed": false,
+      "attempts_until_pass": null,
+      "attempts": [
+        {
+          "k": 0,
+          "passed": false,
+          "temperature": 0.7,
+          "raw_length": 1051,
+          "extracted_length": 1038,
+          "was_truncated": false,
+          "syntax_ok": true,
+          "kondo_ok": false,
+          "load_ok": false,
+          "tests_ok": false,
+          "timed_out": false
+        },
+        {
+          "k": 1,
+          "passed": false,
+          "temperature": 0.75,
+          "raw_length": 1024,
+          "extracted_length": 1011,
+          "was_truncated": false,
+          "syntax_ok": true,
+          "kondo_ok": false,
+          "load_ok": false,
+          "tests_ok": false,
+          "timed_out": false
+        },
+        {
+          "k": 2,
+          "passed": false,
+          "temperature": 0.7999999999999999,
+          "raw_length": 1099,
+          "extracted_length": 1099,
+          "was_truncated": false,
+          "syntax_ok": false,
+          "kondo_ok": false,
+          "load_ok": false,
+          "tests_ok": false,
+          "timed_out": false
+        },
+        {
+          "k": 3,
+          "passed": false,
+          "temperature": 0.85,
+          "raw_length": 1076,
+          "extracted_length": 1063,
+          "was_truncated": false,
+          "syntax_ok": true,
+          "kondo_ok": false,
+          "load_ok": false,
+          "tests_ok": false,
+          "timed_out": false
+        },
+        {
+          "k": 4,
+          "passed": false,
+          "temperature": 0.8999999999999999,
+          "raw_length": 1235,
+          "extracted_length": 1222,
+          "was_truncated": false,
+          "syntax_ok": true,
+          "kondo_ok": false,
+          "load_ok": false,
+          "tests_ok": false,
+          "timed_out": false
+        },
+        {
+          "k": 5,
+          "passed": false,
+          "temperature": 0.95,
+          "raw_length": 1275,
+          "extracted_length": 1262,
+          "was_truncated": false,
+          "syntax_ok": true,
+          "kondo_ok": true,
+          "load_ok": true,
+          "tests_ok": false,
+          "timed_out": false
+        },
+        {
+          "k": 6,
+          "passed": false,
+          "temperature": 1.0,
+          "raw_length": 2147,
+          "extracted_length": 1067,
+          "was_truncated": false,
+          "syntax_ok": true,
+          "kondo_ok": true,
+          "load_ok": true,
+          "tests_ok": false,
+          "timed_out": false
+        },
+        {
+          "k": 7,
+          "passed": false,
+          "temperature": 1.0,
+          "raw_length": 1126,
+          "extracted_length": 1113,
+          "was_truncated": false,
+          "syntax_ok": true,
+          "kondo_ok": false,
+          "load_ok": false,
+          "tests_ok": false,
+          "timed_out": false
+        }
+      ],
+      "best_attempt": {
+        "k": 5,
+        "passed": false,
+        "temperature": 0.95,
+        "raw_length": 1275,
+        "extracted_length": 1262,
+        "was_truncated": false,
+        "syntax_ok": true,
+        "kondo_ok": true,
+        "load_ok": true,
+        "tests_ok": false,
+        "timed_out": false
+      }
+    },
+    "mbpp-clj-006": {
+      "passed": true,
+      "first_attempt_passed": true,
+      "attempts_until_pass": 1,
+      "attempts": [
+        {
+          "k": 0,
+          "passed": true,
+          "temperature": 0.7,
+          "raw_length": 536,
+          "extracted_length": 523,
+          "was_truncated": false,
+          "syntax_ok": true,
+          "kondo_ok": true,
+          "load_ok": true,
+          "tests_ok": true,
+          "timed_out": false
+        }
+      ]
+    },
+    "mbpp-clj-007": {
+      "passed": true,
+      "first_attempt_passed": true,
+      "attempts_until_pass": 1,
+      "attempts": [
+        {
+          "k": 0,
+          "passed": true,
+          "temperature": 0.7,
+          "raw_length": 184,
+          "extracted_length": 171,
+          "was_truncated": false,
+          "syntax_ok": true,
+          "kondo_ok": true,
+          "load_ok": true,
+          "tests_ok": true,
+          "timed_out": false
+        }
+      ]
+    },
+    "mbpp-clj-009": {
+      "passed": true,
+      "first_attempt_passed": true,
+      "attempts_until_pass": 1,
+      "attempts": [
+        {
+          "k": 0,
+          "passed": true,
+          "temperature": 0.7,
+          "raw_length": 274,
+          "extracted_length": 261,
+          "was_truncated": false,
+          "syntax_ok": true,
+          "kondo_ok": true,
+          "load_ok": true,
+          "tests_ok": true,
+          "timed_out": false
+        }
+      ]
+    },
+    "mbpp-clj-022": {
+      "passed": true,
+      "first_attempt_passed": true,
+      "attempts_until_pass": 1,
+      "attempts": [
+        {
+          "k": 0,
+          "passed": true,
+          "temperature": 0.7,
+          "raw_length": 354,
+          "extracted_length": 341,
+          "was_truncated": false,
+          "syntax_ok": true,
+          "kondo_ok": true,
+          "load_ok": true,
+          "tests_ok": true,
+          "timed_out": false
+        }
+      ]
+    },
+    "mbpp-clj-047": {
+      "passed": true,
+      "first_attempt_passed": true,
+      "attempts_until_pass": 1,
+      "attempts": [
+        {
+          "k": 0,
+          "passed": true,
+          "temperature": 0.7,
+          "raw_length": 510,
+          "extracted_length": 497,
+          "was_truncated": false,
+          "syntax_ok": true,
+          "kondo_ok": true,
+          "load_ok": true,
+          "tests_ok": true,
+          "timed_out": false
+        }
+      ]
+    },
+    "mbpp-clj-057": {
+      "passed": true,
+      "first_attempt_passed": true,
+      "attempts_until_pass": 1,
+      "attempts": [
+        {
+          "k": 0,
+          "passed": true,
+          "temperature": 0.7,
+          "raw_length": 159,
+          "extracted_length": 146,
+          "was_truncated": false,
+          "syntax_ok": true,
+          "kondo_ok": true,
+          "load_ok": true,
+          "tests_ok": true,
+          "timed_out": false
+        }
+      ]
+    },
+    "mbpp-clj-060": {
+      "passed": true,
+      "first_attempt_passed": true,
+      "attempts_until_pass": 1,
+      "attempts": [
+        {
+          "k": 0,
+          "passed": true,
+          "temperature": 0.7,
+          "raw_length": 181,
+          "extracted_length": 168,
+          "was_truncated": false,
+          "syntax_ok": true,
+          "kondo_ok": true,
+          "load_ok": true,
+          "tests_ok": true,
+          "timed_out": false
+        }
+      ]
+    },
+    "mbpp-clj-069": {
+      "passed": true,
+      "first_attempt_passed": true,
+      "attempts_until_pass": 1,
+      "attempts": [
+        {
+          "k": 0,
+          "passed": true,
+          "temperature": 0.7,
+          "raw_length": 342,
+          "extracted_length": 329,
+          "was_truncated": false,
+          "syntax_ok": true,
+          "kondo_ok": true,
+          "load_ok": true,
+          "tests_ok": true,
+          "timed_out": false
+        }
+      ]
+    },
+    "mbpp-clj-074": {
+      "passed": true,
+      "first_attempt_passed": true,
+      "attempts_until_pass": 1,
+      "attempts": [
+        {
+          "k": 0,
+          "passed": true,
+          "temperature": 0.7,
+          "raw_length": 173,
+          "extracted_length": 160,
+          "was_truncated": false,
+          "syntax_ok": true,
+          "kondo_ok": true,
+          "load_ok": true,
+          "tests_ok": true,
+          "timed_out": false
+        }
+      ]
+    },
+    "mbpp-clj-075": {
+      "passed": true,
+      "first_attempt_passed": true,
+      "attempts_until_pass": 1,
+      "attempts": [
+        {
+          "k": 0,
+          "passed": true,
+          "temperature": 0.7,
+          "raw_length": 138,
+          "extracted_length": 125,
+          "was_truncated": false,
+          "syntax_ok": true,
+          "kondo_ok": true,
+          "load_ok": true,
+          "tests_ok": true,
+          "timed_out": false
+        }
+      ]
+    },
+    "mbpp-clj-076": {
+      "passed": true,
+      "first_attempt_passed": false,
+      "attempts_until_pass": 4,
+      "attempts": [
+        {
+          "k": 0,
+          "passed": false,
+          "temperature": 0.7,
+          "raw_length": 285,
+          "extracted_length": 272,
+          "was_truncated": false,
+          "syntax_ok": true,
+          "kondo_ok": true,
+          "load_ok": true,
+          "tests_ok": false,
+          "timed_out": false
+        },
+        {
+          "k": 1,
+          "passed": false,
+          "temperature": 0.75,
+          "raw_length": 260,
+          "extracted_length": 247,
+          "was_truncated": false,
+          "syntax_ok": true,
+          "kondo_ok": true,
+          "load_ok": true,
+          "tests_ok": false,
+          "timed_out": false
+        },
+        {
+          "k": 2,
+          "passed": false,
+          "temperature": 0.7999999999999999,
+          "raw_length": 251,
+          "extracted_length": 238,
+          "was_truncated": false,
+          "syntax_ok": true,
+          "kondo_ok": false,
+          "load_ok": false,
+          "tests_ok": false,
+          "timed_out": false
+        },
+        {
+          "k": 3,
+          "passed": true,
+          "temperature": 0.85,
+          "raw_length": 230,
+          "extracted_length": 217,
+          "was_truncated": false,
+          "syntax_ok": true,
+          "kondo_ok": true,
+          "load_ok": true,
+          "tests_ok": true,
+          "timed_out": false
+        }
+      ]
+    },
+    "mbpp-clj-082": {
+      "passed": true,
+      "first_attempt_passed": true,
+      "attempts_until_pass": 1,
+      "attempts": [
+        {
+          "k": 0,
+          "passed": true,
+          "temperature": 0.7,
+          "raw_length": 365,
+          "extracted_length": 176,
+          "was_truncated": false,
+          "syntax_ok": true,
+          "kondo_ok": true,
+          "load_ok": true,
+          "tests_ok": true,
+          "timed_out": false
+        }
+      ]
+    },
+    "mbpp-clj-084": {
+      "passed": false,
+      "first_attempt_passed": false,
+      "attempts_until_pass": null,
+      "attempts": [
+        {
+          "k": 0,
+          "passed": false,
+          "temperature": 0.7,
+          "raw_length": 419,
+          "extracted_length": 406,
+          "was_truncated": false,
+          "syntax_ok": true,
+          "kondo_ok": true,
+          "load_ok": true,
+          "tests_ok": false,
+          "timed_out": false
+        },
+        {
+          "k": 1,
+          "passed": false,
+          "temperature": 0.75,
+          "raw_length": 438,
+          "extracted_length": 425,
+          "was_truncated": false,
+          "syntax_ok": true,
+          "kondo_ok": true,
+          "load_ok": true,
+          "tests_ok": false,
+          "timed_out": false
+        },
+        {
+          "k": 2,
+          "passed": false,
+          "temperature": 0.7999999999999999,
+          "raw_length": 381,
+          "extracted_length": 368,
+          "was_truncated": false,
+          "syntax_ok": true,
+          "kondo_ok": true,
+          "load_ok": true,
+          "tests_ok": false,
+          "timed_out": false
+        },
+        {
+          "k": 3,
+          "passed": false,
+          "temperature": 0.85,
+          "raw_length": 393,
+          "extracted_length": 380,
+          "was_truncated": false,
+          "syntax_ok": true,
+          "kondo_ok": true,
+          "load_ok": true,
+          "tests_ok": false,
+          "timed_out": false
+        },
+        {
+          "k": 4,
+          "passed": false,
+          "temperature": 0.8999999999999999,
+          "raw_length": 545,
+          "extracted_length": 220,
+          "was_truncated": false,
+          "syntax_ok": true,
+          "kondo_ok": false,
+          "load_ok": false,
+          "tests_ok": false,
+          "timed_out": false
+        },
+        {
+          "k": 5,
+          "passed": false,
+          "temperature": 0.95,
+          "raw_length": 793,
+          "extracted_length": 390,
+          "was_truncated": false,
+          "syntax_ok": true,
+          "kondo_ok": true,
+          "load_ok": true,
+          "tests_ok": false,
+          "timed_out": false
+        },
+        {
+          "k": 6,
+          "passed": false,
+          "temperature": 1.0,
+          "raw_length": 457,
+          "extracted_length": 176,
+          "was_truncated": false,
+          "syntax_ok": true,
+          "kondo_ok": true,
+          "load_ok": true,
+          "tests_ok": false,
+          "timed_out": false
+        },
+        {
+          "k": 7,
+          "passed": false,
+          "temperature": 1.0,
+          "raw_length": 417,
+          "extracted_length": 404,
+          "was_truncated": false,
+          "syntax_ok": true,
+          "kondo_ok": true,
+          "load_ok": true,
+          "tests_ok": false,
+          "timed_out": false
+        }
+      ],
+      "best_attempt": {
+        "k": 0,
+        "passed": false,
+        "temperature": 0.7,
+        "raw_length": 419,
+        "extracted_length": 406,
+        "was_truncated": false,
+        "syntax_ok": true,
+        "kondo_ok": true,
+        "load_ok": true,
+        "tests_ok": false,
+        "timed_out": false
+      }
+    },
+    "mbpp-clj-087": {
+      "passed": true,
+      "first_attempt_passed": false,
+      "attempts_until_pass": 4,
+      "attempts": [
+        {
+          "k": 0,
+          "passed": false,
+          "temperature": 0.7,
+          "raw_length": 299,
+          "extracted_length": 286,
+          "was_truncated": false,
+          "syntax_ok": true,
+          "kondo_ok": false,
+          "load_ok": false,
+          "tests_ok": false,
+          "timed_out": false
+        },
+        {
+          "k": 1,
+          "passed": false,
+          "temperature": 0.75,
+          "raw_length": 320,
+          "extracted_length": 307,
+          "was_truncated": false,
+          "syntax_ok": true,
+          "kondo_ok": true,
+          "load_ok": false,
+          "tests_ok": false,
+          "timed_out": true
+        },
+        {
+          "k": 2,
+          "passed": false,
+          "temperature": 0.7999999999999999,
+          "raw_length": 316,
+          "extracted_length": 303,
+          "was_truncated": false,
+          "syntax_ok": true,
+          "kondo_ok": true,
+          "load_ok": true,
+          "tests_ok": false,
+          "timed_out": false
+        },
+        {
+          "k": 3,
+          "passed": true,
+          "temperature": 0.85,
+          "raw_length": 238,
+          "extracted_length": 225,
+          "was_truncated": false,
+          "syntax_ok": true,
+          "kondo_ok": true,
+          "load_ok": true,
+          "tests_ok": true,
+          "timed_out": false
+        }
+      ]
+    },
+    "mbpp-clj-091": {
+      "passed": true,
+      "first_attempt_passed": true,
+      "attempts_until_pass": 1,
+      "attempts": [
+        {
+          "k": 0,
+          "passed": true,
+          "temperature": 0.7,
+          "raw_length": 372,
+          "extracted_length": 359,
+          "was_truncated": false,
+          "syntax_ok": true,
+          "kondo_ok": true,
+          "load_ok": true,
+          "tests_ok": true,
+          "timed_out": false
+        }
+      ]
+    },
+    "mbpp-clj-093": {
+      "passed": true,
+      "first_attempt_passed": true,
+      "attempts_until_pass": 1,
+      "attempts": [
+        {
+          "k": 0,
+          "passed": true,
+          "temperature": 0.7,
+          "raw_length": 363,
+          "extracted_length": 350,
+          "was_truncated": false,
+          "syntax_ok": true,
+          "kondo_ok": true,
+          "load_ok": true,
+          "tests_ok": true,
+          "timed_out": false
+        }
+      ]
+    },
+    "mbpp-clj-097": {
+      "passed": true,
+      "first_attempt_passed": false,
+      "attempts_until_pass": 4,
+      "attempts": [
+        {
+          "k": 0,
+          "passed": false,
+          "temperature": 0.7,
+          "raw_length": 589,
+          "extracted_length": 576,
+          "was_truncated": false,
+          "syntax_ok": true,
+          "kondo_ok": false,
+          "load_ok": false,
+          "tests_ok": false,
+          "timed_out": false
+        },
+        {
+          "k": 1,
+          "passed": false,
+          "temperature": 0.75,
+          "raw_length": 256,
+          "extracted_length": 243,
+          "was_truncated": false,
+          "syntax_ok": true,
+          "kondo_ok": true,
+          "load_ok": true,
+          "tests_ok": false,
+          "timed_out": false
+        },
+        {
+          "k": 2,
+          "passed": false,
+          "temperature": 0.7999999999999999,
+          "raw_length": 313,
+          "extracted_length": 300,
+          "was_truncated": false,
+          "syntax_ok": true,
+          "kondo_ok": true,
+          "load_ok": true,
+          "tests_ok": false,
+          "timed_out": false
+        },
+        {
+          "k": 3,
+          "passed": true,
+          "temperature": 0.85,
+          "raw_length": 422,
+          "extracted_length": 409,
+          "was_truncated": false,
+          "syntax_ok": true,
+          "kondo_ok": true,
+          "load_ok": true,
+          "tests_ok": true,
+          "timed_out": false
+        }
+      ]
+    },
+    "mbpp-clj-117": {
+      "passed": false,
+      "first_attempt_passed": false,
+      "attempts_until_pass": null,
+      "attempts": [
+        {
+          "k": 0,
+          "passed": false,
+          "temperature": 0.7,
+          "raw_length": 303,
+          "extracted_length": 145,
+          "was_truncated": false,
+          "syntax_ok": true,
+          "kondo_ok": true,
+          "load_ok": true,
+          "tests_ok": false,
+          "timed_out": false
+        },
+        {
+          "k": 1,
+          "passed": false,
+          "temperature": 0.75,
+          "raw_length": 303,
+          "extracted_length": 145,
+          "was_truncated": false,
+          "syntax_ok": true,
+          "kondo_ok": true,
+          "load_ok": true,
+          "tests_ok": false,
+          "timed_out": false
+        },
+        {
+          "k": 2,
+          "passed": false,
+          "temperature": 0.7999999999999999,
+          "raw_length": 285,
+          "extracted_length": 136,
+          "was_truncated": false,
+          "syntax_ok": true,
+          "kondo_ok": true,
+          "load_ok": true,
+          "tests_ok": false,
+          "timed_out": false
+        },
+        {
+          "k": 3,
+          "passed": false,
+          "temperature": 0.85,
+          "raw_length": 295,
+          "extracted_length": 141,
+          "was_truncated": false,
+          "syntax_ok": true,
+          "kondo_ok": true,
+          "load_ok": true,
+          "tests_ok": false,
+          "timed_out": false
+        },
+        {
+          "k": 4,
+          "passed": false,
+          "temperature": 0.8999999999999999,
+          "raw_length": 285,
+          "extracted_length": 136,
+          "was_truncated": false,
+          "syntax_ok": true,
+          "kondo_ok": true,
+          "load_ok": true,
+          "tests_ok": false,
+          "timed_out": false
+        },
+        {
+          "k": 5,
+          "passed": false,
+          "temperature": 0.95,
+          "raw_length": 278,
+          "extracted_length": 265,
+          "was_truncated": false,
+          "syntax_ok": true,
+          "kondo_ok": true,
+          "load_ok": true,
+          "tests_ok": false,
+          "timed_out": false
+        },
+        {
+          "k": 6,
+          "passed": false,
+          "temperature": 1.0,
+          "raw_length": 285,
+          "extracted_length": 136,
+          "was_truncated": false,
+          "syntax_ok": true,
+          "kondo_ok": true,
+          "load_ok": true,
+          "tests_ok": false,
+          "timed_out": false
+        },
+        {
+          "k": 7,
+          "passed": false,
+          "temperature": 1.0,
+          "raw_length": 26524,
+          "extracted_length": 135,
+          "was_truncated": false,
+          "syntax_ok": true,
+          "kondo_ok": true,
+          "load_ok": true,
+          "tests_ok": false,
+          "timed_out": false
+        }
+      ],
+      "best_attempt": {
+        "k": 0,
+        "passed": false,
+        "temperature": 0.7,
+        "raw_length": 303,
+        "extracted_length": 145,
+        "was_truncated": false,
+        "syntax_ok": true,
+        "kondo_ok": true,
+        "load_ok": true,
+        "tests_ok": false,
+        "timed_out": false
+      }
+    },
+    "mbpp-clj-119": {
+      "passed": true,
+      "first_attempt_passed": true,
+      "attempts_until_pass": 1,
+      "attempts": [
+        {
+          "k": 0,
+          "passed": true,
+          "temperature": 0.7,
+          "raw_length": 445,
+          "extracted_length": 216,
+          "was_truncated": false,
+          "syntax_ok": true,
+          "kondo_ok": true,
+          "load_ok": true,
+          "tests_ok": true,
+          "timed_out": false
+        }
+      ]
+    },
+    "mbpp-clj-120": {
+      "passed": true,
+      "first_attempt_passed": true,
+      "attempts_until_pass": 1,
+      "attempts": [
+        {
+          "k": 0,
+          "passed": true,
+          "temperature": 0.7,
+          "raw_length": 635,
+          "extracted_length": 311,
+          "was_truncated": false,
+          "syntax_ok": true,
+          "kondo_ok": true,
+          "load_ok": true,
+          "tests_ok": true,
+          "timed_out": false
+        }
+      ]
+    },
+    "mbpp-clj-132": {
+      "passed": true,
+      "first_attempt_passed": true,
+      "attempts_until_pass": 1,
+      "attempts": [
+        {
+          "k": 0,
+          "passed": true,
+          "temperature": 0.7,
+          "raw_length": 254,
+          "extracted_length": 241,
+          "was_truncated": false,
+          "syntax_ok": true,
+          "kondo_ok": true,
+          "load_ok": true,
+          "tests_ok": true,
+          "timed_out": false
+        }
+      ]
+    },
+    "mbpp-clj-133": {
+      "passed": true,
+      "first_attempt_passed": false,
+      "attempts_until_pass": 6,
+      "attempts": [
+        {
+          "k": 0,
+          "passed": false,
+          "temperature": 0.7,
+          "raw_length": 217,
+          "extracted_length": 204,
+          "was_truncated": false,
+          "syntax_ok": true,
+          "kondo_ok": true,
+          "load_ok": true,
+          "tests_ok": false,
+          "timed_out": false
+        },
+        {
+          "k": 1,
+          "passed": false,
+          "temperature": 0.75,
+          "raw_length": 351,
+          "extracted_length": 169,
+          "was_truncated": false,
+          "syntax_ok": true,
+          "kondo_ok": true,
+          "load_ok": true,
+          "tests_ok": false,
+          "timed_out": false
+        },
+        {
+          "k": 2,
+          "passed": false,
+          "temperature": 0.7999999999999999,
+          "raw_length": 253,
+          "extracted_length": 240,
+          "was_truncated": false,
+          "syntax_ok": true,
+          "kondo_ok": true,
+          "load_ok": true,
+          "tests_ok": false,
+          "timed_out": false
+        },
+        {
+          "k": 3,
+          "passed": false,
+          "temperature": 0.85,
+          "raw_length": 216,
+          "extracted_length": 203,
+          "was_truncated": false,
+          "syntax_ok": true,
+          "kondo_ok": true,
+          "load_ok": true,
+          "tests_ok": false,
+          "timed_out": false
+        },
+        {
+          "k": 4,
+          "passed": false,
+          "temperature": 0.8999999999999999,
+          "raw_length": 654,
+          "extracted_length": 321,
+          "was_truncated": false,
+          "syntax_ok": true,
+          "kondo_ok": false,
+          "load_ok": false,
+          "tests_ok": false,
+          "timed_out": false
+        },
+        {
+          "k": 5,
+          "passed": true,
+          "temperature": 0.95,
+          "raw_length": 563,
+          "extracted_length": 275,
+          "was_truncated": false,
+          "syntax_ok": true,
+          "kondo_ok": true,
+          "load_ok": true,
+          "tests_ok": true,
+          "timed_out": false
+        }
+      ]
+    },
+    "mbpp-clj-137": {
+      "passed": true,
+      "first_attempt_passed": true,
+      "attempts_until_pass": 1,
+      "attempts": [
+        {
+          "k": 0,
+          "passed": true,
+          "temperature": 0.7,
+          "raw_length": 237,
+          "extracted_length": 112,
+          "was_truncated": false,
+          "syntax_ok": true,
+          "kondo_ok": true,
+          "load_ok": true,
+          "tests_ok": true,
+          "timed_out": false
+        }
+      ]
+    },
+    "mbpp-clj-144": {
+      "passed": true,
+      "first_attempt_passed": false,
+      "attempts_until_pass": 3,
+      "attempts": [
+        {
+          "k": 0,
+          "passed": false,
+          "temperature": 0.7,
+          "raw_length": 581,
+          "extracted_length": 568,
+          "was_truncated": false,
+          "syntax_ok": true,
+          "kondo_ok": false,
+          "load_ok": false,
+          "tests_ok": false,
+          "timed_out": false
+        },
+        {
+          "k": 1,
+          "passed": false,
+          "temperature": 0.75,
+          "raw_length": 603,
+          "extracted_length": 590,
+          "was_truncated": false,
+          "syntax_ok": true,
+          "kondo_ok": false,
+          "load_ok": false,
+          "tests_ok": false,
+          "timed_out": false
+        },
+        {
+          "k": 2,
+          "passed": true,
+          "temperature": 0.7999999999999999,
+          "raw_length": 628,
+          "extracted_length": 615,
+          "was_truncated": false,
+          "syntax_ok": true,
+          "kondo_ok": true,
+          "load_ok": true,
+          "tests_ok": true,
+          "timed_out": false
+        }
+      ]
+    },
+    "mbpp-clj-148": {
+      "passed": false,
+      "first_attempt_passed": false,
+      "attempts_until_pass": null,
+      "attempts": [
+        {
+          "k": 0,
+          "passed": false,
+          "temperature": 0.7,
+          "raw_length": 420,
+          "extracted_length": 420,
+          "was_truncated": false,
+          "syntax_ok": false,
+          "kondo_ok": false,
+          "load_ok": false,
+          "tests_ok": false,
+          "timed_out": false
+        },
+        {
+          "k": 1,
+          "passed": false,
+          "temperature": 0.75,
+          "raw_length": 505,
+          "extracted_length": 492,
+          "was_truncated": false,
+          "syntax_ok": true,
+          "kondo_ok": true,
+          "load_ok": true,
+          "tests_ok": false,
+          "timed_out": false
+        },
+        {
+          "k": 2,
+          "passed": false,
+          "temperature": 0.7999999999999999,
+          "raw_length": 317,
+          "extracted_length": 304,
+          "was_truncated": false,
+          "syntax_ok": true,
+          "kondo_ok": true,
+          "load_ok": true,
+          "tests_ok": false,
+          "timed_out": false
+        },
+        {
+          "k": 3,
+          "passed": false,
+          "temperature": 0.85,
+          "raw_length": 403,
+          "extracted_length": 390,
+          "was_truncated": false,
+          "syntax_ok": true,
+          "kondo_ok": true,
+          "load_ok": true,
+          "tests_ok": false,
+          "timed_out": false
+        },
+        {
+          "k": 4,
+          "passed": false,
+          "temperature": 0.8999999999999999,
+          "raw_length": 509,
+          "extracted_length": 496,
+          "was_truncated": false,
+          "syntax_ok": true,
+          "kondo_ok": true,
+          "load_ok": true,
+          "tests_ok": false,
+          "timed_out": false
+        },
+        {
+          "k": 5,
+          "passed": false,
+          "temperature": 0.95,
+          "raw_length": 466,
+          "extracted_length": 453,
+          "was_truncated": false,
+          "syntax_ok": true,
+          "kondo_ok": true,
+          "load_ok": true,
+          "tests_ok": false,
+          "timed_out": false
+        },
+        {
+          "k": 6,
+          "passed": false,
+          "temperature": 1.0,
+          "raw_length": 1051,
+          "extracted_length": 519,
+          "was_truncated": false,
+          "syntax_ok": true,
+          "kondo_ok": true,
+          "load_ok": false,
+          "tests_ok": false,
+          "timed_out": false
+        },
+        {
+          "k": 7,
+          "passed": false,
+          "temperature": 1.0,
+          "raw_length": 413,
+          "extracted_length": 399,
+          "was_truncated": false,
+          "syntax_ok": true,
+          "kondo_ok": false,
+          "load_ok": false,
+          "tests_ok": false,
+          "timed_out": false
+        }
+      ],
+      "best_attempt": {
+        "k": 1,
+        "passed": false,
+        "temperature": 0.75,
+        "raw_length": 505,
+        "extracted_length": 492,
+        "was_truncated": false,
+        "syntax_ok": true,
+        "kondo_ok": true,
+        "load_ok": true,
+        "tests_ok": false,
+        "timed_out": false
+      }
+    },
+    "mbpp-clj-154": {
+      "passed": false,
+      "first_attempt_passed": false,
+      "attempts_until_pass": null,
+      "attempts": [
+        {
+          "k": 0,
+          "passed": false,
+          "temperature": 0.7,
+          "raw_length": 1111,
+          "extracted_length": 1098,
+          "was_truncated": false,
+          "syntax_ok": true,
+          "kondo_ok": true,
+          "load_ok": true,
+          "tests_ok": false,
+          "timed_out": false
+        },
+        {
+          "k": 1,
+          "passed": false,
+          "temperature": 0.75,
+          "raw_length": 980,
+          "extracted_length": 967,
+          "was_truncated": false,
+          "syntax_ok": true,
+          "kondo_ok": true,
+          "load_ok": true,
+          "tests_ok": false,
+          "timed_out": false
+        },
+        {
+          "k": 2,
+          "passed": false,
+          "temperature": 0.7999999999999999,
+          "raw_length": 969,
+          "extracted_length": 956,
+          "was_truncated": false,
+          "syntax_ok": true,
+          "kondo_ok": true,
+          "load_ok": true,
+          "tests_ok": false,
+          "timed_out": false
+        },
+        {
+          "k": 3,
+          "passed": false,
+          "temperature": 0.85,
+          "raw_length": 874,
+          "extracted_length": 861,
+          "was_truncated": false,
+          "syntax_ok": true,
+          "kondo_ok": false,
+          "load_ok": false,
+          "tests_ok": false,
+          "timed_out": false
+        },
+        {
+          "k": 4,
+          "passed": false,
+          "temperature": 0.8999999999999999,
+          "raw_length": 762,
+          "extracted_length": 749,
+          "was_truncated": false,
+          "syntax_ok": true,
+          "kondo_ok": true,
+          "load_ok": true,
+          "tests_ok": false,
+          "timed_out": false
+        },
+        {
+          "k": 5,
+          "passed": false,
+          "temperature": 0.95,
+          "raw_length": 1095,
+          "extracted_length": 1081,
+          "was_truncated": false,
+          "syntax_ok": false,
+          "kondo_ok": false,
+          "load_ok": false,
+          "tests_ok": false,
+          "timed_out": false
+        },
+        {
+          "k": 6,
+          "passed": false,
+          "temperature": 1.0,
+          "raw_length": 802,
+          "extracted_length": 789,
+          "was_truncated": false,
+          "syntax_ok": true,
+          "kondo_ok": true,
+          "load_ok": true,
+          "tests_ok": false,
+          "timed_out": false
+        },
+        {
+          "k": 7,
+          "passed": false,
+          "temperature": 1.0,
+          "raw_length": 933,
+          "extracted_length": 460,
+          "was_truncated": false,
+          "syntax_ok": true,
+          "kondo_ok": true,
+          "load_ok": true,
+          "tests_ok": false,
+          "timed_out": false
+        }
+      ],
+      "best_attempt": {
+        "k": 0,
+        "passed": false,
+        "temperature": 0.7,
+        "raw_length": 1111,
+        "extracted_length": 1098,
+        "was_truncated": false,
+        "syntax_ok": true,
+        "kondo_ok": true,
+        "load_ok": true,
+        "tests_ok": false,
+        "timed_out": false
+      }
+    },
+    "mbpp-clj-156": {
+      "passed": true,
+      "first_attempt_passed": true,
+      "attempts_until_pass": 1,
+      "attempts": [
+        {
+          "k": 0,
+          "passed": true,
+          "temperature": 0.7,
+          "raw_length": 227,
+          "extracted_length": 107,
+          "was_truncated": false,
+          "syntax_ok": true,
+          "kondo_ok": true,
+          "load_ok": true,
+          "tests_ok": true,
+          "timed_out": false
+        }
+      ]
+    },
+    "mbpp-clj-162": {
+      "passed": true,
+      "first_attempt_passed": true,
+      "attempts_until_pass": 1,
+      "attempts": [
+        {
+          "k": 0,
+          "passed": true,
+          "temperature": 0.7,
+          "raw_length": 458,
+          "extracted_length": 445,
+          "was_truncated": false,
+          "syntax_ok": true,
+          "kondo_ok": true,
+          "load_ok": true,
+          "tests_ok": true,
+          "timed_out": false
+        }
+      ]
+    },
+    "mbpp-clj-163": {
+      "passed": false,
+      "first_attempt_passed": false,
+      "attempts_until_pass": null,
+      "attempts": [
+        {
+          "k": 0,
+          "passed": false,
+          "temperature": 0.7,
+          "raw_length": 239,
+          "extracted_length": 226,
+          "was_truncated": false,
+          "syntax_ok": true,
+          "kondo_ok": true,
+          "load_ok": true,
+          "tests_ok": false,
+          "timed_out": false
+        },
+        {
+          "k": 1,
+          "passed": false,
+          "temperature": 0.75,
+          "raw_length": 230,
+          "extracted_length": 217,
+          "was_truncated": false,
+          "syntax_ok": true,
+          "kondo_ok": true,
+          "load_ok": true,
+          "tests_ok": false,
+          "timed_out": false
+        },
+        {
+          "k": 2,
+          "passed": false,
+          "temperature": 0.7999999999999999,
+          "raw_length": 249,
+          "extracted_length": 236,
+          "was_truncated": false,
+          "syntax_ok": true,
+          "kondo_ok": true,
+          "load_ok": true,
+          "tests_ok": false,
+          "timed_out": false
+        },
+        {
+          "k": 3,
+          "passed": false,
+          "temperature": 0.85,
+          "raw_length": 249,
+          "extracted_length": 236,
+          "was_truncated": false,
+          "syntax_ok": true,
+          "kondo_ok": true,
+          "load_ok": true,
+          "tests_ok": false,
+          "timed_out": false
+        },
+        {
+          "k": 4,
+          "passed": false,
+          "temperature": 0.8999999999999999,
+          "raw_length": 419,
+          "extracted_length": 203,
+          "was_truncated": false,
+          "syntax_ok": true,
+          "kondo_ok": true,
+          "load_ok": true,
+          "tests_ok": false,
+          "timed_out": false
+        },
+        {
+          "k": 5,
+          "passed": false,
+          "temperature": 0.95,
+          "raw_length": 545,
+          "extracted_length": 266,
+          "was_truncated": false,
+          "syntax_ok": true,
+          "kondo_ok": true,
+          "load_ok": true,
+          "tests_ok": false,
+          "timed_out": false
+        },
+        {
+          "k": 6,
+          "passed": false,
+          "temperature": 1.0,
+          "raw_length": 529,
+          "extracted_length": 258,
+          "was_truncated": false,
+          "syntax_ok": true,
+          "kondo_ok": true,
+          "load_ok": true,
+          "tests_ok": false,
+          "timed_out": false
+        },
+        {
+          "k": 7,
+          "passed": false,
+          "temperature": 1.0,
+          "raw_length": 269,
+          "extracted_length": 269,
+          "was_truncated": false,
+          "syntax_ok": false,
+          "kondo_ok": false,
+          "load_ok": false,
+          "tests_ok": false,
+          "timed_out": false
+        }
+      ],
+      "best_attempt": {
+        "k": 0,
+        "passed": false,
+        "temperature": 0.7,
+        "raw_length": 239,
+        "extracted_length": 226,
+        "was_truncated": false,
+        "syntax_ok": true,
+        "kondo_ok": true,
+        "load_ok": true,
+        "tests_ok": false,
+        "timed_out": false
+      }
+    },
+    "mbpp-clj-176": {
+      "passed": true,
+      "first_attempt_passed": true,
+      "attempts_until_pass": 1,
+      "attempts": [
+        {
+          "k": 0,
+          "passed": true,
+          "temperature": 0.7,
+          "raw_length": 327,
+          "extracted_length": 314,
+          "was_truncated": false,
+          "syntax_ok": true,
+          "kondo_ok": true,
+          "load_ok": true,
+          "tests_ok": true,
+          "timed_out": false
+        }
+      ]
+    },
+    "mbpp-clj-179": {
+      "passed": true,
+      "first_attempt_passed": false,
+      "attempts_until_pass": 4,
+      "attempts": [
+        {
+          "k": 0,
+          "passed": false,
+          "temperature": 0.7,
+          "raw_length": 331,
+          "extracted_length": 318,
+          "was_truncated": false,
+          "syntax_ok": true,
+          "kondo_ok": false,
+          "load_ok": false,
+          "tests_ok": false,
+          "timed_out": false
+        },
+        {
+          "k": 1,
+          "passed": false,
+          "temperature": 0.75,
+          "raw_length": 338,
+          "extracted_length": 325,
+          "was_truncated": false,
+          "syntax_ok": true,
+          "kondo_ok": false,
+          "load_ok": false,
+          "tests_ok": false,
+          "timed_out": false
+        },
+        {
+          "k": 2,
+          "passed": false,
+          "temperature": 0.7999999999999999,
+          "raw_length": 380,
+          "extracted_length": 367,
+          "was_truncated": false,
+          "syntax_ok": true,
+          "kondo_ok": false,
+          "load_ok": false,
+          "tests_ok": false,
+          "timed_out": false
+        },
+        {
+          "k": 3,
+          "passed": true,
+          "temperature": 0.85,
+          "raw_length": 316,
+          "extracted_length": 303,
+          "was_truncated": false,
+          "syntax_ok": true,
+          "kondo_ok": true,
+          "load_ok": true,
+          "tests_ok": true,
+          "timed_out": false
+        }
+      ]
+    },
+    "mbpp-clj-180": {
+      "passed": true,
+      "first_attempt_passed": true,
+      "attempts_until_pass": 1,
+      "attempts": [
+        {
+          "k": 0,
+          "passed": true,
+          "temperature": 0.7,
+          "raw_length": 126,
+          "extracted_length": 113,
+          "was_truncated": false,
+          "syntax_ok": true,
+          "kondo_ok": true,
+          "load_ok": true,
+          "tests_ok": true,
+          "timed_out": false
+        }
+      ]
+    },
+    "mbpp-clj-181": {
+      "passed": true,
+      "first_attempt_passed": true,
+      "attempts_until_pass": 1,
+      "attempts": [
+        {
+          "k": 0,
+          "passed": true,
+          "temperature": 0.7,
+          "raw_length": 305,
+          "extracted_length": 146,
+          "was_truncated": false,
+          "syntax_ok": true,
+          "kondo_ok": true,
+          "load_ok": true,
+          "tests_ok": true,
+          "timed_out": false
+        }
+      ]
+    },
+    "mbpp-clj-185": {
+      "passed": true,
+      "first_attempt_passed": true,
+      "attempts_until_pass": 1,
+      "attempts": [
+        {
+          "k": 0,
+          "passed": true,
+          "temperature": 0.7,
+          "raw_length": 277,
+          "extracted_length": 264,
+          "was_truncated": false,
+          "syntax_ok": true,
+          "kondo_ok": true,
+          "load_ok": true,
+          "tests_ok": true,
+          "timed_out": false
+        }
+      ]
+    },
+    "mbpp-clj-191": {
+      "passed": true,
+      "first_attempt_passed": true,
+      "attempts_until_pass": 1,
+      "attempts": [
+        {
+          "k": 0,
+          "passed": true,
+          "temperature": 0.7,
+          "raw_length": 187,
+          "extracted_length": 174,
+          "was_truncated": false,
+          "syntax_ok": true,
+          "kondo_ok": true,
+          "load_ok": true,
+          "tests_ok": true,
+          "timed_out": false
+        }
+      ]
+    },
+    "mbpp-clj-196": {
+      "passed": false,
+      "first_attempt_passed": false,
+      "attempts_until_pass": null,
+      "attempts": [
+        {
+          "k": 0,
+          "passed": false,
+          "temperature": 0.7,
+          "raw_length": 150,
+          "extracted_length": 137,
+          "was_truncated": false,
+          "syntax_ok": true,
+          "kondo_ok": true,
+          "load_ok": true,
+          "tests_ok": false,
+          "timed_out": false
+        },
+        {
+          "k": 1,
+          "passed": false,
+          "temperature": 0.75,
+          "raw_length": 213,
+          "extracted_length": 200,
+          "was_truncated": false,
+          "syntax_ok": true,
+          "kondo_ok": true,
+          "load_ok": true,
+          "tests_ok": false,
+          "timed_out": false
+        },
+        {
+          "k": 2,
+          "passed": false,
+          "temperature": 0.7999999999999999,
+          "raw_length": 185,
+          "extracted_length": 172,
+          "was_truncated": false,
+          "syntax_ok": true,
+          "kondo_ok": true,
+          "load_ok": true,
+          "tests_ok": false,
+          "timed_out": false
+        },
+        {
+          "k": 3,
+          "passed": false,
+          "temperature": 0.85,
+          "raw_length": 237,
+          "extracted_length": 224,
+          "was_truncated": false,
+          "syntax_ok": true,
+          "kondo_ok": false,
+          "load_ok": false,
+          "tests_ok": false,
+          "timed_out": false
+        },
+        {
+          "k": 4,
+          "passed": false,
+          "temperature": 0.8999999999999999,
+          "raw_length": 295,
+          "extracted_length": 141,
+          "was_truncated": false,
+          "syntax_ok": true,
+          "kondo_ok": true,
+          "load_ok": true,
+          "tests_ok": false,
+          "timed_out": false
+        },
+        {
+          "k": 5,
+          "passed": false,
+          "temperature": 0.95,
+          "raw_length": 331,
+          "extracted_length": 159,
+          "was_truncated": false,
+          "syntax_ok": true,
+          "kondo_ok": true,
+          "load_ok": true,
+          "tests_ok": false,
+          "timed_out": false
+        },
+        {
+          "k": 6,
+          "passed": false,
+          "temperature": 1.0,
+          "raw_length": 365,
+          "extracted_length": 176,
+          "was_truncated": false,
+          "syntax_ok": true,
+          "kondo_ok": true,
+          "load_ok": true,
+          "tests_ok": false,
+          "timed_out": false
+        },
+        {
+          "k": 7,
+          "passed": false,
+          "temperature": 1.0,
+          "raw_length": 176,
+          "extracted_length": 163,
+          "was_truncated": false,
+          "syntax_ok": true,
+          "kondo_ok": true,
+          "load_ok": true,
+          "tests_ok": false,
+          "timed_out": false
+        }
+      ],
+      "best_attempt": {
+        "k": 0,
+        "passed": false,
+        "temperature": 0.7,
+        "raw_length": 150,
+        "extracted_length": 137,
+        "was_truncated": false,
+        "syntax_ok": true,
+        "kondo_ok": true,
+        "load_ok": true,
+        "tests_ok": false,
+        "timed_out": false
+      }
+    },
+    "mbpp-clj-197": {
+      "passed": false,
+      "first_attempt_passed": false,
+      "attempts_until_pass": null,
+      "attempts": [
+        {
+          "k": 0,
+          "passed": false,
+          "temperature": 0.7,
+          "raw_length": 215,
+          "extracted_length": 202,
+          "was_truncated": false,
+          "syntax_ok": true,
+          "kondo_ok": true,
+          "load_ok": true,
+          "tests_ok": false,
+          "timed_out": false
+        },
+        {
+          "k": 1,
+          "passed": false,
+          "temperature": 0.75,
+          "raw_length": 191,
+          "extracted_length": 178,
+          "was_truncated": false,
+          "syntax_ok": true,
+          "kondo_ok": true,
+          "load_ok": true,
+          "tests_ok": false,
+          "timed_out": false
+        },
+        {
+          "k": 2,
+          "passed": false,
+          "temperature": 0.7999999999999999,
+          "raw_length": 192,
+          "extracted_length": 179,
+          "was_truncated": false,
+          "syntax_ok": true,
+          "kondo_ok": true,
+          "load_ok": true,
+          "tests_ok": false,
+          "timed_out": false
+        },
+        {
+          "k": 3,
+          "passed": false,
+          "temperature": 0.85,
+          "raw_length": 213,
+          "extracted_length": 200,
+          "was_truncated": false,
+          "syntax_ok": true,
+          "kondo_ok": false,
+          "load_ok": false,
+          "tests_ok": false,
+          "timed_out": false
+        },
+        {
+          "k": 4,
+          "passed": false,
+          "temperature": 0.8999999999999999,
+          "raw_length": 429,
+          "extracted_length": 208,
+          "was_truncated": false,
+          "syntax_ok": true,
+          "kondo_ok": false,
+          "load_ok": false,
+          "tests_ok": false,
+          "timed_out": false
+        },
+        {
+          "k": 5,
+          "passed": false,
+          "temperature": 0.95,
+          "raw_length": 204,
+          "extracted_length": 191,
+          "was_truncated": false,
+          "syntax_ok": true,
+          "kondo_ok": true,
+          "load_ok": true,
+          "tests_ok": false,
+          "timed_out": false
+        },
+        {
+          "k": 6,
+          "passed": false,
+          "temperature": 1.0,
+          "raw_length": 401,
+          "extracted_length": 194,
+          "was_truncated": false,
+          "syntax_ok": true,
+          "kondo_ok": true,
+          "load_ok": true,
+          "tests_ok": false,
+          "timed_out": false
+        },
+        {
+          "k": 7,
+          "passed": false,
+          "temperature": 1.0,
+          "raw_length": 240,
+          "extracted_length": 227,
+          "was_truncated": false,
+          "syntax_ok": true,
+          "kondo_ok": true,
+          "load_ok": true,
+          "tests_ok": false,
+          "timed_out": false
+        }
+      ],
+      "best_attempt": {
+        "k": 0,
+        "passed": false,
+        "temperature": 0.7,
+        "raw_length": 215,
+        "extracted_length": 202,
+        "was_truncated": false,
+        "syntax_ok": true,
+        "kondo_ok": true,
+        "load_ok": true,
+        "tests_ok": false,
+        "timed_out": false
+      }
+    },
+    "mbpp-clj-201": {
+      "passed": true,
+      "first_attempt_passed": true,
+      "attempts_until_pass": 1,
+      "attempts": [
+        {
+          "k": 0,
+          "passed": true,
+          "temperature": 0.7,
+          "raw_length": 145,
+          "extracted_length": 132,
+          "was_truncated": false,
+          "syntax_ok": true,
+          "kondo_ok": true,
+          "load_ok": true,
+          "tests_ok": true,
+          "timed_out": false
+        }
+      ]
+    },
+    "mbpp-clj-204": {
+      "passed": false,
+      "first_attempt_passed": false,
+      "attempts_until_pass": null,
+      "attempts": [
+        {
+          "k": 0,
+          "passed": false,
+          "temperature": 0.7,
+          "raw_length": 277,
+          "extracted_length": 264,
+          "was_truncated": false,
+          "syntax_ok": true,
+          "kondo_ok": true,
+          "load_ok": true,
+          "tests_ok": false,
+          "timed_out": false
+        },
+        {
+          "k": 1,
+          "passed": false,
+          "temperature": 0.75,
+          "raw_length": 315,
+          "extracted_length": 302,
+          "was_truncated": false,
+          "syntax_ok": true,
+          "kondo_ok": true,
+          "load_ok": true,
+          "tests_ok": false,
+          "timed_out": false
+        },
+        {
+          "k": 2,
+          "passed": false,
+          "temperature": 0.7999999999999999,
+          "raw_length": 237,
+          "extracted_length": 224,
+          "was_truncated": false,
+          "syntax_ok": true,
+          "kondo_ok": true,
+          "load_ok": true,
+          "tests_ok": false,
+          "timed_out": false
+        },
+        {
+          "k": 3,
+          "passed": false,
+          "temperature": 0.85,
+          "raw_length": 392,
+          "extracted_length": 379,
+          "was_truncated": false,
+          "syntax_ok": true,
+          "kondo_ok": true,
+          "load_ok": true,
+          "tests_ok": false,
+          "timed_out": false
+        },
+        {
+          "k": 4,
+          "passed": false,
+          "temperature": 0.8999999999999999,
+          "raw_length": 346,
+          "extracted_length": 346,
+          "was_truncated": false,
+          "syntax_ok": false,
+          "kondo_ok": false,
+          "load_ok": false,
+          "tests_ok": false,
+          "timed_out": false
+        },
+        {
+          "k": 5,
+          "passed": false,
+          "temperature": 0.95,
+          "raw_length": 379,
+          "extracted_length": 366,
+          "was_truncated": false,
+          "syntax_ok": true,
+          "kondo_ok": true,
+          "load_ok": true,
+          "tests_ok": false,
+          "timed_out": false
+        },
+        {
+          "k": 6,
+          "passed": false,
+          "temperature": 1.0,
+          "raw_length": 493,
+          "extracted_length": 480,
+          "was_truncated": false,
+          "syntax_ok": true,
+          "kondo_ok": true,
+          "load_ok": true,
+          "tests_ok": false,
+          "timed_out": false
+        },
+        {
+          "k": 7,
+          "passed": false,
+          "temperature": 1.0,
+          "raw_length": 523,
+          "extracted_length": 523,
+          "was_truncated": false,
+          "syntax_ok": false,
+          "kondo_ok": false,
+          "load_ok": false,
+          "tests_ok": false,
+          "timed_out": false
+        }
+      ],
+      "best_attempt": {
+        "k": 0,
+        "passed": false,
+        "temperature": 0.7,
+        "raw_length": 277,
+        "extracted_length": 264,
+        "was_truncated": false,
+        "syntax_ok": true,
+        "kondo_ok": true,
+        "load_ok": true,
+        "tests_ok": false,
+        "timed_out": false
+      }
+    },
+    "mbpp-clj-214": {
+      "passed": true,
+      "first_attempt_passed": false,
+      "attempts_until_pass": 4,
+      "attempts": [
+        {
+          "k": 0,
+          "passed": false,
+          "temperature": 0.7,
+          "raw_length": 359,
+          "extracted_length": 346,
+          "was_truncated": false,
+          "syntax_ok": true,
+          "kondo_ok": true,
+          "load_ok": true,
+          "tests_ok": false,
+          "timed_out": false
+        },
+        {
+          "k": 1,
+          "passed": false,
+          "temperature": 0.75,
+          "raw_length": 381,
+          "extracted_length": 368,
+          "was_truncated": false,
+          "syntax_ok": true,
+          "kondo_ok": true,
+          "load_ok": true,
+          "tests_ok": false,
+          "timed_out": false
+        },
+        {
+          "k": 2,
+          "passed": false,
+          "temperature": 0.7999999999999999,
+          "raw_length": 321,
+          "extracted_length": 308,
+          "was_truncated": false,
+          "syntax_ok": true,
+          "kondo_ok": true,
+          "load_ok": true,
+          "tests_ok": false,
+          "timed_out": false
+        },
+        {
+          "k": 3,
+          "passed": true,
+          "temperature": 0.85,
+          "raw_length": 475,
+          "extracted_length": 462,
+          "was_truncated": false,
+          "syntax_ok": true,
+          "kondo_ok": true,
+          "load_ok": true,
+          "tests_ok": true,
+          "timed_out": false
+        }
+      ]
+    },
+    "mbpp-clj-216": {
+      "passed": true,
+      "first_attempt_passed": true,
+      "attempts_until_pass": 1,
+      "attempts": [
+        {
+          "k": 0,
+          "passed": true,
+          "temperature": 0.7,
+          "raw_length": 199,
+          "extracted_length": 186,
+          "was_truncated": false,
+          "syntax_ok": true,
+          "kondo_ok": true,
+          "load_ok": true,
+          "tests_ok": true,
+          "timed_out": false
+        }
+      ]
+    },
+    "mbpp-clj-220": {
+      "passed": true,
+      "first_attempt_passed": true,
+      "attempts_until_pass": 1,
+      "attempts": [
+        {
+          "k": 0,
+          "passed": true,
+          "temperature": 0.7,
+          "raw_length": 186,
+          "extracted_length": 173,
+          "was_truncated": false,
+          "syntax_ok": true,
+          "kondo_ok": true,
+          "load_ok": true,
+          "tests_ok": true,
+          "timed_out": false
+        }
+      ]
+    },
+    "mbpp-clj-226": {
+      "passed": false,
+      "first_attempt_passed": false,
+      "attempts_until_pass": null,
+      "attempts": [
+        {
+          "k": 0,
+          "passed": false,
+          "temperature": 0.7,
+          "raw_length": 203,
+          "extracted_length": 190,
+          "was_truncated": false,
+          "syntax_ok": true,
+          "kondo_ok": true,
+          "load_ok": true,
+          "tests_ok": false,
+          "timed_out": false
+        },
+        {
+          "k": 1,
+          "passed": false,
+          "temperature": 0.75,
+          "raw_length": 184,
+          "extracted_length": 171,
+          "was_truncated": false,
+          "syntax_ok": true,
+          "kondo_ok": true,
+          "load_ok": true,
+          "tests_ok": false,
+          "timed_out": false
+        },
+        {
+          "k": 2,
+          "passed": false,
+          "temperature": 0.7999999999999999,
+          "raw_length": 190,
+          "extracted_length": 177,
+          "was_truncated": false,
+          "syntax_ok": true,
+          "kondo_ok": true,
+          "load_ok": true,
+          "tests_ok": false,
+          "timed_out": false
+        },
+        {
+          "k": 3,
+          "passed": false,
+          "temperature": 0.85,
+          "raw_length": 185,
+          "extracted_length": 172,
+          "was_truncated": false,
+          "syntax_ok": true,
+          "kondo_ok": true,
+          "load_ok": true,
+          "tests_ok": false,
+          "timed_out": false
+        },
+        {
+          "k": 4,
+          "passed": false,
+          "temperature": 0.8999999999999999,
+          "raw_length": 187,
+          "extracted_length": 174,
+          "was_truncated": false,
+          "syntax_ok": true,
+          "kondo_ok": true,
+          "load_ok": true,
+          "tests_ok": false,
+          "timed_out": false
+        },
+        {
+          "k": 5,
+          "passed": false,
+          "temperature": 0.95,
+          "raw_length": 185,
+          "extracted_length": 172,
+          "was_truncated": false,
+          "syntax_ok": true,
+          "kondo_ok": true,
+          "load_ok": true,
+          "tests_ok": false,
+          "timed_out": false
+        },
+        {
+          "k": 6,
+          "passed": false,
+          "temperature": 1.0,
+          "raw_length": 207,
+          "extracted_length": 194,
+          "was_truncated": false,
+          "syntax_ok": true,
+          "kondo_ok": true,
+          "load_ok": true,
+          "tests_ok": false,
+          "timed_out": false
+        },
+        {
+          "k": 7,
+          "passed": false,
+          "temperature": 1.0,
+          "raw_length": 225,
+          "extracted_length": 212,
+          "was_truncated": false,
+          "syntax_ok": true,
+          "kondo_ok": true,
+          "load_ok": true,
+          "tests_ok": false,
+          "timed_out": false
+        }
+      ],
+      "best_attempt": {
+        "k": 0,
+        "passed": false,
+        "temperature": 0.7,
+        "raw_length": 203,
+        "extracted_length": 190,
+        "was_truncated": false,
+        "syntax_ok": true,
+        "kondo_ok": true,
+        "load_ok": true,
+        "tests_ok": false,
+        "timed_out": false
+      }
+    },
+    "mbpp-clj-245": {
+      "passed": true,
+      "first_attempt_passed": true,
+      "attempts_until_pass": 1,
+      "attempts": [
+        {
+          "k": 0,
+          "passed": true,
+          "temperature": 0.7,
+          "raw_length": 443,
+          "extracted_length": 430,
+          "was_truncated": false,
+          "syntax_ok": true,
+          "kondo_ok": true,
+          "load_ok": true,
+          "tests_ok": true,
+          "timed_out": false
+        }
+      ]
+    },
+    "mbpp-clj-248": {
+      "passed": true,
+      "first_attempt_passed": true,
+      "attempts_until_pass": 1,
+      "attempts": [
+        {
+          "k": 0,
+          "passed": true,
+          "temperature": 0.7,
+          "raw_length": 168,
+          "extracted_length": 155,
+          "was_truncated": false,
+          "syntax_ok": true,
+          "kondo_ok": true,
+          "load_ok": true,
+          "tests_ok": true,
+          "timed_out": false
+        }
+      ]
+    },
+    "mbpp-clj-252": {
+      "passed": true,
+      "first_attempt_passed": true,
+      "attempts_until_pass": 1,
+      "attempts": [
+        {
+          "k": 0,
+          "passed": true,
+          "temperature": 0.7,
+          "raw_length": 180,
+          "extracted_length": 167,
+          "was_truncated": false,
+          "syntax_ok": true,
+          "kondo_ok": true,
+          "load_ok": true,
+          "tests_ok": true,
+          "timed_out": false
+        }
+      ]
+    },
+    "mbpp-clj-258": {
+      "passed": false,
+      "first_attempt_passed": false,
+      "attempts_until_pass": null,
+      "attempts": [
+        {
+          "k": 0,
+          "passed": false,
+          "temperature": 0.7,
+          "raw_length": 199,
+          "extracted_length": 186,
+          "was_truncated": false,
+          "syntax_ok": true,
+          "kondo_ok": true,
+          "load_ok": true,
+          "tests_ok": false,
+          "timed_out": false
+        },
+        {
+          "k": 1,
+          "passed": false,
+          "temperature": 0.75,
+          "raw_length": 198,
+          "extracted_length": 185,
+          "was_truncated": false,
+          "syntax_ok": true,
+          "kondo_ok": true,
+          "load_ok": true,
+          "tests_ok": false,
+          "timed_out": false
+        },
+        {
+          "k": 2,
+          "passed": false,
+          "temperature": 0.7999999999999999,
+          "raw_length": 182,
+          "extracted_length": 169,
+          "was_truncated": false,
+          "syntax_ok": true,
+          "kondo_ok": true,
+          "load_ok": true,
+          "tests_ok": false,
+          "timed_out": false
+        },
+        {
+          "k": 3,
+          "passed": false,
+          "temperature": 0.85,
+          "raw_length": 210,
+          "extracted_length": 197,
+          "was_truncated": false,
+          "syntax_ok": true,
+          "kondo_ok": true,
+          "load_ok": true,
+          "tests_ok": false,
+          "timed_out": false
+        },
+        {
+          "k": 4,
+          "passed": false,
+          "temperature": 0.8999999999999999,
+          "raw_length": 197,
+          "extracted_length": 184,
+          "was_truncated": false,
+          "syntax_ok": true,
+          "kondo_ok": true,
+          "load_ok": true,
+          "tests_ok": false,
+          "timed_out": false
+        },
+        {
+          "k": 5,
+          "passed": false,
+          "temperature": 0.95,
+          "raw_length": 246,
+          "extracted_length": 233,
+          "was_truncated": false,
+          "syntax_ok": true,
+          "kondo_ok": true,
+          "load_ok": true,
+          "tests_ok": false,
+          "timed_out": false
+        },
+        {
+          "k": 6,
+          "passed": false,
+          "temperature": 1.0,
+          "raw_length": 257,
+          "extracted_length": 244,
+          "was_truncated": false,
+          "syntax_ok": true,
+          "kondo_ok": true,
+          "load_ok": true,
+          "tests_ok": false,
+          "timed_out": false
+        },
+        {
+          "k": 7,
+          "passed": false,
+          "temperature": 1.0,
+          "raw_length": 199,
+          "extracted_length": 186,
+          "was_truncated": false,
+          "syntax_ok": true,
+          "kondo_ok": true,
+          "load_ok": true,
+          "tests_ok": false,
+          "timed_out": false
+        }
+      ],
+      "best_attempt": {
+        "k": 0,
+        "passed": false,
+        "temperature": 0.7,
+        "raw_length": 199,
+        "extracted_length": 186,
+        "was_truncated": false,
+        "syntax_ok": true,
+        "kondo_ok": true,
+        "load_ok": true,
+        "tests_ok": false,
+        "timed_out": false
+      }
+    },
+    "mbpp-clj-259": {
+      "passed": true,
+      "first_attempt_passed": false,
+      "attempts_until_pass": 3,
+      "attempts": [
+        {
+          "k": 0,
+          "passed": false,
+          "temperature": 0.7,
+          "raw_length": 397,
+          "extracted_length": 384,
+          "was_truncated": false,
+          "syntax_ok": true,
+          "kondo_ok": true,
+          "load_ok": false,
+          "tests_ok": false,
+          "timed_out": true
+        },
+        {
+          "k": 1,
+          "passed": false,
+          "temperature": 0.75,
+          "raw_length": 372,
+          "extracted_length": 359,
+          "was_truncated": false,
+          "syntax_ok": true,
+          "kondo_ok": true,
+          "load_ok": true,
+          "tests_ok": false,
+          "timed_out": false
+        },
+        {
+          "k": 2,
+          "passed": true,
+          "temperature": 0.7999999999999999,
+          "raw_length": 481,
+          "extracted_length": 468,
+          "was_truncated": false,
+          "syntax_ok": true,
+          "kondo_ok": true,
+          "load_ok": true,
+          "tests_ok": true,
+          "timed_out": false
+        }
+      ]
+    },
+    "mbpp-clj-266": {
+      "passed": false,
+      "first_attempt_passed": false,
+      "attempts_until_pass": null,
+      "attempts": [
+        {
+          "k": 0,
+          "passed": false,
+          "temperature": 0.7,
+          "raw_length": 349,
+          "extracted_length": 335,
+          "was_truncated": false,
+          "syntax_ok": true,
+          "kondo_ok": true,
+          "load_ok": true,
+          "tests_ok": false,
+          "timed_out": false
+        },
+        {
+          "k": 1,
+          "passed": false,
+          "temperature": 0.75,
+          "raw_length": 411,
+          "extracted_length": 410,
+          "was_truncated": true,
+          "syntax_ok": false,
+          "kondo_ok": false,
+          "load_ok": false,
+          "tests_ok": false,
+          "timed_out": false
+        },
+        {
+          "k": 2,
+          "passed": false,
+          "temperature": 0.7999999999999999,
+          "raw_length": 419,
+          "extracted_length": 418,
+          "was_truncated": true,
+          "syntax_ok": false,
+          "kondo_ok": false,
+          "load_ok": false,
+          "tests_ok": false,
+          "timed_out": false
+        },
+        {
+          "k": 3,
+          "passed": false,
+          "temperature": 0.85,
+          "raw_length": 379,
+          "extracted_length": 365,
+          "was_truncated": false,
+          "syntax_ok": true,
+          "kondo_ok": true,
+          "load_ok": true,
+          "tests_ok": false,
+          "timed_out": false
+        },
+        {
+          "k": 4,
+          "passed": false,
+          "temperature": 0.8999999999999999,
+          "raw_length": 345,
+          "extracted_length": 332,
+          "was_truncated": false,
+          "syntax_ok": true,
+          "kondo_ok": true,
+          "load_ok": true,
+          "tests_ok": false,
+          "timed_out": false
+        },
+        {
+          "k": 5,
+          "passed": false,
+          "temperature": 0.95,
+          "raw_length": 589,
+          "extracted_length": 288,
+          "was_truncated": false,
+          "syntax_ok": true,
+          "kondo_ok": true,
+          "load_ok": true,
+          "tests_ok": false,
+          "timed_out": false
+        },
+        {
+          "k": 6,
+          "passed": false,
+          "temperature": 1.0,
+          "raw_length": 443,
+          "extracted_length": 430,
+          "was_truncated": false,
+          "syntax_ok": true,
+          "kondo_ok": true,
+          "load_ok": true,
+          "tests_ok": false,
+          "timed_out": false
+        },
+        {
+          "k": 7,
+          "passed": false,
+          "temperature": 1.0,
+          "raw_length": 366,
+          "extracted_length": 353,
+          "was_truncated": false,
+          "syntax_ok": true,
+          "kondo_ok": true,
+          "load_ok": true,
+          "tests_ok": false,
+          "timed_out": false
+        }
+      ],
+      "best_attempt": {
+        "k": 0,
+        "passed": false,
+        "temperature": 0.7,
+        "raw_length": 349,
+        "extracted_length": 335,
+        "was_truncated": false,
+        "syntax_ok": true,
+        "kondo_ok": true,
+        "load_ok": true,
+        "tests_ok": false,
+        "timed_out": false
+      }
+    },
+    "mbpp-clj-267": {
+      "passed": false,
+      "first_attempt_passed": false,
+      "attempts_until_pass": null,
+      "attempts": [
+        {
+          "k": 0,
+          "passed": false,
+          "temperature": 0.7,
+          "raw_length": 180,
+          "extracted_length": 167,
+          "was_truncated": false,
+          "syntax_ok": true,
+          "kondo_ok": true,
+          "load_ok": true,
+          "tests_ok": false,
+          "timed_out": false
+        },
+        {
+          "k": 1,
+          "passed": false,
+          "temperature": 0.75,
+          "raw_length": 215,
+          "extracted_length": 202,
+          "was_truncated": false,
+          "syntax_ok": true,
+          "kondo_ok": true,
+          "load_ok": true,
+          "tests_ok": false,
+          "timed_out": false
+        },
+        {
+          "k": 2,
+          "passed": false,
+          "temperature": 0.7999999999999999,
+          "raw_length": 218,
+          "extracted_length": 205,
+          "was_truncated": false,
+          "syntax_ok": true,
+          "kondo_ok": true,
+          "load_ok": true,
+          "tests_ok": false,
+          "timed_out": false
+        },
+        {
+          "k": 3,
+          "passed": false,
+          "temperature": 0.85,
+          "raw_length": 215,
+          "extracted_length": 202,
+          "was_truncated": false,
+          "syntax_ok": true,
+          "kondo_ok": true,
+          "load_ok": true,
+          "tests_ok": false,
+          "timed_out": false
+        },
+        {
+          "k": 4,
+          "passed": false,
+          "temperature": 0.8999999999999999,
+          "raw_length": 187,
+          "extracted_length": 174,
+          "was_truncated": false,
+          "syntax_ok": true,
+          "kondo_ok": true,
+          "load_ok": true,
+          "tests_ok": false,
+          "timed_out": false
+        },
+        {
+          "k": 5,
+          "passed": false,
+          "temperature": 0.95,
+          "raw_length": 303,
+          "extracted_length": 290,
+          "was_truncated": false,
+          "syntax_ok": true,
+          "kondo_ok": true,
+          "load_ok": true,
+          "tests_ok": false,
+          "timed_out": false
+        },
+        {
+          "k": 6,
+          "passed": false,
+          "temperature": 1.0,
+          "raw_length": 285,
+          "extracted_length": 272,
+          "was_truncated": false,
+          "syntax_ok": true,
+          "kondo_ok": true,
+          "load_ok": true,
+          "tests_ok": false,
+          "timed_out": false
+        },
+        {
+          "k": 7,
+          "passed": false,
+          "temperature": 1.0,
+          "raw_length": 292,
+          "extracted_length": 279,
+          "was_truncated": false,
+          "syntax_ok": true,
+          "kondo_ok": true,
+          "load_ok": true,
+          "tests_ok": false,
+          "timed_out": false
+        }
+      ],
+      "best_attempt": {
+        "k": 0,
+        "passed": false,
+        "temperature": 0.7,
+        "raw_length": 180,
+        "extracted_length": 167,
+        "was_truncated": false,
+        "syntax_ok": true,
+        "kondo_ok": true,
+        "load_ok": true,
+        "tests_ok": false,
+        "timed_out": false
+      }
+    },
+    "mbpp-clj-268": {
+      "passed": true,
+      "first_attempt_passed": true,
+      "attempts_until_pass": 1,
+      "attempts": [
+        {
+          "k": 0,
+          "passed": true,
+          "temperature": 0.7,
+          "raw_length": 248,
+          "extracted_length": 235,
+          "was_truncated": false,
+          "syntax_ok": true,
+          "kondo_ok": true,
+          "load_ok": true,
+          "tests_ok": true,
+          "timed_out": false
+        }
+      ]
+    },
+    "mbpp-clj-269": {
+      "passed": true,
+      "first_attempt_passed": true,
+      "attempts_until_pass": 1,
+      "attempts": [
+        {
+          "k": 0,
+          "passed": true,
+          "temperature": 0.7,
+          "raw_length": 201,
+          "extracted_length": 94,
+          "was_truncated": false,
+          "syntax_ok": true,
+          "kondo_ok": true,
+          "load_ok": true,
+          "tests_ok": true,
+          "timed_out": false
+        }
+      ]
+    },
+    "mbpp-clj-279": {
+      "passed": true,
+      "first_attempt_passed": false,
+      "attempts_until_pass": 8,
+      "attempts": [
+        {
+          "k": 0,
+          "passed": false,
+          "temperature": 0.7,
+          "raw_length": 196,
+          "extracted_length": 183,
+          "was_truncated": false,
+          "syntax_ok": true,
+          "kondo_ok": true,
+          "load_ok": true,
+          "tests_ok": false,
+          "timed_out": false
+        },
+        {
+          "k": 1,
+          "passed": false,
+          "temperature": 0.75,
+          "raw_length": 264,
+          "extracted_length": 251,
+          "was_truncated": false,
+          "syntax_ok": true,
+          "kondo_ok": true,
+          "load_ok": true,
+          "tests_ok": false,
+          "timed_out": false
+        },
+        {
+          "k": 2,
+          "passed": false,
+          "temperature": 0.7999999999999999,
+          "raw_length": 269,
+          "extracted_length": 256,
+          "was_truncated": false,
+          "syntax_ok": true,
+          "kondo_ok": true,
+          "load_ok": true,
+          "tests_ok": false,
+          "timed_out": false
+        },
+        {
+          "k": 3,
+          "passed": false,
+          "temperature": 0.85,
+          "raw_length": 295,
+          "extracted_length": 282,
+          "was_truncated": false,
+          "syntax_ok": true,
+          "kondo_ok": true,
+          "load_ok": true,
+          "tests_ok": false,
+          "timed_out": false
+        },
+        {
+          "k": 4,
+          "passed": false,
+          "temperature": 0.8999999999999999,
+          "raw_length": 284,
+          "extracted_length": 271,
+          "was_truncated": false,
+          "syntax_ok": true,
+          "kondo_ok": true,
+          "load_ok": true,
+          "tests_ok": false,
+          "timed_out": false
+        },
+        {
+          "k": 5,
+          "passed": false,
+          "temperature": 0.95,
+          "raw_length": 324,
+          "extracted_length": 311,
+          "was_truncated": false,
+          "syntax_ok": true,
+          "kondo_ok": true,
+          "load_ok": true,
+          "tests_ok": false,
+          "timed_out": false
+        },
+        {
+          "k": 6,
+          "passed": false,
+          "temperature": 1.0,
+          "raw_length": 300,
+          "extracted_length": 287,
+          "was_truncated": false,
+          "syntax_ok": true,
+          "kondo_ok": true,
+          "load_ok": true,
+          "tests_ok": false,
+          "timed_out": false
+        },
+        {
+          "k": 7,
+          "passed": true,
+          "temperature": 1.0,
+          "raw_length": 222,
+          "extracted_length": 209,
+          "was_truncated": false,
+          "syntax_ok": true,
+          "kondo_ok": true,
+          "load_ok": true,
+          "tests_ok": true,
+          "timed_out": false
+        }
+      ]
+    },
+    "mbpp-clj-283": {
+      "passed": true,
+      "first_attempt_passed": true,
+      "attempts_until_pass": 1,
+      "attempts": [
+        {
+          "k": 0,
+          "passed": true,
+          "temperature": 0.7,
+          "raw_length": 197,
+          "extracted_length": 184,
+          "was_truncated": false,
+          "syntax_ok": true,
+          "kondo_ok": true,
+          "load_ok": true,
+          "tests_ok": true,
+          "timed_out": false
+        }
+      ]
+    },
+    "mbpp-clj-286": {
+      "passed": true,
+      "first_attempt_passed": false,
+      "attempts_until_pass": 3,
+      "attempts": [
+        {
+          "k": 0,
+          "passed": false,
+          "temperature": 0.7,
+          "raw_length": 454,
+          "extracted_length": 441,
+          "was_truncated": false,
+          "syntax_ok": true,
+          "kondo_ok": true,
+          "load_ok": true,
+          "tests_ok": false,
+          "timed_out": false
+        },
+        {
+          "k": 1,
+          "passed": false,
+          "temperature": 0.75,
+          "raw_length": 355,
+          "extracted_length": 342,
+          "was_truncated": false,
+          "syntax_ok": true,
+          "kondo_ok": true,
+          "load_ok": true,
+          "tests_ok": false,
+          "timed_out": false
+        },
+        {
+          "k": 2,
+          "passed": true,
+          "temperature": 0.7999999999999999,
+          "raw_length": 414,
+          "extracted_length": 401,
+          "was_truncated": false,
+          "syntax_ok": true,
+          "kondo_ok": true,
+          "load_ok": true,
+          "tests_ok": true,
+          "timed_out": false
+        }
+      ]
+    },
+    "mbpp-clj-287": {
+      "passed": false,
+      "first_attempt_passed": false,
+      "attempts_until_pass": null,
+      "attempts": [
+        {
+          "k": 0,
+          "passed": false,
+          "temperature": 0.7,
+          "raw_length": 360,
+          "extracted_length": 347,
+          "was_truncated": false,
+          "syntax_ok": true,
+          "kondo_ok": true,
+          "load_ok": true,
+          "tests_ok": false,
+          "timed_out": false
+        },
+        {
+          "k": 1,
+          "passed": false,
+          "temperature": 0.75,
+          "raw_length": 409,
+          "extracted_length": 396,
+          "was_truncated": false,
+          "syntax_ok": true,
+          "kondo_ok": true,
+          "load_ok": true,
+          "tests_ok": false,
+          "timed_out": false
+        },
+        {
+          "k": 2,
+          "passed": false,
+          "temperature": 0.7999999999999999,
+          "raw_length": 532,
+          "extracted_length": 519,
+          "was_truncated": false,
+          "syntax_ok": true,
+          "kondo_ok": true,
+          "load_ok": true,
+          "tests_ok": false,
+          "timed_out": false
+        },
+        {
+          "k": 3,
+          "passed": false,
+          "temperature": 0.85,
+          "raw_length": 398,
+          "extracted_length": 385,
+          "was_truncated": false,
+          "syntax_ok": true,
+          "kondo_ok": true,
+          "load_ok": true,
+          "tests_ok": false,
+          "timed_out": false
+        },
+        {
+          "k": 4,
+          "passed": false,
+          "temperature": 0.8999999999999999,
+          "raw_length": 597,
+          "extracted_length": 584,
+          "was_truncated": false,
+          "syntax_ok": true,
+          "kondo_ok": false,
+          "load_ok": false,
+          "tests_ok": false,
+          "timed_out": false
+        },
+        {
+          "k": 5,
+          "passed": false,
+          "temperature": 0.95,
+          "raw_length": 857,
+          "extracted_length": 422,
+          "was_truncated": false,
+          "syntax_ok": true,
+          "kondo_ok": true,
+          "load_ok": false,
+          "tests_ok": false,
+          "timed_out": true
+        },
+        {
+          "k": 6,
+          "passed": false,
+          "temperature": 1.0,
+          "raw_length": 517,
+          "extracted_length": 504,
+          "was_truncated": false,
+          "syntax_ok": true,
+          "kondo_ok": true,
+          "load_ok": true,
+          "tests_ok": false,
+          "timed_out": false
+        },
+        {
+          "k": 7,
+          "passed": false,
+          "temperature": 1.0,
+          "raw_length": 1507,
+          "extracted_length": 746,
+          "was_truncated": false,
+          "syntax_ok": true,
+          "kondo_ok": false,
+          "load_ok": false,
+          "tests_ok": false,
+          "timed_out": false
+        }
+      ],
+      "best_attempt": {
+        "k": 0,
+        "passed": false,
+        "temperature": 0.7,
+        "raw_length": 360,
+        "extracted_length": 347,
+        "was_truncated": false,
+        "syntax_ok": true,
+        "kondo_ok": true,
+        "load_ok": true,
+        "tests_ok": false,
+        "timed_out": false
+      }
+    },
+    "mbpp-clj-295": {
+      "passed": false,
+      "first_attempt_passed": false,
+      "attempts_until_pass": null,
+      "attempts": [
+        {
+          "k": 0,
+          "passed": false,
+          "temperature": 0.7,
+          "raw_length": 123,
+          "extracted_length": 110,
+          "was_truncated": false,
+          "syntax_ok": true,
+          "kondo_ok": true,
+          "load_ok": true,
+          "tests_ok": false,
+          "timed_out": false
+        },
+        {
+          "k": 1,
+          "passed": false,
+          "temperature": 0.75,
+          "raw_length": 233,
+          "extracted_length": 110,
+          "was_truncated": false,
+          "syntax_ok": true,
+          "kondo_ok": true,
+          "load_ok": true,
+          "tests_ok": false,
+          "timed_out": false
+        },
+        {
+          "k": 2,
+          "passed": false,
+          "temperature": 0.7999999999999999,
+          "raw_length": 233,
+          "extracted_length": 110,
+          "was_truncated": false,
+          "syntax_ok": true,
+          "kondo_ok": true,
+          "load_ok": true,
+          "tests_ok": false,
+          "timed_out": false
+        },
+        {
+          "k": 3,
+          "passed": false,
+          "temperature": 0.85,
+          "raw_length": 126,
+          "extracted_length": 113,
+          "was_truncated": false,
+          "syntax_ok": true,
+          "kondo_ok": true,
+          "load_ok": true,
+          "tests_ok": false,
+          "timed_out": false
+        },
+        {
+          "k": 4,
+          "passed": false,
+          "temperature": 0.8999999999999999,
+          "raw_length": 229,
+          "extracted_length": 108,
+          "was_truncated": false,
+          "syntax_ok": true,
+          "kondo_ok": true,
+          "load_ok": true,
+          "tests_ok": false,
+          "timed_out": false
+        },
+        {
+          "k": 5,
+          "passed": false,
+          "temperature": 0.95,
+          "raw_length": 291,
+          "extracted_length": 139,
+          "was_truncated": false,
+          "syntax_ok": true,
+          "kondo_ok": true,
+          "load_ok": true,
+          "tests_ok": false,
+          "timed_out": false
+        },
+        {
+          "k": 6,
+          "passed": false,
+          "temperature": 1.0,
+          "raw_length": 865,
+          "extracted_length": 110,
+          "was_truncated": false,
+          "syntax_ok": true,
+          "kondo_ok": true,
+          "load_ok": true,
+          "tests_ok": false,
+          "timed_out": false
+        },
+        {
+          "k": 7,
+          "passed": false,
+          "temperature": 1.0,
+          "raw_length": 239,
+          "extracted_length": 113,
+          "was_truncated": false,
+          "syntax_ok": true,
+          "kondo_ok": true,
+          "load_ok": true,
+          "tests_ok": false,
+          "timed_out": false
+        }
+      ],
+      "best_attempt": {
+        "k": 0,
+        "passed": false,
+        "temperature": 0.7,
+        "raw_length": 123,
+        "extracted_length": 110,
+        "was_truncated": false,
+        "syntax_ok": true,
+        "kondo_ok": true,
+        "load_ok": true,
+        "tests_ok": false,
+        "timed_out": false
+      }
+    },
+    "mbpp-clj-297": {
+      "passed": true,
+      "first_attempt_passed": false,
+      "attempts_until_pass": 2,
+      "attempts": [
+        {
+          "k": 0,
+          "passed": false,
+          "temperature": 0.7,
+          "raw_length": 303,
+          "extracted_length": 290,
+          "was_truncated": false,
+          "syntax_ok": true,
+          "kondo_ok": true,
+          "load_ok": true,
+          "tests_ok": false,
+          "timed_out": false
+        },
+        {
+          "k": 1,
+          "passed": true,
+          "temperature": 0.75,
+          "raw_length": 370,
+          "extracted_length": 357,
+          "was_truncated": false,
+          "syntax_ok": true,
+          "kondo_ok": true,
+          "load_ok": true,
+          "tests_ok": true,
+          "timed_out": false
+        }
+      ]
+    },
+    "mbpp-clj-299": {
+      "passed": true,
+      "first_attempt_passed": true,
+      "attempts_until_pass": 1,
+      "attempts": [
+        {
+          "k": 0,
+          "passed": true,
+          "temperature": 0.7,
+          "raw_length": 159,
+          "extracted_length": 146,
+          "was_truncated": false,
+          "syntax_ok": true,
+          "kondo_ok": true,
+          "load_ok": true,
+          "tests_ok": true,
+          "timed_out": false
+        }
+      ]
+    },
+    "mbpp-clj-303": {
+      "passed": true,
+      "first_attempt_passed": true,
+      "attempts_until_pass": 1,
+      "attempts": [
+        {
+          "k": 0,
+          "passed": true,
+          "temperature": 0.7,
+          "raw_length": 177,
+          "extracted_length": 164,
+          "was_truncated": false,
+          "syntax_ok": true,
+          "kondo_ok": true,
+          "load_ok": true,
+          "tests_ok": true,
+          "timed_out": false
+        }
+      ]
+    },
+    "mbpp-clj-306": {
+      "passed": true,
+      "first_attempt_passed": true,
+      "attempts_until_pass": 1,
+      "attempts": [
+        {
+          "k": 0,
+          "passed": true,
+          "temperature": 0.7,
+          "raw_length": 339,
+          "extracted_length": 325,
+          "was_truncated": false,
+          "syntax_ok": true,
+          "kondo_ok": true,
+          "load_ok": true,
+          "tests_ok": true,
+          "timed_out": false
+        }
+      ]
+    },
+    "mbpp-clj-308": {
+      "passed": true,
+      "first_attempt_passed": false,
+      "attempts_until_pass": 3,
+      "attempts": [
+        {
+          "k": 0,
+          "passed": false,
+          "temperature": 0.7,
+          "raw_length": 474,
+          "extracted_length": 461,
+          "was_truncated": false,
+          "syntax_ok": true,
+          "kondo_ok": false,
+          "load_ok": false,
+          "tests_ok": false,
+          "timed_out": false
+        },
+        {
+          "k": 1,
+          "passed": false,
+          "temperature": 0.75,
+          "raw_length": 251,
+          "extracted_length": 238,
+          "was_truncated": false,
+          "syntax_ok": true,
+          "kondo_ok": true,
+          "load_ok": true,
+          "tests_ok": false,
+          "timed_out": false
+        },
+        {
+          "k": 2,
+          "passed": true,
+          "temperature": 0.7999999999999999,
+          "raw_length": 312,
+          "extracted_length": 299,
+          "was_truncated": false,
+          "syntax_ok": true,
+          "kondo_ok": true,
+          "load_ok": true,
+          "tests_ok": true,
+          "timed_out": false
+        }
+      ]
+    },
+    "mbpp-clj-313": {
+      "passed": false,
+      "first_attempt_passed": false,
+      "attempts_until_pass": null,
+      "attempts": [
+        {
+          "k": 0,
+          "passed": false,
+          "temperature": 0.7,
+          "raw_length": 207,
+          "extracted_length": 207,
+          "was_truncated": false,
+          "syntax_ok": true,
+          "kondo_ok": false,
+          "load_ok": false,
+          "tests_ok": false,
+          "timed_out": false
+        },
+        {
+          "k": 1,
+          "passed": false,
+          "temperature": 0.75,
+          "raw_length": 362,
+          "extracted_length": 349,
+          "was_truncated": false,
+          "syntax_ok": true,
+          "kondo_ok": true,
+          "load_ok": true,
+          "tests_ok": false,
+          "timed_out": false
+        },
+        {
+          "k": 2,
+          "passed": false,
+          "temperature": 0.7999999999999999,
+          "raw_length": 256,
+          "extracted_length": 243,
+          "was_truncated": false,
+          "syntax_ok": true,
+          "kondo_ok": true,
+          "load_ok": true,
+          "tests_ok": false,
+          "timed_out": false
+        },
+        {
+          "k": 3,
+          "passed": false,
+          "temperature": 0.85,
+          "raw_length": 379,
+          "extracted_length": 366,
+          "was_truncated": false,
+          "syntax_ok": false,
+          "kondo_ok": false,
+          "load_ok": false,
+          "tests_ok": false,
+          "timed_out": false
+        },
+        {
+          "k": 4,
+          "passed": false,
+          "temperature": 0.8999999999999999,
+          "raw_length": 365,
+          "extracted_length": 176,
+          "was_truncated": false,
+          "syntax_ok": true,
+          "kondo_ok": true,
+          "load_ok": true,
+          "tests_ok": false,
+          "timed_out": false
+        },
+        {
+          "k": 5,
+          "passed": false,
+          "temperature": 0.95,
+          "raw_length": 454,
+          "extracted_length": 441,
+          "was_truncated": false,
+          "syntax_ok": true,
+          "kondo_ok": true,
+          "load_ok": true,
+          "tests_ok": false,
+          "timed_out": false
+        },
+        {
+          "k": 6,
+          "passed": false,
+          "temperature": 1.0,
+          "raw_length": 1079,
+          "extracted_length": 533,
+          "was_truncated": false,
+          "syntax_ok": false,
+          "kondo_ok": false,
+          "load_ok": false,
+          "tests_ok": false,
+          "timed_out": false
+        },
+        {
+          "k": 7,
+          "passed": false,
+          "temperature": 1.0,
+          "raw_length": 435,
+          "extracted_length": 211,
+          "was_truncated": false,
+          "syntax_ok": true,
+          "kondo_ok": true,
+          "load_ok": true,
+          "tests_ok": false,
+          "timed_out": false
+        }
+      ],
+      "best_attempt": {
+        "k": 1,
+        "passed": false,
+        "temperature": 0.75,
+        "raw_length": 362,
+        "extracted_length": 349,
+        "was_truncated": false,
+        "syntax_ok": true,
+        "kondo_ok": true,
+        "load_ok": true,
+        "tests_ok": false,
+        "timed_out": false
+      }
+    },
+    "mbpp-clj-316": {
+      "passed": true,
+      "first_attempt_passed": true,
+      "attempts_until_pass": 1,
+      "attempts": [
+        {
+          "k": 0,
+          "passed": true,
+          "temperature": 0.7,
+          "raw_length": 301,
+          "extracted_length": 288,
+          "was_truncated": false,
+          "syntax_ok": true,
+          "kondo_ok": true,
+          "load_ok": true,
+          "tests_ok": true,
+          "timed_out": false
+        }
+      ]
+    },
+    "mbpp-clj-326": {
+      "passed": true,
+      "first_attempt_passed": true,
+      "attempts_until_pass": 1,
+      "attempts": [
+        {
+          "k": 0,
+          "passed": true,
+          "temperature": 0.7,
+          "raw_length": 304,
+          "extracted_length": 291,
+          "was_truncated": false,
+          "syntax_ok": true,
+          "kondo_ok": true,
+          "load_ok": true,
+          "tests_ok": true,
+          "timed_out": false
+        }
+      ]
+    },
+    "mbpp-clj-330": {
+      "passed": true,
+      "first_attempt_passed": true,
+      "attempts_until_pass": 1,
+      "attempts": [
+        {
+          "k": 0,
+          "passed": true,
+          "temperature": 0.7,
+          "raw_length": 467,
+          "extracted_length": 454,
+          "was_truncated": false,
+          "syntax_ok": true,
+          "kondo_ok": true,
+          "load_ok": true,
+          "tests_ok": true,
+          "timed_out": false
+        }
+      ]
+    },
+    "mbpp-clj-336": {
+      "passed": true,
+      "first_attempt_passed": true,
+      "attempts_until_pass": 1,
+      "attempts": [
+        {
+          "k": 0,
+          "passed": true,
+          "temperature": 0.7,
+          "raw_length": 189,
+          "extracted_length": 176,
+          "was_truncated": false,
+          "syntax_ok": true,
+          "kondo_ok": true,
+          "load_ok": true,
+          "tests_ok": true,
+          "timed_out": false
+        }
+      ]
+    },
+    "mbpp-clj-342": {
+      "passed": false,
+      "first_attempt_passed": false,
+      "attempts_until_pass": null,
+      "attempts": [
+        {
+          "k": 0,
+          "passed": false,
+          "temperature": 0.7,
+          "raw_length": 2387,
+          "extracted_length": 2387,
+          "was_truncated": false,
+          "syntax_ok": false,
+          "kondo_ok": false,
+          "load_ok": false,
+          "tests_ok": false,
+          "timed_out": false
+        },
+        {
+          "k": 1,
+          "passed": false,
+          "temperature": 0.75,
+          "raw_length": 1420,
+          "extracted_length": 1420,
+          "was_truncated": false,
+          "syntax_ok": false,
+          "kondo_ok": false,
+          "load_ok": false,
+          "tests_ok": false,
+          "timed_out": false
+        },
+        {
+          "k": 2,
+          "passed": false,
+          "temperature": 0.7999999999999999,
+          "raw_length": 1440,
+          "extracted_length": 1427,
+          "was_truncated": false,
+          "syntax_ok": false,
+          "kondo_ok": false,
+          "load_ok": false,
+          "tests_ok": false,
+          "timed_out": false
+        },
+        {
+          "k": 3,
+          "passed": false,
+          "temperature": 0.85,
+          "raw_length": 1989,
+          "extracted_length": 1976,
+          "was_truncated": false,
+          "syntax_ok": true,
+          "kondo_ok": false,
+          "load_ok": false,
+          "tests_ok": false,
+          "timed_out": false
+        },
+        {
+          "k": 4,
+          "passed": false,
+          "temperature": 0.8999999999999999,
+          "raw_length": 1565,
+          "extracted_length": 1565,
+          "was_truncated": false,
+          "syntax_ok": false,
+          "kondo_ok": false,
+          "load_ok": false,
+          "tests_ok": false,
+          "timed_out": false
+        },
+        {
+          "k": 5,
+          "passed": false,
+          "temperature": 0.95,
+          "raw_length": 2392,
+          "extracted_length": 2392,
+          "was_truncated": false,
+          "syntax_ok": false,
+          "kondo_ok": false,
+          "load_ok": false,
+          "tests_ok": false,
+          "timed_out": false
+        },
+        {
+          "k": 6,
+          "passed": false,
+          "temperature": 1.0,
+          "raw_length": 2627,
+          "extracted_length": 2614,
+          "was_truncated": false,
+          "syntax_ok": false,
+          "kondo_ok": false,
+          "load_ok": false,
+          "tests_ok": false,
+          "timed_out": false
+        },
+        {
+          "k": 7,
+          "passed": false,
+          "temperature": 1.0,
+          "raw_length": 2254,
+          "extracted_length": 2254,
+          "was_truncated": false,
+          "syntax_ok": false,
+          "kondo_ok": false,
+          "load_ok": false,
+          "tests_ok": false,
+          "timed_out": false
+        }
+      ],
+      "best_attempt": {
+        "k": 0,
+        "passed": false,
+        "temperature": 0.7,
+        "raw_length": 2387,
+        "extracted_length": 2387,
+        "was_truncated": false,
+        "syntax_ok": false,
+        "kondo_ok": false,
+        "load_ok": false,
+        "tests_ok": false,
+        "timed_out": false
+      }
+    },
+    "mbpp-clj-346": {
+      "passed": true,
+      "first_attempt_passed": false,
+      "attempts_until_pass": 2,
+      "attempts": [
+        {
+          "k": 0,
+          "passed": false,
+          "temperature": 0.7,
+          "raw_length": 1053,
+          "extracted_length": 1053,
+          "was_truncated": false,
+          "syntax_ok": false,
+          "kondo_ok": false,
+          "load_ok": false,
+          "tests_ok": false,
+          "timed_out": false
+        },
+        {
+          "k": 1,
+          "passed": true,
+          "temperature": 0.75,
+          "raw_length": 504,
+          "extracted_length": 491,
+          "was_truncated": false,
+          "syntax_ok": true,
+          "kondo_ok": true,
+          "load_ok": true,
+          "tests_ok": true,
+          "timed_out": false
+        }
+      ]
+    },
+    "mbpp-clj-350": {
+      "passed": true,
+      "first_attempt_passed": false,
+      "attempts_until_pass": 4,
+      "attempts": [
+        {
+          "k": 0,
+          "passed": false,
+          "temperature": 0.7,
+          "raw_length": 194,
+          "extracted_length": 181,
+          "was_truncated": false,
+          "syntax_ok": true,
+          "kondo_ok": true,
+          "load_ok": true,
+          "tests_ok": false,
+          "timed_out": false
+        },
+        {
+          "k": 1,
+          "passed": false,
+          "temperature": 0.75,
+          "raw_length": 194,
+          "extracted_length": 181,
+          "was_truncated": false,
+          "syntax_ok": true,
+          "kondo_ok": true,
+          "load_ok": true,
+          "tests_ok": false,
+          "timed_out": false
+        },
+        {
+          "k": 2,
+          "passed": false,
+          "temperature": 0.7999999999999999,
+          "raw_length": 194,
+          "extracted_length": 181,
+          "was_truncated": false,
+          "syntax_ok": true,
+          "kondo_ok": true,
+          "load_ok": true,
+          "tests_ok": false,
+          "timed_out": false
+        },
+        {
+          "k": 3,
+          "passed": true,
+          "temperature": 0.85,
+          "raw_length": 222,
+          "extracted_length": 209,
+          "was_truncated": false,
+          "syntax_ok": true,
+          "kondo_ok": true,
+          "load_ok": true,
+          "tests_ok": true,
+          "timed_out": false
+        }
+      ]
+    },
+    "mbpp-clj-361": {
+      "passed": false,
+      "first_attempt_passed": false,
+      "attempts_until_pass": null,
+      "attempts": [
+        {
+          "k": 0,
+          "passed": false,
+          "temperature": 0.7,
+          "raw_length": 160,
+          "extracted_length": 147,
+          "was_truncated": false,
+          "syntax_ok": false,
+          "kondo_ok": false,
+          "load_ok": false,
+          "tests_ok": false,
+          "timed_out": false
+        },
+        {
+          "k": 1,
+          "passed": false,
+          "temperature": 0.75,
+          "raw_length": 146,
+          "extracted_length": 133,
+          "was_truncated": false,
+          "syntax_ok": true,
+          "kondo_ok": true,
+          "load_ok": true,
+          "tests_ok": false,
+          "timed_out": false
+        },
+        {
+          "k": 2,
+          "passed": false,
+          "temperature": 0.7999999999999999,
+          "raw_length": 138,
+          "extracted_length": 125,
+          "was_truncated": false,
+          "syntax_ok": true,
+          "kondo_ok": true,
+          "load_ok": true,
+          "tests_ok": false,
+          "timed_out": false
+        },
+        {
+          "k": 3,
+          "passed": false,
+          "temperature": 0.85,
+          "raw_length": 138,
+          "extracted_length": 125,
+          "was_truncated": false,
+          "syntax_ok": true,
+          "kondo_ok": true,
+          "load_ok": true,
+          "tests_ok": false,
+          "timed_out": false
+        },
+        {
+          "k": 4,
+          "passed": false,
+          "temperature": 0.8999999999999999,
+          "raw_length": 179,
+          "extracted_length": 166,
+          "was_truncated": false,
+          "syntax_ok": true,
+          "kondo_ok": true,
+          "load_ok": true,
+          "tests_ok": false,
+          "timed_out": false
+        },
+        {
+          "k": 5,
+          "passed": false,
+          "temperature": 0.95,
+          "raw_length": 279,
+          "extracted_length": 133,
+          "was_truncated": false,
+          "syntax_ok": true,
+          "kondo_ok": true,
+          "load_ok": true,
+          "tests_ok": false,
+          "timed_out": false
+        },
+        {
+          "k": 6,
+          "passed": false,
+          "temperature": 1.0,
+          "raw_length": 293,
+          "extracted_length": 140,
+          "was_truncated": false,
+          "syntax_ok": true,
+          "kondo_ok": true,
+          "load_ok": true,
+          "tests_ok": false,
+          "timed_out": false
+        },
+        {
+          "k": 7,
+          "passed": false,
+          "temperature": 1.0,
+          "raw_length": 276,
+          "extracted_length": 131,
+          "was_truncated": false,
+          "syntax_ok": true,
+          "kondo_ok": true,
+          "load_ok": true,
+          "tests_ok": false,
+          "timed_out": false
+        }
+      ],
+      "best_attempt": {
+        "k": 1,
+        "passed": false,
+        "temperature": 0.75,
+        "raw_length": 146,
+        "extracted_length": 133,
+        "was_truncated": false,
+        "syntax_ok": true,
+        "kondo_ok": true,
+        "load_ok": true,
+        "tests_ok": false,
+        "timed_out": false
+      }
+    },
+    "mbpp-clj-363": {
+      "passed": true,
+      "first_attempt_passed": true,
+      "attempts_until_pass": 1,
+      "attempts": [
+        {
+          "k": 0,
+          "passed": true,
+          "temperature": 0.7,
+          "raw_length": 485,
+          "extracted_length": 472,
+          "was_truncated": false,
+          "syntax_ok": true,
+          "kondo_ok": true,
+          "load_ok": true,
+          "tests_ok": true,
+          "timed_out": false
+        }
+      ]
+    },
+    "mbpp-clj-366": {
+      "passed": true,
+      "first_attempt_passed": true,
+      "attempts_until_pass": 1,
+      "attempts": [
+        {
+          "k": 0,
+          "passed": true,
+          "temperature": 0.7,
+          "raw_length": 240,
+          "extracted_length": 227,
+          "was_truncated": false,
+          "syntax_ok": true,
+          "kondo_ok": true,
+          "load_ok": true,
+          "tests_ok": true,
+          "timed_out": false
+        }
+      ]
+    },
+    "mbpp-clj-368": {
+      "passed": false,
+      "first_attempt_passed": false,
+      "attempts_until_pass": null,
+      "attempts": [
+        {
+          "k": 0,
+          "passed": false,
+          "temperature": 0.7,
+          "raw_length": 321,
+          "extracted_length": 308,
+          "was_truncated": false,
+          "syntax_ok": true,
+          "kondo_ok": true,
+          "load_ok": true,
+          "tests_ok": false,
+          "timed_out": false
+        },
+        {
+          "k": 1,
+          "passed": false,
+          "temperature": 0.75,
+          "raw_length": 256,
+          "extracted_length": 243,
+          "was_truncated": false,
+          "syntax_ok": true,
+          "kondo_ok": true,
+          "load_ok": true,
+          "tests_ok": false,
+          "timed_out": false
+        },
+        {
+          "k": 2,
+          "passed": false,
+          "temperature": 0.7999999999999999,
+          "raw_length": 218,
+          "extracted_length": 205,
+          "was_truncated": false,
+          "syntax_ok": true,
+          "kondo_ok": true,
+          "load_ok": true,
+          "tests_ok": false,
+          "timed_out": false
+        },
+        {
+          "k": 3,
+          "passed": false,
+          "temperature": 0.85,
+          "raw_length": 218,
+          "extracted_length": 205,
+          "was_truncated": false,
+          "syntax_ok": true,
+          "kondo_ok": true,
+          "load_ok": true,
+          "tests_ok": false,
+          "timed_out": false
+        },
+        {
+          "k": 4,
+          "passed": false,
+          "temperature": 0.8999999999999999,
+          "raw_length": 347,
+          "extracted_length": 347,
+          "was_truncated": false,
+          "syntax_ok": false,
+          "kondo_ok": false,
+          "load_ok": false,
+          "tests_ok": false,
+          "timed_out": false
+        },
+        {
+          "k": 5,
+          "passed": false,
+          "temperature": 0.95,
+          "raw_length": 483,
+          "extracted_length": 235,
+          "was_truncated": false,
+          "syntax_ok": true,
+          "kondo_ok": true,
+          "load_ok": true,
+          "tests_ok": false,
+          "timed_out": false
+        },
+        {
+          "k": 6,
+          "passed": false,
+          "temperature": 1.0,
+          "raw_length": 348,
+          "extracted_length": 348,
+          "was_truncated": false,
+          "syntax_ok": false,
+          "kondo_ok": false,
+          "load_ok": false,
+          "tests_ok": false,
+          "timed_out": false
+        },
+        {
+          "k": 7,
+          "passed": false,
+          "temperature": 1.0,
+          "raw_length": 254,
+          "extracted_length": 241,
+          "was_truncated": false,
+          "syntax_ok": true,
+          "kondo_ok": true,
+          "load_ok": true,
+          "tests_ok": false,
+          "timed_out": false
+        }
+      ],
+      "best_attempt": {
+        "k": 0,
+        "passed": false,
+        "temperature": 0.7,
+        "raw_length": 321,
+        "extracted_length": 308,
+        "was_truncated": false,
+        "syntax_ok": true,
+        "kondo_ok": true,
+        "load_ok": true,
+        "tests_ok": false,
+        "timed_out": false
+      }
+    },
+    "mbpp-clj-371": {
+      "passed": true,
+      "first_attempt_passed": true,
+      "attempts_until_pass": 1,
+      "attempts": [
+        {
+          "k": 0,
+          "passed": true,
+          "temperature": 0.7,
+          "raw_length": 662,
+          "extracted_length": 649,
+          "was_truncated": false,
+          "syntax_ok": true,
+          "kondo_ok": true,
+          "load_ok": true,
+          "tests_ok": true,
+          "timed_out": false
+        }
+      ]
+    },
+    "mbpp-clj-375": {
+      "passed": false,
+      "first_attempt_passed": false,
+      "attempts_until_pass": null,
+      "attempts": [
+        {
+          "k": 0,
+          "passed": false,
+          "temperature": 0.7,
+          "raw_length": 291,
+          "extracted_length": 139,
+          "was_truncated": false,
+          "syntax_ok": true,
+          "kondo_ok": true,
+          "load_ok": true,
+          "tests_ok": false,
+          "timed_out": false
+        },
+        {
+          "k": 1,
+          "passed": false,
+          "temperature": 0.75,
+          "raw_length": 152,
+          "extracted_length": 139,
+          "was_truncated": false,
+          "syntax_ok": true,
+          "kondo_ok": true,
+          "load_ok": true,
+          "tests_ok": false,
+          "timed_out": false
+        },
+        {
+          "k": 2,
+          "passed": false,
+          "temperature": 0.7999999999999999,
+          "raw_length": 152,
+          "extracted_length": 139,
+          "was_truncated": false,
+          "syntax_ok": true,
+          "kondo_ok": true,
+          "load_ok": true,
+          "tests_ok": false,
+          "timed_out": false
+        },
+        {
+          "k": 3,
+          "passed": false,
+          "temperature": 0.85,
+          "raw_length": 152,
+          "extracted_length": 139,
+          "was_truncated": false,
+          "syntax_ok": true,
+          "kondo_ok": true,
+          "load_ok": true,
+          "tests_ok": false,
+          "timed_out": false
+        },
+        {
+          "k": 4,
+          "passed": false,
+          "temperature": 0.8999999999999999,
+          "raw_length": 415,
+          "extracted_length": 201,
+          "was_truncated": false,
+          "syntax_ok": true,
+          "kondo_ok": true,
+          "load_ok": true,
+          "tests_ok": false,
+          "timed_out": false
+        },
+        {
+          "k": 5,
+          "passed": false,
+          "temperature": 0.95,
+          "raw_length": 285,
+          "extracted_length": 285,
+          "was_truncated": false,
+          "syntax_ok": false,
+          "kondo_ok": false,
+          "load_ok": false,
+          "tests_ok": false,
+          "timed_out": false
+        },
+        {
+          "k": 6,
+          "passed": false,
+          "temperature": 1.0,
+          "raw_length": 184,
+          "extracted_length": 171,
+          "was_truncated": false,
+          "syntax_ok": true,
+          "kondo_ok": true,
+          "load_ok": true,
+          "tests_ok": false,
+          "timed_out": false
+        },
+        {
+          "k": 7,
+          "passed": false,
+          "temperature": 1.0,
+          "raw_length": 255,
+          "extracted_length": 255,
+          "was_truncated": false,
+          "syntax_ok": false,
+          "kondo_ok": false,
+          "load_ok": false,
+          "tests_ok": false,
+          "timed_out": false
+        }
+      ],
+      "best_attempt": {
+        "k": 0,
+        "passed": false,
+        "temperature": 0.7,
+        "raw_length": 291,
+        "extracted_length": 139,
+        "was_truncated": false,
+        "syntax_ok": true,
+        "kondo_ok": true,
+        "load_ok": true,
+        "tests_ok": false,
+        "timed_out": false
+      }
+    },
+    "mbpp-clj-376": {
+      "passed": true,
+      "first_attempt_passed": true,
+      "attempts_until_pass": 1,
+      "attempts": [
+        {
+          "k": 0,
+          "passed": true,
+          "temperature": 0.7,
+          "raw_length": 411,
+          "extracted_length": 398,
+          "was_truncated": false,
+          "syntax_ok": true,
+          "kondo_ok": true,
+          "load_ok": true,
+          "tests_ok": true,
+          "timed_out": false
+        }
+      ]
+    },
+    "mbpp-clj-384": {
+      "passed": true,
+      "first_attempt_passed": true,
+      "attempts_until_pass": 1,
+      "attempts": [
+        {
+          "k": 0,
+          "passed": true,
+          "temperature": 0.7,
+          "raw_length": 141,
+          "extracted_length": 128,
+          "was_truncated": false,
+          "syntax_ok": true,
+          "kondo_ok": true,
+          "load_ok": true,
+          "tests_ok": true,
+          "timed_out": false
+        }
+      ]
+    },
+    "mbpp-clj-395": {
+      "passed": true,
+      "first_attempt_passed": true,
+      "attempts_until_pass": 1,
+      "attempts": [
+        {
+          "k": 0,
+          "passed": true,
+          "temperature": 0.7,
+          "raw_length": 154,
+          "extracted_length": 141,
+          "was_truncated": false,
+          "syntax_ok": true,
+          "kondo_ok": true,
+          "load_ok": true,
+          "tests_ok": true,
+          "timed_out": false
+        }
+      ]
+    }
+  }
+}
