@@ -8,7 +8,8 @@ is no cold start on subsequent generate calls.
 Protocol:
     init              → { checkpoint, base_tokenizer, use_chat_template? }
                       → { status, sampler_path }
-    generate_clojure  → { prompt, num_samples, temperature, max_tokens, test_path? }
+    generate_clojure  → { prompt, function_name?, context?, previous_code?, error?,
+                          num_samples, temperature, max_tokens, test_path? }
                       → { code, verified, attempts, max_attempts, checks, kondo_findings,
                           raw_length, extracted_length, was_truncated }
     shutdown          → {}
@@ -341,6 +342,25 @@ def handle_init(params):
     return {"status": "ready", "sampler_path": save_result.path}
 
 
+def _normalize_prompt(prompt, function_name=None):
+    """Convert prompt to incomplete (defn ...) form if it isn't already.
+
+    - If prompt starts with "(defn" → return as-is (current behavior)
+    - If prompt is natural language → wrap in a minimal defn stub:
+      (defn {function_name}
+        "{prompt sanitized as docstring}"
+        [])
+    """
+    stripped = prompt.strip()
+    if stripped.startswith("(defn"):
+        return stripped
+    # Natural language → stub
+    name = function_name or "solution"
+    # Escape double quotes in docstring
+    docstring = stripped.replace('"', '\\"')
+    return f'(defn {name}\n  "{docstring}"\n  []\n  )'
+
+
 def handle_generate_clojure(params):
     """Generate Clojure code with internal verification loop.
 
@@ -353,6 +373,10 @@ def handle_generate_clojure(params):
     After K attempts, return the best partial candidate.
     """
     prompt = params["prompt"]
+    function_name = params.get("function_name")
+    context = params.get("context", "")
+    previous_code = params.get("previous_code", "")
+    error = params.get("error", "")
     num_samples = params.get("num_samples", 4)
     base_temperature = params.get("temperature", 0.7)
     max_tokens = params.get("max_tokens", 8192)
@@ -361,6 +385,25 @@ def handle_generate_clojure(params):
     max_temp = params.get("max_temp", 1.0)
     test_timeout = params.get("test_timeout_sec", 10)
     kondo_feedback_chars = params.get("kondo_feedback_max_chars", 200)
+
+    # Normalize prompt: NL → incomplete defn stub, defn → as-is
+    prompt = _normalize_prompt(prompt, function_name)
+
+    # Fix mode: append previous_code + error as comments
+    if previous_code and error:
+        prompt = (
+            prompt + "\n\n"
+            ";; The previous attempt failed:\n"
+            f";; Error: {error[:500]}\n"
+            ";; Previous code:\n"
+            + "\n".join(f";; {line}" for line in previous_code.strip().splitlines())
+            + "\n;; Please fix the code.\n"
+        )
+
+    # Context mode: prepend helper code as comments
+    if context:
+        context_lines = "\n".join(f";; {line}" for line in context.strip().splitlines())
+        prompt = context_lines + "\n\n" + prompt
 
     best_code = None
     best_score = -1

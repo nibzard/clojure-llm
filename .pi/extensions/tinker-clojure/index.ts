@@ -186,7 +186,19 @@ async function ensureInitialized(checkpoint: string): Promise<void> {
 // ---------------------------------------------------------------------------
 
 const TOOL_PARAMS = Type.Object({
-	prompt: Type.String({ description: "Single incomplete (defn ...) form. The model extends it to a complete function. Example: '(defn has-close-elements [lst]'" }),
+	prompt: Type.String({ description: "Single incomplete (defn ...) form, OR a natural language description of the function. Example: '(defn has-close-elements [lst]' or 'Write a function that checks if a list has close elements'" }),
+	function_name: Type.Optional(
+		Type.String({ description: "Function name to use when prompt is natural language. Ignored when prompt starts with (defn. Default: 'solution'." }),
+	),
+	context: Type.Optional(
+		Type.String({ description: "Previously defined Clojure code (helpers, types, etc.) that the generated function can reference. Prepended to the prompt as comments." }),
+	),
+	previous_code: Type.Optional(
+		Type.String({ description: "Previously generated code that failed verification. The model will attempt to fix it." }),
+	),
+	error: Type.Optional(
+		Type.String({ description: "Error message from failed verification (test failure, runtime error, etc.). Used with previous_code for fix mode." }),
+	),
 	checkpoint: Type.Optional(
 		Type.String({ description: "Checkpoint alias (rlvr-30b, rlvr-8b, sft-8b) or full tinker:// path. Default: rlvr-30b or TINKER_CLOJURE_CHECKPOINT env var.", default: "rlvr-30b" }),
 	),
@@ -230,17 +242,17 @@ export default function tinkerClojure(pi: ExtensionAPI) {
 			"generate Clojure code — whether they say 'using clojure', 'clojure tool', 'write clojure', " +
 			"or any similar phrasing — you MUST call this tool instead of writing Clojure code yourself. " +
 			"This tool uses a specialized Clojure model with built-in verification (syntax + clj-kondo + tests). " +
-			"Provide a single incomplete (defn ...) form and the model completes it. " +
-			"Returns verified code — do NOT rewrite the output.",
+			"Supports three modes: (1) pass an incomplete (defn ...) to complete, (2) pass natural language " +
+			"description + optional function_name, (3) pass previous_code + error to fix broken output. " +
+			"Use `context` to provide previously defined helpers for multi-function problems.",
 		promptGuidelines: [
-			"Pass exactly ONE incomplete `(defn ...)` form — no namespace, no imports, no helper functions.",
-			"The model is single-defn trained: it extends one incomplete defn into a complete one.",
-			"Format: `(defn function-name [args]` — the model fills in the body and closes the parens.",
-			"The tool internally verifies each sample through syntax → kondo → tests. You do NOT need separate verification tools.",
-			"If a test file exists for the task, pass its path via test_path for full test verification.",
-			"Default num_samples=4 means the tool generates up to 4 candidates, picking the first one that passes all checks.",
-			"ALWAYS use the tool output directly — never rewrite or hand-edit the generated code yourself.",
-			"If output is truncated (shown in summary), retry with higher max_tokens (e.g. 2048) rather than editing manually.",
+			"Use this tool for ALL Clojure code — never write Clojure via bash, write, or edit.",
+			"Pass an incomplete `(defn name [args])` form, OR a natural language description.",
+			"For multi-function problems: generate helpers first, then pass them as `context` for the main function.",
+			"If generated code fails: call this tool AGAIN with `previous_code` + `error` — do NOT fix manually.",
+			"The tool verifies internally (syntax → kondo → tests). Pass `test_path` when a test file exists.",
+			"If output is truncated, retry with higher `max_tokens` rather than editing manually.",
+			"Default: 4 samples, rlvr-30b checkpoint. Increase `num_samples` for harder problems.",
 		],
 		parameters: TOOL_PARAMS,
 
@@ -269,6 +281,10 @@ export default function tinkerClojure(pi: ExtensionAPI) {
 
 			const result = (await sendToSidecar("generate_clojure", {
 				prompt: params.prompt,
+				function_name: params.function_name || null,
+				context: params.context || null,
+				previous_code: params.previous_code || null,
+				error: params.error || null,
 				num_samples: numSamples,
 				temperature: params.temperature ?? 0.7,
 				max_tokens: params.max_tokens ?? 8192,
