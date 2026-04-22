@@ -71,15 +71,42 @@ function resolveCheckpoint(alias: string): string {
 	return alias;
 }
 
+function resolvePythonExecutable(): string {
+	const configured = process.env.TINKER_CLOJURE_PYTHON;
+	if (configured) {
+		return configured;
+	}
+
+	const candidates = [
+		join(process.cwd(), ".venv", "bin", "python"),
+		join(process.cwd(), "venv", "bin", "python"),
+		join(EXT_DIR, ".venv", "bin", "python"),
+		join(EXT_DIR, "venv", "bin", "python"),
+	];
+
+	for (const candidate of candidates) {
+		if (existsSync(candidate)) {
+			return candidate;
+		}
+	}
+
+	return "python3";
+}
+
 function startSidecar(): void {
 	if (sidecar && !sidecar.killed) {
 		return;
 	}
 
 	const scriptPath = join(EXT_DIR, "tinker_bridge.py");
-	sidecar = spawn("python3", ["-u", scriptPath], {
+	const pythonExe = resolvePythonExecutable();
+	sidecar = spawn(pythonExe, ["-u", scriptPath], {
 		stdio: ["pipe", "pipe", "pipe"],
-		env: { ...process.env },
+		env: {
+			...process.env,
+			TINKER_CLOJURE_PYTHON: pythonExe,
+			TRANSFORMERS_NO_ADVISORY_WARNINGS: "1",
+		},
 	});
 
 	sidecar.on("error", (err) => {

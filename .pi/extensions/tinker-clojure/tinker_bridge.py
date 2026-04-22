@@ -39,6 +39,46 @@ tokenizer = None
 _use_chat_template = False
 
 
+def _load_env_if_available():
+    """Best-effort .env loading.
+
+    Pi often launches this sidecar with environment variables already exported.
+    In that case, python-dotenv is optional and should not be required just to
+    start the tool. If the package is installed, use it. Otherwise, parse the
+    repo .env file directly for simple KEY=VALUE entries.
+    """
+    env_path = ROOT / ".env"
+    if not env_path.exists():
+        return False
+
+    try:
+        from dotenv import load_dotenv
+    except ImportError:
+        for raw_line in env_path.read_text(encoding="utf-8").splitlines():
+            line = raw_line.strip()
+            if not line or line.startswith("#"):
+                continue
+            if line.startswith("export "):
+                line = line[len("export "):].strip()
+            if "=" not in line:
+                continue
+
+            key, value = line.split("=", 1)
+            key = key.strip()
+            value = value.strip()
+            if not key:
+                continue
+
+            if len(value) >= 2 and value[0] == value[-1] and value[0] in {'"', "'"}:
+                value = value[1:-1]
+
+            os.environ.setdefault(key, value)
+        return True
+
+    load_dotenv(env_path)
+    return True
+
+
 def _find_balanced_defn(text, start_pos=0):
     """Find balanced defn form starting from start_pos in text.
 
@@ -329,8 +369,7 @@ def handle_init(params):
     checkpoint = params["checkpoint"]
     _use_chat_template = params.get("use_chat_template", False)
 
-    from dotenv import load_dotenv
-    load_dotenv(ROOT / ".env")
+    _load_env_if_available()
 
     from tinker import ServiceClient
     from transformers import AutoTokenizer
