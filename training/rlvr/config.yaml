@@ -19,7 +19,7 @@ rollouts:
 
 # Training hyperparameters
 training:
-  learning_rate: 5.0e-6  # Lower than SFT (was 2e-5)
+  learning_rate: 1.0e-5  # Raised from 5e-6 (H1: faster learning)
   weight_decay: 0.01
   grad_clip_norm: 1.0
   reward_mode: shaped    # shaped or binary
