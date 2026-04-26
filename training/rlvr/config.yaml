@@ -23,11 +23,11 @@ training:
   weight_decay: 0.01
   grad_clip_norm: 1.0
   reward_mode: shaped    # shaped or binary
-  reward_weights:
+  reward_weights:           # H2 best: tests-heavy, drop load
     syntax: 0.1
-    kondo: 0.2
-    load: 0.1
-    tests: 0.6
+    kondo: 0.1
+    load: 0.0
+    tests: 0.8
 
   # GRPO-specific
   kl_penalty_coeff: 0.1
