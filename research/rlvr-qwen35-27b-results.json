@@ -1,0 +1,452 @@
+{
+  "model": "RLVR Qwen3.5-27B",
+  "type": "rlvr",
+  "pass_at_1": 63,
+  "total": 111,
+  "per_task": {
+    "humaneval-clj-001": {
+      "passed": false,
+      "error": "\n    clojure.main$initialize.invokeStatic (main.clj:509)\n    clojure.main$null_opt.invokeStatic (main.clj:543)\n    clojure.main$null_opt.invoke (main.clj:540)\n    clojure.main$main.invokeStatic (main."
+    },
+    "humaneval-clj-003": {
+      "passed": true,
+      "error": ""
+    },
+    "humaneval-clj-012": {
+      "passed": true,
+      "error": ""
+    },
+    "humaneval-clj-018": {
+      "passed": true,
+      "error": ""
+    },
+    "humaneval-clj-019": {
+      "passed": true,
+      "error": ""
+    },
+    "humaneval-clj-020": {
+      "passed": false,
+      "error": "\n    clojure.main$initialize.invokeStatic (main.clj:509)\n    clojure.main$null_opt.invokeStatic (main.clj:543)\n    clojure.main$null_opt.invoke (main.clj:540)\n    clojure.main$main.invokeStatic (main."
+    },
+    "humaneval-clj-031": {
+      "passed": true,
+      "error": ""
+    },
+    "humaneval-clj-039": {
+      "passed": true,
+      "error": ""
+    },
+    "humaneval-clj-043": {
+      "passed": true,
+      "error": ""
+    },
+    "humaneval-clj-053": {
+      "passed": true,
+      "error": ""
+    },
+    "humaneval-clj-062": {
+      "passed": true,
+      "error": ""
+    },
+    "humaneval-clj-067": {
+      "passed": true,
+      "error": ""
+    },
+    "humaneval-clj-068": {
+      "passed": false,
+      "error": " [5 9 6 8 7])\n  actual: (not (= [5 9 6 8 7 7] [5 9 6 8 7]))\n\nFAIL in (test-humaneval) (HumanEval_70_strange_sort_list_test.clj:9)\nexpected: (= (candidate [1 2 3 4 5]) [1 5 2 4 3])\n  actual: (not (= [1"
+    },
+    "humaneval-clj-073": {
+      "passed": true,
+      "error": ""
+    },
+    "humaneval-clj-077": {
+      "passed": true,
+      "error": ""
+    },
+    "humaneval-clj-086": {
+      "passed": true,
+      "error": ""
+    },
+    "humaneval-clj-090": {
+      "passed": true,
+      "error": ""
+    },
+    "humaneval-clj-095": {
+      "passed": true,
+      "error": ""
+    },
+    "humaneval-clj-097": {
+      "passed": false,
+      "error": "test-humaneval) (HumanEval_99_closest_integer_test.clj:9)\nexpected: (= (candidate \"-15.5\") -16)\n  actual: (not (= -16.0 -16))\n\nFAIL in (test-humaneval) (HumanEval_99_closest_integer_test.clj:10)\nexpec"
+    },
+    "humaneval-clj-105": {
+      "passed": true,
+      "error": ""
+    },
+    "humaneval-clj-121": {
+      "passed": false,
+      "error": "\n    clojure.main$initialize.invokeStatic (main.clj:509)\n    clojure.main$null_opt.invokeStatic (main.clj:543)\n    clojure.main$null_opt.invoke (main.clj:540)\n    clojure.main$main.invokeStatic (main."
+    },
+    "humaneval-clj-123": {
+      "passed": false,
+      "error": "\nTesting user\n\nFAIL in (test-humaneval) (HumanEval_125_split_words_test.clj:13)\nexpected: (= (candidate \"aaaBb\") 1)\n  actual: (not (= 2 1))\n\nRan 1 tests containing 8 assertions.\n1 failures, 0 errors.\n"
+    },
+    "humaneval-clj-124": {
+      "passed": true,
+      "error": ""
+    },
+    "humaneval-clj-132": {
+      "passed": false,
+      "error": "ERROR: Syntax error macroexpanding clojure.core/defn at (/tmp/tmpr7y_zfj4.clj:1:1).\n"
+    },
+    "humaneval-clj-134": {
+      "passed": true,
+      "error": ""
+    },
+    "humaneval-clj-137": {
+      "passed": true,
+      "error": ""
+    },
+    "humaneval-clj-141": {
+      "passed": false,
+      "error": "te \"Hi I am Hussein\") \"Hi am Hussein\")\n  actual: (not (= \"Hussein\" \"Hi am Hussein\"))\n\nFAIL in (test-humaneval) (HumanEval_143_words_in_sentence_test.clj:11)\nexpected: (= (candidate \"go for it\") \"go fo"
+    },
+    "humaneval-clj-143": {
+      "passed": false,
+      "error": "\n    clojure.main$initialize.invokeStatic (main.clj:509)\n    clojure.main$null_opt.invokeStatic (main.clj:543)\n    clojure.main$null_opt.invoke (main.clj:540)\n    clojure.main$main.invokeStatic (main."
+    },
+    "humaneval-clj-144": {
+      "passed": true,
+      "error": ""
+    },
+    "humaneval-clj-153": {
+      "passed": true,
+      "error": ""
+    },
+    "humaneval-clj-157": {
+      "passed": false,
+      "error": "ERROR: Syntax error reading source at (/tmp/tmpfvu8ya_l.clj:28:1).\n"
+    },
+    "humaneval-clj-158": {
+      "passed": false,
+      "error": "ERROR: Syntax error reading source at (/tmp/tmpatxbw8ts.clj:21:35).\n"
+    },
+    "mbpp-clj-006": {
+      "passed": false,
+      "error": "\n    clojure.main$initialize.invokeStatic (main.clj:509)\n    clojure.main$null_opt.invokeStatic (main.clj:543)\n    clojure.main$null_opt.invoke (main.clj:540)\n    clojure.main$main.invokeStatic (main."
+    },
+    "mbpp-clj-007": {
+      "passed": true,
+      "error": ""
+    },
+    "mbpp-clj-009": {
+      "passed": false,
+      "error": "\nTesting user\n\nFAIL in (test-humaneval) (mbpp_16_text_lowercase_underscore_test.clj:9)\nexpected: (= (candidate \"Aaab_abbbc\") false)\n  actual: (not (= true false))\n\nRan 1 tests containing 3 assertions."
+    },
+    "mbpp-clj-022": {
+      "passed": true,
+      "error": ""
+    },
+    "mbpp-clj-047": {
+      "passed": false,
+      "error": "\nTesting user\n\nFAIL in (test-humaneval) (mbpp_96_divisor_test.clj:7)\nexpected: (= (candidate 15) 4)\n  actual: (not (= 3 4))\n\nFAIL in (test-humaneval) (mbpp_96_divisor_test.clj:8)\nexpected: (= (candida"
+    },
+    "mbpp-clj-057": {
+      "passed": true,
+      "error": ""
+    },
+    "mbpp-clj-060": {
+      "passed": true,
+      "error": ""
+    },
+    "mbpp-clj-069": {
+      "passed": true,
+      "error": ""
+    },
+    "mbpp-clj-074": {
+      "passed": true,
+      "error": ""
+    },
+    "mbpp-clj-075": {
+      "passed": false,
+      "error": "\nTesting user\n\nFAIL in (test-humaneval) (mbpp_135_hexagonal_num_test.clj:7)\nexpected: (= (candidate 10) 190)\n  actual: (not (= 95 190))\n\nFAIL in (test-humaneval) (mbpp_135_hexagonal_num_test.clj:8)\nex"
+    },
+    "mbpp-clj-076": {
+      "passed": true,
+      "error": ""
+    },
+    "mbpp-clj-082": {
+      "passed": true,
+      "error": ""
+    },
+    "mbpp-clj-084": {
+      "passed": false,
+      "error": "\nTesting user\n\nFAIL in (test-humaneval) (mbpp_164_are_equivalent_test.clj:9)\nexpected: (= (candidate 23 47) true)\n  actual: (not (= false true))\n\nRan 1 tests containing 3 assertions.\n1 failures, 0 err"
+    },
+    "mbpp-clj-087": {
+      "passed": true,
+      "error": ""
+    },
+    "mbpp-clj-091": {
+      "passed": true,
+      "error": ""
+    },
+    "mbpp-clj-093": {
+      "passed": false,
+      "error": "\nTesting user\n\nFAIL in (test-humaneval) (mbpp_223_is_majority_test.clj:7)\nexpected: (= (candidate [1 2 3 3 3 3 10] 7 3) true)\n  actual: (not (= false true))\n\nFAIL in (test-humaneval) (mbpp_223_is_majo"
+    },
+    "mbpp-clj-097": {
+      "passed": false,
+      "error": "\nTesting user\n\nFAIL in (test-humaneval) (mbpp_228_all_Bits_Set_In_The_Given_Range_test.clj:7)\nexpected: (= (candidate 4 1 2) true)\n  actual: (not (= false true))\n\nFAIL in (test-humaneval) (mbpp_228_al"
+    },
+    "mbpp-clj-117": {
+      "passed": false,
+      "error": "\n    clojure.main$initialize.invokeStatic (main.clj:509)\n    clojure.main$null_opt.invokeStatic (main.clj:543)\n    clojure.main$null_opt.invoke (main.clj:540)\n    clojure.main$main.invokeStatic (main."
+    },
+    "mbpp-clj-119": {
+      "passed": true,
+      "error": ""
+    },
+    "mbpp-clj-120": {
+      "passed": true,
+      "error": ""
+    },
+    "mbpp-clj-132": {
+      "passed": true,
+      "error": ""
+    },
+    "mbpp-clj-133": {
+      "passed": false,
+      "error": "pp_278_count_first_elements_test.clj:7)\nexpected: (= (candidate [1 5 7 [4 6] 10]) 3)\n  actual: (not (= 5 3))\n\nFAIL in (test-humaneval) (mbpp_278_count_first_elements_test.clj:8)\nexpected: (= (candidat"
+    },
+    "mbpp-clj-137": {
+      "passed": true,
+      "error": ""
+    },
+    "mbpp-clj-144": {
+      "passed": false,
+      "error": "\nTesting user\n\nFAIL in (test-humaneval) (mbpp_291_count_no_of_ways_test.clj:8)\nexpected: (= (candidate 3 2) 6)\n  actual: (not (= 4 6))\n\nFAIL in (test-humaneval) (mbpp_291_count_no_of_ways_test.clj:9)\n"
+    },
+    "mbpp-clj-148": {
+      "passed": false,
+      "error": "\nTesting user\n\nFAIL in (test-humaneval) (mbpp_295_sum_div_test.clj:7)\nexpected: (= (candidate 8) 7)\n  actual: (not (= 15 7))\n\nFAIL in (test-humaneval) (mbpp_295_sum_div_test.clj:8)\nexpected: (= (candi"
+    },
+    "mbpp-clj-154": {
+      "passed": false,
+      "error": "\nTesting user\n\nFAIL in (test-humaneval) (mbpp_306_max_sum_increasing_subseq_test.clj:7)\nexpected: (= (candidate [1 101 2 3 100 4 5] 7 4 6) 11)\n  actual: (not (= nil 11))\n\nFAIL in (test-humaneval) (mbp"
+    },
+    "mbpp-clj-156": {
+      "passed": true,
+      "error": ""
+    },
+    "mbpp-clj-162": {
+      "passed": false,
+      "error": "ERROR: Syntax error reading source at (/tmp/tmpromm9jl5.clj:15:53).\n"
+    },
+    "mbpp-clj-163": {
+      "passed": false,
+      "error": " 15 17]]))\n\nFAIL in (test-humaneval) (mbpp_393_max_length_list_test.clj:8)\nexpected: (= (candidate [[1 2 3 4 5] [1 2 3 4] [1 2 3] [1 2] [1]]) [5 [1 2 3 4 5]])\n  actual: (not (= [1 2 3 4 5] [5 [1 2 3 4"
+    },
+    "mbpp-clj-176": {
+      "passed": true,
+      "error": ""
+    },
+    "mbpp-clj-179": {
+      "passed": false,
+      "error": "ERROR: Syntax error reading source at (/tmp/tmpk1seipve.clj:64:1).\n"
+    },
+    "mbpp-clj-180": {
+      "passed": true,
+      "error": ""
+    },
+    "mbpp-clj-181": {
+      "passed": true,
+      "error": ""
+    },
+    "mbpp-clj-185": {
+      "passed": true,
+      "error": ""
+    },
+    "mbpp-clj-191": {
+      "passed": false,
+      "error": "ERROR: Syntax error reading source at (/tmp/tmpibb04p65.clj:4:27).\n"
+    },
+    "mbpp-clj-196": {
+      "passed": false,
+      "error": "arabola_directrix_test.clj:7)\nexpected: (= (candidate 5 3 2) -198)\n  actual: (not (= \"y = -8/5\" -198))\n\nFAIL in (test-humaneval) (mbpp_430_parabola_directrix_test.clj:8)\nexpected: (= (candidate 9 8 4)"
+    },
+    "mbpp-clj-197": {
+      "passed": false,
+      "error": "\nTesting user\n\nFAIL in (test-humaneval) (mbpp_431_common_element_test.clj:8)\nexpected: (= (candidate [1 2 3 4 5] [6 7 8 9]) nil)\n  actual: (not (= false nil))\n\nRan 1 tests containing 3 assertions.\n1 f"
+    },
+    "mbpp-clj-201": {
+      "passed": true,
+      "error": ""
+    },
+    "mbpp-clj-204": {
+      "passed": false,
+      "error": "ate [[5 6] [1 2] [6 5] [9 1] [6 5] [2 1]]) 3)\n  actual: (not (= 1 3))\n\nFAIL in (test-humaneval) (mbpp_438_count_bidirectional_test.clj:8)\nexpected: (= (candidate [[5 6] [1 3] [6 5] [9 1] [6 5] [2 1]])"
+    },
+    "mbpp-clj-214": {
+      "passed": false,
+      "error": "\nTesting user\n\nFAIL in (test-humaneval) (mbpp_448_cal_sum_test.clj:7)\nexpected: (= (candidate 9) 49)\n  actual: (not (= 75 49))\n\nFAIL in (test-humaneval) (mbpp_448_cal_sum_test.clj:8)\nexpected: (= (can"
+    },
+    "mbpp-clj-216": {
+      "passed": true,
+      "error": ""
+    },
+    "mbpp-clj-220": {
+      "passed": true,
+      "error": ""
+    },
+    "mbpp-clj-226": {
+      "passed": false,
+      "error": "\nTesting user\n\nFAIL in (test-humaneval) (mbpp_461_upper_ctr_test.clj:7)\nexpected: (= (candidate \"PYthon\") 1)\n  actual: (not (= 2 1))\n\nFAIL in (test-humaneval) (mbpp_461_upper_ctr_test.clj:8)\nexpected:"
+    },
+    "mbpp-clj-245": {
+      "passed": false,
+      "error": "ERROR: Syntax error reading source at (/tmp/tmpsjjqqxog.clj:16:1).\n"
+    },
+    "mbpp-clj-248": {
+      "passed": true,
+      "error": ""
+    },
+    "mbpp-clj-252": {
+      "passed": true,
+      "error": ""
+    },
+    "mbpp-clj-258": {
+      "passed": false,
+      "error": "5) 942.45)\n  actual: (not (= 942.4777960769379 942.45))\n\nFAIL in (test-humaneval) (mbpp_574_surfacearea_cylinder_test.clj:8)\nexpected: (= (candidate 4 5) 226.18800000000002)\n  actual: (not (= 226.1946"
+    },
+    "mbpp-clj-259": {
+      "passed": true,
+      "error": ""
+    },
+    "mbpp-clj-266": {
+      "passed": false,
+      "error": "\n    clojure.main$initialize.invokeStatic (main.clj:509)\n    clojure.main$null_opt.invokeStatic (main.clj:543)\n    clojure.main$null_opt.invoke (main.clj:540)\n    clojure.main$main.invokeStatic (main."
+    },
+    "mbpp-clj-267": {
+      "passed": false,
+      "error": "\n    clojure.main$initialize.invokeStatic (main.clj:509)\n    clojure.main$null_opt.invokeStatic (main.clj:543)\n    clojure.main$null_opt.invoke (main.clj:540)\n    clojure.main$main.invokeStatic (main."
+    },
+    "mbpp-clj-268": {
+      "passed": true,
+      "error": ""
+    },
+    "mbpp-clj-269": {
+      "passed": true,
+      "error": ""
+    },
+    "mbpp-clj-279": {
+      "passed": false,
+      "error": "p_599_sum_average_test.clj:7)\nexpected: (= (candidate 10) [55 5.5])\n  actual: (not (= [55 11/2] [55 5.5]))\n\nFAIL in (test-humaneval) (mbpp_599_sum_average_test.clj:8)\nexpected: (= (candidate 15) [120 "
+    },
+    "mbpp-clj-283": {
+      "passed": false,
+      "error": "\")\n  actual: (not (= \"programpython\" \"program python\"))\n\nFAIL in (test-humaneval) (mbpp_604_reverse_words_test.clj:8)\nexpected: (= (candidate \"java language\") \"language java\")\n  actual: (not (= \"langu"
+    },
+    "mbpp-clj-286": {
+      "passed": false,
+      "error": "\n    clojure.main$initialize.invokeStatic (main.clj:509)\n    clojure.main$null_opt.invokeStatic (main.clj:543)\n    clojure.main$null_opt.invoke (main.clj:540)\n    clojure.main$main.invokeStatic (main."
+    },
+    "mbpp-clj-287": {
+      "passed": false,
+      "error": "\nTesting user\n\nFAIL in (test-humaneval) (mbpp_608_bell_Number_test.clj:7)\nexpected: (= (candidate 2) 2)\n  actual: (not (= 4 2))\n\nFAIL in (test-humaneval) (mbpp_608_bell_Number_test.clj:8)\nexpected: (="
+    },
+    "mbpp-clj-295": {
+      "passed": false,
+      "error": "]) [4.0 2.5 2.0])\n  actual: (not (= (4 5/2 2) [4.0 2.5 2.0]))\n\nFAIL in (test-humaneval) (mbpp_618_div_list_test.clj:8)\nexpected: (= (candidate [3 2] [1 4]) [3.0 0.5])\n  actual: (not (= (3 1/2) [3.0 0."
+    },
+    "mbpp-clj-297": {
+      "passed": false,
+      "error": "ERROR: Syntax error reading source at (/tmp/tmphpmlx6es.clj:6:37).\n"
+    },
+    "mbpp-clj-299": {
+      "passed": true,
+      "error": ""
+    },
+    "mbpp-clj-303": {
+      "passed": true,
+      "error": ""
+    },
+    "mbpp-clj-306": {
+      "passed": true,
+      "error": ""
+    },
+    "mbpp-clj-308": {
+      "passed": true,
+      "error": ""
+    },
+    "mbpp-clj-313": {
+      "passed": false,
+      "error": "rome)\"]) \"python\")\n  actual: (not (= \"python (chrome)\" \"python\"))\n\nFAIL in (test-humaneval) (mbpp_640_remove_parenthesis_test.clj:8)\nexpected: (= (candidate [\"string(.abc)\"]) \"string\")\n  actual: (not "
+    },
+    "mbpp-clj-316": {
+      "passed": true,
+      "error": ""
+    },
+    "mbpp-clj-326": {
+      "passed": true,
+      "error": ""
+    },
+    "mbpp-clj-330": {
+      "passed": false,
+      "error": "ERROR: Syntax error compiling at (/tmp/tmpwc1aab6s.clj:7:17).\n"
+    },
+    "mbpp-clj-336": {
+      "passed": true,
+      "error": ""
+    },
+    "mbpp-clj-342": {
+      "passed": false,
+      "error": "ERROR: Syntax error reading source at (/tmp/tmp7tllpk39.clj:39:16).\n"
+    },
+    "mbpp-clj-346": {
+      "passed": true,
+      "error": ""
+    },
+    "mbpp-clj-350": {
+      "passed": true,
+      "error": ""
+    },
+    "mbpp-clj-361": {
+      "passed": false,
+      "error": "25 30 35 40] [25 40 35]) [10 20 30 15])\n  actual: (not (= (10 15 20 30) [10 20 30 15]))\n\nFAIL in (test-humaneval) (mbpp_769_Diff_test.clj:8)\nexpected: (= (candidate [1 2 3 4 5] [6 7 1]) [2 3 4 5 6 7])"
+    },
+    "mbpp-clj-363": {
+      "passed": true,
+      "error": ""
+    },
+    "mbpp-clj-366": {
+      "passed": true,
+      "error": ""
+    },
+    "mbpp-clj-368": {
+      "passed": false,
+      "error": "neval) (mbpp_777_find_sum_test.clj:7)\nexpected: (= (candidate [1 2 3 1 1 4 5 6]) 21)\n  actual: (not (= 20 21))\n\nFAIL in (test-humaneval) (mbpp_777_find_sum_test.clj:8)\nexpected: (= (candidate [1 10 9 "
+    },
+    "mbpp-clj-371": {
+      "passed": true,
+      "error": ""
+    },
+    "mbpp-clj-375": {
+      "passed": false,
+      "error": "\n    clojure.main$initialize.invokeStatic (main.clj:509)\n    clojure.main$null_opt.invokeStatic (main.clj:543)\n    clojure.main$null_opt.invoke (main.clj:540)\n    clojure.main$main.invokeStatic (main."
+    },
+    "mbpp-clj-376": {
+      "passed": true,
+      "error": ""
+    },
+    "mbpp-clj-384": {
+      "passed": true,
+      "error": ""
+    },
+    "mbpp-clj-395": {
+      "passed": true,
+      "error": ""
+    }
+  }
+}

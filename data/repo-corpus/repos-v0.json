@@ -1,0 +1,106 @@
+[
+  {
+    "repo": "metosin/reitit",
+    "track": "internal",
+    "license": "EPL-1.0",
+    "default_branch": "master",
+    "include": ["modules/**/src/**", "test/**"],
+    "exclude": ["**/target/**", "**/.shadow-cljs/**", "**/node_modules/**"]
+  },
+  {
+    "repo": "metosin/malli",
+    "track": "internal",
+    "license": "EPL-2.0",
+    "default_branch": "master",
+    "include": ["src/**", "test/**"],
+    "exclude": ["**/target/**", "**/.shadow-cljs/**", "**/node_modules/**"]
+  },
+  {
+    "repo": "metosin/muuntaja",
+    "track": "internal",
+    "license": "EPL-1.0",
+    "default_branch": "master",
+    "include": ["modules/**/src/**", "test/**"],
+    "exclude": ["**/target/**", "**/.shadow-cljs/**", "**/node_modules/**"]
+  },
+  {
+    "repo": "metosin/jsonista",
+    "track": "internal",
+    "license": "EPL-1.0",
+    "default_branch": "master",
+    "include": ["src/**", "test/**"],
+    "exclude": ["**/target/**", "**/.shadow-cljs/**", "**/node_modules/**"]
+  },
+  {
+    "repo": "weavejester/medley",
+    "track": "internal",
+    "license": "EPL-1.0",
+    "default_branch": "master",
+    "include": ["src/**", "test/**"],
+    "exclude": ["**/target/**", "**/.shadow-cljs/**", "**/node_modules/**"]
+  },
+  {
+    "repo": "ring-clojure/ring",
+    "track": "internal",
+    "license": "MIT",
+    "default_branch": "master",
+    "include": ["**/src/**", "**/test/**"],
+    "exclude": ["**/target/**", "**/.shadow-cljs/**", "**/node_modules/**"]
+  },
+  {
+    "repo": "weavejester/compojure",
+    "track": "internal",
+    "license": "MIT",
+    "default_branch": "master",
+    "include": ["src/**", "test/**"],
+    "exclude": ["**/target/**", "**/.shadow-cljs/**", "**/node_modules/**"]
+  },
+  {
+    "repo": "clojure/test.check",
+    "track": "release",
+    "license": "EPL-1.0",
+    "default_branch": "master",
+    "include": ["src/main/**", "src/test/**"],
+    "exclude": ["**/target/**", "**/.shadow-cljs/**", "**/node_modules/**"]
+  },
+  {
+    "repo": "bhb/expound",
+    "track": "internal",
+    "license": "MIT",
+    "default_branch": "master",
+    "include": ["src/**", "test/**"],
+    "exclude": ["**/target/**", "**/.shadow-cljs/**", "**/node_modules/**"]
+  },
+  {
+    "repo": "weavejester/cljfmt",
+    "track": "internal",
+    "license": "EPL-1.0",
+    "default_branch": "master",
+    "include": ["cljfmt/**", "scripts/**"],
+    "exclude": ["**/target/**", "**/.shadow-cljs/**", "**/node_modules/**"]
+  },
+  {
+    "repo": "nubank/matcher-combinators",
+    "track": "internal",
+    "license": "MIT",
+    "default_branch": "master",
+    "include": ["src/**", "test/**", "dev/**"],
+    "exclude": ["**/target/**", "**/.shadow-cljs/**", "**/node_modules/**"]
+  },
+  {
+    "repo": "babashka/babashka",
+    "track": "internal",
+    "license": "EPL-1.0",
+    "default_branch": "master",
+    "include": ["src/**", "test/**"],
+    "exclude": ["**/target/**", "**/.shadow-cljs/**", "**/node_modules/**"]
+  },
+  {
+    "repo": "taoensso/carmine",
+    "track": "internal",
+    "license": "EPL-1.0",
+    "default_branch": "master",
+    "include": ["src/**", "test/**"],
+    "exclude": ["**/target/**", "**/.shadow-cljs/**", "**/node_modules/**"]
+  }
+]

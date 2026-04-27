@@ -1,0 +1,1 @@
+;; Generation failed: Error code: 402 - {'error': {'code': 'insufficient_balance', 'message': 'Available balance: -0.3871 credits, Minimum required: 0.1 credits (request_id: a8cd8ba5-f9ea-4b3e-8057-5af329d9f3fe)', 'param': None, 'type': 'insufficient_balance_error'}}

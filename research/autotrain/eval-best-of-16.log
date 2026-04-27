@@ -1,0 +1,131 @@
+Loaded 111 held-out tasks
+Connecting to Tinker...
+Loading checkpoint: tinker://de0a9c6d-e363-51a8-a8d5-b0dae61f78dc:train:0/sampler_weights/rlvr-train-iter-10
+Sampling client ready
+  [1/111] humaneval-clj-001: first=FAIL best_of_16=PASS (8/16) | p1=0 boK=1 | ETA=11492s
+  [2/111] humaneval-clj-003: first=pass best_of_16=PASS (16/16) | p1=1 boK=2 | ETA=9631s
+  [3/111] humaneval-clj-012: first=pass best_of_16=PASS (12/16) | p1=2 boK=3 | ETA=11670s
+  [4/111] humaneval-clj-018: first=FAIL best_of_16=fail (0/16) | p1=2 boK=3 | ETA=12987s
+  [5/111] humaneval-clj-019: first=FAIL best_of_16=PASS (7/16) | p1=2 boK=4 | ETA=13387s
+  [6/111] humaneval-clj-020: first=pass best_of_16=PASS (3/16) | p1=3 boK=5 | ETA=13088s
+  [7/111] humaneval-clj-031: first=pass best_of_16=PASS (16/16) | p1=4 boK=6 | ETA=12415s
+  [8/111] humaneval-clj-039: first=FAIL best_of_16=PASS (1/16) | p1=4 boK=7 | ETA=13352s
+  [9/111] humaneval-clj-043: first=FAIL best_of_16=fail (0/16) | p1=4 boK=7 | ETA=13054s
+  [10/111] humaneval-clj-053: first=pass best_of_16=PASS (10/16) | p1=5 boK=8 | ETA=12516s
+  [11/111] humaneval-clj-062: first=FAIL best_of_16=PASS (1/16) | p1=5 boK=9 | ETA=12736s
+  [12/111] humaneval-clj-067: first=FAIL best_of_16=PASS (2/16) | p1=5 boK=10 | ETA=12830s
+  [13/111] humaneval-clj-068: first=FAIL best_of_16=fail (0/16) | p1=5 boK=10 | ETA=12994s
+  [14/111] humaneval-clj-073: first=FAIL best_of_16=PASS (3/16) | p1=5 boK=11 | ETA=12866s
+  [15/111] humaneval-clj-077: first=FAIL best_of_16=PASS (9/16) | p1=5 boK=12 | ETA=12625s
+  [16/111] humaneval-clj-086: first=pass best_of_16=PASS (10/16) | p1=6 boK=13 | ETA=12740s
+  [17/111] humaneval-clj-090: first=FAIL best_of_16=PASS (7/16) | p1=6 boK=14 | ETA=12596s
+  [18/111] humaneval-clj-095: first=pass best_of_16=PASS (16/16) | p1=7 boK=15 | ETA=12384s
+  [19/111] humaneval-clj-097: first=FAIL best_of_16=PASS (3/16) | p1=7 boK=16 | ETA=12393s
+  [20/111] humaneval-clj-105: first=pass best_of_16=PASS (10/16) | p1=8 boK=17 | ETA=12550s
+  [21/111] humaneval-clj-121: first=pass best_of_16=PASS (3/16) | p1=9 boK=18 | ETA=12886s
+  [22/111] humaneval-clj-123: first=FAIL best_of_16=PASS (1/16) | p1=9 boK=19 | ETA=12726s
+  [23/111] humaneval-clj-124: first=FAIL best_of_16=fail (0/16) | p1=9 boK=19 | ETA=12751s
+  [24/111] humaneval-clj-132: first=FAIL best_of_16=fail (0/16) | p1=9 boK=19 | ETA=12661s
+  [25/111] humaneval-clj-134: first=pass best_of_16=PASS (7/16) | p1=10 boK=20 | ETA=12371s
+  [26/111] humaneval-clj-137: first=pass best_of_16=PASS (12/16) | p1=11 boK=21 | ETA=12047s
+  [27/111] humaneval-clj-141: first=pass best_of_16=PASS (15/16) | p1=12 boK=22 | ETA=11939s
+  [28/111] humaneval-clj-143: first=FAIL best_of_16=fail (0/16) | p1=12 boK=22 | ETA=11835s
+  [29/111] humaneval-clj-144: first=FAIL best_of_16=PASS (10/16) | p1=12 boK=23 | ETA=11724s
+  [30/111] humaneval-clj-153: first=pass best_of_16=PASS (13/16) | p1=13 boK=24 | ETA=11458s
+  [31/111] humaneval-clj-157: first=FAIL best_of_16=fail (0/16) | p1=13 boK=24 | ETA=11375s
+  [32/111] humaneval-clj-158: first=FAIL best_of_16=fail (0/16) | p1=13 boK=24 | ETA=11425s
+  [33/111] mbpp-clj-006: first=FAIL best_of_16=PASS (1/16) | p1=13 boK=25 | ETA=11175s
+  [34/111] mbpp-clj-007: first=pass best_of_16=PASS (16/16) | p1=14 boK=26 | ETA=10846s
+  [35/111] mbpp-clj-009: first=FAIL best_of_16=PASS (2/16) | p1=14 boK=27 | ETA=10562s
+  [36/111] mbpp-clj-022: first=pass best_of_16=PASS (15/16) | p1=15 boK=28 | ETA=10257s
+  [37/111] mbpp-clj-047: first=pass best_of_16=PASS (9/16) | p1=16 boK=29 | ETA=10063s
+  [38/111] mbpp-clj-057: first=FAIL best_of_16=PASS (15/16) | p1=16 boK=30 | ETA=9805s
+  [39/111] mbpp-clj-060: first=pass best_of_16=PASS (11/16) | p1=17 boK=31 | ETA=9562s
+  [40/111] mbpp-clj-069: first=FAIL best_of_16=PASS (9/16) | p1=17 boK=32 | ETA=9326s
+  [41/111] mbpp-clj-074: first=pass best_of_16=PASS (16/16) | p1=18 boK=33 | ETA=9061s
+  [42/111] mbpp-clj-075: first=pass best_of_16=PASS (8/16) | p1=19 boK=34 | ETA=8817s
+  [43/111] mbpp-clj-076: first=FAIL best_of_16=PASS (1/16) | p1=19 boK=35 | ETA=8601s
+  [44/111] mbpp-clj-082: first=pass best_of_16=PASS (4/16) | p1=20 boK=36 | ETA=8372s
+  [45/111] mbpp-clj-084: first=pass best_of_16=PASS (5/16) | p1=21 boK=37 | ETA=8206s
+  [46/111] mbpp-clj-087: first=FAIL best_of_16=PASS (7/16) | p1=21 boK=38 | ETA=8018s
+  [47/111] mbpp-clj-091: first=pass best_of_16=PASS (15/16) | p1=22 boK=39 | ETA=7842s
+  [48/111] mbpp-clj-093: first=pass best_of_16=PASS (7/16) | p1=23 boK=40 | ETA=7694s
+  [49/111] mbpp-clj-097: first=FAIL best_of_16=PASS (4/16) | p1=23 boK=41 | ETA=7531s
+  [50/111] mbpp-clj-117: first=FAIL best_of_16=fail (0/16) | p1=23 boK=41 | ETA=7336s
+  [51/111] mbpp-clj-119: first=pass best_of_16=PASS (16/16) | p1=24 boK=42 | ETA=7151s
+  [52/111] mbpp-clj-120: first=pass best_of_16=PASS (16/16) | p1=25 boK=43 | ETA=7019s
+  [53/111] mbpp-clj-132: first=pass best_of_16=PASS (16/16) | p1=26 boK=44 | ETA=6833s
+  [54/111] mbpp-clj-133: first=FAIL best_of_16=PASS (7/16) | p1=26 boK=45 | ETA=6672s
+  [55/111] mbpp-clj-137: first=pass best_of_16=PASS (16/16) | p1=27 boK=46 | ETA=6484s
+  [56/111] mbpp-clj-144: first=FAIL best_of_16=fail (0/16) | p1=27 boK=46 | ETA=6405s
+  [57/111] mbpp-clj-148: first=FAIL best_of_16=fail (0/16) | p1=27 boK=46 | ETA=6257s
+  [58/111] mbpp-clj-154: first=FAIL best_of_16=fail (0/16) | p1=27 boK=46 | ETA=6208s
+  [59/111] mbpp-clj-156: first=pass best_of_16=PASS (16/16) | p1=28 boK=47 | ETA=6033s
+  [60/111] mbpp-clj-162: first=FAIL best_of_16=PASS (6/16) | p1=28 boK=48 | ETA=5949s
+  [61/111] mbpp-clj-163: first=FAIL best_of_16=fail (0/16) | p1=28 boK=48 | ETA=5801s
+  [62/111] mbpp-clj-176: first=FAIL best_of_16=PASS (14/16) | p1=28 boK=49 | ETA=5702s
+  [63/111] mbpp-clj-179: first=FAIL best_of_16=fail (0/16) | p1=28 boK=49 | ETA=5579s
+  [64/111] mbpp-clj-180: first=pass best_of_16=PASS (16/16) | p1=29 boK=50 | ETA=5417s
+  [65/111] mbpp-clj-181: first=pass best_of_16=PASS (4/16) | p1=30 boK=51 | ETA=5283s
+  [66/111] mbpp-clj-185: first=pass best_of_16=PASS (16/16) | p1=31 boK=52 | ETA=5138s
+  [67/111] mbpp-clj-191: first=FAIL best_of_16=PASS (5/16) | p1=31 boK=53 | ETA=4984s
+  [68/111] mbpp-clj-196: first=FAIL best_of_16=fail (0/16) | p1=31 boK=53 | ETA=4839s
+  [69/111] mbpp-clj-197: first=FAIL best_of_16=fail (0/16) | p1=31 boK=53 | ETA=4707s
+  [70/111] mbpp-clj-201: first=pass best_of_16=PASS (15/16) | p1=32 boK=54 | ETA=4567s
+  [71/111] mbpp-clj-204: first=FAIL best_of_16=fail (0/16) | p1=32 boK=54 | ETA=4436s
+  [72/111] mbpp-clj-214: first=FAIL best_of_16=fail (0/16) | p1=32 boK=54 | ETA=4315s
+  [73/111] mbpp-clj-216: first=pass best_of_16=PASS (16/16) | p1=33 boK=55 | ETA=4182s
+  [74/111] mbpp-clj-220: first=pass best_of_16=PASS (14/16) | p1=34 boK=56 | ETA=4052s
+  [75/111] mbpp-clj-226: first=FAIL best_of_16=fail (0/16) | p1=34 boK=56 | ETA=3913s
+  [76/111] mbpp-clj-245: first=pass best_of_16=PASS (14/16) | p1=35 boK=57 | ETA=3804s
+  [77/111] mbpp-clj-248: first=pass best_of_16=PASS (16/16) | p1=36 boK=58 | ETA=3672s
+  [78/111] mbpp-clj-252: first=pass best_of_16=PASS (16/16) | p1=37 boK=59 | ETA=3541s
+  [79/111] mbpp-clj-258: first=FAIL best_of_16=fail (0/16) | p1=37 boK=59 | ETA=3412s
+  [80/111] mbpp-clj-259: first=FAIL best_of_16=PASS (2/16) | p1=37 boK=60 | ETA=3307s
+  [81/111] mbpp-clj-266: first=FAIL best_of_16=fail (0/16) | p1=37 boK=60 | ETA=3202s
+  [82/111] mbpp-clj-267: first=FAIL best_of_16=fail (0/16) | p1=37 boK=60 | ETA=3077s
+  [83/111] mbpp-clj-268: first=pass best_of_16=PASS (10/16) | p1=38 boK=61 | ETA=2959s
+  [84/111] mbpp-clj-269: first=pass best_of_16=PASS (16/16) | p1=39 boK=62 | ETA=2833s
+  [85/111] mbpp-clj-279: first=FAIL best_of_16=fail (0/16) | p1=39 boK=62 | ETA=2714s
+  [86/111] mbpp-clj-283: first=pass best_of_16=PASS (7/16) | p1=40 boK=63 | ETA=2599s
+  [87/111] mbpp-clj-286: first=FAIL best_of_16=PASS (3/16) | p1=40 boK=64 | ETA=2488s
+  [88/111] mbpp-clj-287: first=FAIL best_of_16=fail (0/16) | p1=40 boK=64 | ETA=2382s
+  [89/111] mbpp-clj-295: first=FAIL best_of_16=fail (0/16) | p1=40 boK=64 | ETA=2266s
+  [90/111] mbpp-clj-297: first=FAIL best_of_16=PASS (1/16) | p1=40 boK=65 | ETA=2176s
+  [91/111] mbpp-clj-299: first=pass best_of_16=PASS (16/16) | p1=41 boK=66 | ETA=2059s
+  [92/111] mbpp-clj-303: first=pass best_of_16=PASS (15/16) | p1=42 boK=67 | ETA=1947s
+  [93/111] mbpp-clj-306: first=FAIL best_of_16=PASS (12/16) | p1=42 boK=68 | ETA=1837s
+  [94/111] mbpp-clj-308: first=FAIL best_of_16=PASS (6/16) | p1=42 boK=69 | ETA=1731s
+  [95/111] mbpp-clj-313: first=FAIL best_of_16=fail (0/16) | p1=42 boK=69 | ETA=1623s
+  [96/111] mbpp-clj-316: first=pass best_of_16=PASS (4/16) | p1=43 boK=70 | ETA=1516s
+  [97/111] mbpp-clj-326: first=pass best_of_16=PASS (15/16) | p1=44 boK=71 | ETA=1412s
+  [98/111] mbpp-clj-330: first=FAIL best_of_16=fail (0/16) | p1=44 boK=71 | ETA=1311s
+  [99/111] mbpp-clj-336: first=pass best_of_16=PASS (16/16) | p1=45 boK=72 | ETA=1204s
+  [100/111] mbpp-clj-342: first=FAIL best_of_16=fail (0/16) | p1=45 boK=72 | ETA=1112s
+  [101/111] mbpp-clj-346: first=FAIL best_of_16=PASS (6/16) | p1=45 boK=73 | ETA=1010s
+  [102/111] mbpp-clj-350: first=pass best_of_16=PASS (14/16) | p1=46 boK=74 | ETA=905s
+  [103/111] mbpp-clj-361: first=FAIL best_of_16=fail (0/16) | p1=46 boK=74 | ETA=801s
+  [104/111] mbpp-clj-363: first=FAIL best_of_16=PASS (1/16) | p1=46 boK=75 | ETA=702s
+  [105/111] mbpp-clj-366: first=FAIL best_of_16=PASS (13/16) | p1=46 boK=76 | ETA=599s
+  [106/111] mbpp-clj-368: first=FAIL best_of_16=fail (0/16) | p1=46 boK=76 | ETA=497s
+  [107/111] mbpp-clj-371: first=pass best_of_16=PASS (13/16) | p1=47 boK=77 | ETA=398s
+  [108/111] mbpp-clj-375: first=FAIL best_of_16=fail (0/16) | p1=47 boK=77 | ETA=297s
+  [109/111] mbpp-clj-376: first=pass best_of_16=PASS (16/16) | p1=48 boK=78 | ETA=198s
+  [110/111] mbpp-clj-384: first=pass best_of_16=PASS (16/16) | p1=49 boK=79 | ETA=98s
+  [111/111] mbpp-clj-395: first=pass best_of_16=PASS (16/16) | p1=50 boK=80 | ETA=0s
+
+============================================================
+BEST-OF-16 RESULTS (111 held-out tasks)
+============================================================
+  pass@1:         50/111 = 45.0%
+  best-of-16:     80/111 = 72.1%
+  lift:           +30 tasks
+
+  Best-of-K curve:
+    best-of- 1: 50/111 = 45.0%
+    best-of- 2: 61/111 = 55.0%
+    best-of- 4: 67/111 = 60.4%
+    best-of- 8: 75/111 = 67.6%
+    best-of-16: 80/111 = 72.1%
+
+Saved to research/autotrain/best-of-16-autotrain-h2.json

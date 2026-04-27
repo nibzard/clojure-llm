@@ -1,0 +1,18 @@
+{
+  "repo": "nubank/matcher-combinators",
+  "track": "internal",
+  "license": "MIT",
+  "default_branch": "master",
+  "include": [
+    "src/**",
+    "test/**",
+    "dev/**"
+  ],
+  "exclude": [
+    "**/target/**",
+    "**/.shadow-cljs/**",
+    "**/node_modules/**"
+  ],
+  "checkout_path": "/home/agent/clojure-llm/data/repo-corpus/checkouts/nubank__matcher-combinators",
+  "status": "scaffolded"
+}

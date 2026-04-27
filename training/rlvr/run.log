@@ -1,0 +1,249 @@
+wandb: Tracking run with wandb version 0.26.0
+wandb: W&B syncing is set to `offline` in this directory. Run `wandb online` or set WANDB_MODE=online to enable cloud syncing.
+wandb: Run data is saved locally in /home/agent/clojure-llm/wandb/offline-run-20260426_201120-c41e23zt
+============================================================
+RLVR Training — GRPO on Tinker
+============================================================
+  Model:            Qwen/Qwen3-8B-Base
+  SFT checkpoint:   tinker://b5c7e66e-618a-5f71-919e-da1db6844679:train:0/weights/checkpoint-step-600
+  Rollouts/task:    8
+  Iterations:       10
+  Tasks/batch:      30
+  Temperature:      0.7
+  Reward mode:      shaped
+  Learning rate:    1e-05
+  wandb:            nibzard-org/clojure-llm
+
+Loading training tasks...
+  Total training tasks: 447
+
+Connecting to Tinker...
+Loading SFT checkpoint: tinker://b5c7e66e-618a-5f71-919e-da1db6844679:train:0/weights/checkpoint-step-600
+  Training client ready.
+  Sampling client ready (path: tinker://08a76c0e-002b-5f27-beb7-4cbe43342a46:train:0/sampler_weights/rlvr-train-current)
+
+Loading tokenizer...
+  Vocab size: 151669
+
+============================================================
+Iteration 1/10
+============================================================
+  Sampled 30 tasks
+  Generating 8 rollouts per task...
+  Generated 240 rollouts
+  Evaluating rollouts via Clojure...
+  Results: 150/240 passed (74.2%)
+    mbpp-clj-277: reward=0.35, pass_rate=0%
+    humaneval-clj-115: reward=0.51, pass_rate=38%
+    mbpp-clj-014: reward=0.78, pass_rate=75%
+    mbpp-clj-242: reward=0.70, pass_rate=50%
+    mbpp-clj-359: reward=1.00, pass_rate=100%
+    mbpp-clj-315: reward=1.00, pass_rate=100%
+    mbpp-clj-374: reward=0.85, pass_rate=75%
+    humaneval-clj-007: reward=0.19, pass_rate=0%
+    humaneval-clj-065: reward=0.59, pass_rate=38%
+    mbpp-clj-321: reward=0.55, pass_rate=25%
+    humaneval-clj-013: reward=1.00, pass_rate=100%
+    mbpp-clj-123: reward=1.00, pass_rate=100%
+    mbpp-clj-135: reward=1.00, pass_rate=100%
+    humaneval-clj-047: reward=0.78, pass_rate=62%
+    mbpp-clj-149: reward=0.65, pass_rate=50%
+    mbpp-clj-199: reward=1.00, pass_rate=100%
+    mbpp-clj-390: reward=0.33, pass_rate=0%
+    humaneval-clj-051: reward=1.00, pass_rate=100%
+    mbpp-clj-209: reward=0.44, pass_rate=12%
+    humaneval-clj-099: reward=0.80, pass_rate=75%
+    humaneval-clj-015: reward=0.89, pass_rate=88%
+    mbpp-clj-107: reward=0.21, pass_rate=0%
+    mbpp-clj-278: reward=0.89, pass_rate=88%
+    mbpp-clj-111: reward=1.00, pass_rate=100%
+    mbpp-clj-039: reward=1.00, pass_rate=100%
+    mbpp-clj-396: reward=1.00, pass_rate=100%
+    mbpp-clj-343: reward=0.44, pass_rate=12%
+    mbpp-clj-129: reward=1.00, pass_rate=100%
+    mbpp-clj-389: reward=0.40, pass_rate=0%
+    mbpp-clj-092: reward=0.93, pass_rate=88%
+  Running policy update (240 samples)...
+  Loss: 694.9395
+  Refreshed sampling client
+  Iteration time: 1617.7s
+
+============================================================
+Iteration 2/10
+============================================================
+  Sampled 30 tasks
+  Generating 8 rollouts per task...
+  Generated 240 rollouts
+  Evaluating rollouts via Clojure...
+  Results: 100/240 passed (58.5%)
+    mbpp-clj-227: reward=0.23, pass_rate=0%
+    mbpp-clj-134: reward=0.55, pass_rate=25%
+    mbpp-clj-301: reward=0.40, pass_rate=0%
+    mbpp-clj-141: reward=0.19, pass_rate=0%
+    humaneval-clj-049: reward=1.00, pass_rate=100%
+    mbpp-clj-235: reward=0.40, pass_rate=0%
+    humaneval-clj-075: reward=0.93, pass_rate=88%
+    humaneval-clj-093: reward=0.44, pass_rate=38%
+    mbpp-clj-193: reward=0.77, pass_rate=62%
+    humaneval-clj-022: reward=1.00, pass_rate=100%
+    mbpp-clj-344: reward=0.40, pass_rate=0%
+    humaneval-clj-120: reward=0.77, pass_rate=62%
+    mbpp-clj-044: reward=0.70, pass_rate=50%
+    mbpp-clj-149: reward=0.65, pass_rate=50%
+    mbpp-clj-066: reward=0.36, pass_rate=0%
+    mbpp-clj-250: reward=0.40, pass_rate=25%
+    mbpp-clj-224: reward=0.70, pass_rate=62%
+    mbpp-clj-098: reward=0.36, pass_rate=0%
+    humaneval-clj-126: reward=0.93, pass_rate=88%
+    mbpp-clj-118: reward=0.17, pass_rate=0%
+    mbpp-clj-239: reward=0.89, pass_rate=88%
+    mbpp-clj-382: reward=0.10, pass_rate=0%
+    mbpp-clj-054: reward=1.00, pass_rate=100%
+    humaneval-clj-152: reward=0.15, pass_rate=0%
+    mbpp-clj-061: reward=0.89, pass_rate=88%
+    mbpp-clj-207: reward=0.93, pass_rate=88%
+    mbpp-clj-389: reward=0.40, pass_rate=0%
+    mbpp-clj-273: reward=0.28, pass_rate=0%
+    humaneval-clj-060: reward=0.77, pass_rate=62%
+    mbpp-clj-025: reward=0.81, pass_rate=75%
+  Running policy update (240 samples)...
+  Loss: 920.6880
+  Refreshed sampling client
+  Saving checkpoint: checkpoint-iter-2
+  Iteration time: 1571.1s
+
+============================================================
+Iteration 3/10
+============================================================
+  Sampled 30 tasks
+  Generating 8 rollouts per task...
+  Generated 240 rollouts
+  Evaluating rollouts via Clojure...
+  Results: 132/240 passed (67.2%)
+    humaneval-clj-030: reward=0.78, pass_rate=75%
+    humaneval-clj-026: reward=0.89, pass_rate=88%
+    mbpp-clj-296: reward=0.93, pass_rate=88%
+    mbpp-clj-338: reward=1.00, pass_rate=100%
+    mbpp-clj-004: reward=1.00, pass_rate=100%
+    humaneval-clj-041: reward=1.00, pass_rate=100%
+    mbpp-clj-068: reward=1.00, pass_rate=100%
+    mbpp-clj-052: reward=0.16, pass_rate=0%
+    humaneval-clj-063: reward=0.36, pass_rate=0%
+    humaneval-clj-145: reward=0.17, pass_rate=0%
+    humaneval-clj-051: reward=1.00, pass_rate=100%
+    humaneval-clj-102: reward=0.88, pass_rate=88%
+    mbpp-clj-373: reward=0.59, pass_rate=38%
+    mbpp-clj-109: reward=0.66, pass_rate=50%
+    humaneval-clj-130: reward=0.16, pass_rate=0%
+    mbpp-clj-050: reward=0.46, pass_rate=25%
+    mbpp-clj-317: reward=1.00, pass_rate=100%
+    mbpp-clj-221: reward=1.00, pass_rate=100%
+    mbpp-clj-372: reward=0.55, pass_rate=25%
+    mbpp-clj-250: reward=0.25, pass_rate=12%
+    mbpp-clj-080: reward=1.00, pass_rate=100%
+    mbpp-clj-272: reward=0.93, pass_rate=88%
+    humaneval-clj-015: reward=0.85, pass_rate=75%
+    mbpp-clj-048: reward=0.93, pass_rate=88%
+    mbpp-clj-066: reward=0.40, pass_rate=0%
+    mbpp-clj-035: reward=0.39, pass_rate=0%
+    mbpp-clj-107: reward=0.28, pass_rate=0%
+    humaneval-clj-146: reward=0.31, pass_rate=0%
+    humaneval-clj-093: reward=0.31, pass_rate=25%
+    mbpp-clj-355: reward=0.93, pass_rate=88%
+  Running policy update (240 samples)...
+  Loss: 738.8990
+  Refreshed sampling client
+  Iteration time: 1875.7s
+
+============================================================
+Iteration 4/10
+============================================================
+  Sampled 30 tasks
+  Generating 8 rollouts per task...
+  Generated 240 rollouts
+  Evaluating rollouts via Clojure...
+  Results: 130/240 passed (68.8%)
+    mbpp-clj-333: reward=0.40, pass_rate=0%
+    humaneval-clj-114: reward=0.50, pass_rate=25%
+    mbpp-clj-392: reward=1.00, pass_rate=100%
+    mbpp-clj-152: reward=0.21, pass_rate=0%
+    mbpp-clj-293: reward=1.00, pass_rate=100%
+    mbpp-clj-302: reward=0.62, pass_rate=38%
+    humaneval-clj-119: reward=0.81, pass_rate=75%
+    humaneval-clj-149: reward=0.40, pass_rate=0%
+    mbpp-clj-177: reward=1.00, pass_rate=100%
+    humaneval-clj-069: reward=0.29, pass_rate=0%
+    mbpp-clj-305: reward=0.38, pass_rate=12%
+    mbpp-clj-224: reward=0.85, pass_rate=75%
+    humaneval-clj-070: reward=0.51, pass_rate=38%
+    mbpp-clj-301: reward=0.36, pass_rate=0%
+    mbpp-clj-001: reward=0.85, pass_rate=75%
+    mbpp-clj-240: reward=1.00, pass_rate=100%
+    mbpp-clj-186: reward=0.85, pass_rate=75%
+    humaneval-clj-050: reward=0.40, pass_rate=0%
+    mbpp-clj-100: reward=1.00, pass_rate=100%
+    mbpp-clj-046: reward=1.00, pass_rate=100%
+    mbpp-clj-124: reward=0.93, pass_rate=88%
+    mbpp-clj-129: reward=1.00, pass_rate=100%
+    mbpp-clj-032: reward=0.93, pass_rate=88%
+    mbpp-clj-230: reward=0.78, pass_rate=75%
+    mbpp-clj-118: reward=0.21, pass_rate=0%
+    humaneval-clj-008: reward=0.46, pass_rate=25%
+    humaneval-clj-065: reward=0.57, pass_rate=38%
+    mbpp-clj-212: reward=0.33, pass_rate=0%
+    mbpp-clj-088: reward=1.00, pass_rate=100%
+    mbpp-clj-105: reward=1.00, pass_rate=100%
+  Running policy update (240 samples)...
+  Loss: 603.1049
+  Refreshed sampling client
+  Saving checkpoint: checkpoint-iter-4
+  Iteration time: 1580.0s
+
+============================================================
+Iteration 5/10
+============================================================
+  Sampled 30 tasks
+  Generating 8 rollouts per task...
+  Generated 240 rollouts
+  Evaluating rollouts via Clojure...
+  Results: 143/240 passed (72.0%)
+    humaneval-clj-125: reward=0.62, pass_rate=38%
+    mbpp-clj-264: reward=0.40, pass_rate=0%
+    mbpp-clj-125: reward=0.77, pass_rate=62%
+    humaneval-clj-119: reward=0.85, pass_rate=75%
+    humaneval-clj-155: reward=0.77, pass_rate=62%
+    humaneval-clj-028: reward=0.77, pass_rate=62%
+    mbpp-clj-345: reward=0.85, pass_rate=75%
+    mbpp-clj-042: reward=1.00, pass_rate=100%
+    mbpp-clj-090: reward=1.00, pass_rate=100%
+    mbpp-clj-169: reward=1.00, pass_rate=100%
+    humaneval-clj-133: reward=0.48, pass_rate=12%
+    mbpp-clj-053: reward=0.33, pass_rate=0%
+    humaneval-clj-034: reward=1.00, pass_rate=100%
+    mbpp-clj-040: reward=1.00, pass_rate=100%
+    humaneval-clj-074: reward=0.84, pass_rate=75%
+    mbpp-clj-043: reward=0.62, pass_rate=38%
+    mbpp-clj-307: reward=0.93, pass_rate=88%
+    mbpp-clj-369: reward=0.70, pass_rate=50%
+    humaneval-clj-116: reward=0.74, pass_rate=62%
+    humaneval-clj-138: reward=0.29, pass_rate=0%
+    humaneval-clj-136: reward=1.00, pass_rate=100%
+    mbpp-clj-230: reward=0.21, pass_rate=12%
+    humaneval-clj-151: reward=0.24, pass_rate=0%
+    mbpp-clj-032: reward=0.93, pass_rate=88%
+    mbpp-clj-339: reward=1.00, pass_rate=100%
+    humaneval-clj-099: reward=0.93, pass_rate=88%
+    humaneval-clj-127: reward=0.00, pass_rate=0%
+    mbpp-clj-349: reward=0.74, pass_rate=62%
+    mbpp-clj-394: reward=0.66, pass_rate=50%
+    mbpp-clj-391: reward=0.93, pass_rate=88%
+  Running policy update (240 samples)...
+  Loss: 514.7855
+  Refreshed sampling client
+  Iteration time: 1717.9s
+
+============================================================
+Iteration 6/10
+============================================================
+  Sampled 30 tasks
+  Generating 8 rollouts per task...

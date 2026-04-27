@@ -1,0 +1,37 @@
+# RLVR Training Configuration — Improved v2
+# Qwen3.5-4B with: negative advantages, curriculum, K=16, binary reward
+
+# Model
+model: Qwen3.5-4B
+sft_checkpoint: tinker://83f098da-cf9e-5d04-833e-f4870f431efc:train:0/weights/checkpoint-step-600
+
+training_tasks: data/sft/train_task_ids.json
+heldout_tasks: data/sft/heldout_task_ids.json
+
+# Rollout Configuration
+rollouts:
+  rollouts_per_task: 16
+  num_iterations: 20
+  tasks_per_batch: 30
+  temperature: 0.7
+  max_tokens: 512
+  refresh_sampler_every_iteration: true
+
+# Training hyperparameters
+training:
+  learning_rate: 1.0e-5
+  weight_decay: 0.01
+  grad_clip_norm: 1.0
+  reward_mode: binary
+  kl_penalty_coeff: 0.05
+  clip_range: 0.2
+
+# Checkpointing
+checkpointing:
+  save_steps: 4
+  output_dir: checkpoints/rlvr-35-4b-v2
+
+# Logging
+logging:
+  wandb_project: clojure-llm
+  wandb_entity: nibzard-org

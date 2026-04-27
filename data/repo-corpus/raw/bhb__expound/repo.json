@@ -1,0 +1,17 @@
+{
+  "repo": "bhb/expound",
+  "track": "internal",
+  "license": "MIT",
+  "default_branch": "master",
+  "include": [
+    "src/**",
+    "test/**"
+  ],
+  "exclude": [
+    "**/target/**",
+    "**/.shadow-cljs/**",
+    "**/node_modules/**"
+  ],
+  "checkout_path": "/home/agent/clojure-llm/data/repo-corpus/checkouts/bhb__expound",
+  "status": "scaffolded"
+}

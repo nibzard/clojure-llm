@@ -1,0 +1,343 @@
+{
+  "K": 1,
+  "temperature": 0.2,
+  "checkpoint": "tinker://add0198d-b009-5279-9650-20aaf80ca039:train:0/sampler_weights/rlvr-train-iter-10",
+  "total_tasks": 111,
+  "pass_at_1": 0.44144144144144143,
+  "pass_count": 49,
+  "per_task": {
+    "humaneval-clj-001": {
+      "passed": true
+    },
+    "humaneval-clj-003": {
+      "passed": true
+    },
+    "humaneval-clj-012": {
+      "passed": true
+    },
+    "humaneval-clj-018": {
+      "passed": false
+    },
+    "humaneval-clj-019": {
+      "passed": false
+    },
+    "humaneval-clj-020": {
+      "passed": false
+    },
+    "humaneval-clj-031": {
+      "passed": true
+    },
+    "humaneval-clj-039": {
+      "passed": false
+    },
+    "humaneval-clj-043": {
+      "passed": false
+    },
+    "humaneval-clj-053": {
+      "passed": false
+    },
+    "humaneval-clj-062": {
+      "passed": false
+    },
+    "humaneval-clj-067": {
+      "passed": false
+    },
+    "humaneval-clj-068": {
+      "passed": false
+    },
+    "humaneval-clj-073": {
+      "passed": false
+    },
+    "humaneval-clj-077": {
+      "passed": true
+    },
+    "humaneval-clj-086": {
+      "passed": false
+    },
+    "humaneval-clj-090": {
+      "passed": false
+    },
+    "humaneval-clj-095": {
+      "passed": true
+    },
+    "humaneval-clj-097": {
+      "passed": true
+    },
+    "humaneval-clj-105": {
+      "passed": false
+    },
+    "humaneval-clj-121": {
+      "passed": true
+    },
+    "humaneval-clj-123": {
+      "passed": false
+    },
+    "humaneval-clj-124": {
+      "passed": false
+    },
+    "humaneval-clj-132": {
+      "passed": false
+    },
+    "humaneval-clj-134": {
+      "passed": true
+    },
+    "humaneval-clj-137": {
+      "passed": true
+    },
+    "humaneval-clj-141": {
+      "passed": true
+    },
+    "humaneval-clj-143": {
+      "passed": false
+    },
+    "humaneval-clj-144": {
+      "passed": false
+    },
+    "humaneval-clj-153": {
+      "passed": true
+    },
+    "humaneval-clj-157": {
+      "passed": false
+    },
+    "humaneval-clj-158": {
+      "passed": false
+    },
+    "mbpp-clj-006": {
+      "passed": false
+    },
+    "mbpp-clj-007": {
+      "passed": true
+    },
+    "mbpp-clj-009": {
+      "passed": false
+    },
+    "mbpp-clj-022": {
+      "passed": true
+    },
+    "mbpp-clj-047": {
+      "passed": true
+    },
+    "mbpp-clj-057": {
+      "passed": true
+    },
+    "mbpp-clj-060": {
+      "passed": true
+    },
+    "mbpp-clj-069": {
+      "passed": false
+    },
+    "mbpp-clj-074": {
+      "passed": true
+    },
+    "mbpp-clj-075": {
+      "passed": false
+    },
+    "mbpp-clj-076": {
+      "passed": false
+    },
+    "mbpp-clj-082": {
+      "passed": false
+    },
+    "mbpp-clj-084": {
+      "passed": false
+    },
+    "mbpp-clj-087": {
+      "passed": true
+    },
+    "mbpp-clj-091": {
+      "passed": true
+    },
+    "mbpp-clj-093": {
+      "passed": false
+    },
+    "mbpp-clj-097": {
+      "passed": false
+    },
+    "mbpp-clj-117": {
+      "passed": false
+    },
+    "mbpp-clj-119": {
+      "passed": true
+    },
+    "mbpp-clj-120": {
+      "passed": true
+    },
+    "mbpp-clj-132": {
+      "passed": true
+    },
+    "mbpp-clj-133": {
+      "passed": true
+    },
+    "mbpp-clj-137": {
+      "passed": true
+    },
+    "mbpp-clj-144": {
+      "passed": false
+    },
+    "mbpp-clj-148": {
+      "passed": false
+    },
+    "mbpp-clj-154": {
+      "passed": false
+    },
+    "mbpp-clj-156": {
+      "passed": true
+    },
+    "mbpp-clj-162": {
+      "passed": false
+    },
+    "mbpp-clj-163": {
+      "passed": false
+    },
+    "mbpp-clj-176": {
+      "passed": false
+    },
+    "mbpp-clj-179": {
+      "passed": false
+    },
+    "mbpp-clj-180": {
+      "passed": true
+    },
+    "mbpp-clj-181": {
+      "passed": false
+    },
+    "mbpp-clj-185": {
+      "passed": true
+    },
+    "mbpp-clj-191": {
+      "passed": true
+    },
+    "mbpp-clj-196": {
+      "passed": false
+    },
+    "mbpp-clj-197": {
+      "passed": false
+    },
+    "mbpp-clj-201": {
+      "passed": true
+    },
+    "mbpp-clj-204": {
+      "passed": false
+    },
+    "mbpp-clj-214": {
+      "passed": false
+    },
+    "mbpp-clj-216": {
+      "passed": true
+    },
+    "mbpp-clj-220": {
+      "passed": true
+    },
+    "mbpp-clj-226": {
+      "passed": false
+    },
+    "mbpp-clj-245": {
+      "passed": true
+    },
+    "mbpp-clj-248": {
+      "passed": true
+    },
+    "mbpp-clj-252": {
+      "passed": true
+    },
+    "mbpp-clj-258": {
+      "passed": false
+    },
+    "mbpp-clj-259": {
+      "passed": false
+    },
+    "mbpp-clj-266": {
+      "passed": false
+    },
+    "mbpp-clj-267": {
+      "passed": false
+    },
+    "mbpp-clj-268": {
+      "passed": false
+    },
+    "mbpp-clj-269": {
+      "passed": true
+    },
+    "mbpp-clj-279": {
+      "passed": false
+    },
+    "mbpp-clj-283": {
+      "passed": true
+    },
+    "mbpp-clj-286": {
+      "passed": false
+    },
+    "mbpp-clj-287": {
+      "passed": false
+    },
+    "mbpp-clj-295": {
+      "passed": false
+    },
+    "mbpp-clj-297": {
+      "passed": false
+    },
+    "mbpp-clj-299": {
+      "passed": true
+    },
+    "mbpp-clj-303": {
+      "passed": true
+    },
+    "mbpp-clj-306": {
+      "passed": false
+    },
+    "mbpp-clj-308": {
+      "passed": false
+    },
+    "mbpp-clj-313": {
+      "passed": false
+    },
+    "mbpp-clj-316": {
+      "passed": true
+    },
+    "mbpp-clj-326": {
+      "passed": true
+    },
+    "mbpp-clj-330": {
+      "passed": false
+    },
+    "mbpp-clj-336": {
+      "passed": true
+    },
+    "mbpp-clj-342": {
+      "passed": false
+    },
+    "mbpp-clj-346": {
+      "passed": true
+    },
+    "mbpp-clj-350": {
+      "passed": true
+    },
+    "mbpp-clj-361": {
+      "passed": false
+    },
+    "mbpp-clj-363": {
+      "passed": false
+    },
+    "mbpp-clj-366": {
+      "passed": true
+    },
+    "mbpp-clj-368": {
+      "passed": false
+    },
+    "mbpp-clj-371": {
+      "passed": true
+    },
+    "mbpp-clj-375": {
+      "passed": false
+    },
+    "mbpp-clj-376": {
+      "passed": true
+    },
+    "mbpp-clj-384": {
+      "passed": true
+    },
+    "mbpp-clj-395": {
+      "passed": true
+    }
+  }
+}

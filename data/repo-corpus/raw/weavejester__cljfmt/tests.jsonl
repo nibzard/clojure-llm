@@ -1,0 +1,6 @@
+{"repo": "weavejester/cljfmt", "path": "cljfmt/test/cljfmt/config_test.clj"}
+{"repo": "weavejester/cljfmt", "path": "cljfmt/test/cljfmt/test_runner.cljs"}
+{"repo": "weavejester/cljfmt", "path": "cljfmt/test/cljfmt/core_test.cljc"}
+{"repo": "weavejester/cljfmt", "path": "cljfmt/test/cljfmt/test_util/clojure.clj"}
+{"repo": "weavejester/cljfmt", "path": "cljfmt/test/cljfmt/test_util/cljs.clj"}
+{"repo": "weavejester/cljfmt", "path": "cljfmt/test/cljfmt/test_util/common.cljc"}

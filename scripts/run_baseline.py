@@ -209,6 +209,16 @@ def run_anthropic(condition, run_id, limit=None, dry_run=False):
 OPENAI_CONDITION_ENV = {
     "B": "OPENAI",
     "C": "QWEN",
+    "D": "QWEN36_35B",    # Qwen3.6-35B-A3B (MoE)
+    "E": "QWEN36_27B",    # Qwen3.6-27B (Dense)
+    "F": "QWEN35_27B",    # Qwen3.5-27B (Dense)
+    "G": "QWEN35_4B",     # Qwen3.5-4B (Dense compact)
+    "H": "KIMI",          # Kimi-K2.6 (Moonshot AI)
+}
+
+# Conditions that require non-standard temperature (Kimi locks to 0.6 non-thinking)
+CONDITION_TEMPS = {
+    "H": 0.6,
 }
 
 
@@ -257,9 +267,12 @@ def run_baseline(condition, run_id, limit=None, dry_run=False, resume=False):
         if skipped:
             print(f"Resuming: skipping {skipped} already-completed tasks")
 
+    temperature = CONDITION_TEMPS.get(condition, 0.2)
+
     print(f"Condition: {condition}")
     print(f"Run ID:    {run_id}")
     print(f"Model:     {model}")
+    print(f"Temp:      {temperature}")
     print(f"Tasks:     {len(prompt_files)}")
     print(f"Output:    {out_dir}")
     print()
@@ -289,7 +302,7 @@ def run_baseline(condition, run_id, limit=None, dry_run=False, resume=False):
                     {"role": "system", "content": SYSTEM_PROMPT},
                     {"role": "user", "content": user_msg},
                 ],
-                temperature=0.2,
+                temperature=temperature,
                 max_completion_tokens=1024,
             )
 
@@ -332,6 +345,14 @@ def run_baseline(condition, run_id, limit=None, dry_run=False, resume=False):
         "claude-opus-4-7": (15.00, 75.00),
         "claude-opus-4-6": (15.00, 75.00),
         "claude-sonnet-4-6": (3.00, 15.00),
+        # Mulerouter Qwen models (~$3.73/MTok blended)
+        "Qwen/Qwen3.6-35B-A3B": (2.00, 5.50),
+        "Qwen/Qwen3.6-27B": (2.00, 5.50),
+        "Qwen/Qwen3.5-27B": (2.00, 5.50),
+        "qwen3.5-plus": (2.00, 5.50),
+        # Kimi K2.6 (~$4.40/MTok blended)
+        "kimi-k2.6": (2.20, 6.60),
+        "Qwen/Qwen3.5-4B": (0.35, 1.00),
     }
     input_price, output_price = pricing.get(model, (0.75, 4.50))
     input_cost = total_input_tokens * input_price / 1_000_000
@@ -469,7 +490,9 @@ def main():
     parser.add_argument("--run-id", default=None,
                         help="Run ID (default: auto-generated from date + model)")
     parser.add_argument("--condition", default="B",
-                        help="Condition label: A=Opus, B=GPT, C=Qwen")
+                        help="Condition label: A=Opus, B=GPT, C=Qwen, "
+                             "D=Qwen3.6-35B-MoE, E=Qwen3.6-27B, "
+                             "F=Qwen3.5-27B, G=Qwen3.5-4B, H=Kimi-K2.6")
     parser.add_argument("--provider", default="openai",
                         choices=["openai", "anthropic", "gemini"],
                         help="API provider to use")

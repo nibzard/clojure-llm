@@ -1,0 +1,5 @@
+{"repo": "metosin/jsonista", "path": "test/jsonista/json_perf_test.clj"}
+{"repo": "metosin/jsonista", "path": "test/jsonista/jmh.clj"}
+{"repo": "metosin/jsonista", "path": "test/jsonista/core_test.clj"}
+{"repo": "metosin/jsonista", "path": "test/jsonista/test_utils.clj"}
+{"repo": "metosin/jsonista", "path": "test/jsonista/tagged_test.clj"}

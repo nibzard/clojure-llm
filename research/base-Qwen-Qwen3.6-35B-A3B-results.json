@@ -1,0 +1,453 @@
+{
+  "model": "Qwen/Qwen3.6-35B-A3B",
+  "type": "base",
+  "temperature": 0.2,
+  "pass_at_1": 11,
+  "total": 111,
+  "per_task": {
+    "humaneval-clj-001": {
+      "passed": false,
+      "error": "ERROR: Syntax error reading source at (/tmp/tmp3j1irljx.clj:3:1).\n"
+    },
+    "humaneval-clj-003": {
+      "passed": false,
+      "error": "ERROR: Syntax error reading source at (/tmp/tmp3fun1ejz.clj:7:1).\n"
+    },
+    "humaneval-clj-012": {
+      "passed": false,
+      "error": "ERROR: Syntax error reading source at (/tmp/tmp0_wxomhm.clj:21:1).\n"
+    },
+    "humaneval-clj-018": {
+      "passed": false,
+      "error": "ERROR: Syntax error macroexpanding clojure.core/defn at (/tmp/tmp3taemnhx.clj:1:1).\n"
+    },
+    "humaneval-clj-019": {
+      "passed": false,
+      "error": "ERROR: Syntax error reading source at (/tmp/tmpooplufhu.clj:11:1).\n"
+    },
+    "humaneval-clj-020": {
+      "passed": false,
+      "error": "ERROR: Syntax error compiling at (/tmp/tmp6n89a5sy.clj:3:12).\n"
+    },
+    "humaneval-clj-031": {
+      "passed": false,
+      "error": "ERROR: Syntax error reading source at (/tmp/tmp3rphus01.clj:9:1).\n"
+    },
+    "humaneval-clj-039": {
+      "passed": false,
+      "error": "Timeout after 10s"
+    },
+    "humaneval-clj-043": {
+      "passed": false,
+      "error": "ERROR: Syntax error reading source at (/tmp/tmpbzbwxrt2.clj:2:1).\n"
+    },
+    "humaneval-clj-053": {
+      "passed": false,
+      "error": "ERROR: Syntax error reading source at (/tmp/tmpn4nirz8g.clj:7:1).\n"
+    },
+    "humaneval-clj-062": {
+      "passed": false,
+      "error": "ERROR: Syntax error reading source at (/tmp/tmpouc_ehx7.clj:21:1).\n"
+    },
+    "humaneval-clj-067": {
+      "passed": true,
+      "error": ""
+    },
+    "humaneval-clj-068": {
+      "passed": false,
+      "error": " 4 5 6] [1 8 2 7 3 6 4 5]))\n\nFAIL in (test-humaneval) (HumanEval_70_strange_sort_list_test.clj:14)\nexpected: (= (candidate [0 2 2 2 5 5 -5 -5]) [-5 5 -5 5 0 2 2 2])\n  actual: (not (= [-5 5 5 -5 0 5 2 "
+    },
+    "humaneval-clj-073": {
+      "passed": false,
+      "error": "ERROR: Syntax error compiling at (/tmp/tmp197m7nr0.clj:2:14).\n"
+    },
+    "humaneval-clj-077": {
+      "passed": false,
+      "error": "ERROR: Syntax error reading source at (/tmp/tmpnjfa6obw.clj:6:1).\n"
+    },
+    "humaneval-clj-086": {
+      "passed": false,
+      "error": "\n    clojure.main$initialize.invokeStatic (main.clj:509)\n    clojure.main$null_opt.invokeStatic (main.clj:543)\n    clojure.main$null_opt.invoke (main.clj:540)\n    clojure.main$main.invokeStatic (main."
+    },
+    "humaneval-clj-090": {
+      "passed": true,
+      "error": ""
+    },
+    "humaneval-clj-095": {
+      "passed": false,
+      "error": "ERROR: Syntax error compiling at (/tmp/tmpo9jbisrr.clj:3:12).\n"
+    },
+    "humaneval-clj-097": {
+      "passed": false,
+      "error": "ERROR: Syntax error reading source at (/tmp/tmpde5lzu36.clj:29:1).\n"
+    },
+    "humaneval-clj-105": {
+      "passed": true,
+      "error": ""
+    },
+    "humaneval-clj-121": {
+      "passed": true,
+      "error": ""
+    },
+    "humaneval-clj-123": {
+      "passed": false,
+      "error": "ERROR: Syntax error macroexpanding clojure.core/defn at (/tmp/tmpfxgs5fjt.clj:1:1).\n"
+    },
+    "humaneval-clj-124": {
+      "passed": false,
+      "error": "\nTesting user\n\nFAIL in (test-humaneval) (HumanEval_126_is_sorted_test.clj:18)\nexpected: (= (candidate [1 2 2 3 3 4]) true)\n  actual: (not (= false true))\n\nRan 1 tests containing 13 assertions.\n1 failu"
+    },
+    "humaneval-clj-132": {
+      "passed": false,
+      "error": "ERROR: Syntax error macroexpanding clojure.core/defn at (/tmp/tmp22t1eslp.clj:1:1).\n"
+    },
+    "humaneval-clj-134": {
+      "passed": true,
+      "error": ""
+    },
+    "humaneval-clj-137": {
+      "passed": false,
+      "error": "ERROR: Syntax error compiling at (/tmp/tmp9xym5ekh.clj:5:37).\n"
+    },
+    "humaneval-clj-141": {
+      "passed": false,
+      "error": "ERROR: Syntax error macroexpanding clojure.core/defn at (/tmp/tmp0t8nzjb2.clj:1:1).\n"
+    },
+    "humaneval-clj-143": {
+      "passed": false,
+      "error": "ERROR: Syntax error compiling at (/tmp/tmpo1bqxrrc.clj:3:12).\n"
+    },
+    "humaneval-clj-144": {
+      "passed": true,
+      "error": ""
+    },
+    "humaneval-clj-153": {
+      "passed": false,
+      "error": "ERROR: Syntax error compiling Character/digit at (/tmp/tmpsyeal2k8.clj:9:22).\n"
+    },
+    "humaneval-clj-157": {
+      "passed": false,
+      "error": "ERROR: Syntax error reading source at (/tmp/tmpblzhpj50.clj:28:1).\n"
+    },
+    "humaneval-clj-158": {
+      "passed": false,
+      "error": "ERROR: Syntax error reading source at (/tmp/tmpw1i2ype5.clj:21:42).\n"
+    },
+    "mbpp-clj-006": {
+      "passed": false,
+      "error": "ERROR: Syntax error compiling at (/tmp/tmpnsffalfg.clj:7:25).\n"
+    },
+    "mbpp-clj-007": {
+      "passed": false,
+      "error": "ERROR: Syntax error compiling at (/tmp/tmpsrwpele1.clj:11:17).\n"
+    },
+    "mbpp-clj-009": {
+      "passed": false,
+      "error": "ERROR: Syntax error reading source at (/tmp/tmpkxg15k74.clj:23:1).\n"
+    },
+    "mbpp-clj-022": {
+      "passed": true,
+      "error": ""
+    },
+    "mbpp-clj-047": {
+      "passed": false,
+      "error": "ERROR: Syntax error reading source at (/tmp/tmp7s2o5tdd.clj:3:1).\n"
+    },
+    "mbpp-clj-057": {
+      "passed": false,
+      "error": "\n    clojure.main$initialize.invokeStatic (main.clj:509)\n    clojure.main$null_opt.invokeStatic (main.clj:543)\n    clojure.main$null_opt.invoke (main.clj:540)\n    clojure.main$main.invokeStatic (main."
+    },
+    "mbpp-clj-060": {
+      "passed": false,
+      "error": "ERROR: Syntax error reading source at (/tmp/tmp4jy0dixl.clj:6:1).\n"
+    },
+    "mbpp-clj-069": {
+      "passed": false,
+      "error": "ERROR: Syntax error reading source at (/tmp/tmp1mjfphea.clj:3:1).\n"
+    },
+    "mbpp-clj-074": {
+      "passed": false,
+      "error": "ERROR: Syntax error reading source at (/tmp/tmp__k7qxo3.clj:3:1).\n"
+    },
+    "mbpp-clj-075": {
+      "passed": false,
+      "error": "ERROR: Syntax error reading source at (/tmp/tmpck60qz3u.clj:2:1).\n"
+    },
+    "mbpp-clj-076": {
+      "passed": false,
+      "error": "ERROR: Syntax error compiling at (/tmp/tmpc0kk1tpn.clj:4:42).\n"
+    },
+    "mbpp-clj-082": {
+      "passed": true,
+      "error": ""
+    },
+    "mbpp-clj-084": {
+      "passed": false,
+      "error": "ERROR: Syntax error compiling at (/tmp/tmphvyrxonk.clj:2:15).\n"
+    },
+    "mbpp-clj-087": {
+      "passed": false,
+      "error": "ERROR: Syntax error reading source at (/tmp/tmpb3_rti_0.clj:25:1).\n"
+    },
+    "mbpp-clj-091": {
+      "passed": false,
+      "error": "ERROR: Syntax error compiling at (/tmp/tmp48e5ou0k.clj:4:14).\n"
+    },
+    "mbpp-clj-093": {
+      "passed": false,
+      "error": "ERROR: Syntax error reading source at (/tmp/tmp_y0tzi_e.clj:3:1).\n"
+    },
+    "mbpp-clj-097": {
+      "passed": false,
+      "error": "en_Range_test.clj:7)\nexpected: (= (candidate 4 1 2) true)\n  actual: (not (= \"No\" true))\n\nFAIL in (test-humaneval) (mbpp_228_all_Bits_Set_In_The_Given_Range_test.clj:8)\nexpected: (= (candidate 17 2 4) "
+    },
+    "mbpp-clj-117": {
+      "passed": false,
+      "error": "ERROR: Syntax error compiling at (/tmp/tmp7_vqswsc.clj:3:12).\n"
+    },
+    "mbpp-clj-119": {
+      "passed": true,
+      "error": ""
+    },
+    "mbpp-clj-120": {
+      "passed": false,
+      "error": "ERROR: Syntax error reading source at (/tmp/tmpx9e1gydy.clj:3:1).\n"
+    },
+    "mbpp-clj-132": {
+      "passed": false,
+      "error": "ERROR: Syntax error reading source at (/tmp/tmppetfizot.clj:5:1).\n"
+    },
+    "mbpp-clj-133": {
+      "passed": false,
+      "error": "278_count_first_elements_test.clj:7)\nexpected: (= (candidate [1 5 7 [4 6] 10]) 3)\n  actual: (not (= -1 3))\n\nFAIL in (test-humaneval) (mbpp_278_count_first_elements_test.clj:8)\nexpected: (= (candidate "
+    },
+    "mbpp-clj-137": {
+      "passed": false,
+      "error": "ERROR: Syntax error compiling at (/tmp/tmpo0u0fdob.clj:3:12).\n"
+    },
+    "mbpp-clj-144": {
+      "passed": false,
+      "error": "ERROR: Syntax error compiling at (/tmp/tmpyf57lhqv.clj:9:29).\n"
+    },
+    "mbpp-clj-148": {
+      "passed": false,
+      "error": "ERROR: Syntax error reading source at (/tmp/tmpbdlg8cva.clj:3:1).\n"
+    },
+    "mbpp-clj-154": {
+      "passed": false,
+      "error": "ERROR: Syntax error compiling at (/tmp/tmp20ishar9.clj:7:14).\n"
+    },
+    "mbpp-clj-156": {
+      "passed": false,
+      "error": "ERROR: Syntax error reading source at (/tmp/tmpnxrr7z1i.clj:7:1).\n"
+    },
+    "mbpp-clj-162": {
+      "passed": false,
+      "error": "ERROR: Syntax error reading source at (/tmp/tmpcd3tw3fc.clj:7:1).\n"
+    },
+    "mbpp-clj-163": {
+      "passed": false,
+      "error": "ERROR: Syntax error reading source at (/tmp/tmpsn_u6ck1.clj:5:1).\n"
+    },
+    "mbpp-clj-176": {
+      "passed": false,
+      "error": "ERROR: Syntax error compiling new at (/tmp/tmpfvcry8eu.clj:8:16).\n"
+    },
+    "mbpp-clj-179": {
+      "passed": false,
+      "error": "ERROR: Syntax error compiling at (/tmp/tmpa2h59htg.clj:4:31).\n"
+    },
+    "mbpp-clj-180": {
+      "passed": false,
+      "error": "ERROR: Syntax error reading source at (/tmp/tmpyblo58vp.clj:2:1).\n"
+    },
+    "mbpp-clj-181": {
+      "passed": false,
+      "error": "ERROR: Syntax error compiling at (/tmp/tmpfylrccux.clj:3:12).\n"
+    },
+    "mbpp-clj-185": {
+      "passed": false,
+      "error": "ERROR: Syntax error reading source at (/tmp/tmpm3zcygcj.clj:5:1).\n"
+    },
+    "mbpp-clj-191": {
+      "passed": false,
+      "error": "7]] 1) 3)\n  actual: (not (= 0 3))\n\nFAIL in (test-humaneval) (mbpp_425_count_element_in_list_test.clj:8)\nexpected: (= (candidate [[\"A\" \"B\"] [\"A\" \"C\"] [\"A\" \"D\" \"E\"] [\"B\" \"C\" \"D\"]] \"A\") 3)\n  actual: (not"
+    },
+    "mbpp-clj-196": {
+      "passed": false,
+      "error": "ERROR: Syntax error reading source at (/tmp/tmpfh_zibp2.clj:23:1).\n"
+    },
+    "mbpp-clj-197": {
+      "passed": false,
+      "error": "\nTesting user\n\nFAIL in (test-humaneval) (mbpp_431_common_element_test.clj:8)\nexpected: (= (candidate [1 2 3 4 5] [6 7 8 9]) nil)\n  actual: (not (= false nil))\n\nRan 1 tests containing 3 assertions.\n1 f"
+    },
+    "mbpp-clj-201": {
+      "passed": false,
+      "error": "ERROR: Syntax error reading source at (/tmp/tmpu3wrreqg.clj:2:1).\n"
+    },
+    "mbpp-clj-204": {
+      "passed": false,
+      "error": "ate [[5 6] [1 2] [6 5] [9 1] [6 5] [2 1]]) 3)\n  actual: (not (= 1 3))\n\nFAIL in (test-humaneval) (mbpp_438_count_bidirectional_test.clj:8)\nexpected: (= (candidate [[5 6] [1 3] [6 5] [9 1] [6 5] [2 1]])"
+    },
+    "mbpp-clj-214": {
+      "passed": false,
+      "error": "ERROR: Syntax error compiling at (/tmp/tmpvzt1ckjo.clj:3:3).\n"
+    },
+    "mbpp-clj-216": {
+      "passed": false,
+      "error": "ERROR: Syntax error compiling at (/tmp/tmpxzernnv4.clj:5:8).\n"
+    },
+    "mbpp-clj-220": {
+      "passed": false,
+      "error": "ERROR: Syntax error reading source at (/tmp/tmpcj65kw1f.clj:2:1).\n"
+    },
+    "mbpp-clj-226": {
+      "passed": false,
+      "error": "ERROR: Syntax error reading source at (/tmp/tmp7r01vlql.clj:3:1).\n"
+    },
+    "mbpp-clj-245": {
+      "passed": true,
+      "error": ""
+    },
+    "mbpp-clj-248": {
+      "passed": false,
+      "error": "ERROR: Syntax error reading source at (/tmp/tmp0erkerlr.clj:3:1).\n"
+    },
+    "mbpp-clj-252": {
+      "passed": false,
+      "error": "ERROR: Syntax error reading source at (/tmp/tmprdsl2igz.clj:5:1).\n"
+    },
+    "mbpp-clj-258": {
+      "passed": false,
+      "error": "ERROR: Syntax error compiling at (/tmp/tmpefe4dwi6.clj:4:3).\n"
+    },
+    "mbpp-clj-259": {
+      "passed": false,
+      "error": "ERROR: Syntax error reading source at (/tmp/tmpj10y8c7j.clj:9:1).\n"
+    },
+    "mbpp-clj-266": {
+      "passed": false,
+      "error": "ERROR: Syntax error compiling at (/home/agent/clojure-llm/benchmark/tests/multipl-e/mbpp_584_find_adverbs_test.clj:3:1).\n"
+    },
+    "mbpp-clj-267": {
+      "passed": false,
+      "error": "ERROR: Syntax error reading source at (/tmp/tmps85fvfue.clj:5:1).\n"
+    },
+    "mbpp-clj-268": {
+      "passed": false,
+      "error": "ERROR: Syntax error reading source at (/tmp/tmposa4kqmg.clj:5:1).\n"
+    },
+    "mbpp-clj-269": {
+      "passed": false,
+      "error": "ERROR: Syntax error reading source at (/tmp/tmpbnfxc9ml.clj:9:1).\n"
+    },
+    "mbpp-clj-279": {
+      "passed": false,
+      "error": "Average of first 15 natural numbers: 8\n\nFAIL in (test-humaneval) (mbpp_599_sum_average_test.clj:8)\nexpected: (= (candidate 15) [120 8.0])\n  actual: (not (= nil [120 8.0]))\nSum of first 20 natural numb"
+    },
+    "mbpp-clj-283": {
+      "passed": false,
+      "error": "ERROR: Syntax error compiling at (/tmp/tmpc9nrqyel.clj:2:12).\n"
+    },
+    "mbpp-clj-286": {
+      "passed": false,
+      "error": "ERROR: Syntax error compiling at (/home/agent/clojure-llm/benchmark/tests/multipl-e/mbpp_607_find_literals_test.clj:3:1).\n"
+    },
+    "mbpp-clj-287": {
+      "passed": false,
+      "error": "ERROR: Syntax error compiling at (/tmp/tmp__m5e95k.clj:4:29).\n"
+    },
+    "mbpp-clj-295": {
+      "passed": false,
+      "error": "ERROR: Syntax error reading source at (/tmp/tmpwuxykh6r.clj:5:1).\n"
+    },
+    "mbpp-clj-297": {
+      "passed": false,
+      "error": "ERROR: Syntax error reading source at (/tmp/tmpaakktg93.clj:4:1).\n"
+    },
+    "mbpp-clj-299": {
+      "passed": false,
+      "error": "ERROR: Syntax error reading source at (/tmp/tmplpjfsv2m.clj:2:1).\n"
+    },
+    "mbpp-clj-303": {
+      "passed": false,
+      "error": "ERROR: Syntax error reading source at (/tmp/tmpehphxyh1.clj:6:1).\n"
+    },
+    "mbpp-clj-306": {
+      "passed": false,
+      "error": "ERROR: Syntax error compiling at (/home/agent/clojure-llm/benchmark/tests/multipl-e/mbpp_631_replace_spaces_test.clj:3:1).\n"
+    },
+    "mbpp-clj-308": {
+      "passed": false,
+      "error": "ERROR: Syntax error compiling at (/tmp/tmp9xydylit.clj:6:43).\n"
+    },
+    "mbpp-clj-313": {
+      "passed": false,
+      "error": "ERROR: Syntax error reading source at (/tmp/tmpym1gls6q.clj:3:1).\n"
+    },
+    "mbpp-clj-316": {
+      "passed": false,
+      "error": "ERROR: Syntax error compiling at (/tmp/tmpiydtcyrj.clj:8:24).\n"
+    },
+    "mbpp-clj-326": {
+      "passed": false,
+      "error": "ERROR: Syntax error compiling at (/tmp/tmpljc3es9c.clj:4:23).\n"
+    },
+    "mbpp-clj-330": {
+      "passed": true,
+      "error": ""
+    },
+    "mbpp-clj-336": {
+      "passed": false,
+      "error": "ERROR: Syntax error compiling at (/tmp/tmp3yaop1he.clj:7:26).\n"
+    },
+    "mbpp-clj-342": {
+      "passed": false,
+      "error": "\n    clojure.main$initialize.invokeStatic (main.clj:509)\n    clojure.main$null_opt.invokeStatic (main.clj:543)\n    clojure.main$null_opt.invoke (main.clj:540)\n    clojure.main$main.invokeStatic (main."
+    },
+    "mbpp-clj-346": {
+      "passed": false,
+      "error": "ERROR: Syntax error reading source at (/tmp/tmpaxuthg_b.clj:14:1).\n"
+    },
+    "mbpp-clj-350": {
+      "passed": false,
+      "error": "t-humaneval) (mbpp_755_second_smallest_test.clj:8)\nexpected: (= (candidate [1 1 -0.5 0 2 -2 -2]) -0.5)\n  actual: (not (= -2 -0.5))\n\nFAIL in (test-humaneval) (mbpp_755_second_smallest_test.clj:9)\nexpec"
+    },
+    "mbpp-clj-361": {
+      "passed": false,
+      "error": "ERROR: Syntax error reading source at (/tmp/tmpb9k38qzq.clj:5:1).\n"
+    },
+    "mbpp-clj-363": {
+      "passed": false,
+      "error": "\n    clojure.main$initialize.invokeStatic (main.clj:509)\n    clojure.main$null_opt.invokeStatic (main.clj:543)\n    clojure.main$null_opt.invoke (main.clj:540)\n    clojure.main$main.invokeStatic (main."
+    },
+    "mbpp-clj-366": {
+      "passed": false,
+      "error": "ERROR: Syntax error compiling at (/tmp/tmp__o31o25.clj:2:12).\n"
+    },
+    "mbpp-clj-368": {
+      "passed": false,
+      "error": "ERROR: Syntax error compiling at (/tmp/tmpw7clyf5k.clj:5:14).\n"
+    },
+    "mbpp-clj-371": {
+      "passed": false,
+      "error": "te 10) true)\n  actual: (not (= \"Even number of divisors for 10\" true))\n\nFAIL in (test-humaneval) (mbpp_781_count_divisors_test.clj:8)\nexpected: (= (candidate 100) false)\n  actual: (not (= \"Odd number "
+    },
+    "mbpp-clj-375": {
+      "passed": false,
+      "error": "ERROR: Syntax error reading source at (/tmp/tmppf_v_6_j.clj:3:1).\n"
+    },
+    "mbpp-clj-376": {
+      "passed": false,
+      "error": "ERROR: Syntax error reading source at (/tmp/tmpfhfi5o82.clj:3:1).\n"
+    },
+    "mbpp-clj-384": {
+      "passed": false,
+      "error": "ERROR: Syntax error reading source at (/tmp/tmpfw7wilzt.clj:6:1).\n"
+    },
+    "mbpp-clj-395": {
+      "passed": false,
+      "error": "ERROR: Syntax error reading source at (/tmp/tmpy1yyd6am.clj:9:1).\n"
+    }
+  }
+}

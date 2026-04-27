@@ -1,0 +1,60 @@
+# SFT Training Configuration for Tinker
+# Supervised Fine-Tuning of Qwen3.5-27B on Clojure data
+
+# Model Configuration
+model: Qwen3.5-27B
+model_type: base  # Dense 27B model
+
+# LoRA Configuration
+lora:
+  rank: 32           # LoRA rank (same as 8B/30B/4B runs)
+  alpha: 64          # LoRA alpha (typically 2x rank)
+  target_modules:    # Apply LoRA to all layers
+    - mlp
+    - attention
+  dropout: 0.1
+
+# Training Configuration
+training:
+  learning_rate: 2.0e-5  # Same as all previous runs
+  num_epochs: 3
+  batch_size: 8
+  gradient_accumulation_steps: 1
+  max_seq_length: 2048
+
+  # Optimizer settings
+  optimizer: adamw
+  weight_decay: 0.01
+  warmup_ratio: 0.1
+
+  # LR scheduling
+  lr_scheduler: cosine
+  min_lr_ratio: 0.1
+
+# Data Configuration — same data as all previous runs
+data:
+  train_path: data/sft/sft_train.jsonl
+  val_path: data/sft/sft_val.jsonl
+  format: chat
+
+  # Preprocessing
+  shuffle: true
+  seed: 42
+
+# Checkpointing
+checkpointing:
+  save_steps: 100
+  save_total_limit: 3
+  output_dir: checkpoints/sft-35-27b
+
+# Logging
+logging:
+  log_steps: 10
+  wandb_project: clojure-llm
+  wandb_entity: nibzard-org
+
+# Evaluation
+evaluation:
+  eval_steps: 100
+  eval_samples: 100
+  benchmark_tasks: benchmark/tasks-v0.edn

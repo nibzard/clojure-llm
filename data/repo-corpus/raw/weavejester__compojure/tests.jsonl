@@ -1,0 +1,5 @@
+{"repo": "weavejester/compojure", "path": "test/compojure/route_test.clj"}
+{"repo": "weavejester/compojure", "path": "test/compojure/coercions_test.clj"}
+{"repo": "weavejester/compojure", "path": "test/compojure/core_test.clj"}
+{"repo": "weavejester/compojure", "path": "test/compojure/response_test.clj"}
+{"repo": "weavejester/compojure", "path": "test/compojure/middleware_test.clj"}

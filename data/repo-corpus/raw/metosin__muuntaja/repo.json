@@ -1,0 +1,17 @@
+{
+  "repo": "metosin/muuntaja",
+  "track": "internal",
+  "license": "EPL-1.0",
+  "default_branch": "master",
+  "include": [
+    "src/**",
+    "test/**"
+  ],
+  "exclude": [
+    "**/target/**",
+    "**/.shadow-cljs/**",
+    "**/node_modules/**"
+  ],
+  "checkout_path": "/home/agent/clojure-llm/data/repo-corpus/checkouts/metosin__muuntaja",
+  "status": "scaffolded"
+}

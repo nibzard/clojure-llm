@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
-"""Rebuild SFT training data with held-out exclusion + 4clojure.
+"""Rebuild SFT training data with held-out exclusion + optional extra corpora.
 
-Filters out all pairs for held-out tasks, appends 4clojure pairs,
+Filters out all pairs for held-out tasks, appends optional extra corpora,
 and outputs clean training data ready for Tinker.
 
 Matching strategy: extract the function name from each training pair's
@@ -105,16 +105,22 @@ def main():
     # ── Load existing training data ──────────────────────────────────────────
 
     sources = [
-        ("final_train.jsonl", "final_val.jsonl"),
-        ("4clojure_train.jsonl", "4clojure_val.jsonl"),
+        ("final_train.jsonl", "final_val.jsonl", "base"),
+        ("4clojure_train.jsonl", "4clojure_val.jsonl", "4clojure"),
+        ("multi_sample_train.jsonl", "multi_sample_val.jsonl", "multi_sample"),
+        ("evol_train.jsonl", "evol_val.jsonl", "evol"),
+        ("sources/repo_direct_train.jsonl", "sources/repo_direct_val.jsonl", "repo_direct"),
+        ("sources/repo_repair_train.jsonl", "sources/repo_repair_val.jsonl", "repo_repair"),
     ]
 
     train_pairs = []
     val_pairs = []
     stats = {"heldout_removed": 0, "loaded": 0, "4clojure": 0}
+    source_counts = {}
 
-    for train_file, val_file in sources:
-        is_4clojure = "4clojure" in train_file
+    for train_file, val_file, source_name in sources:
+        is_4clojure = source_name == "4clojure"
+        source_counts.setdefault(source_name, 0)
 
         for fname, target_list in [(train_file, train_pairs), (val_file, val_pairs)]:
             path = sft_dir / fname
@@ -145,10 +151,14 @@ def main():
                 if is_4clojure:
                     stats["4clojure"] += 1
                 stats["loaded"] += 1
+                source_counts[source_name] += 1
 
     print(f"\n  Pairs loaded:        {stats['loaded']}")
     print(f"  Held-out removed:    {stats['heldout_removed']}")
     print(f"  4clojure added:      {stats['4clojure']}")
+    print("  By source:")
+    for source_name in sorted(source_counts):
+        print(f"    {source_name:14s} {source_counts[source_name]}")
 
     # ── Write output ─────────────────────────────────────────────────────────
 

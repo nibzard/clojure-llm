@@ -20,11 +20,22 @@ Precedent: QED-Nano (4B beats 120B on proofs). → `THESIS.md`
 | C | Qwen3.5-plus | ~55% | Partial |
 | A | Opus 4.7 | 45.0% | Done |
 | **D** | **RLVR v1 Qwen3-8B** | **48.6%** | **Done** |
+| D | RLVR autotrain 8B (best) | 49.5% | Done (6 experiments) |
 | D | SFT Qwen3-8B | 37.8% | Done |
 
 **Phase 4b: RLVR 30B pass@1 = 55.0% (+2.7pp over SFT 30B).** But best-of-16 ceiling *dropped* from 83.8% to 79.3% — RLVR narrowed the solution distribution, losing 5 tasks the SFT model could solve. RLVR 30B best-of-8 = 75.7% (same as SFT 30B).
 
 **Phase 3v1: RLVR 8B pass@1 = 48.6% on 111 held-out tasks.** This is a `v1` evaluator result with subprocess-isolated per-task execution, hard timeouts, and shaped verifier rewards for RL training. It beats Opus 4.7 on the held-out slice by +3.6pp and improves the earlier 8B RLVR result from 42.3% to 48.6%.
+
+**Autotrain 8B (6 experiments, branch `autotrain/apr25-8b`):** Best result = 49.5% (55/111) with tests-heavy reward (syntax=0.1, kondo=0.1, load=0.0, tests=0.8) at LR=1e-5. Started from fresh training (different random seed from v1), baseline was 44.1%. Key findings:
+- LR=1e-5 improved over 5e-6 (+3.6pp) — SFT used 2e-5, RL was too conservative
+- Tests-heavy reward (tests=0.8, drop load) beat v1 weights (+1.8pp over H1)
+- K=4 with 20 iters *worse* (43.2%) despite best training loss (96) — noisy GRPO advantages hurt
+- Temperature 0.5 and dropping load signal both failed to improve
+- Best-of-K: pass@1=45.0% (temp 0.7), best-of-8=67.6% (beats GPT-5.4), best-of-16=72.1% (matches SFT ceiling)
+- H2 recovered the full SFT ceiling (72.1%) while achieving highest pass@1 — v1 RLVR had dropped ceiling to 64.0%
+- Results: `training/rlvr/results.tsv`, configs: `research/autotrain/`
+- Checkpoint: `tinker://de0a9c6d-e363-51a8-a8d5-b0dae61f78dc:train:0/sampler_weights/rlvr-train-iter-10`
 
 **Phase 4a: SFT 30B pass@1 = 52.3% (beats Opus 4.7 by +7.3pp).**
 Best-of-16 ceiling: **83.8% (93/111)** — up from 72.1% (8B). Best-of-2 (64.9%) matches GPT-5.4 single-pass.
@@ -88,6 +99,7 @@ SFT → LoRA fine-tune on 2,459 verified Clojure pairs → `training/sft/`
 RLVR → GRPO with verifier rewards (Clojure subprocess eval):
 - `v0`: binary reward, 10 iters, 42.3% on 111 held-out under `v1` reevaluation
 - `v1`: shaped reward (`syntax`/`kondo`/`load`/`tests`), sampler refresh every iteration, 48.6% on 111 held-out
+- `autotrain`: tests-heavy reward (tests=0.8, load=0.0, LR=1e-5), 49.5% on 111 held-out (best 8B RLVR)
 - GRPO advantages normalized per task group (K=8 rollouts)
 - REINFORCE with cross_entropy + advantage-scaled weights (importance_sampling unavailable)
 - Tinker SDK: `forward_backward` + `optim_step` on cloud training infrastructure
@@ -97,11 +109,12 @@ Best-of-K → `scripts/best_of_k.py` — generate K samples per task, pick first
 - **30B SFT**: best-of-16 ceiling 83.8% (93/111), pass@1 52.3%, best-of-8 75.7%
 - **30B RLVR**: best-of-16 ceiling 79.3% (88/111), pass@1 55.0%, best-of-8 75.7%
 - **8B RLVR v1**: best-of-16 ceiling 64.0% (71/111), pass@1 48.6%, best-of-8 61.3%
+- **8B RLVR autotrain H2**: best-of-16 ceiling 72.1% (80/111), pass@1 49.5% (temp 0.2) / 45.0% (temp 0.7), best-of-8 67.6%
 - **8B RLVR v0**: best-of-16 ceiling 72.1% (80/111), pass@1 42.3%, best-of-8 67.6%
 - **8B SFT**: best-of-16 ceiling 72.1% (80/111), pass@1 37.8%, best-of-8 64.9%
 - Shaped-reward RLVR (v1) consistently lowers the ceiling vs SFT: 8B 64.0% vs 72.1%, 30B 79.3% vs 83.8%
 - Binary-reward RLVR (v0) preserved the 8B ceiling at 72.1%
-- Results: `research/best-of-k-30b-results.json`, `research/best-of-k-rlvr-30b-results.json`, `research/best-of-k-rlvr-v1-8b-results.json`, `research/best-of-k-results.json`, `research/best-of-k-sft-results.json`
+- Results: `research/best-of-k-30b-results.json`, `research/best-of-k-rlvr-30b-results.json`, `research/best-of-k-rlvr-v1-8b-results.json`, `research/best-of-k-results.json`, `research/best-of-k-sft-results.json`, `research/autotrain/best-of-16-autotrain-h2.json`
 
 ## Pi agent integration (`.pi/extensions/tinker-clojure/`)
 
@@ -146,6 +159,7 @@ Key finding: response-driven fix mode eliminates manual Clojure writing. The do_
 
 - `rlvr-30b` (default): RLVR 30B, pass@1 55.0%
 - `rlvr-8b`: RLVR 8B, pass@1 48.6%
+- `rlvr-8b-autotrain`: RLVR 8B autotrain best, pass@1 49.5%
 - `sft-8b`: SFT 8B, pass@1 37.8%
 
 ## Key docs (progressive disclosure)
@@ -159,6 +173,7 @@ Key finding: response-driven fix mode eliminates manual Clojure writing. The do_
 | See baseline numbers + error analysis | `research/baseline-analysis.md` |
 | See best-of-K results (8B beats GPT-5.4 with verifier) | `research/best-of-k-results.md` |
 | See RLVR training analysis | `research/rlvr-results.md` |
+| See autotrain hyperparameter search results | `training/rlvr/results.tsv`, `research/autotrain/` |
 | See verifier agent loop results | `research/verifier-agent-results.md` |
 | Review the RL/code-RL literature | `research/literature-review.md` |
 | Learn the training platform | `research/tinker-platform.md` |
